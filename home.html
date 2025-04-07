@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Target Marketing BD</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta name="description" content="Ethical digital marketing services for female entrepreneurs in Bangladesh">
+    <!-- Preload resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
+    
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#044443',
+                        secondary: '#228B7D',
+                        accent: '#66ADA5',
+                        dark: '#0D302C',
+                        light: '#F5F7FA'
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                        siliguri: ['Hind Siliguri', 'sans-serif']
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-in': 'fadeIn 1s ease-in forwards',
+                        'slide-up': 'slideUp 0.8s ease-out forwards',
+                        'blink': 'blink 1.5s infinite'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        blink: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0.5' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Loading Bar */
+        .loading-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(to right, #044443, #228B7D);
+            z-index: 9999;
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+        
+        /* Halal Badge */
+        .halal-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #048444;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        /* Service Card */
+        .service-card {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        /* Language Toggle */
+        .language-toggle {
+            transition: all 0.3s ease;
+        }
+        
+        .language-toggle.active {
+            background-color: #228B7D;
+            color: white;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .mobile-menu.open {
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body class="font-poppins bg-gray-50 text-gray-800">
+    <!-- Loading Bar -->
+    <div id="loadingBar" class="loading-bar"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="home.html" class="flex items-center">
+                        <img src="logo.jpg" alt="Target Marketing BD Logo" class="h-12 mr-4">
+                        <span class="text-xl font-bold text-primary">Target Marketing BD</span>
+                    </a>
+                    <span class="text-xl font-bold text-primary hidden md:block"></span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-primary hover:text-accent transition" data-i18n="home">Home</a>
+                    <a href="services.html" class="text-primary hover:text-accent transition" data-i18n="services">Services</a>
+                    <a href="#about" class="text-primary hover:text-accent transition" data-i18n="about">About</a>
+                    <a href="#contact" class="text-primary hover:text-accent transition" data-i18n="contact">Contact</a>
+                    
+                    <div class="flex items-center space-x-2 ml-6">
+                        <button id="enBtn" class="language-toggle active px-3 py-1 rounded-full text-sm">English</button>
+                        <button id="bnBtn" class="language-toggle px-3 py-1 rounded-full text-sm border border-primary">বাংলা</button>
+                    </div>
+                </div>
+                
+                <button class="md:hidden focus:outline-none" id="mobileMenuBtn">
+                    <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="mobile-menu md:hidden" id="mobileMenu">
+                <div class="pt-4 pb-2 space-y-2">
+                    <a href="home.html" class="text-primary hover:text-accent transition">Home</a>
+                    <a href="#" class="text-accent font-semibold transition">Services</a>
+                    <a href="#" class="text-primary hover:text-accent transition">Blog</a>
+                    <a href="#" class="text-primary hover:text-accent transition">About</a>
+                    <a href="#" class="text-primary hover:text-accent transition">Contact</a>
+                    <div class="flex space-x-2 px-3 py-2">
+                        <button id="enBtnMobile" class="language-toggle active px-3 py-1 rounded-full text-sm">EN</button>
+                        <button id="bnBtnMobile" class="language-toggle px-3 py-1 rounded-full text-sm border border-primary">বাংলা</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 px-4 bg-gradient-to-r from-primary to-secondary text-white">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0 animate-fade-in">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                        <span class="block" data-i18n="hero_title1">Halal Digital Marketing</span>
+                        <span class="block" data-i18n="hero_title2">For Women Entrepreneurs</span>
+                    </h1>
+                    <p class="text-lg mb-8 opacity-90" data-i18n="hero_subtitle">
+                        Ethical, shariah-compliant digital solutions to grow your business online
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#contact" class="bg-white text-primary px-8 py-3 rounded-full font-semibold text-center hover:bg-gray-100 transition duration-300 shadow-lg" data-i18n="get_started">
+                            Get Started
+                        </a>
+                        <a href="#services" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold text-center hover:bg-white hover:text-primary transition duration-300" data-i18n="our_services">
+                            Our Services
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 animate-float">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" 
+                             alt="Business meeting" 
+                             class="rounded-lg shadow-2xl w-full max-w-md mx-auto"
+                             loading="lazy"
+                             width="634"
+                             height="423">
+                        <div class="halal-badge" data-i18n="halal_certified">Halal Certified</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 px-4 bg-gray-50">
+        <div class="container mx-auto">
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4" data-i18n="our_services">Our Services</h2>
+                <div class="w-20 h-1 bg-accent mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto" data-i18n="services_subtitle">
+                    Comprehensive digital marketing solutions designed specifically for female entrepreneurs
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden service-card transition duration-300 animate-slide-up" style="animation-delay: 0.1s">
+                    <div class="h-48 bg-gradient-to-r from-primary to-secondary flex items-center justify-center relative">
+                        <i class="fas fa-paint-brush fa-3x text-white"></i>
+                        <div class="halal-badge" data-i18n="halal_certified">Halal Certified</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-3" data-i18n="service1_title">Graphics Design</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mt-1 mr-2"></i>
+                                <span data-i18n="service1_item1">Logo Design</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mt-1 mr-2"></i>
+                                <span data-i18n="service1_item2">Social Media Posts</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mt-1 mr-2"></i>
+                                <span data-i18n="service1_item3">YouTube Thumbnails</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mt-1 mr-2"></i>
+                                <span data-i18n="service1_item4">Video Editing</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden service-card transition duration-300 animate-slide-up" style="animation-delay: 0.2s">
+                    <div class="h-48 bg-gradient-to-r from-primary to-secondary flex items-center justify-center relative">
+                        <i class="fas fa-pen-fancy fa-3x text-white"></i>
+                        <div class="halal-badge" data-i18n="halal_certified">Halal Certified</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-3" data-i18n="service2_title">Content Writing</h3>
+                        <p class="text-gray-600 mb-4" data-i18n="service2_desc">
+                            Customer-friendly content written by explaining the importance of the product and the story that is suitable for the product.
+                        </p>
+                        <div class="text-accent font-semibold" data-i18n="starting_from">Starting from ৳2,000</div>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden service-card transition duration-300 animate-slide-up" style="animation-delay: 0.3s">
+                    <div class="h-48 bg-gradient-to-r from-primary to-secondary flex items-center justify-center relative">
+                        <i class="fas fa-thumbs-up fa-3x text-white"></i>
+                        <div class="halal-badge" data-i18n="halal_certified">Halal Certified</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-3" data-i18n="service3_title">Facebook Optimization</h3>
+                        <p class="text-gray-600 mb-4" data-i18n="service3_desc">
+                            Facebook page is decorated. All settings including the page profile, cover photo are adjusted properly.
+                        </p>
+                        <div class="text-accent font-semibold" data-i18n="starting_from">Starting from ৳1,500</div>
+                    </div>
+                </div>
+                
+                <!-- Add more services following the same pattern -->
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="services.html" class="inline-block bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-dark transition duration-300 shadow-lg" data-i18n="view_all_services">
+                    View All Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 bg-white">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" 
+                             alt="Team meeting" 
+                             class="rounded-lg shadow-2xl w-full max-w-md mx-auto"
+                             loading="lazy"
+                             width="634"
+                             height="423">
+                        <div class="halal-badge" data-i18n="halal_certified">Halal Certified</div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 md:pl-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary mb-6" data-i18n="about_title">About Target Marketing BD</h2>
+                    <p class="text-gray-600 mb-6" data-i18n="about_desc1">
+                        We are a halal-certified digital marketing agency dedicated to helping female entrepreneurs grow their businesses online while maintaining Islamic values.
+                    </p>
+                    <p class="text-gray-600 mb-8" data-i18n="about_desc2">
+                        Our team of experts provides ethical, shariah-compliant digital solutions tailored specifically for women in business.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent mt-1 mr-3"></i>
+                            <span data-i18n="about_point1">100% Halal Certified Services</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent mt-1 mr-3"></i>
+                            <span data-i18n="about_point2">Women-Focused Support</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent mt-1 mr-3"></i>
+                            <span data-i18n="about_point3">Transparent Pricing</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 bg-gray-50">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4" data-i18n="contact_title">Contact Us</h2>
+                <div class="w-20 h-1 bg-accent mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto" data-i18n="contact_subtitle">
+                    Get in touch with our team for a free consultation about your digital marketing needs
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 bg-gradient-to-r from-primary to-secondary text-white p-8">
+                        <h3 class="text-2xl font-bold mb-6" data-i18n="contact_info">Contact Information</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <i class="fas fa-envelope mt-1 mr-4 text-accent"></i>
+                                <span>contact@tmbd.xyz</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-phone-alt mt-1 mr-4 text-accent"></i>
+                                <span>+880 XXXX XXXXXX</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-map-marker-alt mt-1 mr-4 text-accent"></i>
+                                <span data-i18n="contact_address">Dhaka, Bangladesh</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="mt-8">
+                            <h4 class="text-xl font-bold mb-4" data-i18n="follow_us">Follow Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://facebook.com/tmbd.xyz" class="text-white hover:text-accent transition" target="_blank">
+                                    <i class="fab fa-facebook-f fa-lg"></i>
+                                </a>
+                                <a href="#" class="text-white hover:text-accent transition">
+                                    <i class="fab fa-instagram fa-lg"></i>
+                                </a>
+                                <a href="#" class="text-white hover:text-accent transition">
+                                    <i class="fab fa-linkedin-in fa-lg"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-1/2 p-8">
+                        <form id="contactForm" class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-gray-700 mb-2" data-i18n="form_name">Your Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-accent">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 mb-2" data-i18n="form_email">Email Address</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-accent">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-gray-700 mb-2" data-i18n="form_message">Message</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-accent"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-primary text-white py-3 rounded font-semibold hover:bg-dark transition duration-300" data-i18n="form_submit">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-12 px-4">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <img src="logo.jpg" alt="Target Marketing BD Logo" class="h-16 mb-4">
+                    <p data-i18n="footer_tagline">Halal digital marketing solutions for female entrepreneurs</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4" data-i18n="quick_links">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="hover:text-accent transition" data-i18n="home">Home</a></li>
+                        <li><a href="#services" class="hover:text-accent transition" data-i18n="services">Services</a></li>
+                        <li><a href="#about" class="hover:text-accent transition" data-i18n="about">About</a></li>
+                        <li><a href="#contact" class="hover:text-accent transition" data-i18n="contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4" data-i18n="contact_us">Contact Us</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-2 text-accent"></i>
+                            <span>targetmarketingbd@gmail.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-2 text-accent"></i>
+                            <span>+880 1860 043330</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4" data-i18n="developer">Developer</h4>
+                    <p data-i18n="developed_by">Website developed by:</p>
+                    <p class="mt-2 font-semibold">Raiyan Bin Rashid <br> Jotirmoy Bhowmik</p>
+                    <p class="text-sm mt-4 text-accent">© <span id="currentYear"></span> Target Marketing BD. <span data-i18n="all_rights">All rights reserved.</span></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Messenger Button -->
+    <a href="https://m.me/tmbd.xyz" target="_blank" id="messengerBtn" class="fixed bottom-8 right-8 bg-blue-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl hover:bg-blue-700 transition duration-300 z-40">
+        <i class="fab fa-facebook-messenger text-2xl"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        // Loading bar animation
+        window.addEventListener('load', function() {
+            const loadingBar = document.getElementById('loadingBar');
+            let width = 1;
+            const interval = setInterval(() => {
+                if (width >= 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        loadingBar.style.opacity = '0';
+                        setTimeout(() => {
+                            loadingBar.style.display = 'none';
+                        }, 300);
+                    }, 300);
+                } else {
+                    width += 2;
+                    loadingBar.style.width = width + '%';
+                    
+                    // Slow down as we approach 100%
+                    if (width > 80) {
+                        width += 0.5;
+                    }
+                }
+            }, 20);
+        });
+
+        // Language switching functionality
+        const translations = {
+            en: {
+                // Navigation
+                home: "Home",
+                services: "Services",
+                about: "About",
+                contact: "Contact",
+                
+                // Hero
+                hero_title1: "Looking for Halal Marketing agency?",
+                hero_title2: "You're in!",
+                hero_subtitle: "We're working for female entrepreneurs with our female based team! ❤️",
+                get_started: "Get Started",
+                our_services: "Our Services",
+                
+                // Services
+                our_services: "Our Services",
+                services_subtitle: "Comprehensive digital marketing solutions designed specifically for female entrepreneurs",
+                service1_title: "Graphics Design",
+                service1_item1: "Logo Design",
+                service1_item2: "Social Media Posts",
+                service1_item3: "YouTube Thumbnails",
+                service1_item4: "Video Editing",
+                service2_title: "Content Writing",
+                service2_desc: "Customer-friendly content written by explaining the importance of the product and the story that is suitable for the product.",
+                service3_title: "Facebook Optimization",
+                service3_desc: "Facebook page is decorated. All settings including the page profile, cover photo are adjusted properly.",
+                starting_from: "Starting from ৳2,000",
+                view_all_services: "View All Services",
+                
+                // About
+                about_title: "About Target Marketing BD",
+                about_desc1: "We are a halal-certified digital marketing agency dedicated to helping female entrepreneurs grow their businesses online while maintaining Islamic values.",
+                about_desc2: "Our team of experts provides ethical, shariah-compliant digital solutions tailored specifically for women in business.",
+                about_point1: "100% Halal Certified Services",
+                about_point2: "Women-Focused Support",
+                about_point3: "Transparent Pricing",
+                
+                // Contact
+                contact_title: "Contact Us",
+                contact_subtitle: "Get in touch with our team for a free consultation about your digital marketing needs",
+                contact_info: "Contact Information",
+                contact_address: "Dhaka, Bangladesh",
+                follow_us: "Follow Us",
+                form_name: "Your Name",
+                form_email: "Email Address",
+                form_message: "Message",
+                form_submit: "Send Message",
+                
+                // Footer
+                footer_tagline: "Halal digital marketing solutions for female entrepreneurs",
+                quick_links: "Quick Links",
+                contact_us: "Contact Us",
+                developer: "Developer",
+                developed_by: "Website developed by:",
+                all_rights: "All rights reserved.",
+                
+                // Misc
+                halal_certified: "Halal Certified"
+            },
+            bn: {
+                // Navigation
+                home: "হোম",
+                services: "সেবাসমূহ",
+                about: "আমাদের সম্পর্কে",
+                contact: "যোগাযোগ",
+                
+                // Hero
+                hero_title1: "হালাল ডিজিটাল মার্কেটিং",
+                hero_title2: "নারী উদ্যোক্তাদের জন্য",
+                hero_subtitle: "ইসলামিক নীতিমালা মেনে অনলাইনে আপনার ব্যবসাকে এগিয়ে নিন",
+                get_started: "শুরু করুন",
+                our_services: "আমাদের সেবা",
+                
+                // Services
+                our_services: "আমাদের সেবাসমূহ",
+                services_subtitle: "নারী উদ্যোক্তাদের জন্য বিশেষভাবে ডিজাইন করা ডিজিটাল মার্কেটিং সমাধান",
+                service1_title: "গ্রাফিক্স ডিজাইন",
+                service1_item1: "লোগো ডিজাইন",
+                service1_item2: "সোশ্যাল মিডিয়া পোস্ট",
+                service1_item3: "ইউটিউব থাম্বনেইল",
+                service1_item4: "ভিডিও এডিটিং",
+                service2_title: "কনটেন্ট রাইটিং",
+                service2_desc: "পণ্যের গুরুত্ব বোঝানো এবং পণ্যের সাথে মানানসই গল্প বলে গ্রাহকবান্ধব কনটেন্ট লিখে দেওয়া হয়।",
+                service3_title: "ফেসবুক অপ্টিমাইজেশন",
+                service3_desc: "ফেসবুক পেজ সাজিয়ে দেওয়া হয়। পেজ প্রোফাইল, কভার ফটোসহ সকল সেটিংস ঠিকঠাক করা হয়।",
+                starting_from: "শুরু হচ্ছে ৳২,০০০ থেকে",
+                view_all_services: "সমস্ত সেবা দেখুন",
+                
+                // About
+                about_title: "টার্গেট মার্কেটিং বিডি সম্পর্কে",
+                about_desc1: "আমরা একটি হালাল সার্টিফাইড ডিজিটাল মার্কেটিং এজেন্সি যারা ইসলামিক মূল্যবোধ বজায় রেখে নারী উদ্যোক্তাদের অনলাইনে তাদের ব্যবসা বাড়াতে সাহায্য করি।",
+                about_desc2: "আমাদের বিশেষজ্ঞ দল নারী উদ্যোক্তাদের জন্য বিশেষভাবে তৈরি নৈতিক ও শরিয়া সম্মত ডিজিটাল সমাধান প্রদান করে।",
+                about_point1: "১০০% হালাল সার্টিফাইড সেবা",
+                about_point2: "নারী-কেন্দ্রিক সহায়তা",
+                about_point3: "স্বচ্ছ মূল্য নির্ধারণ",
+                
+                // Contact
+                contact_title: "যোগাযোগ করুন",
+                contact_subtitle: "আপনার ডিজিটাল মার্কেটিং প্রয়োজন সম্পর্কে বিনামূল্যে পরামর্শের জন্য আমাদের সাথে যোগাযোগ করুন",
+                contact_info: "যোগাযোগের তথ্য",
+                contact_address: "ঢাকা, বাংলাদেশ",
+                follow_us: "আমাদের অনুসরণ করুন",
+                form_name: "আপনার নাম",
+                form_email: "ইমেইল ঠিকানা",
+                form_message: "বার্তা",
+                form_submit: "বার্তা পাঠান",
+                
+                // Footer
+                footer_tagline: "নারী উদ্যোক্তাদের জন্য হালাল ডিজিটাল মার্কেটিং সমাধান",
+                quick_links: "দ্রুত লিংক",
+                contact_us: "যোগাযোগ করুন",
+                developer: "ডেভেলপার",
+                developed_by: "ওয়েবসাইট ডেভেলপ করেছেন:",
+                all_rights: "সমস্ত অধিকার সংরক্ষিত।",
+                
+                // Misc
+                halal_certified: "হালাল সার্টিফাইড"
+            }
+        };
+
+        function switchLanguage(lang) {
+            // Update all translatable elements
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+            
+            // Switch font family for Bangla
+            if (lang === 'bn') {
+                document.body.style.fontFamily = "'Hind Siliguri', sans-serif";
+            } else {
+                document.body.style.fontFamily = "'Poppins', sans-serif";
+            }
+            
+            // Store language preference
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // Initialize language toggle buttons
+        function initLanguageToggle() {
+            const preferredLanguage = localStorage.getItem('preferredLanguage') || 'en';
+            
+            // Set initial language
+            switchLanguage(preferredLanguage);
+            
+            // Update button states
+            if (preferredLanguage === 'en') {
+                document.getElementById('enBtn').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtn').classList.remove('border');
+                document.getElementById('bnBtn').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtn').classList.add('border', 'border-primary');
+                
+                // Mobile buttons
+                document.getElementById('enBtnMobile').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtnMobile').classList.remove('border');
+                document.getElementById('bnBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtnMobile').classList.add('border', 'border-primary');
+            } else {
+                document.getElementById('bnBtn').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtn').classList.remove('border');
+                document.getElementById('enBtn').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtn').classList.add('border', 'border-primary');
+                
+                // Mobile buttons
+                document.getElementById('bnBtnMobile').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtnMobile').classList.remove('border');
+                document.getElementById('enBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtnMobile').classList.add('border', 'border-primary');
+            }
+            
+            // Add event listeners
+            document.getElementById('enBtn').addEventListener('click', function() {
+                switchLanguage('en');
+                this.classList.add('active', 'bg-primary', 'text-white');
+                this.classList.remove('border');
+                document.getElementById('bnBtn').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtn').classList.add('border', 'border-primary');
+                
+                // Update mobile buttons
+                document.getElementById('enBtnMobile').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtnMobile').classList.remove('border');
+                document.getElementById('bnBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtnMobile').classList.add('border', 'border-primary');
+            });
+            
+            document.getElementById('bnBtn').addEventListener('click', function() {
+                switchLanguage('bn');
+                this.classList.add('active', 'bg-primary', 'text-white');
+                this.classList.remove('border');
+                document.getElementById('enBtn').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtn').classList.add('border', 'border-primary');
+                
+                // Update mobile buttons
+                document.getElementById('bnBtnMobile').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtnMobile').classList.remove('border');
+                document.getElementById('enBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtnMobile').classList.add('border', 'border-primary');
+            });
+            
+            // Mobile buttons
+            document.getElementById('enBtnMobile').addEventListener('click', function() {
+                switchLanguage('en');
+                this.classList.add('active', 'bg-primary', 'text-white');
+                this.classList.remove('border');
+                document.getElementById('bnBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtnMobile').classList.add('border', 'border-primary');
+                
+                // Update desktop buttons
+                document.getElementById('enBtn').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtn').classList.remove('border');
+                document.getElementById('bnBtn').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtn').classList.add('border', 'border-primary');
+            });
+            
+            document.getElementById('bnBtnMobile').addEventListener('click', function() {
+                switchLanguage('bn');
+                this.classList.add('active', 'bg-primary', 'text-white');
+                this.classList.remove('border');
+                document.getElementById('enBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtnMobile').classList.add('border', 'border-primary');
+                
+                // Update desktop buttons
+                document.getElementById('bnBtn').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtn').classList.remove('border');
+                document.getElementById('enBtn').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtn').classList.add('border', 'border-primary');
+            });
+        }
+
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('open');
+        });
+
+        // Blink messenger button when contact link is clicked
+        document.querySelectorAll('a[href="#contact"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const messengerBtn = document.getElementById('messengerBtn');
+                messengerBtn.classList.add('animate-blink');
+                setTimeout(() => {
+                    messengerBtn.classList.remove('animate-blink');
+                }, 3000);
+                
+                // Scroll to contact section
+                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+                
+                // Close mobile menu if open
+                const mobileMenu = document.getElementById('mobileMenu');
+                if (mobileMenu.classList.contains('open')) {
+                    mobileMenu.classList.remove('open');
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will contact you soon.');
+            this.reset();
+        });
+
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initLanguageToggle();
+            
+            // Animate elements on scroll
+            const animateOnScroll = () => {
+                const elements = document.querySelectorAll('.animate-slide-up, .animate-fade-in');
+                elements.forEach(el => {
+                    const elementPosition = el.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.3;
+                    
+                    if (elementPosition < screenPosition) {
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll(); // Run once on load
+        });
+    </script>
+</body>
+</html>
