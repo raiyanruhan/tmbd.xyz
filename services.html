@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services | Target Marketing BD</title>
-    <meta name="description" content="Halal digital marketing services for female entrepreneurs in Bangladesh">
+    <title>Blog | Target Marketing BD</title>
+    <meta name="description" content="Halal digital marketing insights for female entrepreneurs in Bangladesh">
     
     <!-- Preload critical resources -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
@@ -41,8 +41,7 @@
                         'pulse-slow': 'pulse 5s infinite',
                         'wave': 'wave 8s linear infinite',
                         'tilt': 'tilt 10s infinite linear',
-                        'bounce': 'bounce 1s infinite',
-                        'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+                        'font-change': 'fontChange 0.5s ease-in-out'
                     },
                     keyframes: {
                         float: {
@@ -76,15 +75,9 @@
                             '25%': { transform: 'rotate(2deg)' },
                             '75%': { transform: 'rotate(-2deg)' }
                         },
-                        bounce: {
-                            '0%, 100%': {
-                                transform: 'translateY(-25%)',
-                                animationTimingFunction: 'cubic-bezier(0.8,0,1,1)'
-                            },
-                            '50%': {
-                                transform: 'none',
-                                animationTimingFunction: 'cubic-bezier(0,0,0.2,1)'
-                            }
+                        fontChange: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0.5', transform: 'scale(0.95)' }
                         }
                     }
                 }
@@ -118,76 +111,62 @@
             font-weight: bold;
         }
         
-        /* Service Card */
-        .service-card {
+        /* Blog Card */
+        .blog-card {
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             overflow: hidden;
-            transform-style: preserve-3d;
-            border-radius: 12px;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
         
-        .service-card:hover {
-            transform: translateY(-10px) scale(1.02);
+        .blog-card:hover {
+            transform: translateY(-10px);
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
         }
         
-        .service-card::before {
+        .blog-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(4, 68, 67, 0) 0%, rgba(4, 68, 67, 0.8) 100%);
+            background: linear-gradient(to bottom, rgba(4, 68, 67, 0.1) 0%, rgba(4, 68, 67, 0.3) 100%);
             opacity: 0;
             transition: opacity 0.3s ease;
             z-index: 1;
         }
         
-        .service-card:hover::before {
+        .blog-card:hover::before {
             opacity: 1;
         }
         
-        .service-card-content {
+        .blog-card-content {
             position: relative;
             z-index: 2;
         }
         
-        /* Learn More Button */
-        .learn-more-btn {
+        /* Category Badge */
+        .category-badge {
+            transition: all 0.3s ease;
+            transform: translateY(10px);
+            opacity: 0;
+        }
+        
+        .blog-card:hover .category-badge {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Read More Button */
+        .read-more-btn {
             transform: translateY(20px);
             opacity: 0;
             transition: all 0.4s ease;
         }
         
-        .service-card:hover .learn-more-btn {
+        .blog-card:hover .read-more-btn {
             transform: translateY(0);
             opacity: 1;
-        }
-        
-        /* Category Filter */
-        .category-filter {
-            transition: all 0.3s ease;
-        }
-        
-        .category-filter.active {
-            background-color: #228B7D;
-            color: white;
-        }
-        
-        /* Modal */
-        .service-modal {
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 999;
-        }
-        
-        .service-modal.active {
-            opacity: 1;
-            visibility: visible;
         }
         
         /* Language Toggle */
@@ -211,9 +190,30 @@
             max-height: 500px;
         }
         
+        /* Mobile Menu Overlay */
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 40;
+        }
+        
+        .mobile-menu-overlay.active {
+            display: block;
+        }
+        
         /* Hero Gradient */
         .hero-gradient {
             background: linear-gradient(135deg, rgba(4, 68, 67, 0.9) 0%, rgba(34, 139, 125, 0.9) 100%);
+        }
+        
+        /* Featured Post Overlay */
+        .featured-overlay {
+            background: linear-gradient(to bottom, rgba(13, 48, 44, 0) 0%, rgba(13, 48, 44, 0.9) 100%);
         }
         
         /* Image Loading */
@@ -243,62 +243,14 @@
             transform: translateY(0);
         }
         
-        /* Service Icon */
-        .service-icon {
-            transition: all 0.3s ease;
-        }
-        
-        .service-card:hover .service-icon {
-            transform: scale(1.1);
-        }
-        
-        /* Button animations */
-        .btn-animate {
-            transition: all 0.3s ease;
-        }
-        
-        .btn-animate:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .btn-animate:active {
-            transform: translateY(1px);
-        }
-        
-        /* Search bar */
-        .search-container {
-            transition: all 0.3s ease;
-        }
-        
-        .search-container:focus-within {
-            transform: scale(1.02);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* Mobile menu overlay */
-        .mobile-menu-overlay {
+        /* Subscribe Button */
+        .subscribe-btn {
             display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0,0,0,0.5);
-            z-index: 40;
         }
         
-        .mobile-menu-overlay.active {
-            display: block;
-        }
-        
-        /* Explore button animation */
-        .explore-btn {
-            animation: pulse 2s infinite;
-        }
-        
-        .explore-btn:hover {
-            animation: none;
+        .subscribe-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(34, 139, 125, 0.3);
         }
     </style>
 </head>
@@ -319,11 +271,11 @@
                 
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="index.html" class="text-primary hover:text-accent transition" data-i18n="home">Home</a>
-                    <a href="services.html" class="text-primary font-medium" data-i18n="services">Services</a>
-                    <a href="blog.html" class="text-primary hover:text-accent transition" data-i18n="blog">Blog</a>
+                    <a href="services.html" class="text-primary hover:text-accent transition" data-i18n="services">Services</a>
+                    <a href="blog.html" class="text-primary font-medium" data-i18n="blog">Blog</a>
                     <a href="about.html" class="text-primary hover:text-accent transition" data-i18n="about">About</a>
                     <a href="contact.html" class="text-primary hover:text-accent transition" data-i18n="contact">Contact</a>
-
+                    <a href="#newsletter" class="subscribe-btn px-6 py-2 text-white rounded-full font-medium" data-i18n="subscribe">Subscribe</a>
                     
                     <div class="flex items-center space-x-2 ml-6">
                         <button id="enBtn" class="language-toggle active px-3 py-1 rounded-full text-sm">EN</button>
@@ -346,10 +298,10 @@
                 <div class="pt-4 pb-2 px-6 space-y-2 text-sm font-medium">
                     <a href="index.html" class="block py-2 text-primary hover:text-accent transition" data-i18n="home">Home</a>
                     <a href="services.html" class="block py-2 text-primary hover:text-accent transition" data-i18n="services">Services</a>
-                    <a href="blog.html" class="block py-2 text-primary hover:text-accent transition" data-i18n="blog">Blog</a>
+                    <a href="blog.html" class="block py-2 text-primary font-medium" data-i18n="blog">Blog</a>
                     <a href="about.html" class="block py-2 text-primary hover:text-accent transition" data-i18n="about">About</a>
                     <a href="contact.html" class="block py-2 text-primary hover:text-accent transition" data-i18n="contact">Contact</a>
-                    <a href="#newsletter" class="block py-2 btn-animate bg-accent text-white rounded-full text-center font-medium" data-i18n="subscribe">Subscribe</a>
+                    <a href="#newsletter" class="block py-2 subscribe-btn text-white rounded-full text-center font-medium" data-i18n="subscribe">Subscribe</a>
                     <div class="flex items-center space-x-2 px-3 py-4 justify-center">
                         <button id="enBtnMobile" class="language-toggle active px-4 py-2 rounded-full text-sm">English</button>
                         <button id="bnBtnMobile" class="language-toggle px-4 py-2 rounded-full text-sm border border-primary">বাংলা</button>
@@ -364,25 +316,22 @@
         <div class="container mx-auto">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-12 md:mb-0">
-                    <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight" data-i18n="services_title">Our Halal-Certified Services</h1>
-                    <p class="text-lg md:text-xl mb-8 opacity-90 max-w-lg" data-i18n="services_subtitle">
-                        Ethical digital marketing solutions designed specifically for female entrepreneurs in Bangladesh
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight" id="blogTitle" data-i18n="blog_title">Marketing Insights Journal</h1>
+                    <p class="text-lg md:text-xl mb-8 opacity-90 max-w-lg" data-i18n="blog_subtitle">
+                        Practical tips, success stories and ethical strategies for female entrepreneurs in Bangladesh
                     </p>
-                    <div class="flex space-x-4">
-                        <a href="#services" class="explore-btn px-6 py-3 bg-white text-primary rounded-full font-semibold hover:bg-gray-100 transition flex items-center btn-animate">
-                            <span data-i18n="explore_services">Explore Services</span>
-                            <i class="fas fa-arrow-down ml-2"></i>
-                        </a>
-                        <a href="contact.html" class="px-6 py-3 border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-primary transition flex items-center btn-animate" data-i18n="get_started">
-                            Get Started
-                        </a>
+                    <div class="relative max-w-md">
+                        <input type="text" placeholder="Search articles..." class="w-full px-6 py-3 rounded-full bg-white bg-opacity-20 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-accent" data-i18n="search_placeholder">
+                        <button class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-accent text-white p-2 rounded-full">
+                            <i class="fas fa-search"></i>
+                        </button>
                     </div>
                 </div>
                 
                 <div class="md:w-1/2 animate-float">
                     <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" 
-                             alt="Digital marketing services" 
+                        <img src="https://images.pexels.com/photos/942317/pexels-photo-942317.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                             alt="Digital marketing" 
                              class="rounded-lg shadow-2xl w-full max-w-md mx-auto wave-animation"
                              loading="lazy"
                              width="634"
@@ -394,267 +343,336 @@
         </div>
     </section>
 
-    <!-- Services Categories and Search -->
+    <!-- Featured Post -->
+    <section class="container mx-auto px-4 py-12 md:py-16 -mt-10 md:-mt-20">
+        <div class="bg-white rounded-xl shadow-2xl overflow-hidden transform transition duration-500 hover:shadow-3xl">
+            <div class="md:flex">
+                <div class="md:w-2/3 relative">
+                    <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                         alt="Featured post" 
+                         class="w-full h-full object-cover lazy-img"
+                         loading="lazy"
+                         width="1350"
+                         height="900">
+                    <div class="absolute inset-0 featured-overlay flex items-end p-8">
+                        <div>
+                            <div class="flex items-center text-white text-sm mb-4">
+                                <span class="bg-accent px-3 py-1 rounded-full mr-3" data-i18n="featured">Featured</span>
+                                <span data-i18n="marketing">Marketing</span>
+                                <span class="mx-2">•</span>
+                                <span data-i18n="5_min_read">5 min read</span>
+                            </div>
+                            <h2 class="text-2xl md:text-4xl font-bold text-white mb-4" data-i18n="featured_post_title">How to Create a Halal Social Media Strategy for Your Business</h2>
+                            <p class="text-white text-opacity-90 mb-6 max-w-2xl" data-i18n="featured_post_excerpt">
+                                Learn how to build an effective social media presence while maintaining Islamic values and reaching your target audience.
+                            </p>
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-white mr-3 overflow-hidden">
+                                    <img src="https://randomuser.me/api/portraits/women/32.jpg" 
+                                         alt="Author" 
+                                         class="w-full h-full object-cover lazy-img"
+                                         loading="lazy"
+                                         width="100"
+                                         height="100">
+                                </div>
+                                <div>
+                                    <p class="font-medium text-white" data-i18n="author_name">Ayesha Rahman</p>
+                                    <p class="text-sm text-white text-opacity-80" data-i18n="published_on">Published on May 15, 2023</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/3 p-8">
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-accent hover:text-white transition" data-i18n="social_media">Social Media</span>
+                        <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-accent hover:text-white transition" data-i18n="strategy">Strategy</span>
+                        <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-accent hover:text-white transition" data-i18n="halal">Halal</span>
+                    </div>
+                    <p class="text-gray-600 mb-6" data-i18n="featured_post_content">
+                        In today's digital age, having a strong social media presence is crucial for business success. However, as Muslim entrepreneurs, we must ensure our strategies align with Islamic values. This comprehensive guide covers everything from content creation to audience engagement while maintaining halal principles.
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <i class="fas fa-eye text-gray-400 mr-2"></i>
+                            <span class="text-sm text-gray-500" data-i18n="views">1.2K views</span>
+                        </div>
+                        <a href="article.html" class="px-6 py-2 bg-primary text-white rounded-full font-medium hover:bg-dark transition flex items-center" data-i18n="read_full">
+                            Read Full <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Grid -->
     <section class="container mx-auto px-4 py-12">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-12">
-            <div class="relative w-full md:w-1/3 search-container">
-                <input type="text" id="serviceSearch" placeholder="Search services..." 
-                       class="w-full px-6 py-3 rounded-full bg-gray-100 focus:outline-none focus:ring-2 focus:ring-accent"
-                       data-i18n="search_placeholder">
-                <button class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-accent text-white p-2 rounded-full">
-                    <i class="fas fa-search"></i>
-                </button>
-            </div>
-            <div class="flex flex-wrap justify-center gap-4">
-                <button class="category-filter active px-6 py-2 bg-primary text-white rounded-full font-medium" data-category="all" data-i18n="all_services">All Services</button>
-                <button class="category-filter px-6 py-2 bg-gray-100 hover:bg-gray-200 rounded-full font-medium transition" data-category="design" data-i18n="design">Design</button>
-                <button class="category-filter px-6 py-2 bg-gray-100 hover:bg-gray-200 rounded-full font-medium transition" data-category="marketing" data-i18n="marketing">Marketing</button>
-                <button class="category-filter px-6 py-2 bg-gray-100 hover:bg-gray-200 rounded-full font-medium transition" data-category="advanced" data-i18n="advanced">Advanced</button>
+        <div class="flex flex-col md:flex-row justify-between items-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4 md:mb-0" data-i18n="latest_articles">Latest Articles</h2>
+            <div class="flex space-x-2">
+                <button class="category-filter active px-4 py-2 bg-primary text-white rounded-full text-sm font-medium" data-category="all" data-i18n="all">All</button>
+                <button class="category-filter px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-full text-sm font-medium transition" data-category="marketing" data-i18n="marketing">Marketing</button>
+                <button class="category-filter px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-full text-sm font-medium transition" data-category="design" data-i18n="design">Design</button>
+                <button class="category-filter px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-full text-sm font-medium transition" data-category="business" data-i18n="business">Business</button>
             </div>
         </div>
-    </section>
-
-    <!-- Services Grid -->
-    <section id="services" class="container mx-auto px-4 py-12">
+        
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Service 1 - Graphics Design -->
-            <div class="service-card bg-white rounded-xl overflow-hidden" data-category="design" data-service-name="Graphics Design">
-                <div class="h-48 bg-gradient-to-r from-primary to-secondary flex items-center justify-center relative">
-                    <i class="fas fa-paint-brush service-icon text-white text-5xl"></i>
+            <!-- Article 1 -->
+            <div class="blog-card bg-white rounded-xl shadow-md overflow-hidden" data-category="marketing">
+                <div class="relative h-48">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                         alt="Facebook ads" 
+                         class="w-full h-full object-cover lazy-img"
+                         loading="lazy"
+                         width="1350"
+                         height="900">
                     <div class="halal-badge" data-i18n="halal_certified">Halal Certified</div>
+                    <div class="category-badge absolute top-4 left-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-medium" data-i18n="marketing">Marketing</div>
                 </div>
-                <div class="p-6 service-card-content">
-                    <h3 class="text-xl font-bold text-primary mb-3" data-i18n="service1_title">Graphics Design</h3>
-                    <ul class="text-gray-600 space-y-2 mb-6">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-accent mt-1 mr-2"></i>
-                            <span data-i18n="service1_item1">Logo Design</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-accent mt-1 mr-2"></i>
-                            <span data-i18n="service1_item2">Social Media Posts</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-accent mt-1 mr-2"></i>
-                            <span data-i18n="service1_item3">YouTube Thumbnails</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-accent mt-1 mr-2"></i>
-                            <span data-i18n="service1_item4">Video Editing</span>
-                        </li>
-                    </ul>
+                <div class="p-6 blog-card-content">
+                    <div class="flex items-center text-sm text-gray-500 mb-3">
+                        <span data-i18n="nusrat_jahan">Nusrat Jahan</span>
+                        <span class="mx-2">•</span>
+                        <span data-i18n="may_10">May 10, 2023</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3" data-i18n="article1_title">Facebook Ad Strategies That Work in 2023</h3>
+                    <p class="text-gray-600 mb-4" data-i18n="article1_excerpt">
+                        Discover the latest Facebook ad strategies that are delivering results for small businesses in Bangladesh this year.
+                    </p>
                     <div class="flex items-center justify-between">
-                        <div class="text-accent font-semibold">Starting from ৳2,000</div>
-                        <button class="learn-more-btn px-4 py-2 bg-primary text-white rounded-full text-sm font-medium hover:bg-dark transition btn-animate" data-service="1" data-i18n="learn_more">
-                            Learn More
-                        </button>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-clock mr-1"></i>
+                            <span data-i18n="4_min_read">4 min read</span>
+                        </div>
+                        <a href="article.html" class="read-more-btn text-accent font-medium flex items-center hover:text-secondary" data-i18n="learn_more">
+                            Learn More <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
                     </div>
                 </div>
             </div>
             
-            <!-- Service 2 - Content Writing -->
-            <div class="service-card bg-white rounded-xl overflow-hidden" data-category="marketing" data-service-name="Content Writing">
-                <div class="h-48 bg-gradient-to-r from-primary to-secondary flex items-center justify-center relative">
-                    <i class="fas fa-pen-fancy service-icon text-white text-5xl"></i>
+            <!-- Article 2 -->
+            <div class="blog-card bg-white rounded-xl shadow-md overflow-hidden" data-category="design">
+                <div class="relative h-48">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                         alt="Color psychology" 
+                         class="w-full h-full object-cover lazy-img"
+                         loading="lazy"
+                         width="1350"
+                         height="900">
                     <div class="halal-badge" data-i18n="halal_certified">Halal Certified</div>
+                    <div class="category-badge absolute top-4 left-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-medium" data-i18n="design">Design</div>
                 </div>
-                <div class="p-6 service-card-content">
-                    <h3 class="text-xl font-bold text-primary mb-3" data-i18n="service2_title">Content Writing</h3>
-                    <p class="text-gray-600 mb-6" data-i18n="service2_desc">
-                        Customer-friendly content written by explaining the importance of the product and the story that is suitable for the product.
+                <div class="p-6 blog-card-content">
+                    <div class="flex items-center text-sm text-gray-500 mb-3">
+                        <span data-i18n="tasnim_ahmed">Tasnim Ahmed</span>
+                        <span class="mx-2">•</span>
+                        <span data-i18n="may_5">May 5, 2023</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3" data-i18n="article2_title">Color Psychology in Branding</h3>
+                    <p class="text-gray-600 mb-4" data-i18n="article2_excerpt">
+                        Learn how to choose the right colors for your brand that resonate with your target audience and convey your message.
                     </p>
                     <div class="flex items-center justify-between">
-                        <div class="text-accent font-semibold">Starting from ৳2,000</div>
-                        <button class="learn-more-btn px-4 py-2 bg-primary text-white rounded-full text-sm font-medium hover:bg-dark transition btn-animate" data-service="2" data-i18n="learn_more">
-                            Learn More
-                        </button>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-clock mr-1"></i>
+                            <span data-i18n="6_min_read">6 min read</span>
+                        </div>
+                        <a href="article.html" class="read-more-btn text-accent font-medium flex items-center hover:text-secondary" data-i18n="learn_more">
+                            Learn More <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
                     </div>
                 </div>
             </div>
             
-            <!-- Service 3 - Facebook Optimization -->
-            <div class="service-card bg-white rounded-xl overflow-hidden" data-category="marketing" data-service-name="Facebook Optimization">
-                <div class="h-48 bg-gradient-to-r from-primary to-secondary flex items-center justify-center relative">
-                    <i class="fas fa-thumbs-up service-icon text-white text-5xl"></i>
+            <!-- Article 3 -->
+            <div class="blog-card bg-white rounded-xl shadow-md overflow-hidden" data-category="business">
+                <div class="relative h-48">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                         alt="Online business" 
+                         class="w-full h-full object-cover lazy-img"
+                         loading="lazy"
+                         width="1350"
+                         height="900">
                     <div class="halal-badge" data-i18n="halal_certified">Halal Certified</div>
+                    <div class="category-badge absolute top-4 left-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-medium" data-i18n="business">Business</div>
                 </div>
-                <div class="p-6 service-card-content">
-                    <h3 class="text-xl font-bold text-primary mb-3" data-i18n="service3_title">Facebook Optimization</h3>
-                    <p class="text-gray-600 mb-6" data-i18n="service3_desc">
-                        Facebook page is decorated. All settings including the page profile, cover photo are adjusted properly.
+                <div class="p-6 blog-card-content">
+                    <div class="flex items-center text-sm text-gray-500 mb-3">
+                        <span data-i18n="farhana_akter">Farhana Akter</span>
+                        <span class="mx-2">•</span>
+                        <span data-i18n="apr_28">Apr 28, 2023</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3" data-i18n="article3_title">Starting an Online Business in Bangladesh</h3>
+                    <p class="text-gray-600 mb-4" data-i18n="article3_excerpt">
+                        Step-by-step guide covering everything from business registration to payment gateways for aspiring female entrepreneurs.
                     </p>
                     <div class="flex items-center justify-between">
-                        <div class="text-accent font-semibold">Starting from ৳1,500</div>
-                        <button class="learn-more-btn px-4 py-2 bg-primary text-white rounded-full text-sm font-medium hover:bg-dark transition btn-animate" data-service="3" data-i18n="learn_more">
-                            Learn More
-                        </button>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-clock mr-1"></i>
+                            <span data-i18n="8_min_read">8 min read</span>
+                        </div>
+                        <a href="article.html" class="read-more-btn text-accent font-medium flex items-center hover:text-secondary" data-i18n="learn_more">
+                            Learn More <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
                     </div>
                 </div>
             </div>
             
-            <!-- Service 4 - Facebook Ads -->
-            <div class="service-card bg-white rounded-xl overflow-hidden" data-category="marketing" data-service-name="Facebook Ads Management">
-                <div class="h-48 bg-gradient-to-r from-primary to-secondary flex items-center justify-center relative">
-                    <i class="fas fa-ad service-icon text-white text-5xl"></i>
+            <!-- Article 4 -->
+            <div class="blog-card bg-white rounded-xl shadow-md overflow-hidden" data-category="interview">
+                <div class="relative h-48">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                         alt="Success story" 
+                         class="w-full h-full object-cover lazy-img"
+                         loading="lazy"
+                         width="1350"
+                         height="900">
                     <div class="halal-badge" data-i18n="halal_certified">Halal Certified</div>
+                    <div class="category-badge absolute top-4 left-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-medium" data-i18n="interview">Interview</div>
                 </div>
-                <div class="p-6 service-card-content">
-                    <h3 class="text-xl font-bold text-primary mb-3" data-i18n="service4_title">Facebook Ads Management</h3>
-                    <p class="text-gray-600 mb-6" data-i18n="service4_desc">
-                        Professional Facebook ad campaigns to reach your target audience and maximize conversions.
+                <div class="p-6 blog-card-content">
+                    <div class="flex items-center text-sm text-gray-500 mb-3">
+                        <span data-i18n="sabrina_islam">Sabrina Islam</span>
+                        <span class="mx-2">•</span>
+                        <span data-i18n="apr_22">Apr 22, 2023</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3" data-i18n="article4_title">Success Story: Rima's Handicraft Business</h3>
+                    <p class="text-gray-600 mb-4" data-i18n="article4_excerpt">
+                        Exclusive interview with Rima Begum who grew her small handicraft business into a thriving online enterprise.
                     </p>
                     <div class="flex items-center justify-between">
-                        <div class="text-accent font-semibold">Starting from ৳5,000</div>
-                        <button class="learn-more-btn px-4 py-2 bg-primary text-white rounded-full text-sm font-medium hover:bg-dark transition btn-animate" data-service="4" data-i18n="learn_more">
-                            Learn More
-                        </button>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-clock mr-1"></i>
+                            <span data-i18n="10_min_read">10 min read</span>
+                        </div>
+                        <a href="article.html" class="read-more-btn text-accent font-medium flex items-center hover:text-secondary" data-i18n="learn_more">
+                            Learn More <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
                     </div>
                 </div>
             </div>
             
-            <!-- Service 5 - Website Development -->
-            <div class="service-card bg-white rounded-xl overflow-hidden" data-category="advanced" data-service-name="Website Development">
-                <div class="h-48 bg-gradient-to-r from-primary to-secondary flex items-center justify-center relative">
-                    <i class="fas fa-code service-icon text-white text-5xl"></i>
+            <!-- Article 5 -->
+            <div class="blog-card bg-white rounded-xl shadow-md overflow-hidden" data-category="photography">
+                <div class="relative h-48">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                         alt="Product photography" 
+                         class="w-full h-full object-cover lazy-img"
+                         loading="lazy"
+                         width="1350"
+                         height="900">
                     <div class="halal-badge" data-i18n="halal_certified">Halal Certified</div>
+                    <div class="category-badge absolute top-4 left-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-medium" data-i18n="photography">Photography</div>
                 </div>
-                <div class="p-6 service-card-content">
-                    <h3 class="text-xl font-bold text-primary mb-3" data-i18n="service5_title">Website Development</h3>
-                    <p class="text-gray-600 mb-6" data-i18n="service5_desc">
-                        Custom websites designed to showcase your business and convert visitors into customers.
+                <div class="p-6 blog-card-content">
+                    <div class="flex items-center text-sm text-gray-500 mb-3">
+                        <span data-i18n="jannatul_ferdous">Jannatul Ferdous</span>
+                        <span class="mx-2">•</span>
+                        <span data-i18n="apr_15">Apr 15, 2023</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3" data-i18n="article5_title">Product Photography Tips for E-commerce</h3>
+                    <p class="text-gray-600 mb-4" data-i18n="article5_excerpt">
+                        Professional-looking product photos don't require expensive equipment. Here's how to get great results with basic tools.
                     </p>
                     <div class="flex items-center justify-between">
-                        <button class="learn-more-btn px-4 py-2 bg-primary text-white rounded-full text-sm font-medium hover:bg-dark transition btn-animate" data-service="5" data-i18n="learn_more">
-                            Learn More
-                        </button>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-clock mr-1"></i>
+                            <span data-i18n="5_min_read">5 min read</span>
+                        </div>
+                        <a href="article.html" class="read-more-btn text-accent font-medium flex items-center hover:text-secondary" data-i18n="learn_more">
+                            Learn More <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
                     </div>
                 </div>
             </div>
             
-            <!-- Service 6 - Brand Strategy -->
-            <div class="service-card bg-white rounded-xl overflow-hidden" data-category="advanced" data-service-name="Brand Strategy">
-                <div class="h-48 bg-gradient-to-r from-primary to-secondary flex items-center justify-center relative">
-                    <i class="fas fa-chess-queen service-icon text-white text-5xl"></i>
+            <!-- Article 6 -->
+            <div class="blog-card bg-white rounded-xl shadow-md overflow-hidden" data-category="strategy">
+                <div class="relative h-48">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                         alt="Digital marketing plan" 
+                         class="w-full h-full object-cover lazy-img"
+                         loading="lazy"
+                         width="1350"
+                         height="900">
                     <div class="halal-badge" data-i18n="halal_certified">Halal Certified</div>
+                    <div class="category-badge absolute top-4 left-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-medium" data-i18n="strategy">Strategy</div>
                 </div>
-                <div class="p-6 service-card-content">
-                    <h3 class="text-xl font-bold text-primary mb-3" data-i18n="service6_title">Brand Strategy</h3>
-                    <p class="text-gray-600 mb-6" data-i18n="service6_desc">
-                        Comprehensive branding solutions to establish your unique identity in the market.
+                <div class="p-6 blog-card-content">
+                    <div class="flex items-center text-sm text-gray-500 mb-3">
+                        <span data-i18n="nazia_haque">Nazia Haque</span>
+                        <span class="mx-2">•</span>
+                        <span data-i18n="apr_8">Apr 8, 2023</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3" data-i18n="article6_title">Digital Marketing Plan for Small Budgets</h3>
+                    <p class="text-gray-600 mb-4" data-i18n="article6_excerpt">
+                        How to allocate limited resources for maximum impact in the Bangladeshi market. Real case studies included.
                     </p>
                     <div class="flex items-center justify-between">
-                        <div class="text-accent font-semibold">Starting from ৳10,000</div>
-                        <button class="learn-more-btn px-4 py-2 bg-primary text-white rounded-full text-sm font-medium hover:bg-dark transition btn-animate" data-service="6" data-i18n="learn_more">
-                            Learn More
-                        </button>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-clock mr-1"></i>
+                            <span data-i18n="7_min_read">7 min read</span>
+                        </div>
+                        <a href="article.html" class="read-more-btn text-accent font-medium flex items-center hover:text-secondary" data-i18n="learn_more">
+                            Learn More <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
+        
+        <div class="text-center mt-12">
+            <button id="loadMoreBtn" class="px-8 py-3 bg-white border-2 border-primary text-primary rounded-full font-semibold hover:bg-primary hover:text-white transition flex items-center mx-auto">
+                <span data-i18n="load_more">Load More Articles</span>
+                <i class="fas fa-sync-alt ml-2"></i>
+            </button>
+        </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="bg-gray-50 py-16 px-4">
-        <div class="container mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4" data-i18n="client_testimonials">Client Testimonials</h2>
-                <div class="w-20 h-1 bg-accent mx-auto mb-6"></div>
-                <p class="text-gray-600 max-w-2xl mx-auto" data-i18n="testimonials_subtitle">
-                    What our clients say about our services
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition">
-                    <div class="flex items-center mb-4">
-                        <div class="text-yellow-400 mr-2">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 mb-6 italic">
-                        "Alhamdulillah, I'm satisfied with the designer from Target Marketing BD and have run ad campaigns with them. Alhamdulillah, Mashallah, Barakallah, I've received very good responses. Thanks to Target Marketing BD."
-                    </p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 rounded-full bg-gray-300 mr-4 overflow-hidden">
-                            <img src="https://randomuser.me/api/portraits/women/32.jpg" 
-                                 alt="Client" 
-                                 class="w-full h-full object-cover lazy-img"
-                                 loading="lazy"
-                                 width="100"
-                                 height="100">
-                        </div>
-                        <div>
-                            <p class="font-medium text-gray-800">Souda Afrin Mim</p>
-                            <p class="text-sm text-gray-500">Satisfied Client</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Testimonial 2 -->
-                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition">
-                    <div class="flex items-center mb-4">
-                        <div class="text-yellow-400 mr-2">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 mb-6 italic">
-                        "Thanks to Target Marketing BD for correcting the mistakes on my page and providing appropriate advice."
-                    </p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 rounded-full bg-gray-300 mr-4 overflow-hidden">
-                            <img src="https://randomuser.me/api/portraits/women/44.jpg" 
-                                 alt="Client" 
-                                 class="w-full h-full object-cover lazy-img"
-                                 loading="lazy"
-                                 width="100"
-                                 height="100">
-                        </div>
-                        <div>
-                            <p class="font-medium text-gray-800">Mst Rukaiya Nawrin</p>
-                            <p class="text-sm text-gray-500">Happy Customer</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Testimonial 3 -->
-                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition">
-                    <div class="flex items-center mb-4">
-                        <div class="text-yellow-400 mr-2">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 mb-6 italic" data-i18n="testimonial3_text">
-                        "The website they created for my business is not only beautiful but also fully functional. Their attention to detail is impressive."
-                    </p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 rounded-full bg-gray-300 mr-4 overflow-hidden">
-                            <img src="https://randomuser.me/api/portraits/women/68.jpg" 
-                                 alt="Client" 
-                                 class="w-full h-full object-cover lazy-img"
-                                 loading="lazy"
-                                 width="100"
-                                 height="100">
-                        </div>
-                        <div>
-                            <p class="font-medium text-gray-800" data-i18n="testimonial3_name">Nusrat Jahan</p>
-                            <p class="text-sm text-gray-500" data-i18n="testimonial3_title">CEO, Organic Cosmetics</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- Popular Tags -->
+    <section class="container mx-auto px-4 py-12 bg-gray-50 rounded-xl">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4" data-i18n="popular_tags">Popular Tags</h2>
+            <div class="w-20 h-1 bg-accent mx-auto mb-6"></div>
+            <p class="text-gray-600 max-w-2xl mx-auto" data-i18n="tags_subtitle">
+                Browse articles by topics that interest you most
+            </p>
+        </div>
+        
+        <div class="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
+            <a href="#" class="px-5 py-2 bg-white shadow-sm rounded-full text-gray-700 hover:bg-primary hover:text-white transition flex items-center" data-i18n="social_media">
+                <i class="fas fa-hashtag mr-2"></i> Social Media
+            </a>
+            <a href="#" class="px-5 py-2 bg-white shadow-sm rounded-full text-gray-700 hover:bg-primary hover:text-white transition flex items-center" data-i18n="marketing">
+                <i class="fas fa-hashtag mr-2"></i> Marketing
+            </a>
+            <a href="#" class="px-5 py-2 bg-white shadow-sm rounded-full text-gray-700 hover:bg-primary hover:text-white transition flex items-center" data-i18n="branding">
+                <i class="fas fa-hashtag mr-2"></i> Branding
+            </a>
+            <a href="#" class="px-5 py-2 bg-white shadow-sm rounded-full text-gray-700 hover:bg-primary hover:text-white transition flex items-center" data-i18n="ecommerce">
+                <i class="fas fa-hashtag mr-2"></i> E-commerce
+            </a>
+            <a href="#" class="px-5 py-2 bg-white shadow-sm rounded-full text-gray-700 hover:bg-primary hover:text-white transition flex items-center" data-i18n="seo">
+                <i class="fas fa-hashtag mr-2"></i> SEO
+            </a>
+            <a href="#" class="px-5 py-2 bg-white shadow-sm rounded-full text-gray-700 hover:bg-primary hover:text-white transition flex items-center" data-i18n="content">
+                <i class="fas fa-hashtag mr-2"></i> Content
+            </a>
+            <a href="#" class="px-5 py-2 bg-white shadow-sm rounded-full text-gray-700 hover:bg-primary hover:text-white transition flex items-center" data-i18n="photography">
+                <i class="fas fa-hashtag mr-2"></i> Photography
+            </a>
+            <a href="#" class="px-5 py-2 bg-white shadow-sm rounded-full text-gray-700 hover:bg-primary hover:text-white transition flex items-center" data-i18n="design">
+                <i class="fas fa-hashtag mr-2"></i> Design
+            </a>
+            <a href="#" class="px-5 py-2 bg-white shadow-sm rounded-full text-gray-700 hover:bg-primary hover:text-white transition flex items-center" data-i18n="strategy">
+                <i class="fas fa-hashtag mr-2"></i> Strategy
+            </a>
+            <a href="#" class="px-5 py-2 bg-white shadow-sm rounded-full text-gray-700 hover:bg-primary hover:text-white transition flex items-center" data-i18n="halal">
+                <i class="fas fa-hashtag mr-2"></i> Halal
+            </a>
         </div>
     </section>
 
@@ -665,13 +683,13 @@
                 <div class="inline-block bg-white bg-opacity-20 rounded-full px-6 py-2 mb-6">
                     <span class="text-sm font-medium" data-i18n="newsletter">NEWSLETTER</span>
                 </div>
-                <h2 class="text-3xl md:text-4xl font-bold mb-6" data-i18n="stay_updated">Stay Updated With Our Latest Services</h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6" data-i18n="stay_updated">Stay Updated With Our Latest Articles</h2>
                 <p class="text-lg mb-8 max-w-2xl mx-auto opacity-90" data-i18n="newsletter_subtitle">
-                    Join our newsletter to receive updates with new services, special offers and marketing tips.
+                    Join our newsletter to receive monthly updates with marketing tips, success stories and exclusive offers.
                 </p>
                 <form class="flex flex-col md:flex-row gap-4 max-w-lg mx-auto">
                     <input type="email" placeholder="Your email address" class="flex-grow px-6 py-3 rounded-full bg-white bg-opacity-20 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-accent" data-i18n="email_placeholder">
-                    <button type="submit" class="px-8 py-3 bg-accent text-white rounded-full font-semibold hover:bg-secondary transition btn-animate" data-i18n="subscribe">
+                    <button type="submit" class="px-8 py-3 bg-accent text-white rounded-full font-semibold hover:bg-secondary transition" data-i18n="subscribe">
                         Subscribe
                     </button>
                 </form>
@@ -725,63 +743,9 @@
     </footer>
 
     <!-- Messenger Button -->
-    <a href="https://m.me/tmbd.xyz" target="_blank" id="messengerBtn" class="fixed bottom-8 right-8 bg-blue-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl hover:bg-blue-700 transition duration-300 z-40 btn-animate">
+    <a href="https://m.me/tmbd.xyz" target="_blank" id="messengerBtn" class="fixed bottom-8 right-8 bg-blue-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl hover:bg-blue-700 transition duration-300 z-40">
         <i class="fab fa-facebook-messenger text-2xl"></i>
     </a>
-
-    <!-- Service Modal -->
-    <div class="service-modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-            <div class="relative">
-                <button class="absolute top-4 right-4 text-gray-500 hover:text-primary z-10 btn-animate">
-                    <i class="fas fa-times text-2xl"></i>
-                </button>
-                <div class="md:flex">
-                    <div class="md:w-1/2 bg-gradient-to-r from-primary to-secondary text-white p-8">
-                        <h3 id="modal-service-title" class="text-2xl font-bold mb-4">Graphics Design</h3>
-                        <div id="modal-service-icon" class="text-6xl mb-6 text-center">
-                            <i class="fas fa-paint-brush"></i>
-                        </div>
-                        <ul id="modal-service-features" class="space-y-3">
-                            <li class="flex items-start">
-                                <i class="fas fa-check mt-1 mr-3"></i>
-                                <span>Logo Design</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check mt-1 mr-3"></i>
-                                <span>Social Media Posts</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check mt-1 mr-3"></i>
-                                <span>YouTube Thumbnails</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check mt-1 mr-3"></i>
-                                <span>Video Editing</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="md:w-1/2 p-8">
-                        <h4 class="text-xl font-bold text-primary mb-4" data-i18n="service_details">Service Details</h4>
-                        <p id="modal-service-desc" class="text-gray-600 mb-6">
-                            Our graphic design service helps you create visually appealing content that represents your brand effectively. We design logos, social media posts, YouTube thumbnails, and edit videos to help your business stand out.
-                        </p>
-                        <div class="bg-gray-50 p-4 rounded-lg mb-6">
-                            <h5 class="font-bold text-primary mb-2" data-i18n="pricing">Pricing</h5>
-                            <p id="modal-service-pricing" class="text-gray-600">Starting from ৳2,000</p>
-                        </div>
-                        <div class="bg-gray-50 p-4 rounded-lg mb-6">
-                            <h5 class="font-bold text-primary mb-2" data-i18n="delivery_time">Delivery Time</h5>
-                            <p id="modal-service-time" class="text-gray-600">3-5 business days</p>
-                        </div>
-                        <a href="contact.html" class="block w-full text-center px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-dark transition btn-animate" data-i18n="order_now">
-                            Order Now
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Scripts -->
     <script>
@@ -814,6 +778,20 @@
             lazyImages.forEach(img => {
                 img.classList.add('loaded');
             });
+            
+            // Set constant blog title
+            const blogTitles = [
+                "Marketing Insights Journal",
+                "Halal Business Strategies",
+                "Digital Growth Chronicles",
+                "Entrepreneur Success Stories",
+                "Ethical Marketing Digest"
+            ];
+            const blogTitle = document.getElementById('blogTitle');
+            blogTitle.textContent = blogTitles[0]; // Always use the first title
+            if (blogTitle.getAttribute('data-i18n') === 'blog_title') {
+                blogTitle.setAttribute('data-i18n-value', blogTitles[0]);
+            }
         });
 
         // Mobile menu toggle
@@ -833,7 +811,7 @@
             document.body.style.overflow = 'auto';
         });
 
-        // Service category filtering
+        // Category filtering
         document.querySelectorAll('.category-filter').forEach(button => {
             button.addEventListener('click', function() {
                 // Update active button
@@ -845,173 +823,28 @@
                 this.classList.remove('bg-gray-100', 'text-gray-800');
                 
                 const category = this.getAttribute('data-category');
-                const services = document.querySelectorAll('.service-card');
+                const articles = document.querySelectorAll('.blog-card');
                 
-                services.forEach(service => {
-                    if (category === 'all' || service.getAttribute('data-category') === category) {
-                        service.style.display = 'block';
+                articles.forEach(article => {
+                    if (category === 'all' || article.getAttribute('data-category') === category) {
+                        article.style.display = 'block';
                         setTimeout(() => {
-                            service.style.opacity = '1';
+                            article.style.opacity = '1';
                         }, 50);
                     } else {
-                        service.style.opacity = '0';
+                        article.style.opacity = '0';
                         setTimeout(() => {
-                            service.style.display = 'none';
+                            article.style.display = 'none';
                         }, 300);
                     }
                 });
             });
         });
 
-        // Service search functionality
-        document.getElementById('serviceSearch').addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
-            const services = document.querySelectorAll('.service-card');
-            
-            services.forEach(service => {
-                const serviceName = service.getAttribute('data-service-name').toLowerCase();
-                if (serviceName.includes(searchTerm)) {
-                    service.style.display = 'block';
-                    setTimeout(() => {
-                        service.style.opacity = '1';
-                    }, 50);
-                } else {
-                    service.style.opacity = '0';
-                    setTimeout(() => {
-                        service.style.display = 'none';
-                    }, 300);
-                }
-            });
-        });
-
-        // Service modal functionality
-        const modal = document.querySelector('.service-modal');
-        const modalClose = modal.querySelector('button');
-        const serviceButtons = document.querySelectorAll('[data-service]');
-        
-        // Service details data
-        const servicesData = {
-            1: {
-                title: "Graphics Design",
-                icon: "fas fa-paint-brush",
-                features: [
-                    "Logo Design",
-                    "Social Media Posts",
-                    "YouTube Thumbnails",
-                    "Video Editing"
-                ],
-                desc: "Our graphic design service helps you create visually appealing content that represents your brand effectively. We design logos, social media posts, YouTube thumbnails, and edit videos to help your business stand out.",
-                pricing: "Starting from ৳2,000",
-                time: "3-5 business days"
-            },
-            2: {
-                title: "Content Writing",
-                icon: "fas fa-pen-fancy",
-                features: [
-                    "Product Descriptions",
-                    "Blog Articles",
-                    "Social Media Captions",
-                    "Website Content"
-                ],
-                desc: "Customer-friendly content written by explaining the importance of the product and the story that is suitable for the product. Our writers craft compelling content that resonates with your target audience.",
-                pricing: "Starting from ৳2,000",
-                time: "2-4 business days"
-            },
-            3: {
-                title: "Facebook Optimization",
-                icon: "fas fa-thumbs-up",
-                features: [
-                    "Page Setup",
-                    "Profile Optimization",
-                    "Cover Photo Design",
-                    "About Section"
-                ],
-                desc: "We optimize your Facebook page to make it professional and appealing to your target audience. All settings including the page profile, cover photo are adjusted properly to maximize engagement.",
-                pricing: "Starting from ৳1,500",
-                time: "1-2 business days"
-            },
-            4: {
-                title: "Facebook Ads Management",
-                icon: "fas fa-ad",
-                features: [
-                    "Ad Campaign Setup",
-                    "Target Audience Research",
-                    "Ad Creative Design",
-                    "Performance Tracking"
-                ],
-                desc: "Professional Facebook ad campaigns to reach your target audience and maximize conversions. We handle everything from strategy to execution to ensure you get the best ROI.",
-                pricing: "Starting from ৳5,000",
-                time: "5-7 business days"
-            },
-            5: {
-                title: "Website Development",
-                icon: "fas fa-code",
-                features: [
-                    "Custom Website Design",
-                    "Mobile Responsive",
-                    "SEO Optimized",
-                    "E-commerce Functionality"
-                ],
-                desc: "Custom websites designed to showcase your business and convert visitors into customers. We create beautiful, functional websites that align with your brand identity.",
-                pricing: "Starting from ৳15,000",
-                time: "10-15 business days"
-            },
-            6: {
-                title: "Brand Strategy",
-                icon: "fas fa-chess-queen",
-                features: [
-                    "Brand Identity",
-                    "Market Positioning",
-                    "Competitor Analysis",
-                    "Marketing Plan"
-                ],
-                desc: "Comprehensive branding solutions to establish your unique identity in the market. We help you develop a strong brand that stands out and connects with your customers.",
-                pricing: "Starting from ৳10,000",
-                time: "7-10 business days"
-            }
-        };
-
-        // Open modal with service details
-        serviceButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const serviceId = this.getAttribute('data-service');
-                const service = servicesData[serviceId];
-                
-                document.getElementById('modal-service-title').textContent = service.title;
-                document.getElementById('modal-service-icon').innerHTML = `<i class="${service.icon}"></i>`;
-                
-                const featuresList = document.getElementById('modal-service-features');
-                featuresList.innerHTML = '';
-                service.features.forEach(feature => {
-                    featuresList.innerHTML += `
-                        <li class="flex items-start">
-                            <i class="fas fa-check mt-1 mr-3"></i>
-                            <span>${feature}</span>
-                        </li>
-                    `;
-                });
-                
-                document.getElementById('modal-service-desc').textContent = service.desc;
-                document.getElementById('modal-service-pricing').textContent = service.pricing;
-                document.getElementById('modal-service-time').textContent = service.time;
-                
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            });
-        });
-
-        // Close modal
-        modalClose.addEventListener('click', function() {
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        });
-
-        // Close modal when clicking outside content
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                modal.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }
+        // Load more articles
+        document.getElementById('loadMoreBtn').addEventListener('click', function() {
+            // In a real implementation, this would load more articles from an API
+            alert('More articles would be loaded here in a real implementation');
         });
 
         // Language switching functionality
@@ -1026,54 +859,78 @@
                 subscribe: "Subscribe",
                 
                 // Hero
-                services_title: "Our Halal-Certified Services",
-                services_subtitle: "Ethical digital marketing solutions designed specifically for female entrepreneurs in Bangladesh",
-                explore_services: "Explore Services",
-                get_started: "Get Started",
-                search_placeholder: "Search services...",
+                blog_title: "Marketing Insights Journal",
+                blog_subtitle: "Practical tips, success stories and ethical strategies for female entrepreneurs in Bangladesh",
+                search_placeholder: "Search articles...",
                 
-                // Categories
-                all_services: "All Services",
-                design: "Design",
+                // Featured Post
+                featured: "Featured",
                 marketing: "Marketing",
-                advanced: "Advanced",
+                "5_min_read": "5 min read",
+                featured_post_title: "How to Create a Halal Social Media Strategy for Your Business",
+                featured_post_excerpt: "Learn how to build an effective social media presence while maintaining Islamic values and reaching your target audience.",
+                author_name: "Ayesha Rahman",
+                published_on: "Published on May 15, 2023",
+                social_media: "Social Media",
+                strategy: "Strategy",
+                halal: "Halal",
+                featured_post_content: "In today's digital age, having a strong social media presence is crucial for business success. However, as Muslim entrepreneurs, we must ensure our strategies align with Islamic values. This comprehensive guide covers everything from content creation to audience engagement while maintaining halal principles.",
+                views: "1.2K views",
+                read_full: "Read Full",
                 
-                // Services
-                service1_title: "Graphics Design",
-                service1_item1: "Logo Design",
-                service1_item2: "Social Media Posts",
-                service1_item3: "YouTube Thumbnails",
-                service1_item4: "Video Editing",
-                service2_title: "Content Writing",
-                service2_desc: "Customer-friendly content written by explaining the importance of the product and the story that is suitable for the product.",
-                service3_title: "Facebook Optimization",
-                service3_desc: "Facebook page is decorated. All settings including the page profile, cover photo are adjusted properly.",
-                service4_title: "Facebook Ads Management",
-                service4_desc: "Professional Facebook ad campaigns to reach your target audience and maximize conversions.",
-                service5_title: "Website Development",
-                service5_desc: "Custom websites designed to showcase your business and convert visitors into customers.",
-                service6_title: "Brand Strategy",
-                service6_desc: "Comprehensive branding solutions to establish your unique identity in the market.",
+                // Blog Grid
+                latest_articles: "Latest Articles",
+                all: "All",
+                design: "Design",
+                business: "Business",
+                interview: "Interview",
+                photography: "Photography",
+                nusrat_jahan: "Nusrat Jahan",
+                may_10: "May 10, 2023",
+                article1_title: "Facebook Ad Strategies That Work in 2023",
+                article1_excerpt: "Discover the latest Facebook ad strategies that are delivering results for small businesses in Bangladesh this year.",
+                "4_min_read": "4 min read",
+                tasnim_ahmed: "Tasnim Ahmed",
+                may_5: "May 5, 2023",
+                article2_title: "Color Psychology in Branding",
+                article2_excerpt: "Learn how to choose the right colors for your brand that resonate with your target audience and convey your message.",
+                "6_min_read": "6 min read",
+                farhana_akter: "Farhana Akter",
+                apr_28: "Apr 28, 2023",
+                article3_title: "Starting an Online Business in Bangladesh",
+                article3_excerpt: "Step-by-step guide covering everything from business registration to payment gateways for aspiring female entrepreneurs.",
+                "8_min_read": "8 min read",
+                sabrina_islam: "Sabrina Islam",
+                apr_22: "Apr 22, 2023",
+                article4_title: "Success Story: Rima's Handicraft Business",
+                article4_excerpt: "Exclusive interview with Rima Begum who grew her small handicraft business into a thriving online enterprise.",
+                "10_min_read": "10 min read",
+                jannatul_ferdous: "Jannatul Ferdous",
+                apr_15: "Apr 15, 2023",
+                article5_title: "Product Photography Tips for E-commerce",
+                article5_excerpt: "Professional-looking product photos don't require expensive equipment. Here's how to get great results with basic tools.",
+                "5_min_read": "5 min read",
+                nazia_haque: "Nazia Haque",
+                apr_8: "Apr 8, 2023",
+                article6_title: "Digital Marketing Plan for Small Budgets",
+                article6_excerpt: "How to allocate limited resources for maximum impact in the Bangladeshi market. Real case studies included.",
+                "7_min_read": "7 min read",
                 learn_more: "Learn More",
+                load_more: "Load More Articles",
                 
-                // Testimonials
-                client_testimonials: "Client Testimonials",
-                testimonials_subtitle: "What our clients say about our services",
-                testimonial3_text: "\"The website they created for my business is not only beautiful but also fully functional. Their attention to detail is impressive.\"",
-                testimonial3_name: "Nusrat Jahan",
-                testimonial3_title: "CEO, Organic Cosmetics",
+                // Popular Tags
+                popular_tags: "Popular Tags",
+                tags_subtitle: "Browse articles by topics that interest you most",
+                branding: "Branding",
+                ecommerce: "E-commerce",
+                seo: "SEO",
+                content: "Content",
                 
                 // Newsletter
                 newsletter: "NEWSLETTER",
-                stay_updated: "Stay Updated With Our Latest Services",
-                newsletter_subtitle: "Join our newsletter to receive updates with new services, special offers and marketing tips.",
+                stay_updated: "Stay Updated With Our Latest Articles",
+                newsletter_subtitle: "Join our newsletter to receive monthly updates with marketing tips, success stories and exclusive offers.",
                 email_placeholder: "Your email address",
-                
-                // Modal
-                service_details: "Service Details",
-                pricing: "Pricing",
-                delivery_time: "Delivery Time",
-                order_now: "Order Now",
                 
                 // Footer
                 footer_tagline: "Halal digital marketing solutions for female entrepreneurs",
@@ -1097,54 +954,78 @@
                 subscribe: "সাবস্ক্রাইব",
                 
                 // Hero
-                services_title: "আমাদের হালাল-সার্টিফাইড সেবাসমূহ",
-                services_subtitle: "বাংলাদেশের নারী উদ্যোক্তাদের জন্য বিশেষভাবে ডিজাইন করা নৈতিক ডিজিটাল মার্কেটিং সমাধান",
-                explore_services: "সেবা এক্সপ্লোর করুন",
-                get_started: "শুরু করুন",
-                search_placeholder: "সেবা খুঁজুন...",
+                blog_title: "মার্কেটিং ইনসাইটস জার্নাল",
+                blog_subtitle: "বাংলাদেশের নারী উদ্যোক্তাদের জন্য ব্যবহারিক টিপস, সাফল্যের গল্প এবং নৈতিক কৌশল",
+                search_placeholder: "আর্টিকেল খুঁজুন...",
                 
-                // Categories
-                all_services: "সমস্ত সেবা",
-                design: "ডিজাইন",
+                // Featured Post
+                featured: "ফিচার্ড",
                 marketing: "মার্কেটিং",
-                advanced: "এডভান্সড",
+                "5_min_read": "৫ মিনিট পড়া",
+                featured_post_title: "আপনার ব্যবসার জন্য হালাল সোশ্যাল মিডিয়া কৌশল তৈরি করার উপায়",
+                featured_post_excerpt: "ইসলামিক মূল্যবোধ বজায় রেখে এবং আপনার টার্গেট অডিয়েন্সে পৌঁছানোর সময় একটি কার্যকর সোশ্যাল মিডিয়া উপস্থিতি তৈরি করার উপায় শিখুন।",
+                author_name: "আয়েশা রহমান",
+                published_on: "প্রকাশিত ১৫ মে, ২০২৩",
+                social_media: "সোশ্যাল মিডিয়া",
+                strategy: "কৌশল",
+                halal: "হালাল",
+                featured_post_content: "আজকের ডিজিটাল যুগে, ব্যবসার সাফল্যের জন্য একটি শক্তিশালী সোশ্যাল মিডিয়া উপস্থিতি অপরিহার্য। তবে, মুসলিম উদ্যোক্তা হিসেবে আমাদের অবশ্যই নিশ্চিত করতে হবে যে আমাদের কৌশলগুলি ইসলামিক মূল্যবোধের সাথে সামঞ্জস্যপূর্ণ। এই বিস্তৃত গাইডে হালাল নীতি বজায় রেখে কনটেন্ট তৈরি থেকে শুরু করে অডিয়েন্স এনগেজমেন্ট পর্যন্ত সবকিছুই কভার করা হয়েছে।",
+                views: "১.২K বার দেখা হয়েছে",
+                read_full: "সম্পূর্ণ পড়ুন",
                 
-                // Services
-                service1_title: "গ্রাফিক্স ডিজাইন",
-                service1_item1: "লোগো ডিজাইন",
-                service1_item2: "সোশ্যাল মিডিয়া পোস্ট",
-                service1_item3: "ইউটিউব থাম্বনেইল",
-                service1_item4: "ভিডিও এডিটিং",
-                service2_title: "কনটেন্ট রাইটিং",
-                service2_desc: "পণ্যের গুরুত্ব বোঝানো এবং পণ্যের সাথে মানানসই গল্প বলে গ্রাহকবান্ধব কনটেন্ট লিখে দেওয়া হয়।",
-                service3_title: "ফেসবুক অপ্টিমাইজেশন",
-                service3_desc: "ফেসবুক পেজ সাজিয়ে দেওয়া হয়। পেজ প্রোফাইল, কভার ফটোসহ সকল সেটিংস ঠিকঠাক করা হয়।",
-                service4_title: "ফেসবুক বিজ্ঞাপন ব্যবস্থাপনা",
-                service4_desc: "পেশাদার ফেসবুক বিজ্ঞাপন প্রচারণা আপনার লক্ষ্য দর্শকদের কাছে পৌঁছাতে এবং রূপান্তর সর্বাধিক করতে।",
-                service5_title: "ওয়েবসাইট ডেভেলপমেন্ট",
-                service5_desc: "কাস্টম ওয়েবসাইট ডিজাইন করা হয় আপনার ব্যবসা প্রদর্শন এবং ভিজিটরদের গ্রাহকে পরিণত করতে।",
-                service6_title: "ব্র্যান্ড কৌশল",
-                service6_desc: "বাজারে আপনার অনন্য পরিচয় প্রতিষ্ঠার জন্য ব্যাপক ব্র্যান্ডিং সমাধান।",
+                // Blog Grid
+                latest_articles: "সর্বশেষ আর্টিকেলসমূহ",
+                all: "সব",
+                design: "ডিজাইন",
+                business: "ব্যবসা",
+                interview: "সাক্ষাৎকার",
+                photography: "ফটোগ্রাফি",
+                nusrat_jahan: "নুসরাত জাহান",
+                may_10: "১০ মে, ২০২৩",
+                article1_title: "২০২৩ সালে কার্যকর ফেসবুক বিজ্ঞাপন কৌশল",
+                article1_excerpt: "বাংলাদেশের ছোট ব্যবসাগুলির জন্য এই বছর ফলাফল দিচ্ছে এমন সর্বশেষ ফেসবুক বিজ্ঞাপন কৌশলগুলি আবিষ্কার করুন।",
+                "4_min_read": "৪ মিনিট পড়া",
+                tasnim_ahmed: "তাসনিম আহমেদ",
+                may_5: "৫ মে, ২০২৩",
+                article2_title: "ব্র্যান্ডিংয়ে কালার সাইকোলজি",
+                article2_excerpt: "আপনার ব্র্যান্ডের জন্য সঠিক রং কীভাবে বেছে নেবেন যা আপনার টার্গেট অডিয়েন্সের সাথে অনুরণিত হয় এবং আপনার বার্তা পৌঁছে দেয় তা শিখুন।",
+                "6_min_read": "৬ মিনিট পড়া",
+                farhana_akter: "ফারহানা আক্তার",
+                apr_28: "২৮ এপ্রিল, ২০২৩",
+                article3_title: "বাংলাদেশে অনলাইন ব্যবসা শুরু করা",
+                article3_excerpt: "আকাঙ্ক্ষী নারী উদ্যোক্তাদের জন্য ব্যবসা নিবন্ধন থেকে শুরু করে পেমেন্ট গেটওয়ে পর্যন্ত সবকিছু কভার করে ধাপে ধাপে গাইড।",
+                "8_min_read": "৮ মিনিট পড়া",
+                sabrina_islam: "সাবরিনা ইসলাম",
+                apr_22: "২২ এপ্রিল, ২০২৩",
+                article4_title: "সাফল্যের গল্প: রিমার হস্তশিল্প ব্যবসা",
+                article4_excerpt: "রিমা বেগুমের সাথে একান্ত সাক্ষাৎকার যিনি তার ছোট হস্তশিল্প ব্যবসাকে একটি উন্নত অনলাইন উদ্যোগে পরিণত করেছেন।",
+                "10_min_read": "১০ মিনিট পড়া",
+                jannatul_ferdous: "জান্নাতুল ফেরদৌস",
+                apr_15: "১৫ এপ্রিল, ২০২৩",
+                article5_title: "ই-কমার্সের জন্য পণ্য ফটোগ্রাফি টিপস",
+                article5_excerpt: "পেশাদার-দেখতে পণ্যের ফটোগ্রাফের জন্য ব্যয়বহুল সরঞ্জামের প্রয়োজন নেই। বেসিক সরঞ্জাম দিয়ে কীভাবে দুর্দান্ত ফলাফল পাবেন তা এখানে।",
+                "5_min_read": "৫ মিনিট পড়া",
+                nazia_haque: "নাজিয়া হক",
+                apr_8: "৮ এপ্রিল, ২০২৩",
+                article6_title: "ছোট বাজেটের জন্য ডিজিটাল মার্কেটিং পরিকল্পনা",
+                article6_excerpt: "বাংলাদেশের বাজারে সর্বাধিক প্রভাবের জন্য সীমিত সম্পদ কীভাবে বরাদ্দ করবেন। বাস্তব কেস স্টাডি অন্তর্ভুক্ত।",
+                "7_min_read": "৭ মিনিট পড়া",
                 learn_more: "আরও জানুন",
+                load_more: "আরও আর্টিকেল লোড করুন",
                 
-                // Testimonials
-                client_testimonials: "ক্লায়েন্ট টেস্টিমোনিয়ালস",
-                testimonials_subtitle: "আমাদের সেবা সম্পর্কে আমাদের ক্লায়েন্টরা কী বলেন",
-                testimonial3_text: "\"তারা আমার ব্যবসার জন্য যে ওয়েবসাইট তৈরি করেছে তা শুধু সুন্দরই নয়, সম্পূর্ণ কার্যকরীও। তাদের বিস্তারিত দিকে মনোযোগ অসাধারণ।\"",
-                testimonial3_name: "নুসরাত জাহান",
-                testimonial3_title: "সিইও, অর্গানিক কসমেটিক্স",
+                // Popular Tags
+                popular_tags: "জনপ্রিয় ট্যাগসমূহ",
+                tags_subtitle: "আপনার সবচেয়ে আগ্রহের বিষয় অনুসারে আর্টিকেল ব্রাউজ করুন",
+                branding: "ব্র্যান্ডিং",
+                ecommerce: "ই-কমার্স",
+                seo: "এসইও",
+                content: "কনটেন্ট",
                 
                 // Newsletter
                 newsletter: "নিউজলেটার",
-                stay_updated: "আমাদের সর্বশেষ সেবার সাথে আপডেট থাকুন",
-                newsletter_subtitle: "নতুন সেবা, বিশেষ অফার এবং মার্কেটিং টিপস পেতে আমাদের নিউজলেটারে যোগ দিন।",
+                stay_updated: "আমাদের সর্বশেষ আর্টিকেলের সাথে আপডেট থাকুন",
+                newsletter_subtitle: "মাসিক আপডেট, মার্কেটিং টিপস, সাফল্যের গল্প এবং একচেটিয়া অফার পেতে আমাদের নিউজলেটারে যোগ দিন।",
                 email_placeholder: "আপনার ইমেইল ঠিকানা",
-                
-                // Modal
-                service_details: "সেবার বিবরণ",
-                pricing: "মূল্য",
-                delivery_time: "ডেলিভারি সময়",
-                order_now: "এখনই অর্ডার করুন",
                 
                 // Footer
                 footer_tagline: "নারী উদ্যোক্তাদের জন্য হালাল ডিজিটাল মার্কেটিং সমাধান",
@@ -1161,6 +1042,9 @@
         };
 
         function switchLanguage(lang) {
+            // Add font change animation
+            document.body.style.animation = 'fontChange 0.5s ease-in-out';
+            
             // Update all translatable elements
             document.querySelectorAll('[data-i18n]').forEach(element => {
                 const key = element.getAttribute('data-i18n');
@@ -1168,17 +1052,28 @@
                     if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
                         element.placeholder = translations[lang][key];
                     } else {
-                        element.textContent = translations[lang][key];
+                        // For elements with data-i18n-value (like the constant blog title)
+                        const customValue = element.getAttribute('data-i18n-value');
+                        element.textContent = customValue ? customValue : translations[lang][key];
                     }
                 }
             });
             
             // Switch font family for Bangla
             if (lang === 'bn') {
-                document.body.style.fontFamily = "'Hind Siliguri', sans-serif";
+                setTimeout(() => {
+                    document.body.style.fontFamily = "'Hind Siliguri', sans-serif";
+                }, 250); // Halfway through the animation
             } else {
-                document.body.style.fontFamily = "'Poppins', sans-serif";
+                setTimeout(() => {
+                    document.body.style.fontFamily = "'Poppins', sans-serif";
+                }, 250);
             }
+            
+            // Remove animation after it completes
+            setTimeout(() => {
+                document.body.style.animation = '';
+            }, 500);
             
             // Store language preference
             localStorage.setItem('preferredLanguage', lang);
