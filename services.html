@@ -388,7 +388,8 @@
                     </p>
                     <div class="flex space-x-4">
                         <a href="#services"
-                            class="explore-btn px-6 py-3 bg-white text-primary rounded-full font-semibold hover:bg-gray-100 transition flex items-center btn-animate">
+                            class="explore-btn px-6 py-3 bg-white text-primary rounded-full font-semibold hover:bg-gray-100 transition flex items-center btn-animate no-text-break"
+                            onclick="event.preventDefault(); document.querySelector('#services').scrollIntoView({ behavior: 'smooth' });">
                             <span data-i18n="explore_services">Explore Services</span>
                             <i class="fas fa-arrow-down ml-2"></i>
                         </a>
