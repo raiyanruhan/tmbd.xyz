@@ -339,6 +339,44 @@
                     <div class="flex space-x-4">
                         <a href="#story" class="explore-btn px-6 py-3 bg-white text-primary rounded-full font-semibold hover:bg-gray-100 transition flex items-center btn-animate text-reveal" style="transition-delay: 0.7s">
                             <span data-i18n="explore_story">Our Story</span>
+                            <script>
+                                // Smooth spring-like scroll to #story
+                                document.addEventListener('DOMContentLoaded', function() {
+                                    const exploreBtn = document.querySelector('a.explore-btn');
+                                    if (exploreBtn) {
+                                        exploreBtn.addEventListener('click', function(e) {
+                                            e.preventDefault();
+                                            const target = document.getElementById('story');
+                                            if (!target) return;
+                                            const start = window.scrollY || window.pageYOffset;
+                                            const end = target.getBoundingClientRect().top + start - 40; // offset for nav
+                                            const duration = 900;
+                                            let startTime = null;
+
+                                            function easeOutElastic(t) {
+                                                const c4 = (2 * Math.PI) / 3;
+                                                return t === 0
+                                                    ? 0
+                                                    : t === 1
+                                                    ? 1
+                                                    : Math.pow(2, -10 * t) * Math.sin((t * 10 - 0.75) * c4) + 1;
+                                            }
+
+                                            function animateScroll(currentTime) {
+                                                if (!startTime) startTime = currentTime;
+                                                const timeElapsed = currentTime - startTime;
+                                                const progress = Math.min(timeElapsed / duration, 1);
+                                                const eased = easeOutElastic(progress);
+                                                window.scrollTo(0, start + (end - start) * eased);
+                                                if (progress < 1) {
+                                                    requestAnimationFrame(animateScroll);
+                                                }
+                                            }
+                                            requestAnimationFrame(animateScroll);
+                                        });
+                                    }
+                                });
+                            </script>
                             <i class="fas fa-arrow-down ml-2"></i>
                         </a>
                         <a href="services.html" class="px-6 py-3 border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-primary transition flex items-center btn-animate text-reveal" style="transition-delay: 0.9s" data-i18n="our_services">
@@ -347,7 +385,7 @@
                     </div>
                 </div>
                 
-                <div class="md:w-1/2 animate-float">
+                <div class="md:w-1/2 animate-none">
                     <div class="relative">
                         <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" 
                              alt="Women entrepreneurs" 
@@ -414,74 +452,28 @@
                 <p class="text-gray-600 max-w-2xl mx-auto" data-i18n="services_subtitle">
                     Comprehensive digital marketing solutions designed specifically for female entrepreneurs
                 </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="service-card bg-white rounded-xl overflow-hidden">
-                    <div class="h-48 bg-gradient-to-r from-primary to-secondary flex items-center justify-center relative">
-                        <i class="fas fa-paint-brush service-icon text-white text-5xl"></i>
-                        <div class="halal-badge" data-i18n="halal_certified">Halal Certified</div>
-                    </div>
-                    <div class="p-6 service-card-content">
-                        <h3 class="text-xl font-bold text-primary mb-3" data-i18n="service1_title">Graphics Design</h3>
-                        <p class="text-gray-600 mb-6" data-i18n="service1_desc">
-                            Beautiful, professional designs that align with Islamic values and appeal to your target audience.
-                        </p>
-                        <div class="flex items-center justify-between">
-                            <div class="text-accent font-semibold">Starting from ৳2,000</div>
-                            <a href="services.html" class="learn-more-btn px-4 py-2 bg-primary text-white rounded-full text-sm font-medium hover:bg-dark transition btn-animate" data-i18n="learn_more">
-                                Learn More
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Service 2 -->
-                <div class="service-card bg-white rounded-xl overflow-hidden">
-                    <div class="h-48 bg-gradient-to-r from-primary to-secondary flex items-center justify-center relative">
-                        <i class="fas fa-ad service-icon text-white text-5xl"></i>
-                        <div class="halal-badge" data-i18n="halal_certified">Halal Certified</div>
-                    </div>
-                    <div class="p-6 service-card-content">
-                        <h3 class="text-xl font-bold text-primary mb-3" data-i18n="service2_title">Facebook Ads</h3>
-                        <p class="text-gray-600 mb-6" data-i18n="service2_desc">
-                            Ethical ad campaigns that reach your ideal customers without compromising your values.
-                        </p>
-                        <div class="flex items-center justify-between">
-                            <div class="text-accent font-semibold">Starting from ৳5,000</div>
-                            <a href="services.html" class="learn-more-btn px-4 py-2 bg-primary text-white rounded-full text-sm font-medium hover:bg-dark transition btn-animate" data-i18n="learn_more">
-                                Learn More
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Service 3 -->
-                <div class="service-card bg-white rounded-xl overflow-hidden">
-                    <div class="h-48 bg-gradient-to-r from-primary to-secondary flex items-center justify-center relative">
-                        <i class="fas fa-code service-icon text-white text-5xl"></i>
-                        <div class="halal-badge" data-i18n="halal_certified">Halal Certified</div>
-                    </div>
-                    <div class="p-6 service-card-content">
-                        <h3 class="text-xl font-bold text-primary mb-3" data-i18n="service3_title">Website Development</h3>
-                        <p class="text-gray-600 mb-6" data-i18n="service3_desc">
-                            Professional websites that showcase your business while maintaining Islamic principles.
-                        </p>
-                        <div class="flex items-center justify-between">
-                            <div class="text-accent font-semibold">Starting from ৳15,000</div>
-                            <a href="services.html" class="learn-more-btn px-4 py-2 bg-primary text-white rounded-full text-sm font-medium hover:bg-dark transition btn-animate" data-i18n="learn_more">
-                                Learn More
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </div>                
             
             <div class="text-center mt-12">
-                <a href="services.html" class="inline-block bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-dark transition duration-300 shadow-lg btn-animate" data-i18n="view_all_services">
-                    View All Services
+                <a href="services.html" 
+                   class="inline-block bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-dark transition duration-300 shadow-lg btn-animate relative overflow-hidden"
+                   data-i18n="view_all_services"
+                   id="viewAllServicesBtn">
+                    <span class="relative z-10">View All Services</span>
+                    <span class="absolute inset-0 bg-accent opacity-0 transition-opacity duration-500" id="btnRipple"></span>
                 </a>
+            </div>
+            <script>
+                // Ripple animation on button tap/click
+                const btn = document.getElementById('viewAllServicesBtn');
+                const ripple = document.getElementById('btnRipple');
+                btn.addEventListener('pointerdown', function(e) {
+                    ripple.style.opacity = '0.3';
+                    setTimeout(() => {
+                        ripple.style.opacity = '0';
+                    }, 400);
+                });
+            </script>
             </div>
         </div>
     </section>
@@ -514,7 +506,7 @@
                     </p>
                     <div class="flex items-center">
                         <div class="w-12 h-12 rounded-full bg-gray-300 mr-4 overflow-hidden">
-                            <img src="https://randomuser.me/api/portraits/women/32.jpg" 
+                            <img src="client.png" 
                                  alt="Client" 
                                  class="w-full h-full object-cover"
                                  loading="lazy"
@@ -544,7 +536,7 @@
                     </p>
                     <div class="flex items-center">
                         <div class="w-12 h-12 rounded-full bg-gray-300 mr-4 overflow-hidden">
-                            <img src="https://randomuser.me/api/portraits/women/44.jpg" 
+                            <img src="client.png" 
                                  alt="Client" 
                                  class="w-full h-full object-cover"
                                  loading="lazy"
@@ -574,7 +566,7 @@
                     </p>
                     <div class="flex items-center">
                         <div class="w-12 h-12 rounded-full bg-gray-300 mr-4 overflow-hidden">
-                            <img src="https://randomuser.me/api/portraits/women/68.jpg" 
+                            <img src="client.png" 
                                  alt="Client" 
                                  class="w-full h-full object-cover"
                                  loading="lazy"
@@ -647,12 +639,16 @@
                         </li>
                     </ul>
                 </div>
-                <div>
-                    <h4 class="text-lg font-bold mb-4" data-i18n="developer">Developer</h4>
-                    <p data-i18n="developed_by">Website developed by:</p>
-                    <p class="mt-2 font-semibold">Raiyan Bin Rashid <br> Jotirmoy Bhowmik</p>
-                    <p class="text-sm mt-4 text-accent">© <span id="currentYear"></span> Target Marketing BD. <span data-i18n="all_rights">All rights reserved.</span></p>
-                </div>
+            <div>
+                <h4 class="text-lg font-bold mb-4" data-i18n="developer">Developer</h4>
+                <p data-i18n="developed_by">Website developed by:</p>
+                <p class="mt-2 font-semibold">
+                    <a href="https://github.com/raiyanbinrashid1541/" target="_blank" rel="noopener" class="hover:text-accent transition">
+                        Raiyan Bin Rashid
+                    </a>
+                </p>
+                <p class="text-sm mt-4 text-accent">© <span id="currentYear"></span> Target Marketing BD. <span
+                        data-i18n="all_rights">All rights reserved.</span></p>
             </div>
         </div>
     </footer>
@@ -725,9 +721,9 @@
                 contact: "Contact",
                 
                 // Hero
-                hero_title1: "Empowering Women Entrepreneurs",
-                hero_title2: "With Halal Digital Marketing",
-                hero_subtitle: "Ethical digital marketing solutions designed specifically for female entrepreneurs in Bangladesh",
+                hero_title1: "Your Reliable Partner in",
+                hero_title2: "Facebook Marketing.",
+                hero_subtitle: "Professional Digital Marketing Agency for Women Entrepreneurs—All Services in One Place, from Logo to Brand Management.",
                 explore_story: "Our Story",
                 our_services: "Our Services",
                 
@@ -735,21 +731,15 @@
                 our_story: "Our Story",
                 story_subtitle: "How we're changing the digital landscape for women entrepreneurs",
                 story1_title: "The Beginning",
-                story1_desc: "Founded in 2020, Target Marketing BD started with a simple mission: to provide halal digital marketing solutions for women entrepreneurs who wanted to grow their businesses online while maintaining Islamic values.",
-                story2_title: "The Challenge",
-                story2_desc: "We noticed many talented women entrepreneurs struggling with digital marketing - either because of limited technical knowledge or concerns about maintaining Islamic principles in their online presence.",
-                story3_title: "Our Solution",
-                story3_desc: "We assembled a team of female digital marketing experts who understand both the technical aspects and the cultural/religious considerations to create truly halal marketing solutions.",
+                story1_desc: "For Muslim sisters, finding modesty-friendly marketing was a silent struggle, often risking their veil. Now, there's a better way! Target Marketing BD launched in 2023, offering expert, halal guidance so you can thrive with peace of mind.",
+                story2_title: "Our Goal",
+                story2_desc: "Finally, Facebook marketing that understands you! Muslim women deserve to grow their businesses without compromising their porda or facing uncomfortable interactions. Target Marketing BD offers expert, women-led, halal services so you can confidently reach new heights, Insha'Allah.",
+                story3_title: "The Main Point",
+                story3_desc: "Target Marketing BD is a women-led, women-friendly digital marketing agency. Our all-female team offers professional, comfortable service, eliminating male contact. We're the top choice for veiled Muslim entrepreneurs, Alhamdullilah!",
                 
                 // Services
                 our_services: "Our Services",
                 services_subtitle: "Comprehensive digital marketing solutions designed specifically for female entrepreneurs",
-                service1_title: "Graphics Design",
-                service1_desc: "Beautiful, professional designs that align with Islamic values and appeal to your target audience.",
-                service2_title: "Facebook Ads",
-                service2_desc: "Ethical ad campaigns that reach your ideal customers without compromising your values.",
-                service3_title: "Website Development",
-                service3_desc: "Professional websites that showcase your business while maintaining Islamic principles.",
                 learn_more: "Learn More",
                 view_all_services: "View All Services",
                 
@@ -788,9 +778,9 @@
                 contact: "যোগাযোগ",
                 
                 // Hero
-                hero_title1: "নারী উদ্যোক্তাদের ক্ষমতায়ন",
-                hero_title2: "হালাল ডিজিটাল মার্কেটিং এর মাধ্যমে",
-                hero_subtitle: "বাংলাদেশের নারী উদ্যোক্তাদের জন্য বিশেষভাবে ডিজাইন করা নৈতিক ডিজিটাল মার্কেটিং সমাধান",
+                hero_title1: "ফেসবুক মার্কেটিং এ",
+                hero_title2: "আপনার নির্ভরযোগ্য পার্টনার",
+                hero_subtitle: "নারী উদ্যোক্তাদের জন্য প্রফেশনাল ডিজিটাল মার্কেটিং এজেন্সি—লোগো থেকে ব্র্যান্ড ম্যানেজমেন্ট, সব সেবা এক জায়গায়",
                 explore_story: "আমাদের গল্প",
                 our_services: "আমাদের সেবা",
                 
@@ -798,31 +788,20 @@
                 our_story: "আমাদের গল্প",
                 story_subtitle: "কিভাবে আমরা নারী উদ্যোক্তাদের জন্য ডিজিটাল ল্যান্ডস্কেপ পরিবর্তন করছি",
                 story1_title: "শুরুটা",
-                story1_desc: "২০২০ সালে প্রতিষ্ঠিত, টার্গেট মার্কেটিং বিডি একটি সহজ মিশন নিয়ে শুরু হয়েছিল: ইসলামিক মূল্যবোধ বজায় রেখে নারী উদ্যোক্তাদের জন্য হালাল ডিজিটাল মার্কেটিং সমাধান প্রদান করা যারা তাদের ব্যবসা অনলাইনে বাড়াতে চেয়েছিলেন।",
-                story2_title: "চ্যালেঞ্জ",
-                story2_desc: "আমরা লক্ষ্য করেছি অনেক প্রতিভাবান নারী উদ্যোক্তারা ডিজিটাল মার্কেটিং নিয়ে সংগ্রাম করছেন - হয় সীমিত প্রযুক্তিগত জ্ঞানের কারণে অথবা তাদের অনলাইন উপস্থিতিতে ইসলামিক নীতিমালা বজায় রাখার বিষয়ে উদ্বেগের কারণে।",
-                story3_title: "আমাদের সমাধান",
-                story3_desc: "আমরা নারী ডিজিটাল মার্কেটিং বিশেষজ্ঞদের একটি দল গঠন করেছি যারা প্রযুক্তিগত দিক এবং সাংস্কৃতিক/ধর্মীয় বিবেচনা উভয়ই বোঝেন যাতে সত্যিকারের হালাল মার্কেটিং সমাধান তৈরি করা যায়।",
+                story1_desc: "অনলাইন বিজনেসের দুনিয়ায় নারীরা যেন সবসময় পুরুষ এজেন্সিগুলোর ওপর নির্ভরশীল। ফেসবুক মার্কেটিংয়ের সূক্ষ্ম বিষয়গুলো বুঝতে হলে পর্দাশীল নারী উদ্যোক্তাকেও যোগাযোগ করতে হয় পুরুষ মার্কেটারের সাথে। একদিকে পর্দা খেলাফের ভয়, অন্যদিকে সঠিক দিকনির্দেশনা ও সহায়তার অভাবে অনেক প্রতিভাবান নারী উদ্যোক্তাই ব্যবসার মাঝপথে থেমে যাচ্ছিলেন। এই সমস্যা নিরসনের উদ্দেশ্য থেকেই ২০২৩ সালে শুরু হয় টার্গেট মার্কেটিং বিডি-এর যাত্রা।",
+                story2_title: "আমাদের লক্ষ্য",
+                story2_desc: "টার্গেট মার্কেটিং বিডি একটি নারী-নেতৃত্বাধীন ও নারী-বান্ধব ডিজিটাল মার্কেটিং প্রতিষ্ঠান। আমাদের নারী সদস্যরা পেশাদারিত্ব ও আন্তরিকতার সাথে কাজ করেন। নারী উদ্যোক্তারা এখানে স্বাচ্ছন্দ্যে সেবা নিতে পারেন, পুরুষদের সাথে যোগাযোগের প্রয়োজন হয় না। তাই পর্দাশীল নারী উদ্যোক্তাদের জন্য এটিই প্রথম পছন্দের জায়গা, আলহামদুলিল্লাহ।",
+                story3_title: "মূলকথা",
+                story3_desc: "টার্গেট মার্কেটিং বিডি একটি নারী-নেতৃত্বাধীন ও নারী-বান্ধব ডিজিটাল মার্কেটিং সেবা প্রতিষ্ঠান। আমাদের টিমের প্রত্যেক সদস্যই নারী, যারা পেশাদারিত্ব, দক্ষতা ও আন্তরিকতা নিয়ে কাজ করে থাকেন।আমাদের সঙ্গে কাজ করলে নারী উদ্যোক্তারা স্বচ্ছন্দে সেবা নিতে পারেন—এখানে পুরুষদের সঙ্গে  যোগাযোগের প্রয়োজন হয় না। তাই পর্দাশীল নারী উদ্যোক্তাদের জন্য এটি প্রথম পছন্দের জায়গা আলহামদুলিল্লাহ।",
                 
                 // Services
                 our_services: "আমাদের সেবাসমূহ",
-                services_subtitle: "নারী উদ্যোক্তাদের জন্য বিশেষভাবে ডিজাইন করা ব্যাপক ডিজিটাল মার্কেটিং সমাধান",
-                service1_title: "গ্রাফিক্স ডিজাইন",
-                service1_desc: "সুন্দর, পেশাদার ডিজাইন যা ইসলামিক মূল্যবোধের সাথে সামঞ্জস্যপূর্ণ এবং আপনার লক্ষ্য দর্শকদের আকর্ষণ করে।",
-                service2_title: "ফেসবুক বিজ্ঞাপন",
-                service2_desc: "নৈতিক বিজ্ঞাপন প্রচারণা যা আপনার মূল্যবোধের সাথে আপস না করেই আপনার আদর্শ গ্রাহকদের কাছে পৌঁছায়।",
-                service3_title: "ওয়েবসাইট ডেভেলপমেন্ট",
-                service3_desc: "পেশাদার ওয়েবসাইট যা ইসলামিক নীতিমালা বজায় রেখে আপনার ব্যবসাকে প্রদর্শন করে।",
-                learn_more: "আরও জানুন",
+                services_subtitle: "আমাদের সেবাসমূহ দেখতে চাইলে নিচের বাটনে ক্লিক করুন 👇",
                 view_all_services: "সমস্ত সেবা দেখুন",
                 
                 // Testimonials
-                success_stories: "সাফল্যের গল্প",
-                stories_subtitle: "কিভাবে আমরা নারী উদ্যোক্তাদের তাদের ব্যবসা বাড়াতে সাহায্য করেছি",
-                testimonial3_text: "\"তারা আমার ব্যবসার জন্য যে ওয়েবসাইট তৈরি করেছে তা শুধু সুন্দরই নয়, সম্পূর্ণ কার্যকরীও। তাদের বিস্তারিত দিকে মনোযোগ অসাধারণ এবং তারা একজন মুসলিম ব্যবসায়ী হিসেবে আমার কী প্রয়োজন তা ঠিক বুঝতে পেরেছিল।\"",
-                testimonial3_name: "নুসরাত জাহান",
-                testimonial3_title: "সিইও, অর্গানিক কসমেটিক্স",
-                
+                success_stories: "ক্লায়েন্টদের রিভিউ",
+                stories_subtitle: "পড়ুন তারা আমাদের সম্পর্কে কী বলছেন",
                 // Newsletter
                 newsletter: "নিউজলেটার",
                 stay_updated: "আমাদের সর্বশেষ সেবার সাথে আপডেট থাকুন",

@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order | Target Marketing BD</title>
+    <meta name="description" content="Place your order for halal digital marketing services">
+
+    <!-- Preload critical resources -->
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+
+    <!-- Fonts -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#044443',
+                        secondary: '#228B7D',
+                        accent: '#66ADA5',
+                        dark: '#0D302C',
+                        light: '#F5F7FA'
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                        siliguri: ['Hind Siliguri', 'sans-serif']
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-in': 'fadeIn 1s ease-in forwards',
+                        'slide-up': 'slideUp 0.8s ease-out forwards',
+                        'blink': 'blink 1.5s infinite',
+                        'pulse-slow': 'pulse 5s infinite',
+                        'wave': 'wave 8s linear infinite',
+                        'tilt': 'tilt 10s infinite linear',
+                        'bounce': 'bounce 1s infinite',
+                        'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        blink: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0.5' }
+                        },
+                        wave: {
+                            '0%': { transform: 'rotate(0deg)' },
+                            '10%': { transform: 'rotate(14deg)' },
+                            '20%': { transform: 'rotate(-8deg)' },
+                            '30%': { transform: 'rotate(14deg)' },
+                            '40%': { transform: 'rotate(-4deg)' },
+                            '50%': { transform: 'rotate(10deg)' },
+                            '60%': { transform: 'rotate(0deg)' },
+                            '100%': { transform: 'rotate(0deg)' }
+                        },
+                        tilt: {
+                            '0%, 50%, 100%': { transform: 'rotate(0deg)' },
+                            '25%': { transform: 'rotate(2deg)' },
+                            '75%': { transform: 'rotate(-2deg)' }
+                        },
+                        bounce: {
+                            '0%, 100%': {
+                                transform: 'translateY(-25%)',
+                                animationTimingFunction: 'cubic-bezier(0.8,0,1,1)'
+                            },
+                            '50%': {
+                                transform: 'none',
+                                animationTimingFunction: 'cubic-bezier(0,0,0.2,1)'
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Loading Bar */
+        .loading-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(to right, #044443, #228B7D);
+            z-index: 9999;
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+
+        /* Halal Badge */
+        .halal-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #048444;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* Form Styles */
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            border-color: #66ADA5;
+            box-shadow: 0 0 0 3px rgba(102, 173, 165, 0.2);
+            outline: none;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #044443;
+        }
+
+        /* Button animations */
+        .btn-animate {
+            transition: all 0.3s ease;
+        }
+
+        .btn-animate:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-animate:active {
+            transform: translateY(1px);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .mobile-menu.open {
+            max-height: 500px;
+        }
+
+        /* Mobile menu overlay */
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 40;
+        }
+
+        .mobile-menu-overlay.active {
+            display: block;
+        }
+
+        /* Language Toggle */
+        .language-toggle {
+            transition: all 0.3s ease;
+        }
+
+        .language-toggle.active {
+            background-color: #228B7D;
+            color: white;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            padding: 20px;
+            background-color: #d4edda;
+            color: #155724;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body class="font-poppins bg-gray-50 text-gray-800">
+    <!-- Loading Bar -->
+    <div id="loadingBar" class="loading-bar"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <img src="logo.jpg" alt="Target Marketing BD Logo" class="h-12 mr-4">
+                        <span class="text-xl font-bold text-primary">Target Marketing BD</span>
+                    </a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-primary hover:text-accent transition" data-i18n="home">Home</a>
+                    <a href="services.html" class="text-primary hover:text-accent transition" data-i18n="services">Services</a>
+                    <a href="blog.html" class="text-primary hover:text-accent transition" data-i18n="blog">Blog</a>
+                    <a href="about.html" class="text-primary hover:text-accent transition" data-i18n="about">About</a>
+                    <a href="contact.html" class="text-primary hover:text-accent transition" data-i18n="contact">Contact</a>
+
+                    <div class="flex items-center space-x-2 ml-6">
+                        <button id="enBtn" class="language-toggle active px-3 py-1 rounded-full text-sm">EN</button>
+                        <button id="bnBtn"
+                            class="language-toggle px-3 py-1 rounded-full text-sm border border-primary">BN</button>
+                    </div>
+                </div>
+
+                <button class="md:hidden focus:outline-none" id="mobileMenuBtn">
+                    <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Overlay -->
+            <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+            <!-- Mobile Menu -->
+            <div class="mobile-menu md:hidden absolute left-0 right-0 bg-white shadow-lg z-50" id="mobileMenu">
+                <div class="pt-4 pb-2 px-6 space-y-2 text-sm font-medium">
+                    <a href="index.html" class="block py-2 text-primary hover:text-accent transition"
+                        data-i18n="home">Home</a>
+                    <a href="services.html" class="block py-2 text-primary hover:text-accent transition"
+                        data-i18n="services">Services</a>
+                    <a href="blog.html" class="block py-2 text-primary hover:text-accent transition"
+                        data-i18n="blog">Blog</a>
+                    <a href="about.html" class="block py-2 text-primary hover:text-accent transition"
+                        data-i18n="about">About</a>
+                    <a href="contact.html" class="block py-2 text-primary hover:text-accent transition"
+                        data-i18n="contact">Contact</a>
+                    <div class="flex items-center space-x-2 px-3 py-4 justify-center">
+                        <button id="enBtnMobile"
+                            class="language-toggle active px-4 py-2 rounded-full text-sm">English</button>
+                        <button id="bnBtnMobile"
+                            class="language-toggle px-4 py-2 rounded-full text-sm border border-primary">বাংলা</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Order Section -->
+    <section class="pt-32 pb-20 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center mb-12">
+                <h1 class="text-3xl md:text-4xl font-bold text-primary mb-4" id="order-title" data-i18n="order_title">Place Your Order</h1>
+                <div class="w-20 h-1 bg-accent mx-auto mb-6"></div>
+                <p class="text-gray-600" id="order-subtitle" data-i18n="order_subtitle">Complete the form below to place your order</p>
+            </div>
+
+            <!-- Success Message (hidden by default) -->
+            <div id="successMessage" class="success-message">
+                <div class="flex items-center">
+                    <i class="fas fa-check-circle text-green-500 mr-3 text-2xl"></i>
+                    <div>
+                        <h3 class="font-bold" data-i18n="success_title">Order Submitted Successfully!</h3>
+                        <p data-i18n="success_message">Thank you for your order. We'll contact you shortly.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order Details -->
+            <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                <h2 class="text-xl font-bold text-primary mb-4" data-i18n="order_details">Order Details</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <div>
+                        <p class="text-gray-500" data-i18n="service_name">Service:</p>
+                        <p class="font-medium" id="service-name">-</p>
+                    </div>
+                    <div>
+                        <p class="text-gray-500" data-i18n="price">Price:</p>
+                        <p class="font-medium" id="service-price">-</p>
+                    </div>
+                </div>
+                <a href="services.html" class="text-accent hover:text-secondary transition flex items-center" data-i18n="change_service">
+                    <i class="fas fa-edit mr-2"></i> Change Service
+                </a>
+            </div>
+
+            <!-- Order Form -->
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <h2 class="text-xl font-bold text-primary mb-6" data-i18n="contact_info">Contact Information</h2>
+                
+                <form id="orderForm" action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+                    <input type="hidden" name="access_key" value="8b5c46b0-aecc-4ee0-857a-fc80719480dc">
+                    <input type="hidden" name="service" id="form-service-name">
+                    <input type="hidden" name="price" id="form-service-price">
+                    <input type="hidden" name="redirect" value="false">
+                    <input type="hidden" name="from_name" value="Target Marketing BD Order">
+                    <input type="checkbox" name="botcheck" id="" style="display: none;">
+
+                    <div>
+                        <label for="name" class="form-label" data-i18n="full_name">Full Name</label>
+                        <input type="text" id="name" name="name" class="form-input" required>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="email" class="form-label" data-i18n="email">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                        </div>
+                        <div>
+                            <label for="phone" class="form-label" data-i18n="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-input" required>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="address" class="form-label" data-i18n="address">Address (Optional)</label>
+                        <textarea id="address" name="address" class="form-input" rows="2"></textarea>
+                    </div>
+
+                    <div>
+                        <label for="message" class="form-label" data-i18n="special_instructions">Special Instructions</label>
+                        <textarea id="message" name="message" class="form-input" rows="4" data-i18n="message_placeholder" data-i18n-attr="placeholder" placeholder="Any additional details about your order..."></textarea>
+                    </div>
+
+                    <div class="flex items-center">
+                        <input type="checkbox" id="agree" name="agree" class="rounded text-accent focus:ring-accent mr-3" required>
+                        <label for="agree" class="text-gray-600" data-i18n="terms_agree">I agree to the terms and conditions</label>
+                    </div>
+
+                    <button type="submit" class="w-full px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-dark transition btn-animate" data-i18n="place_order">
+                        Place Order
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12 px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 container mx-auto">
+            <div>
+                <img src="logo.jpg" alt="Target Marketing BD Logo" class="h-16 mb-4">
+                <p data-i18n="footer_tagline">Halal digital marketing solutions for female entrepreneurs</p>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold mb-4" data-i18n="quick_links">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="index.html" class="hover:text-accent transition" data-i18n="home">Home</a></li>
+                    <li><a href="services.html" class="hover:text-accent transition"
+                            data-i18n="services">Services</a></li>
+                    <li><a href="blog.html" class="hover:text-accent transition" data-i18n="blog">Blog</a></li>
+                    <li><a href="about.html" class="hover:text-accent transition" data-i18n="about">About</a></li>
+                    <li><a href="contact.html" class="hover:text-accent transition" data-i18n="contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold mb-4" data-i18n="contact_us">Contact Us</h4>
+                <ul class="space-y-2">
+                    <li class="flex items-start">
+                        <i class="fas fa-envelope mt-1 mr-2 text-accent"></i>
+                        <span>targetmarketingbd@gmail.com</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-phone-alt mt-1 mr-2 text-accent"></i>
+                        <span>+880 1860 043330</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-map-marker-alt mt-1 mr-2 text-accent"></i>
+                        <span data-i18n="dhaka_bangladesh">Dhaka, Bangladesh</span>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold mb-4" data-i18n="developer">Developer</h4>
+                <p data-i18n="developed_by">Website developed by:</p>
+                <p class="mt-2 font-semibold">
+                    <a href="https://github.com/raiyanbinrashid1541/" target="_blank" rel="noopener" class="hover:text-accent transition">
+                        Raiyan Bin Rashid
+                    </a>
+                </p>
+                <p class="text-sm mt-4 text-accent">© <span id="currentYear"></span> Target Marketing BD. <span
+                        data-i18n="all_rights">All rights reserved.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Messenger Button -->
+    <a href="https://m.me/tmbd.xyz" target="_blank" id="messengerBtn"
+        class="fixed bottom-8 right-8 bg-blue-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl hover:bg-blue-700 transition duration-300 z-40 btn-animate">
+        <i class="fab fa-facebook-messenger text-2xl"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        // Loading bar animation
+        window.addEventListener('load', function () {
+            const loadingBar = document.getElementById('loadingBar');
+            let width = 1;
+            const interval = setInterval(() => {
+                if (width >= 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        loadingBar.style.opacity = '0';
+                        setTimeout(() => {
+                            loadingBar.style.display = 'none';
+                        }, 300);
+                    }, 300);
+                } else {
+                    width += 2;
+                    loadingBar.style.width = width + '%';
+
+                    // Slow down as we approach 100%
+                    if (width > 80) {
+                        width += 0.5;
+                    }
+                }
+            }, 20);
+
+            // Get service details from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const serviceName = urlParams.get('service');
+            const servicePrice = urlParams.get('price');
+
+            if (serviceName && servicePrice) {
+                document.getElementById('service-name').textContent = decodeURIComponent(serviceName);
+                document.getElementById('service-price').textContent = decodeURIComponent(servicePrice);
+                document.getElementById('form-service-name').value = decodeURIComponent(serviceName);
+                document.getElementById('form-service-price').value = decodeURIComponent(servicePrice);
+            } else {
+                // Redirect to services page if no service selected
+                window.location.href = 'services.html';
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+
+        mobileMenuBtn.addEventListener('click', function () {
+            mobileMenu.classList.toggle('open');
+            mobileMenuOverlay.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : 'auto';
+        });
+
+        mobileMenuOverlay.addEventListener('click', function () {
+            mobileMenu.classList.remove('open');
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Handle form submission
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const form = e.target;
+            const formData = new FormData(form);
+            
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Show success message
+                    document.getElementById('successMessage').style.display = 'block';
+                    document.getElementById('orderForm').style.display = 'none';
+                    
+                    // Scroll to success message
+                    document.getElementById('successMessage').scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                } else {
+                    alert('আপনার অর্ডারটি সফলভাবে আমরা পেয়েছি, দ্রুতই আপনার সাথে যোগাযোগ করা হবে।');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('আপনার অর্ডারটি সফলভাবে আমরা পেয়েছি, দ্রুতই আপনার সাথে যোগাযোগ করা হবে।');
+            });
+        });
+
+        // Language switching functionality
+        const translations = {
+            en: {
+                // Navigation
+                home: "Home",
+                services: "Services",
+                blog: "Blog",
+                about: "About",
+                contact: "Contact",
+                subscribe: "Subscribe",
+
+                // Order Page
+                order_title: "Place Your Order",
+                order_subtitle: "Complete the form below to place your order",
+                order_details: "Order Details",
+                service_name: "Service:",
+                price: "Price:",
+                change_service: "Change Service",
+                contact_info: "Contact Information",
+                full_name: "Full Name",
+                email: "Email Address",
+                phone: "Phone Number",
+                address: "Address (Optional)",
+                special_instructions: "Special Instructions",
+                message_placeholder: "Any additional details about your order...",
+                terms_agree: "I agree to the terms and conditions",
+                place_order: "Place Order",
+                success_title: "Order Submitted Successfully!",
+                success_message: "Thank you for your order. We'll contact you shortly.",
+
+                // Footer
+                footer_tagline: "Halal digital marketing solutions for female entrepreneurs",
+                quick_links: "Quick Links",
+                contact_us: "Contact Us",
+                developer: "Developer",
+                developed_by: "Website developed by:",
+                all_rights: "All rights reserved.",
+                dhaka_bangladesh: "Dhaka, Bangladesh"
+            },
+            bn: {
+                // Navigation
+                home: "হোম",
+                services: "সেবাসমূহ",
+                blog: "ব্লগ",
+                about: "আমাদের সম্পর্কে",
+                contact: "যোগাযোগ",
+                subscribe: "সাবস্ক্রাইব",
+
+                // Order Page
+                order_title: "অর্ডার করুন",
+                order_subtitle: "আপনার অর্ডার কনফার্ম করতে নিচের ফর্মটি পূরণ করুন",
+                order_details: "অর্ডার বিবরণ",
+                service_name: "সেবা:",
+                price: "মূল্য:",
+                change_service: "সেবা পরিবর্তন করুন",
+                contact_info: "যোগাযোগের তথ্য",
+                full_name: "পুরো নাম",
+                email: "ইমেইল ঠিকানা",
+                phone: "ফোন নম্বর",
+                address: "ঠিকানা (ঐচ্ছিক)",
+                special_instructions: "বিশেষ নির্দেশনা",
+                message_placeholder: "আপনার অর্ডার সম্পর্কে অতিরিক্ত বিবরণ...",
+                terms_agree: "আমি শর্তাবলীতে সম্মত",
+                place_order: "অর্ডার করুন",
+                success_title: "অর্ডার সফলভাবে জমা হয়েছে!",
+                success_message: "আপনার অর্ডারের জন্য ধন্যবাদ। আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব।",
+
+                // Footer
+                footer_tagline: "নারী উদ্যোক্তাদের জন্য ডিজিটাল মার্কেটিং সমাধান",
+                quick_links: "দ্রুত লিংক",
+                contact_us: "যোগাযোগ করুন",
+                developer: "ডেভেলপার",
+                developed_by: "ওয়েবসাইট ডেভেলপ করেছেন:",
+                all_rights: "সমস্ত অধিকার সংরক্ষিত।",
+                dhaka_bangladesh: "ঢাকা, বাংলাদেশ"
+            }
+        };
+
+        function switchLanguage(lang) {
+            // Update all translatable elements
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        if (element.hasAttribute('data-i18n-attr')) {
+                            const attr = element.getAttribute('data-i18n-attr');
+                            element.setAttribute(attr, translations[lang][key]);
+                        } else {
+                            element.value = translations[lang][key];
+                        }
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+
+            // Switch font family for Bangla
+            if (lang === 'bn') {
+                document.body.style.fontFamily = "'Hind Siliguri', sans-serif";
+            } else {
+                document.body.style.fontFamily = "'Poppins', sans-serif";
+            }
+
+            // Store language preference
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // Initialize language toggle buttons
+        function initLanguageToggle() {
+            const preferredLanguage = localStorage.getItem('preferredLanguage') || 'en';
+
+            // Set initial language
+            switchLanguage(preferredLanguage);
+
+            // Update button states
+            if (preferredLanguage === 'en') {
+                document.getElementById('enBtn').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtn').classList.remove('border');
+                document.getElementById('bnBtn').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtn').classList.add('border', 'border-primary');
+
+                // Mobile buttons
+                document.getElementById('enBtnMobile').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtnMobile').classList.remove('border');
+                document.getElementById('bnBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtnMobile').classList.add('border', 'border-primary');
+            } else {
+                document.getElementById('bnBtn').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtn').classList.remove('border');
+                document.getElementById('enBtn').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtn').classList.add('border', 'border-primary');
+
+                // Mobile buttons
+                document.getElementById('bnBtnMobile').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtnMobile').classList.remove('border');
+                document.getElementById('enBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtnMobile').classList.add('border', 'border-primary');
+            }
+
+            // Add event listeners
+            document.getElementById('enBtn').addEventListener('click', function () {
+                switchLanguage('en');
+                this.classList.add('active', 'bg-primary', 'text-white');
+                this.classList.remove('border');
+                document.getElementById('bnBtn').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtn').classList.add('border', 'border-primary');
+
+                // Update mobile buttons
+                document.getElementById('enBtnMobile').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtnMobile').classList.remove('border');
+                document.getElementById('bnBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtnMobile').classList.add('border', 'border-primary');
+            });
+
+            document.getElementById('bnBtn').addEventListener('click', function () {
+                switchLanguage('bn');
+                this.classList.add('active', 'bg-primary', 'text-white');
+                this.classList.remove('border');
+                document.getElementById('enBtn').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtn').classList.add('border', 'border-primary');
+
+                // Update mobile buttons
+                document.getElementById('bnBtnMobile').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtnMobile').classList.remove('border');
+                document.getElementById('enBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtnMobile').classList.add('border', 'border-primary');
+            });
+
+            // Mobile buttons
+            document.getElementById('enBtnMobile').addEventListener('click', function () {
+                switchLanguage('en');
+                this.classList.add('active', 'bg-primary', 'text-white');
+                this.classList.remove('border');
+                document.getElementById('bnBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtnMobile').classList.add('border', 'border-primary');
+
+                // Update desktop buttons
+                document.getElementById('enBtn').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtn').classList.remove('border');
+                document.getElementById('bnBtn').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtn').classList.add('border', 'border-primary');
+            });
+
+            document.getElementById('bnBtnMobile').addEventListener('click', function () {
+                switchLanguage('bn');
+                this.classList.add('active', 'bg-primary', 'text-white');
+                this.classList.remove('border');
+                document.getElementById('enBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtnMobile').classList.add('border', 'border-primary');
+
+                // Update desktop buttons
+                document.getElementById('bnBtn').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtn').classList.remove('border');
+                document.getElementById('enBtn').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtn').classList.add('border', 'border-primary');
+            });
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function () {
+            initLanguageToggle();
+
+            // Set current year in footer
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+
+</html>
