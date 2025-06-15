@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order | Target Marketing BD</title>
-    <meta name="description" content="Confirm your order for digital marketing services">
+    <title>Terms & Conditions | Target Marketing BD</title>
+    <meta name="description" content="Terms and conditions for Target Marketing BD's halal digital marketing services">
 
     <!-- Preload critical resources -->
     <link rel="preload"
@@ -122,43 +122,6 @@
             font-weight: bold;
         }
 
-        /* Form Styles */
-        .form-input {
-            width: 100%;
-            padding: 12px 16px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
-
-        .form-input:focus {
-            border-color: #66ADA5;
-            box-shadow: 0 0 0 3px rgba(102, 173, 165, 0.2);
-            outline: none;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: #044443;
-        }
-
-        /* Button animations */
-        .btn-animate {
-            transition: all 0.3s ease;
-        }
-
-        .btn-animate:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn-animate:active {
-            transform: translateY(1px);
-        }
-
         /* Mobile Menu */
         .mobile-menu {
             max-height: 0;
@@ -196,14 +159,48 @@
             color: white;
         }
 
-        /* Success Message */
-        .success-message {
-            display: none;
-            padding: 20px;
-            background-color: #d4edda;
-            color: #155724;
-            border-radius: 8px;
-            margin-bottom: 20px;
+        /* Terms Content Styling */
+        .terms-container {
+            counter-reset: section;
+        }
+
+        .terms-section {
+            margin-bottom: 2.5rem;
+            position: relative;
+            padding-left: 2.5rem;
+        }
+
+        .terms-section:before {
+            counter-increment: section;
+            content: counter(section) ".";
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-weight: bold;
+            color: #044443;
+            font-size: 1.5rem;
+        }
+
+        .terms-subsection {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .terms-subsection:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #228B7D;
+            font-weight: bold;
+        }
+
+        .highlight-box {
+            background-color: #F5F7FA;
+            border-left: 4px solid #228B7D;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
         }
     </style>
 </head>
@@ -272,94 +269,139 @@
         </div>
     </nav>
 
-    <!-- Order Section -->
+    <!-- Terms & Conditions Section -->
     <section class="pt-32 pb-20 px-4">
         <div class="container mx-auto max-w-4xl">
             <div class="text-center mb-12">
-                <h1 class="text-3xl md:text-4xl font-bold text-primary mb-4" id="order-title" data-i18n="order_title">Confirm Your Order</h1>
+                <h1 class="text-3xl md:text-4xl font-bold text-primary mb-4" id="terms-title" data-i18n="terms_title">Terms & Conditions</h1>
                 <div class="w-20 h-1 bg-accent mx-auto mb-6"></div>
-                <p class="text-gray-600" id="order-subtitle" data-i18n="order_subtitle">Complete the form below to Confirm your order</p>
+                <p class="text-gray-600" id="terms-subtitle" data-i18n="terms_subtitle">Last Updated: June 15, 2025</p>
             </div>
 
-            <!-- Success Message (hidden by default) -->
-            <div id="successMessage" class="success-message">
-                <div class="flex items-center">
-                    <i class="fas fa-check-circle text-green-500 mr-3 text-2xl"></i>
-                    <div>
-                        <h3 class="font-bold" data-i18n="success_title">Order Submitted Successfully!</h3>
-                        <p data-i18n="success_message">Thank you for your order. We'll contact you shortly.</p>
+            <div class="bg-white rounded-xl shadow-md p-6 md:p-8 terms-container">
+                <!-- Introduction -->
+                <div class="terms-section">
+                    <h2 class="text-xl font-bold text-primary mb-4" data-i18n="terms_intro_title">1. Introduction</h2>
+                    <p class="mb-4" data-i18n="terms_intro_text">Welcome to Target Marketing BD (TMBD). By accessing or using our website (https://tmbd.xyz) and related services, you agree to comply with and be bound by these Terms & Conditions. These terms apply exclusively to female users, as TMBD is a female-only service platform guided by Islamic values.</p>
+                </div>
+
+                <!-- Female-Only Policy -->
+                <div class="terms-section">
+                    <h2 class="text-xl font-bold text-primary mb-4" data-i18n="terms_female_title">2. Female-Only Access Policy</h2>
+                    <p class="mb-4" data-i18n="terms_female_text">TMBD provides digital marketing, consultancy, and educational services only to female clients:</p>
+                    
+                    <div class="terms-subsection" data-i18n="terms_female_point1">
+                        Male persons are not permitted to use our services, register, inquire, or initiate contact.
+                    </div>
+                    <div class="terms-subsection" data-i18n="terms_female_point2">
+                        Any contact attempt or communication by a male person, including via phone, email, or social media, will be ignored or permanently blocked.
                     </div>
                 </div>
-            </div>
 
-            <!-- Order Details -->
-            <div class="bg-white rounded-xl shadow-md p-6 mb-8">
-                <h2 class="text-xl font-bold text-primary mb-4" data-i18n="order_details">Order Details</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                    <div>
-                        <p class="text-gray-500" data-i18n="service_name">Service:</p>
-                        <p class="font-medium" id="service-name">-</p>
+                <!-- Islamic Guidelines -->
+                <div class="terms-section">
+                    <h2 class="text-xl font-bold text-primary mb-4" data-i18n="terms_islamic_title">3. Islamic Guidelines & Ethics</h2>
+                    <p class="mb-4" data-i18n="terms_islamic_text">Our platform operates under the principles of modesty, privacy, and Islamic etiquette:</p>
+                    
+                    <div class="terms-subsection" data-i18n="terms_islamic_point1">
+                        Content, communication, and consultations are structured in alignment with Islamic values.
                     </div>
-                    <div>
-                        <p class="text-gray-500" data-i18n="price">Price:</p>
-                        <p class="font-medium" id="service-price">-</p>
+                    <div class="terms-subsection" data-i18n="terms_islamic_point2">
+                        No inappropriate visuals, language, or behavior will be tolerated.
+                    </div>
+                    <div class="terms-subsection" data-i18n="terms_islamic_point3">
+                        We prioritize hijab-friendly, voice-only, or written communication modes if needed.
                     </div>
                 </div>
-                <a href="services.html" class="text-accent hover:text-secondary transition flex items-center" data-i18n="change_service">
-                    <i class="fas fa-edit mr-2"></i> Change Service
-                </a>
-            </div>
 
-            <!-- Order Form -->
-            <div class="bg-white rounded-xl shadow-md p-6">
-                <h2 class="text-xl font-bold text-primary mb-6" data-i18n="contact_info">Contact Information</h2>
-                
-                <form id="orderForm" action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
-                    <input type="hidden" name="access_key" value="8b5c46b0-aecc-4ee0-857a-fc80719480dc">
-                    <input type="hidden" name="service" id="form-service-name">
-                    <input type="hidden" name="price" id="form-service-price">
-                    <input type="hidden" name="redirect" value="false">
-                    <input type="hidden" name="from_name" value="Target Marketing BD Order">
-                    <input type="checkbox" name="botcheck" id="" style="display: none;">
-
-                    <div>
-                        <label for="name" class="form-label" data-i18n="full_name">Full Name</label>
-                        <input type="text" id="name" name="name" class="form-input" required>
+                <!-- Services -->
+                <div class="terms-section">
+                    <h2 class="text-xl font-bold text-primary mb-4" data-i18n="terms_services_title">4. Services Offered</h2>
+                    <p class="mb-4" data-i18n="terms_services_text">TMBD provides:</p>
+                    
+                    <div class="terms-subsection" data-i18n="terms_services_point1">
+                        Female-to-female digital marketing solutions
                     </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label for="email" class="form-label" data-i18n="email">Email Address</label>
-                            <input type="email" id="email" name="email" class="form-input" required>
-                        </div>
-                        <div>
-                            <label for="phone" class="form-label" data-i18n="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" class="form-input" required>
-                        </div>
+                    <div class="terms-subsection" data-i18n="terms_services_point2">
+                        Consultancy for small businesses owned or managed by women
                     </div>
-
-                    <div>
-                        <label for="address" class="form-label" data-i18n="address">Address (Optional)</label>
-                        <textarea id="address" name="address" class="form-input" rows="2"></textarea>
+                    <div class="terms-subsection" data-i18n="terms_services_point3">
+                        Social media and content strategy
                     </div>
-
-                    <div>
-                        <label for="message" class="form-label" data-i18n="special_instructions">Special Instructions</label>
-                        <textarea id="message" name="message" class="form-input" rows="4" data-i18n="message_placeholder" data-i18n-attr="placeholder" placeholder="Any additional details about your order..."></textarea>
+                    <div class="terms-subsection" data-i18n="terms_services_point4">
+                        Online skill training programs (female-only batch)
                     </div>
-
-                    <div class="flex items-center">
-                        <input type="checkbox" id="agree" name="agree" class="rounded text-accent focus:ring-accent mr-3" required>
-                        <label for="agree" class="text-gray-600">
-                            <span data-i18n="terms_agree">I agree to the</span>
-                            <a href="terms.html" class="text-accent hover:text-secondary transition" data-i18n="terms_conditions">terms and conditions</a>
-                        </label>
+                    
+                    <div class="highlight-box" data-i18n="terms_services_note">
+                        We reserve the right to refuse or cancel services that violate our female-only or Islamic conduct guidelines.
                     </div>
+                </div>
 
-                    <button type="submit" class="w-full px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-dark transition btn-animate" data-i18n="place_order">
-                        Place Order
-                    </button>
-                </form>
+                <!-- Communication Rules -->
+                <div class="terms-section">
+                    <h2 class="text-xl font-bold text-primary mb-4" data-i18n="terms_comm_title">5. Communication Rules</h2>
+                    
+                    <div class="terms-subsection" data-i18n="terms_comm_point1">
+                        No voice or video calls with male individuals.
+                    </div>
+                    <div class="terms-subsection" data-i18n="terms_comm_point2">
+                        All business discussions must be initiated and continued by a verified female representative.
+                    </div>
+                    <div class="terms-subsection" data-i18n="terms_comm_point3">
+                        Violating this rule may result in instant blacklisting.
+                    </div>
+                </div>
+
+                <!-- Payment Policy -->
+                <div class="terms-section">
+                    <h2 class="text-xl font-bold text-primary mb-4" data-i18n="terms_payment_title">6. Payment & Refund Policy</h2>
+                    
+                    <div class="terms-subsection" data-i18n="terms_payment_point1">
+                        Service payments must be made in full before commencement.
+                    </div>
+                    <div class="terms-subsection" data-i18n="terms_payment_point2">
+                        Refunds are only applicable in cases of non-delivery, within 7 working days.
+                    </div>
+                    <div class="terms-subsection" data-i18n="terms_payment_point3">
+                        We do not offer refunds for change-of-mind or dissatisfaction unless services were not rendered.
+                    </div>
+                </div>
+
+                <!-- Termination -->
+                <div class="terms-section">
+                    <h2 class="text-xl font-bold text-primary mb-4" data-i18n="terms_termination_title">7. Termination of Service</h2>
+                    <p class="mb-4" data-i18n="terms_termination_text">We reserve the right to terminate any engagement if:</p>
+                    
+                    <div class="terms-subsection" data-i18n="terms_termination_point1">
+                        A male person attempts communication
+                    </div>
+                    <div class="terms-subsection" data-i18n="terms_termination_point2">
+                        Our team faces disrespect, harassment, or violation of Islamic boundaries
+                    </div>
+                </div>
+
+                <!-- Dispute Resolution -->
+                <div class="terms-section">
+                    <h2 class="text-xl font-bold text-primary mb-4" data-i18n="terms_dispute_title">8. Dispute Resolution</h2>
+                    <p class="mb-4" data-i18n="terms_dispute_text">Disputes will be resolved privately through email discussions. All matters are handled respectfully, privately, and in the spirit of mutual understanding and Sharia-compliant ethics.</p>
+                </div>
+
+                <!-- Contact -->
+                <div class="terms-section">
+                    <h2 class="text-xl font-bold text-primary mb-4" data-i18n="terms_contact_title">9. Contact</h2>
+                    <p class="mb-2" data-i18n="terms_contact_text">Email: <a href="mailto:targetmarketingbd@gmail.com" class="text-accent hover:text-secondary">targetmarketingbd@gmail.com</a></p>
+                    <p class="mb-4" data-i18n="terms_contact_text2">Facebook: <a href="https://facebook.com/tmbd.xyz" target="_blank" class="text-accent hover:text-secondary">facebook.com/tmbd.xyz</a></p>
+                    
+                    <div class="highlight-box" data-i18n="terms_contact_note">
+                        We do not respond to or accept calls. Only email, form, or Messenger chat from verified female profiles will be processed.
+                    </div>
+                </div>
+
+                <!-- Privacy Policy Link -->
+                <div class="mt-8 pt-6 border-t border-gray-200">
+                    <h3 class="text-lg font-semibold text-primary mb-3" data-i18n="privacy_policy">Privacy Policy</h3>
+                    <p data-i18n="privacy_policy_text">Please review our <a href="privacy.html" class="text-accent hover:text-secondary font-medium">Privacy Policy</a> which explains how we collect, use, and protect your personal information.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -445,21 +487,6 @@
                     }
                 }
             }, 20);
-
-            // Get service details from URL
-            const urlParams = new URLSearchParams(window.location.search);
-            const serviceName = urlParams.get('service');
-            const servicePrice = urlParams.get('price');
-
-            if (serviceName && servicePrice) {
-                document.getElementById('service-name').textContent = decodeURIComponent(serviceName);
-                document.getElementById('service-price').textContent = decodeURIComponent(servicePrice);
-                document.getElementById('form-service-name').value = decodeURIComponent(serviceName);
-                document.getElementById('form-service-price').value = decodeURIComponent(servicePrice);
-            } else {
-                // Redirect to services page if no service selected
-                window.location.href = 'services.html';
-            }
         });
 
         // Mobile menu toggle
@@ -479,41 +506,6 @@
             document.body.style.overflow = 'auto';
         });
 
-        // Handle form submission
-        document.getElementById('orderForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const form = e.target;
-            const formData = new FormData(form);
-            
-            fetch(form.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    // Show success message
-                    document.getElementById('successMessage').style.display = 'block';
-                    document.getElementById('orderForm').style.display = 'none';
-                    
-                    // Scroll to success message
-                    document.getElementById('successMessage').scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                } else {
-                    alert('আপনার অর্ডারটি সফলভাবে আমরা পেয়েছি, দ্রুতই আপনার সাথে যোগাযোগ করা হবে।');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('আপনার অর্ডারটি সফলভাবে আমরা পেয়েছি, দ্রুতই আপনার সাথে যোগাযোগ করা হবে।');
-            });
-        });
-
         // Language switching functionality
         const translations = {
             en: {
@@ -523,27 +515,48 @@
                 blog: "Blog",
                 about: "About",
                 contact: "Contact",
-                subscribe: "Subscribe",
 
-                // Order Page
-                order_title: "Confirm Your Order",
-                order_subtitle: "Complete the form below to confirm your order",
-                order_details: "Order Details",
-                service_name: "Service:",
-                price: "Price:",
-                change_service: "Change Service",
-                contact_info: "Contact Information",
-                full_name: "Full Name",
-                email: "Email Address",
-                phone: "Phone Number",
-                address: "Address (Optional)",
-                special_instructions: "Special Instructions",
-                message_placeholder: "Any additional details about your order...",
-                place_order: "Place Order",
-                success_title: "Order Submitted Successfully!",
-                success_message: "Thank you for your order. We'll contact you shortly.",
-                terms_conditions: "Terms and Conditions",
-                terms_agree: "I agree to the",
+                // Terms Page
+                terms_title: "Terms & Conditions",
+                terms_subtitle: "Last Updated: June 15, 2025",
+                terms_intro_title: "1. Introduction",
+                terms_intro_text: "Welcome to Target Marketing BD (TMBD). By accessing or using our website (https://tmbd.xyz) and related services, you agree to comply with and be bound by these Terms & Conditions. These terms apply exclusively to female users, as TMBD is a female-only service platform guided by Islamic values.",
+                terms_female_title: "2. Female-Only Access Policy",
+                terms_female_text: "TMBD provides digital marketing, consultancy, and educational services only to female clients:",
+                terms_female_point1: "Male persons are not permitted to use our services, register, inquire, or initiate contact.",
+                terms_female_point2: "Any contact attempt or communication by a male person, including via phone, email, or social media, will be ignored or permanently blocked.",
+                terms_islamic_title: "3. Islamic Guidelines & Ethics",
+                terms_islamic_text: "Our platform operates under the principles of modesty, privacy, and Islamic etiquette:",
+                terms_islamic_point1: "Content, communication, and consultations are structured in alignment with Islamic values.",
+                terms_islamic_point2: "No inappropriate visuals, language, or behavior will be tolerated.",
+                terms_islamic_point3: "We prioritize hijab-friendly, voice-only, or written communication modes if needed.",
+                terms_services_title: "4. Services Offered",
+                terms_services_text: "TMBD provides:",
+                terms_services_point1: "Female-to-female digital marketing solutions",
+                terms_services_point2: "Consultancy for small businesses owned or managed by women",
+                terms_services_point3: "Social media and content strategy",
+                terms_services_point4: "Online skill training programs (female-only batch)",
+                terms_services_note: "We reserve the right to refuse or cancel services that violate our female-only or Islamic conduct guidelines.",
+                terms_comm_title: "5. Communication Rules",
+                terms_comm_point1: "No voice or video calls with male individuals.",
+                terms_comm_point2: "All business discussions must be initiated and continued by a verified female representative.",
+                terms_comm_point3: "Violating this rule may result in instant blacklisting.",
+                terms_payment_title: "6. Payment & Refund Policy",
+                terms_payment_point1: "Service payments must be made in full before commencement.",
+                terms_payment_point2: "Refunds are only applicable in cases of non-delivery, within 7 working days.",
+                terms_payment_point3: "We do not offer refunds for change-of-mind or dissatisfaction unless services were not rendered.",
+                terms_termination_title: "7. Termination of Service",
+                terms_termination_text: "We reserve the right to terminate any engagement if:",
+                terms_termination_point1: "A male person attempts communication",
+                terms_termination_point2: "Our team faces disrespect, harassment, or violation of Islamic boundaries",
+                terms_dispute_title: "8. Dispute Resolution",
+                terms_dispute_text: "Disputes will be resolved privately through email discussions. All matters are handled respectfully, privately, and in the spirit of mutual understanding and Sharia-compliant ethics.",
+                terms_contact_title: "9. Contact",
+                terms_contact_text: "Email:",
+                terms_contact_text2: "Facebook:",
+                terms_contact_note: "We do not respond to or accept calls. Only email, form, or Messenger chat from verified female profiles will be processed.",
+                privacy_policy: "Privacy Policy",
+                privacy_policy_text: "Please review our Privacy Policy which explains how we collect, use, and protect your personal information.",
 
                 // Footer
                 footer_tagline: "Halal digital marketing solutions for female entrepreneurs",
@@ -561,27 +574,48 @@
                 blog: "ব্লগ",
                 about: "আমাদের সম্পর্কে",
                 contact: "যোগাযোগ",
-                subscribe: "সাবস্ক্রাইব",
 
-                // Order Page
-                order_title: "অর্ডার করুন",
-                order_subtitle: "আপনার অর্ডার কনফার্ম করতে নিচের ফর্মটি পূরণ করুন",
-                order_details: "অর্ডার বিবরণ",
-                service_name: "সেবা:",
-                price: "মূল্য:",
-                change_service: "সেবা পরিবর্তন করুন",
-                contact_info: "যোগাযোগের তথ্য",
-                full_name: "পুরো নাম",
-                email: "ইমেইল ঠিকানা",
-                phone: "ফোন নম্বর",
-                address: "ঠিকানা (ঐচ্ছিক)",
-                special_instructions: "বিশেষ নির্দেশনা",
-                message_placeholder: "আপনার অর্ডার সম্পর্কে অতিরিক্ত বিবরণ...",
-                place_order: "অর্ডার করুন",
-                success_title: "অর্ডার সফলভাবে জমা হয়েছে!",
-                success_message: "আপনার অর্ডারের জন্য ধন্যবাদ। আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব।",
-                terms_conditions: "শর্তাবলী দেখুন",
-                terms_agree: "আমি শর্তাবলীর সাথে একমত। ",
+                // Terms Page
+                terms_title: "শর্তাবলী",
+                terms_subtitle: "সর্বশেষ আপডেট: ১৫ জুন, ২০২৫",
+                terms_intro_title: "১. ভূমিকা",
+                terms_intro_text: "টার্গেট মার্কেটিং বিডি (TMBD)-তে স্বাগতম। আমাদের ওয়েবসাইট (https://tmbd.xyz) এবং সংশ্লিষ্ট পরিষেবাগুলি ব্যবহার করে, আপনি নিম্নলিখিত শর্তাবলী মেনে চলতে এবং সেগুলোর দ্বারা আবদ্ধ হতে সম্মত হন। এই শর্তাবলী শুধুমাত্র নারী ব্যবহারকারীদের জন্য প্রযোজ্য, কারণ TMBD একটি নারী-শুধুই পরিষেবা প্ল্যাটফর্ম যা ইসলামিক মূল্যবোধ দ্বারা পরিচালিত।",
+                terms_female_title: "২. শুধুমাত্র নারীদের জন্য প্রবেশাধিকার নীতি",
+                terms_female_text: "TMBD শুধুমাত্র নারী ক্লায়েন্টদের ডিজিটাল মার্কেটিং, পরামর্শ এবং শিক্ষামূলক পরিষেবা প্রদান করে:",
+                terms_female_point1: "পুরুষদের আমাদের পরিষেবা ব্যবহার, নিবন্ধন, জিজ্ঞাসা বা যোগাযোগ শুরু করার অনুমতি নেই।",
+                terms_female_point2: "কোনো পুরুষ ব্যক্তির যোগাযোগের চেষ্টা বা যোগাযোগ, ফোন, ইমেল বা সোশ্যাল মিডিয়ার মাধ্যমে হলেও, উপেক্ষা করা হবে বা স্থায়ীভাবে ব্লক করা হবে।",
+                terms_islamic_title: "৩. ইসলামিক নির্দেশিকা ও নৈতিকতা",
+                terms_islamic_text: "আমাদের প্ল্যাটফর্ম শালীনতা, গোপনীয়তা এবং ইসলামিক শিষ্টাচারের নীতিগুলি মেনে চলে:",
+                terms_islamic_point1: "বিষয়বস্তু, যোগাযোগ এবং পরামর্শ ইসলামিক মূল্যবোধের সাথে সামঞ্জস্যপূর্ণভাবে গঠিত।",
+                terms_islamic_point2: "কোনো অনুপযুক্ত ভিজ্যুয়াল, ভাষা বা আচরণ সহ্য করা হবে না।",
+                terms_islamic_point3: "প্রয়োজনে আমরা হিজাব-বান্ধব, শুধুমাত্র ভয়েস-ভিত্তিক বা লিখিত যোগাযোগের পদ্ধতিকে অগ্রাধিকার দিই।",
+                terms_services_title: "৪. প্রদত্ত পরিষেবা",
+                terms_services_text: "TMBD প্রদান করে:",
+                terms_services_point1: "নারী-থেকে-নারী ডিজিটাল মার্কেটিং সমাধান",
+                terms_services_point2: "নারীদের মালিকানাধীন বা পরিচালিত ছোট ব্যবসার জন্য পরামর্শ",
+                terms_services_point3: "সোশ্যাল মিডিয়া এবং বিষয়বস্তু কৌশল",
+                terms_services_point4: "অনলাইন দক্ষতা প্রশিক্ষণ কার্যক্রম (শুধুমাত্র নারীদের ব্যাচ)",
+                terms_services_note: "আমরা আমাদের নারী-শুধুই বা ইসলামিক আচরণের নির্দেশিকা লঙ্ঘন করে এমন পরিষেবা প্রত্যাখ্যান বা বাতিল করার অধিকার সংরক্ষণ করি।",
+                terms_comm_title: "৫. যোগাযোগের নিয়মাবলী",
+                terms_comm_point1: "পুরুষ ব্যক্তিদের সাথে কোনো ভয়েস বা ভিডিও কল নয়।",
+                terms_comm_point2: "সমস্ত ব্যবসায়িক আলোচনা একজন যাচাইকৃত নারী প্রতিনিধির দ্বারা শুরু এবং অব্যাহত রাখতে হবে।",
+                terms_comm_point3: "এই নিয়ম লঙ্ঘন করলে তাৎক্ষণিক ব্ল্যাকলিস্ট করা হতে পারে।",
+                terms_payment_title: "৬. পেমেন্ট ও রিফান্ড নীতি",
+                terms_payment_point1: "পরিষেবাগুলির পেমেন্ট শুরু করার আগে সম্পূর্ণভাবে পরিশোধ করতে হবে।",
+                terms_payment_point2: "ফেরত শুধুমাত্র পরিষেবা অ-বিতরণের ক্ষেত্রে প্রযোজ্য, ৭ কার্যদিবসের মধ্যে।",
+                terms_payment_point3: "আমরা মত পরিবর্তনের বা অসন্তুষ্টির জন্য ফেরত অফার করি না, যদি না পরিষেবাগুলি প্রদান করা না হয়।",
+                terms_termination_title: "৭. পরিষেবা বাতিলকরণ",
+                terms_termination_text: "আমরা নিম্নলিখিত ক্ষেত্রে যেকোনো চুক্তি বাতিল করার অধিকার সংরক্ষণ করি:",
+                terms_termination_point1: "কোনো পুরুষ ব্যক্তি যোগাযোগের চেষ্টা করলে।",
+                terms_termination_point2: "আমাদের দল অসম্মান, হয়রানি বা ইসলামিক সীমানা লঙ্ঘনের সম্মুখীন হলে।",
+                terms_dispute_title: "৮. বিরোধ নিষ্পত্তি",
+                terms_dispute_text: "বিরোধগুলি ইমেল আলোচনার মাধ্যমে ব্যক্তিগতভাবে সমাধান করা হবে। সমস্ত বিষয় সম্মানজনকভাবে, ব্যক্তিগতভাবে এবং পারস্পরিক বোঝাপড়া ও শরিয়া-সম্মত নৈতিকতার চেতনায় পরিচালিত হয়।",
+                terms_contact_title: "৯. যোগাযোগ",
+                terms_contact_text: "ইমেল:",
+                terms_contact_text2: "ফেসবুক:",
+                terms_contact_note: "আমরা কল গ্রহণ করি না বা সেগুলির উত্তর দিই না। শুধুমাত্র যাচাইকৃত নারী প্রোফাইল থেকে ইমেল, ফর্ম বা মেসেঞ্জার চ্যাট প্রক্রিয়া করা হবে।",
+                privacy_policy: "গোপনীয়তা নীতি",
+                privacy_policy_text: "আমাদের গোপনীয়তা নীতি পর্যালোচনা করুন যা ব্যাখ্যা করে যে আমরা কীভাবে আপনার ব্যক্তিগত তথ্য সংগ্রহ, ব্যবহার এবং সুরক্ষা করি।",
 
                 // Footer
                 footer_tagline: "নারী উদ্যোক্তাদের জন্য ডিজিটাল মার্কেটিং সমাধান",
