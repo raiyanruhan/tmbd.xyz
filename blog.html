@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog | Target Marketing BD</title>
-    <meta name="description" content="digital marketing insights for female entrepreneurs in Bangladesh">
+    <meta name="description" content="Halal digital marketing insights for female entrepreneurs in Bangladesh">
     
     <!-- Preload critical resources -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
@@ -116,11 +116,13 @@
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
         }
         
         .blog-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
         
         .blog-card::before {
@@ -162,6 +164,12 @@
             transform: translateY(20px);
             opacity: 0;
             transition: all 0.4s ease;
+            background: linear-gradient(to right, #228B7D, #66ADA5);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 9999px;
+            font-weight: 500;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
         
         .blog-card:hover .read-more-btn {
@@ -317,7 +325,7 @@
         <div class="container mx-auto">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-12 md:mb-0">
-                    <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight" id="blogTitle" data-i18n="blog_title">Marketing Insights Journal</h1>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight" id="blogTitle" data-i18n="blog_title">Marketing insights journal</h1>
                     <p class="text-lg md:text-xl mb-8 opacity-90 max-w-lg" data-i18n="blog_subtitle">
                         Practical tips, success stories and ethical strategies for female entrepreneurs in Bangladesh
                     </p>
@@ -331,8 +339,8 @@
                 
                 <div class="md:w-1/2 animate-float">
                     <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" 
-                             alt="Digital marketing" 
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                             alt="Digital marketing"
                              class="rounded-lg shadow-2xl w-full max-w-md mx-auto wave-animation"
                              loading="lazy"
                              width="634"
@@ -349,7 +357,7 @@
         <div class="bg-white rounded-xl shadow-2xl overflow-hidden transform transition duration-500 hover:shadow-3xl">
             <div class="md:flex">
                 <div class="md:w-2/3 relative">
-                    <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                    <img src="assets/halal-social-media-strategy.jpg" 
                          alt="Featured post" 
                          class="w-full h-full object-cover lazy-img"
                          loading="lazy"
@@ -398,7 +406,7 @@
                             <i class="fas fa-eye text-gray-400 mr-2"></i>
                             <span class="text-sm text-gray-500" data-i18n="views">1.2K views</span>
                         </div>
-                        <a href="article.html" class="px-6 py-2 bg-primary text-white rounded-full font-medium hover:bg-dark transition flex items-center" data-i18n="read_full">
+                        <a href="article.html?slug=halal-social-media-strategy" class="px-6 py-2 bg-primary text-white rounded-full font-medium hover:bg-dark transition flex items-center" data-i18n="read_full">
                             Read Full <i class="fas fa-arrow-right ml-2"></i>
                         </a>
                     </div>
@@ -447,8 +455,8 @@
                             <i class="fas fa-clock mr-1"></i>
                             <span data-i18n="4_min_read">4 min read</span>
                         </div>
-                        <a href="article.html" class="read-more-btn text-accent font-medium flex items-center hover:text-secondary" data-i18n="learn_more">
-                            Learn More <i class="fas fa-arrow-right ml-2"></i>
+                        <a href="article.html?=fslugacebook-ad-strategies-2023" class="read-more-btn text-white font-medium flex items-center hover:text-white hover:shadow-md">
+                            Read Full <i class="fas fa-arrow-right ml-2"></i>
                         </a>
                     </div>
                 </div>
@@ -481,8 +489,8 @@
                             <i class="fas fa-clock mr-1"></i>
                             <span data-i18n="6_min_read">6 min read</span>
                         </div>
-                        <a href="article.html" class="read-more-btn text-accent font-medium flex items-center hover:text-secondary" data-i18n="learn_more">
-                            Learn More <i class="fas fa-arrow-right ml-2"></i>
+                        <a href="article.html?slug=color-psychology-in-branding" class="read-more-btn text-white font-medium flex items-center hover:text-white hover:shadow-md">
+                            Read Full <i class="fas fa-arrow-right ml-2"></i>
                         </a>
                     </div>
                 </div>
@@ -515,8 +523,8 @@
                             <i class="fas fa-clock mr-1"></i>
                             <span data-i18n="8_min_read">8 min read</span>
                         </div>
-                        <a href="article.html" class="read-more-btn text-accent font-medium flex items-center hover:text-secondary" data-i18n="learn_more">
-                            Learn More <i class="fas fa-arrow-right ml-2"></i>
+                        <a href="article.html?slug=starting-online-business-bangladesh" class="read-more-btn text-white font-medium flex items-center hover:text-white hover:shadow-md">
+                            Read Full <i class="fas fa-arrow-right ml-2"></i>
                         </a>
                     </div>
                 </div>
@@ -549,8 +557,8 @@
                             <i class="fas fa-clock mr-1"></i>
                             <span data-i18n="10_min_read">10 min read</span>
                         </div>
-                        <a href="article.html" class="read-more-btn text-accent font-medium flex items-center hover:text-secondary" data-i18n="learn_more">
-                            Learn More <i class="fas fa-arrow-right ml-2"></i>
+                        <a href="article.html?slug=rima-handicraft-success-story" class="read-more-btn text-white font-medium flex items-center hover:text-white hover:shadow-md">
+                            Read Full <i class="fas fa-arrow-right ml-2"></i>
                         </a>
                     </div>
                 </div>
@@ -583,8 +591,8 @@
                             <i class="fas fa-clock mr-1"></i>
                             <span data-i18n="5_min_read">5 min read</span>
                         </div>
-                        <a href="article.html" class="read-more-btn text-accent font-medium flex items-center hover:text-secondary" data-i18n="learn_more">
-                            Learn More <i class="fas fa-arrow-right ml-2"></i>
+                        <a href="article.html?slug=ecommerce-product-photography-tips" class="read-more-btn text-white font-medium flex items-center hover:text-white hover:shadow-md">
+                            Read Full <i class="fas fa-arrow-right ml-2"></i>
                         </a>
                     </div>
                 </div>
@@ -617,8 +625,8 @@
                             <i class="fas fa-clock mr-1"></i>
                             <span data-i18n="7_min_read">7 min read</span>
                         </div>
-                        <a href="article.html" class="read-more-btn text-accent font-medium flex items-center hover:text-secondary" data-i18n="learn_more">
-                            Learn More <i class="fas fa-arrow-right ml-2"></i>
+                        <a href="article.html?slug=digital-marketing-small-budgets" class="read-more-btn text-white font-medium flex items-center hover:text-white hover:shadow-md">
+                            Read Full <i class="fas fa-arrow-right ml-2"></i>
                         </a>
                     </div>
                 </div>
@@ -704,7 +712,7 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
                     <img src="assets/logo.jpg" alt="Target Marketing BD Logo" class="h-16 mb-4">
-                    <p data-i18n="footer_tagline">digital marketing solutions for female entrepreneurs</p>
+                    <p data-i18n="footer_tagline">Halal digital marketing solutions for female entrepreneurs</p>
                 </div>
                 <div>
                     <h4 class="text-lg font-bold mb-4" data-i18n="quick_links">Quick Links</h4>
@@ -733,16 +741,12 @@
                         </li>
                     </ul>
                 </div>
-            <div>
-                <h4 class="text-lg font-bold mb-4" data-i18n="developer">Developer</h4>
-                <p data-i18n="developed_by">Website developed by:</p>
-                <p class="mt-2 font-semibold">
-                    <a href="https://github.com/raiyanbinrashid1541/" target="_blank" rel="noopener" class="hover:text-accent transition">
-                        Raiyan Bin Rashid
-                    </a>
-                </p>
-                <p class="text-sm mt-4 text-accent">© <span id="currentYear"></span> Target Marketing BD. <span
-                        data-i18n="all_rights">All rights reserved.</span></p>
+                <div>
+                    <h4 class="text-lg font-bold mb-4" data-i18n="developer">Developer</h4>
+                    <p data-i18n="developed_by">Website developed by:</p>
+                    <p class="mt-2 font-semibold">Raiyan Bin Rashid <br> Jotirmoy Bhowmik</p>
+                    <p class="text-sm mt-4 text-accent">© <span id="currentYear"></span> Target Marketing BD. <span data-i18n="all_rights">All rights reserved.</span></p>
+                </div>
             </div>
         </div>
     </footer>
@@ -784,14 +788,7 @@
                 img.classList.add('loaded');
             });
             
-            // Set constant blog title
-            const blogTitles = [
-                "Marketing Insights Journal",
-                "Halal Business Strategies",
-                "Digital Growth Chronicles",
-                "Entrepreneur Success Stories",
-                "Ethical Marketing Digest"
-            ];
+
             const blogTitle = document.getElementById('blogTitle');
             blogTitle.textContent = blogTitles[0]; // Always use the first title
             if (blogTitle.getAttribute('data-i18n') === 'blog_title') {
@@ -849,7 +846,7 @@
         // Load more articles
         document.getElementById('loadMoreBtn').addEventListener('click', function() {
             // In a real implementation, this would load more articles from an API
-            alert('More articles would be loaded here in a real implementation');
+            alert('আপাতত এইটুকুই আর্টিকেল আমাদের কাছে আছে।');
         });
 
         // Language switching functionality
@@ -864,14 +861,14 @@
                 subscribe: "Subscribe",
                 
                 // Hero
-                blog_title: "Marketing Insights Journal",
+                blog_title: "Marketing insights journal",
                 blog_subtitle: "Practical tips, success stories and ethical strategies for female entrepreneurs in Bangladesh",
                 search_placeholder: "Search articles...",
                 
                 // Featured Post
                 featured: "Featured",
                 marketing: "Marketing",
-                "5_min_read": "5 min read",
+                "5_min_read": "15 min read",
                 featured_post_title: "How to Create a Halal Social Media Strategy for Your Business",
                 featured_post_excerpt: "Learn how to build an effective social media presence while maintaining Islamic values and reaching your target audience.",
                 author_name: "Ayesha Rahman",
@@ -938,7 +935,7 @@
                 email_placeholder: "Your email address",
                 
                 // Footer
-                footer_tagline: "digital marketing solutions for female entrepreneurs",
+                footer_tagline: "Halal digital marketing solutions for female entrepreneurs",
                 quick_links: "Quick Links",
                 contact_us: "Contact Us",
                 developer: "Developer",
@@ -960,13 +957,13 @@
                 
                 // Hero
                 blog_title: "মার্কেটিং ইনসাইটস জার্নাল",
-                blog_subtitle: "বাংলাদেশের নারী উদ্যোক্তাদের জন্য ব্যবহারিক টিপস, সাফল্যের গল্প এবং নৈতিক কৌশল",
+                blog_subtitle: "সোজাসাপ্টা টিপস, অনুপ্রেরণামূলক গল্প এবং নৈতিক পরামর্শের জন্য আমাদের কমিউনিটিতে যোগ দিন, আত্মবিশ্বাসের সাথে একটি সমৃদ্ধ ব্যবসা গড়ে তুলুন।",
                 search_placeholder: "আর্টিকেল খুঁজুন...",
                 
                 // Featured Post
                 featured: "ফিচার্ড",
                 marketing: "মার্কেটিং",
-                "5_min_read": "৫ মিনিট পড়া",
+                "5_min_read": "১৫ মিনিট ",
                 featured_post_title: "আপনার ব্যবসার জন্য হালাল সোশ্যাল মিডিয়া কৌশল তৈরি করার উপায়",
                 featured_post_excerpt: "ইসলামিক মূল্যবোধ বজায় রেখে এবং আপনার টার্গেট অডিয়েন্সে পৌঁছানোর সময় একটি কার্যকর সোশ্যাল মিডিয়া উপস্থিতি তৈরি করার উপায় শিখুন।",
                 author_name: "আয়েশা রহমান",
@@ -1009,7 +1006,7 @@
                 apr_15: "১৫ এপ্রিল, ২০২৩",
                 article5_title: "ই-কমার্সের জন্য পণ্য ফটোগ্রাফি টিপস",
                 article5_excerpt: "পেশাদার-দেখতে পণ্যের ফটোগ্রাফের জন্য ব্যয়বহুল সরঞ্জামের প্রয়োজন নেই। বেসিক সরঞ্জাম দিয়ে কীভাবে দুর্দান্ত ফলাফল পাবেন তা এখানে।",
-                "5_min_read": "৫ মিনিট পড়া",
+                "5_min_read": "১৫ মিনিট",
                 nazia_haque: "নাজিয়া হক",
                 apr_8: "৮ এপ্রিল, ২০২৩",
                 article6_title: "ছোট বাজেটের জন্য ডিজিটাল মার্কেটিং পরিকল্পনা",
@@ -1033,7 +1030,7 @@
                 email_placeholder: "আপনার ইমেইল ঠিকানা",
                 
                 // Footer
-                footer_tagline: "নারী উদ্যোক্তাদের জন্য ডিজিটাল মার্কেটিং সমাধান",
+                footer_tagline: "নারী উদ্যোক্তাদের জন্য হালাল ডিজিটাল মার্কেটিং সমাধান",
                 quick_links: "দ্রুত লিংক",
                 contact_us: "যোগাযোগ করুন",
                 developer: "ডেভেলপার",

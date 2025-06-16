@@ -1,0 +1,1357 @@
+    <!DOCTYPE html>
+    <script>
+        // Get the slug from the URL (e.g. article.html?slug=halal-social-media-strategy)
+        function getSlug() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('slug');
+        }
+        // Only allow the correct slug, otherwise show not found
+        const allowedSlug = 'halal-social-media-strategy';
+        document.addEventListener('DOMContentLoaded', function() {
+            if (getSlug() && getSlug() !== allowedSlug) {
+                // Hide all content except the not found message
+                document.body.innerHTML = `
+                    <div style="font-family: 'Hind Siliguri', sans-serif; background: #f5f7fa; color: #044443; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0;">
+                        <div class="notfound" style="text-align: center;">
+                            <h1 style="font-size: 3rem; margin-bottom: 1rem;">Sorry, this article is currently unavailable.</h1>
+                            <p style="font-size: 1.5rem;">দুঃখিত, এই আর্টিকেলটি বর্তমানে দেখানো যাচ্ছে না।</p>
+                            <a href="blog.html" class="back-btn" style="margin-top: 2rem; display: inline-block; padding: 0.75rem 2rem; background: #228B7D; color: #fff; border-radius: 9999px; text-decoration: none; font-weight: 600; transition: transform 0.5s cubic-bezier(.68,-0.55,.27,1.55), box-shadow 0.3s; box-shadow: 0 8px 24px rgba(34,139,125,0.18);" 
+                                onclick="event.preventDefault(); const btn=this; btn.style.transform='scale(0.95)'; btn.style.boxShadow='0 2px 8px rgba(34,139,125,0.10)'; setTimeout(()=>{btn.style.transform='scale(1)'; btn.style.boxShadow='0 8px 24px rgba(34,139,125,0.18)'; setTimeout(()=>{window.location.href='blog.html';},150);},150);">
+                                 ব্লগ পেজে ফিরে যান | Back to Blog
+                            </a>    </div>
+                    </div>
+                `;
+            }
+        });
+    </script>
+    <html lang="en" dir="ltr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Article | Target Marketing BD</title>
+        <meta name="description" content="Halal digital marketing insights for female entrepreneurs in Bangladesh">
+        
+        <!-- Preload critical resources -->
+        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
+        <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap">
+        
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        
+        <!-- Tailwind CSS -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            primary: '#044443',
+                            secondary: '#228B7D',
+                            accent: '#66ADA5',
+                            dark: '#0D302C',
+                            light: '#F5F7FA'
+                        },
+                        fontFamily: {
+                            poppins: ['Poppins', 'sans-serif'],
+                            siliguri: ['Hind Siliguri', 'sans-serif']
+                        },
+                        animation: {
+                            'float': 'float 6s ease-in-out infinite',
+                            'fade-in': 'fadeIn 1s ease-in forwards',
+                            'slide-up': 'slideUp 0.8s ease-out forwards',
+                            'blink': 'blink 1.5s infinite',
+                            'pulse-slow': 'pulse 5s infinite',
+                            'wave': 'wave 8s linear infinite',
+                            'tilt': 'tilt 10s infinite linear',
+                            'font-change': 'fontChange 0.5s ease-in-out',
+                            'bounce-right': 'bounceRight 1s infinite'
+                        },
+                        keyframes: {
+                            float: {
+                                '0%, 100%': { transform: 'translateY(0)' },
+                                '50%': { transform: 'translateY(-20px)' }
+                            },
+                            fadeIn: {
+                                '0%': { opacity: '0' },
+                                '100%': { opacity: '1' }
+                            },
+                            slideUp: {
+                                '0%': { opacity: '0', transform: 'translateY(30px)' },
+                                '100%': { opacity: '1', transform: 'translateY(0)' }
+                            },
+                            blink: {
+                                '0%, 100%': { opacity: '1' },
+                                '50%': { opacity: '0.5' }
+                            },
+                            wave: {
+                                '0%': { transform: 'rotate(0deg)' },
+                                '10%': { transform: 'rotate(14deg)' },
+                                '20%': { transform: 'rotate(-8deg)' },
+                                '30%': { transform: 'rotate(14deg)' },
+                                '40%': { transform: 'rotate(-4deg)' },
+                                '50%': { transform: 'rotate(10deg)' },
+                                '60%': { transform: 'rotate(0deg)' },
+                                '100%': { transform: 'rotate(0deg)' }
+                            },
+                            tilt: {
+                                '0%, 50%, 100%': { transform: 'rotate(0deg)' },
+                                '25%': { transform: 'rotate(2deg)' },
+                                '75%': { transform: 'rotate(-2deg)' }
+                            },
+                            fontChange: {
+                                '0%, 100%': { opacity: '1' },
+                                '50%': { opacity: '0.5', transform: 'scale(0.95)' }
+                            },
+                            bounceRight: {
+                                '0%, 100%': { transform: 'translateX(0)' },
+                                '50%': { transform: 'translateX(5px)' }
+                            }
+                        }
+                    }
+                }
+            }
+        </script>
+        
+        <style>
+            /* Loading Bar */
+            .loading-bar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 4px;
+                background: linear-gradient(to right, #044443, #228B7D);
+                z-index: 9999;
+                transition: width 0.3s ease;
+                width: 0%;
+            }
+            
+            /* Halal Badge */
+            .halal-badge {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                background-color: #048444;
+                color: white;
+                padding: 4px 8px;
+                border-radius: 4px;
+                font-size: 12px;
+                font-weight: bold;
+            }
+            
+            /* Article Content */
+            .article-content {
+                max-width: 800px;
+            }
+            
+            .article-content p {
+                margin-bottom: 1.5rem;
+                line-height: 1.8;
+            }
+            
+            .article-content h2 {
+                font-size: 1.75rem;
+                font-weight: 700;
+                color: #044443;
+                margin-top: 2.5rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .article-content h3 {
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: #228B7D;
+                margin-top: 2rem;
+                margin-bottom: 1rem;
+            }
+            
+            .article-content ul, .article-content ol {
+                margin-bottom: 1.5rem;
+                padding-left: 1.5rem;
+            }
+            
+            .article-content li {
+                margin-bottom: 0.5rem;
+                line-height: 1.8;
+            }
+            
+            .article-content blockquote {
+                border-left: 4px solid #66ADA5;
+                padding-left: 1.5rem;
+                margin: 2rem 0;
+                font-style: italic;
+                color: #555;
+            }
+            
+            .article-content img {
+                max-width: 100%;
+                height: auto;
+                margin: 2rem 0;
+                border-radius: 8px;
+                box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            }
+            
+            /* Back Button */
+            .back-btn {
+                transition: all 0.3s ease;
+            }
+            
+            .back-btn:hover {
+                transform: translateX(-5px);
+            }
+            
+            /* Author Card */
+            .author-card {
+                transition: all 0.3s ease;
+            }
+            
+            .author-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+            }
+            
+            /* Share Buttons */
+            .share-btn {
+                transition: all 0.3s ease;
+            }
+            
+            .share-btn:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 5px 15px -3px rgba(0,0,0,0.1);
+            }
+            
+            /* Language Toggle */
+            .language-toggle {
+                transition: all 0.3s ease;
+            }
+            
+            .language-toggle.active {
+                background-color: #228B7D;
+                color: white;
+            }
+            
+            /* Mobile Menu */
+            .mobile-menu {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out;
+            }
+            
+            .mobile-menu.open {
+                max-height: 500px;
+            }
+            
+            /* Mobile Menu Overlay */
+            .mobile-menu-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0,0,0,0.5);
+                z-index: 40;
+            }
+            
+            .mobile-menu-overlay.active {
+                display: block;
+            }
+            
+            /* Featured Image */
+            .featured-image {
+                position: sticky;
+                top: 100px;
+            }
+            
+            @media (max-width: 1023px) {
+                .featured-image {
+                    position: static;
+                    margin-top: 2rem;
+                }
+            }
+            
+            /* Image Loading */
+            .lazy-img {
+                opacity: 0;
+                transition: opacity 0.4s ease;
+            }
+            
+            .lazy-img.loaded {
+                opacity: 1;
+            }
+            
+            /* Text Reveal */
+            .text-reveal {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all 0.6s ease;
+            }
+            
+            .text-reveal.show {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+            /* Subscribe Button */
+            .subscribe-btn {
+                background: linear-gradient(to right, #228B7D, #66ADA5);
+                transition: all 0.3s ease;
+            }
+            
+            .subscribe-btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(34, 139, 125, 0.3);
+            }
+            
+            /* Table Styling */
+            .article-content table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 2rem 0;
+            }
+            
+            .article-content th, .article-content td {
+                padding: 12px 15px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+            
+            .article-content th {
+                background-color: #f5f7fa;
+                font-weight: 600;
+                color: #044443;
+            }
+            
+            .article-content tr:hover {
+                background-color: #f5f7fa;
+            }
+        </style>
+    </head>
+    <body class="font-poppins bg-gray-50 text-gray-800">
+        <!-- Loading Bar -->
+        <div id="loadingBar" class="loading-bar"></div>
+
+        <!-- Navigation -->
+        <nav class="fixed w-full bg-white shadow-md z-50">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <a href="index.html" class="flex items-center">
+                            <img src="assets/logo.jpg/" alt="Target Marketing BD Logo" class="h-12 mr-4">
+                            <span class="text-xl font-bold text-primary">Target Marketing BD</span>
+                        </a>
+                    </div>
+                    
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a href="index.html" class="text-primary hover:text-accent transition" data-i18n="home">Home</a>
+                        <a href="services.html" class="text-primary hover:text-accent transition" data-i18n="services">Services</a>
+                        <a href="blog.html" class="text-primary font-medium" data-i18n="blog">Blog</a>
+                        <a href="about.html" class="text-primary hover:text-accent transition" data-i18n="about">About</a>
+                        <a href="contact.html" class="text-primary hover:text-accent transition" data-i18n="contact">Contact</a>
+                        <a href="#newsletter" class="subscribe-btn px-6 py-2 text-white rounded-full font-medium" data-i18n="subscribe">Subscribe</a>
+                        
+                        <div class="flex items-center space-x-2 ml-6">
+                            <button id="enBtn" class="language-toggle active px-3 py-1 rounded-full text-sm">EN</button>
+                            <button id="bnBtn" class="language-toggle px-3 py-1 rounded-full text-sm border border-primary">BN</button>
+                        </div>
+                    </div>
+                    
+                    <button class="md:hidden focus:outline-none" id="mobileMenuBtn">
+                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu Overlay -->
+                <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+                
+                <!-- Mobile Menu -->
+                <div class="mobile-menu md:hidden absolute left-0 right-0 bg-white shadow-lg z-50" id="mobileMenu">
+                    <div class="pt-4 pb-2 px-6 space-y-2 text-sm font-medium">
+                        <a href="index.html" class="block py-2 text-primary hover:text-accent transition" data-i18n="home">Home</a>
+                        <a href="services.html" class="block py-2 text-primary hover:text-accent transition" data-i18n="services">Services</a>
+                        <a href="blog.html" class="block py-2 text-primary font-medium" data-i18n="blog">Blog</a>
+                        <a href="about.html" class="block py-2 text-primary hover:text-accent transition" data-i18n="about">About</a>
+                        <a href="contact.html" class="block py-2 text-primary hover:text-accent transition" data-i18n="contact">Contact</a>
+                        <a href="#newsletter" class="block py-2 subscribe-btn text-white rounded-full text-center font-medium" data-i18n="subscribe">Subscribe</a>
+                        <div class="flex items-center space-x-2 px-3 py-4 justify-center">
+                            <button id="enBtnMobile" class="language-toggle active px-4 py-2 rounded-full text-sm">English</button>
+                            <button id="bnBtnMobile" class="language-toggle px-4 py-2 rounded-full text-sm border border-primary">বাংলা</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Article Content -->
+        <div class="container mx-auto px-4 pt-32 pb-16">
+            <!-- Back Button -->
+            <div class="mb-8">
+                <a href="blog.html" class="back-btn inline-flex items-center text-primary hover:text-accent transition animate-bounce-right">
+                    <i class="fas fa-arrow-left mr-2"></i>
+                    <span data-i18n="back_to_blog">Back to Blog</span>
+                </a>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <!-- Left Sidebar - Author Profile -->
+                <div class="lg:w-1/4">
+                    <div class="author-card bg-white p-6 rounded-xl shadow-md sticky top-28">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-24 h-24 rounded-full overflow-hidden mb-4 border-4 border-accent">
+                                <img src="assets/client.png" 
+                                    alt="Author" 
+                                    class="w-full h-full object-cover lazy-img"
+                                    loading="lazy"
+                                    width="100"
+                                    height="100">
+                            </div>
+                            <h3 class="text-xl font-bold text-primary mb-1" data-i18n="author_name">Rubaiya Binte Rashid</h3>
+                            <p class="text-sm text-gray-500 mb-4" data-i18n="marketing_expert">Marketing Expert</p>
+                            <p class="text-gray-600 mb-6" data-i18n="author_bio">
+                                Rubaiya is a certified digital marketing specialist with 8 years of experience helping female entrepreneurs in Bangladesh grow their businesses online while maintaining Islamic values.
+                            </p>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-primary hover:text-accent transition">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="text-primary hover:text-accent transition">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="text-primary hover:text-accent transition">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="text-primary hover:text-accent transition">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Table of Contents -->
+                    <div class="mt-8 bg-white p-6 rounded-xl shadow-md sticky top-96">
+                        <h4 class="text-lg font-bold text-primary mb-4" data-i18n="table_of_contents">Table of Contents</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#introduction" class="text-gray-600 hover:text-accent transition" data-i18n="introduction">Introduction</a></li>
+                            <li><a href="#halal-principles" class="text-gray-600 hover:text-accent transition" data-i18n="halal_principles">Halal Principles in Marketing</a></li>
+                            <li><a href="#content-strategy" class="text-gray-600 hover:text-accent transition" data-i18n="content_strategy">Content Strategy</a></li>
+                            <li><a href="#platform-selection" class="text-gray-600 hover:text-accent transition" data-i18n="platform_selection">Platform Selection</a></li>
+                            <li><a href="#engagement-tips" class="text-gray-600 hover:text-accent transition" data-i18n="engagement_tips">Engagement Tips</a></li>
+                            <li><a href="#case-studies" class="text-gray-600 hover:text-accent transition" data-i18n="case_studies">Case Studies</a></li>
+                            <li><a href="#conclusion" class="text-gray-600 hover:text-accent transition" data-i18n="conclusion">Conclusion</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Main Article Content -->
+                <div class="lg:w-2/4 article-content">
+                    <div class="bg-white p-8 rounded-xl shadow-md">
+                        <!-- Article Header -->
+                        <div class="mb-8">
+                            <div class="flex items-center text-sm text-gray-500 mb-4">
+                                <span class="bg-accent text-white px-3 py-1 rounded-full mr-3" data-i18n="marketing">Marketing</span>
+                                <span data-i18n="5_min_read">5 min read</span>
+                                <span class="mx-2">•</span>
+                                <span data-i18n="may_15">May 15, 2023</span>
+                            </div>
+                            <h1 class="text-3xl md:text-4xl font-bold text-primary mb-6" data-i18n="article_title">How to Create a Halal Social Media Strategy for Your Business</h1>
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-gray-200 mr-3 overflow-hidden">
+                                    <img src="https://randomuser.me/api/portraits/women/32.jpg" 
+                                        alt="Author" 
+                                        class="w-full h-full object-cover lazy-img"
+                                        loading="lazy"
+                                        width="100"
+                                        height="100">
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-700" data-i18n="author_name">Rubaiya Binte Rashid</p>
+                                    <p class="text-sm text-gray-500" data-i18n="marketing_expert">Marketing Expert</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Article Image -->
+                        <div class="mb-8 relative">
+                            <img src="assets/halal-social-media-strategy.jpg" 
+                                alt="Social media strategy" 
+                                class="w-full h-auto rounded-lg lazy-img"
+                                loading="lazy"
+                                width="1350"
+                                height="900">
+                            <div class="halal-badge" data-i18n="halal_certified">Halal Certified</div>
+                        </div>
+                        
+                        <!-- Article Body -->
+                        <div class="prose max-w-none">
+                            <section id="introduction">
+                                <h2 data-i18n="introduction">Introduction</h2>
+                                <p data-i18n="intro_paragraph1">
+                                    In today's digital age, social media has become an indispensable tool for businesses of all sizes. For Muslim entrepreneurs, particularly women in Bangladesh, navigating the social media landscape while maintaining Islamic values can be challenging. This guide will walk you through creating an effective, halal social media strategy that helps grow your business while staying true to your faith.
+                                </p>
+                                <p data-i18n="intro_paragraph2">
+                                    According to recent studies, businesses that maintain a consistent social media presence see 32% more engagement and 23% higher conversion rates. However, as Muslim business owners, our approach must differ in both content and execution to align with Islamic principles.
+                                </p>
+                            </section>
+                            
+                            <section id="halal-principles">
+                                <h2 data-i18n="halal_principles">Halal Principles in Marketing</h2>
+                                <p data-i18n="halal_paragraph1">
+                                    Before diving into tactics, it's crucial to understand what makes marketing "halal." At its core, halal marketing means:
+                                </p>
+                                <ul data-i18n="halal_list">
+                                    <li>Avoiding deception or exaggeration in product claims</li>
+                                    <li>Ensuring all images and content are modest and appropriate</li>
+                                    <li>Not promoting haram products or services</li>
+                                    <li>Being transparent about business practices</li>
+                                    <li>Respecting competitors and avoiding negative campaigns</li>
+                                </ul>
+                                <blockquote data-i18n="halal_quote">
+                                    "The halal way is not just about what we sell, but how we present it to the world. Our marketing should reflect the beauty and integrity of our faith."
+                                </blockquote>
+                            </section>
+                            
+                            <section id="content-strategy">
+                                <h2 data-i18n="content_strategy">Content Strategy</h2>
+                                <p data-i18n="content_paragraph1">
+                                    Creating content that resonates with your audience while adhering to Islamic values requires careful planning. Here's a framework to follow:
+                                </p>
+                                
+                                <h3 data-i18n="content_types">Content Types That Work</h3>
+                                <div class="overflow-x-auto">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th data-i18n="content_type">Content Type</th>
+                                                <th data-i18n="description">Description</th>
+                                                <th data-i18n="halal_considerations">Halal Considerations</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td data-i18n="educational">Educational Posts</td>
+                                                <td data-i18n="educational_desc">How-to guides, tutorials, tips</td>
+                                                <td data-i18n="educational_halal">Ensure all advice aligns with Islamic principles</td>
+                                            </tr>
+                                            <tr>
+                                                <td data-i18n="behind_scenes">Behind-the-Scenes</td>
+                                                <td data-i18n="behind_scenes_desc">Show your work process, team</td>
+                                                <td data-i18n="behind_scenes_halal">Maintain modesty in images/videos</td>
+                                            </tr>
+                                            <tr>
+                                                <td data-i18n="testimonials">Testimonials</td>
+                                                <td data-i18n="testimonials_desc">Customer success stories</td>
+                                                <td data-i18n="testimonials_halal">Use real, verifiable testimonials</td>
+                                            </tr>
+                                            <tr>
+                                                <td data-i18n="islamic">Islamic Content</td>
+                                                <td data-i18n="islamic_desc">Relevant ayahs, hadiths</td>
+                                                <td data-i18n="islamic_halal">Ensure accurate references</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                                <h3 class="mt-6" data-i18n="content_calendar">Creating a Content Calendar</h3>
+                                <p data-i18n="calendar_paragraph1">
+                                    Planning your content in advance helps maintain consistency. Consider these important dates for the Bangladeshi market:
+                                </p>
+                                <img src="assets/contentcalendar.png" 
+                                    alt="Content calendar" 
+                                    class="lazy-img"
+                                    loading="lazy"
+                                    width="1350"
+                                    height="900">
+                                <p data-i18n="calendar_paragraph2">
+                                    Remember to balance promotional content with value-added posts. A good ratio is 20% promotional, 80% educational/entertaining content.
+                                </p>
+                            </section>
+                            
+                            <section id="platform-selection">
+                                <h2 data-i18n="platform_selection">Platform Selection</h2>
+                                <p data-i18n="platform_paragraph1">
+                                    Not all social media platforms are created equal, especially when considering halal marketing. Here's our recommended platform strategy for Bangladeshi female entrepreneurs:
+                                </p>
+                                
+                                <h3 data-i18n="facebook">Facebook</h3>
+                                <p data-i18n="facebook_paragraph">
+                                    With over 40 million users in Bangladesh, Facebook remains the most important platform. Create a business page (not a personal profile) and join relevant groups in your niche.
+                                </p>
+                                
+                                <h3 data-i18n="instagram">Instagram</h3>
+                                <p data-i18n="instagram_paragraph">
+                                    Ideal for visual businesses. Use Stories for daily updates and Highlights for permanent featured content. Remember to keep all images modest.
+                                </p>
+                                
+                                <h3 data-i18n="linkedin">LinkedIn</h3>
+                                <p data-i18n="linkedin_paragraph">
+                                    Essential for B2B businesses. Share professional achievements and industry insights while maintaining Islamic decorum.
+                                </p>
+                                
+                                <h3 data-i18n="tiktok">TikTok</h3>
+                                <p data-i18n="tiktok_paragraph">
+                                    While popular, be extremely cautious with content. Only use if you can fully control what appears in your feed and comments.
+                                </p>
+                            </section>
+                            
+                            <section id="engagement-tips">
+                                <h2 data-i18n="engagement_tips">Engagement Tips</h2>
+                                <p data-i18n="engagement_paragraph1">
+                                    Engagement is key to social media success. Here are halal-compliant ways to boost interaction:
+                                </p>
+                                <ol>
+                                    <li data-i18n="engagement_tip1"><strong>Respond promptly:</strong> Answer questions and comments within 24 hours</li>
+                                    <li data-i18n="engagement_tip2"><strong>Ask questions:</strong> Encourage discussion with thoughtful prompts</li>
+                                    <li data-i18n="engagement_tip3"><strong>Use polls:</strong> Great for getting feedback without compromising values</li>
+                                    <li data-i18n="engagement_tip4"><strong>Go live:</strong> Host Q&A sessions with proper hijab and background</li>
+                                    <li data-i18n="engagement_tip5"><strong>Share user content:</strong> With permission, showcase customer photos/stories</li>
+                                </ol>
+                            </section>
+                            
+                            <section id="case-studies">
+                                <h2 data-i18n="case_studies">Case Studies</h2>
+                                <h3 data-i18n="case_study1">Noor's Handicrafts</h3>
+                                <p data-i18n="case_study1_content">
+                                    Noor grew her Dhaka-based handicraft business from 5 to 50 orders per week by implementing a halal social media strategy. She focuses on:
+                                </p>
+                                <ul>
+                                    <li data-i18n="case_study1_point1">Behind-the-scenes videos of her all-female team at work</li>
+                                    <li data-i18n="case_study1_point2">Educational content about traditional Bangladeshi crafts</li>
+                                    <li data-i18n="case_study1_point3">Testimonials from satisfied customers with family-friendly images</li>
+                                </ul>
+                                
+                                <h3 class="mt-6" data-i18n="case_study2">Halal Beauty by Farah</h3>
+                                <p data-i18n="case_study2_content">
+                                    Farah's cosmetics line saw a 300% increase in sales after revamping her Instagram strategy to focus on:
+                                </p>
+                                <ul>
+                                    <li data-i18n="case_study2_point1">Ingredient transparency and halal certification details</li>
+                                    <li data-i18n="case_study2_point2">Tutorials featuring hijabi models</li>
+                                    <li data-i18n="case_study2_point3">Collaborations with other halal businesses</li>
+                                </ul>
+                            </section>
+                            
+                            <section id="conclusion">
+                                <h2 data-i18n="conclusion">Conclusion</h2>
+                                <p data-i18n="conclusion_paragraph1">
+                                    Building a successful social media presence as a Muslim female entrepreneur in Bangladesh is absolutely achievable while maintaining your Islamic values. The key is to focus on authenticity, provide genuine value, and always prioritize halal principles in your content and engagement.
+                                </p>
+                                <p data-i18n="conclusion_paragraph2">
+                                    Remember that success on social media is a marathon, not a sprint. Stay consistent, keep learning, and don't hesitate to adjust your strategy as you grow.
+                                </p>
+                            </section>
+                        </div>
+                        
+                        <!-- Article Footer -->
+                        <div class="mt-12 pt-8 border-t border-gray-200">
+                            <!-- Tags -->
+                            <div class="flex flex-wrap gap-2 mb-8">
+                                <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-accent hover:text-white transition" data-i18n="social_media">Social Media</span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-accent hover:text-white transition" data-i18n="strategy">Strategy</span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-accent hover:text-white transition" data-i18n="halal">Halal</span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-accent hover:text-white transition" data-i18n="marketing">Marketing</span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-accent hover:text-white transition" data-i18n="bangladesh">Bangladesh</span>
+                            </div>
+                            
+                            <!-- Share Buttons -->
+                            <div class="mb-8">
+                                <h4 class="text-lg font-bold text-primary mb-4" data-i18n="share_this_article">Share this article</h4>
+                                <div class="flex space-x-4">
+                                    <a href="#" class="share-btn bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center">
+                                        <i class="fab fa-facebook-f mr-2"></i>
+                                        <span data-i18n="facebook">Facebook</span>
+                                    </a>
+                                    <a href="#" class="share-btn bg-blue-400 text-white px-4 py-2 rounded-lg flex items-center">
+                                        <i class="fab fa-twitter mr-2"></i>
+                                        <span data-i18n="twitter">Twitter</span>
+                                    </a>
+                                    <a href="#" class="share-btn bg-red-600 text-white px-4 py-2 rounded-lg flex items-center">
+                                        <i class="fab fa-pinterest-p mr-2"></i>
+                                        <span data-i18n="pinterest">Pinterest</span>
+                                    </a>
+                                    <a href="#" class="share-btn bg-gray-700 text-white px-4 py-2 rounded-lg flex items-center">
+                                        <i class="fas fa-link mr-2"></i>
+                                        <span data-i18n="copy_link">Copy Link</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Related Articles -->
+                    <div class="mt-12">
+                        <h3 class="text-2xl font-bold text-primary mb-6" data-i18n="you_may_also_like">You may also like</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Related Article 1 -->
+                            <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+                                <a href="article.html" class="block">
+                                    <h4 class="text-lg font-bold text-primary mb-2" data-i18n="related_article1_title">Facebook Ad Strategies That Work in 2023</h4>
+                                    <p class="text-gray-600 mb-3" data-i18n="related_article1_excerpt">Discover the latest Facebook ad strategies delivering results for small businesses in Bangladesh.</p>
+                                    <div class="flex items-center text-sm text-gray-500">
+                                        <span data-i18n="nusrat_jahan">Nusrat Jahan</span>
+                                        <span class="mx-2">•</span>
+                                        <span data-i18n="may_10">May 10, 2023</span>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            <!-- Related Article 2 -->
+                            <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+                                <a href="article.html" class="block">
+                                    <h4 class="text-lg font-bold text-primary mb-2" data-i18n="related_article2_title">Starting an Online Business in Bangladesh</h4>
+                                    <p class="text-gray-600 mb-3" data-i18n="related_article2_excerpt">Step-by-step guide covering everything from registration to payment gateways.</p>
+                                    <div class="flex items-center text-sm text-gray-500">
+                                        <span data-i18n="farhana_akter">Farhana Akter</span>
+                                        <span class="mx-2">•</span>
+                                        <span data-i18n="apr_28">Apr 28, 2023</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Sidebar - Featured Image -->
+                <div class="lg:w-1/4">
+                    <div class="featured-image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP8fHchLOqcUs5eYz1CIivw6sZgJiGSfSJVQ&s" 
+                            alt="Social media concept" 
+                            class="w-full h-auto rounded-xl shadow-lg lazy-img"
+                            loading="lazy"
+                            width="1350"
+                            height="900">
+                        <div class="mt-6 bg-white p-6 rounded-xl shadow-md">
+                            <h4 class="text-lg font-bold text-primary mb-4" data-i18n="key_takeaways">Key Takeaways</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                    <span data-i18n="takeaway1">Halal marketing maintains Islamic values in all content</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                    <span data-i18n="takeaway2">Facebook and Instagram are most effective in Bangladesh</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                    <span data-i18n="takeaway3">Educational content performs best for halal businesses</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                    <span data-i18n="takeaway4">Modest imagery and transparency build trust</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                    <span data-i18n="takeaway5">Consistency is more important than frequency</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Resources -->
+                        <div class="mt-6 bg-white p-6 rounded-xl shadow-md">
+                            <h4 class="text-lg font-bold text-primary mb-4" data-i18n="resources">Resources</h4>
+                            <ul class="space-y-3">
+                                <li>
+                                    <a href="#" class="text-accent hover:text-secondary transition flex items-start">
+                                        <i class="fas fa-file-pdf mt-1 mr-2"></i>
+                                        <span data-i18n="resource1">Halal Marketing Guidelines (PDF)</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-accent hover:text-secondary transition flex items-start">
+                                        <i class="fas fa-video mt-1 mr-2"></i>
+                                        <span data-i18n="resource2">Video: Content Creation for Muslimahs</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-accent hover:text-secondary transition flex items-start">
+                                        <i class="fas fa-tools mt-1 mr-2"></i>
+                                        <span data-i18n="resource3">Free Canva Templates for Halal Businesses</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-accent hover:text-secondary transition flex items-start">
+                                        <i class="fas fa-calendar-alt mt-1 mr-2"></i>
+                                        <span data-i18n="resource4">Islamic Marketing Content Calendar</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Newsletter -->
+        <section id="newsletter" class="bg-primary text-white py-16">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <div class="inline-block bg-white bg-opacity-20 rounded-full px-6 py-2 mb-6">
+                        <span class="text-sm font-medium" data-i18n="newsletter">NEWSLETTER</span>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6" data-i18n="stay_updated">Stay Updated With Our Latest Articles</h2>
+                    <p class="text-lg mb-8 max-w-2xl mx-auto opacity-90" data-i18n="newsletter_subtitle">
+                        Join our newsletter to receive monthly updates with marketing tips, success stories and exclusive offers.
+                    </p>
+                    <form class="flex flex-col md:flex-row gap-4 max-w-lg mx-auto">
+                        <input type="email" placeholder="Your email address" class="flex-grow px-6 py-3 rounded-full bg-white bg-opacity-20 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-accent" data-i18n="email_placeholder">
+                        <button type="submit" class="px-8 py-3 bg-accent text-white rounded-full font-semibold hover:bg-secondary transition" data-i18n="subscribe">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-dark text-white py-12 px-4">
+            <div class="container mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div>
+                        <img src="assets/logo.jpg" alt="Target Marketing BD Logo" class="h-16 mb-4">
+                        <p data-i18n="footer_tagline">Halal digital marketing solutions for female entrepreneurs</p>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-4" data-i18n="quick_links">Quick Links</h4>
+                        <ul class="space-y-2">
+                            <li><a href="index.html" class="hover:text-accent transition" data-i18n="home">Home</a></li>
+                            <li><a href="services.html" class="hover:text-accent transition" data-i18n="services">Services</a></li>
+                            <li><a href="blog.html" class="hover:text-accent transition" data-i18n="blog">Blog</a></li>
+                            <li><a href="about.html" class="hover:text-accent transition" data-i18n="about">About</a></li>
+                            <li><a href="contact.html" class="hover:text-accent transition" data-i18n="contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-4" data-i18n="contact_us">Contact Us</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-envelope mt-1 mr-2 text-accent"></i>
+                                <span>targetmarketingbd@gmail.com</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-phone-alt mt-1 mr-2 text-accent"></i>
+                                <span>+880 1860 043330</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-map-marker-alt mt-1 mr-2 text-accent"></i>
+                                <span data-i18n="dhaka_bangladesh">Dhaka, Bangladesh</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-4" data-i18n="developer">Developer</h4>
+                        <p data-i18n="developed_by">Website developed by:</p>
+                        <p class="mt-2 font-semibold">Raiyan Bin Rashid <br> Jotirmoy Bhowmik</p>
+                        <p class="text-sm mt-4 text-accent">© <span id="currentYear"></span> Target Marketing BD. <span data-i18n="all_rights">All rights reserved.</span></p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Messenger Button -->
+        <a href="https://m.me/tmbd.xyz" target="_blank" id="messengerBtn" class="fixed bottom-8 right-8 bg-blue-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl hover:bg-blue-700 transition duration-300 z-40">
+            <i class="fab fa-facebook-messenger text-2xl"></i>
+        </a>
+
+        <!-- Scripts -->
+        <script>
+            // Loading bar animation
+            window.addEventListener('load', function() {
+                const loadingBar = document.getElementById('loadingBar');
+                let width = 1;
+                const interval = setInterval(() => {
+                    if (width >= 100) {
+                        clearInterval(interval);
+                        setTimeout(() => {
+                            loadingBar.style.opacity = '0';
+                            setTimeout(() => {
+                                loadingBar.style.display = 'none';
+                            }, 300);
+                        }, 300);
+                    } else {
+                        width += 2;
+                        loadingBar.style.width = width + '%';
+                        
+                        // Slow down as we approach 100%
+                        if (width > 80) {
+                            width += 0.5;
+                        }
+                    }
+                }, 20);
+                
+                // Lazy load images
+                const lazyImages = document.querySelectorAll('.lazy-img');
+                lazyImages.forEach(img => {
+                    img.classList.add('loaded');
+                });
+                
+                // Text reveal animations
+                const textReveals = document.querySelectorAll('.text-reveal');
+                textReveals.forEach(element => {
+                    setTimeout(() => {
+                        element.classList.add('show');
+                    }, 100);
+                });
+            });
+
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('open');
+                mobileMenuOverlay.classList.toggle('active');
+                document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : 'auto';
+            });
+            
+            mobileMenuOverlay.addEventListener('click', function() {
+                mobileMenu.classList.remove('open');
+                mobileMenuOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+
+            // Copy link functionality
+            document.querySelector('[data-i18n="copy_link"]')?.addEventListener('click', function(e) {
+                e.preventDefault();
+                const url = window.location.href;
+                navigator.clipboard.writeText(url).then(() => {
+                    const originalText = this.textContent;
+                    this.textContent = 'Copied!';
+                    setTimeout(() => {
+                        this.textContent = originalText;
+                    }, 2000);
+                });
+            });
+
+            // Language switching functionality
+            const translations = {
+                en: {
+                    // Navigation
+                    home: "Home",
+                    services: "Services",
+                    blog: "Blog",
+                    about: "About",
+                    contact: "Contact",
+                    subscribe: "Subscribe",
+                    
+                    // Article
+                    back_to_blog: "Back to Blog",
+                    marketing: "Marketing",
+                    "5_min_read": "5 min read",
+                    may_15: "May 15, 2023",
+                    author_name: "Rubaiya Binte Rashid",
+                    marketing_expert: "Marketing Expert",
+                    author_bio: "Rubaiya Binte Rashid is the founder of Target Marketing BD, specializing in halal digital marketing solutions",
+                    table_of_contents: "Table of Contents",
+                    introduction: "Introduction",
+                    halal_principles: "Halal Principles in Marketing",
+                    content_strategy: "Content Strategy",
+                    platform_selection: "Platform Selection",
+                    engagement_tips: "Engagement Tips",
+                    case_studies: "Case Studies",
+                    conclusion: "Conclusion",
+                    intro_paragraph1: "In today's digital age, social media has become an indispensable tool for businesses of all sizes. For Muslim entrepreneurs, particularly women in Bangladesh, navigating the social media landscape while maintaining Islamic values can be challenging. This guide will walk you through creating an effective, halal social media strategy that helps grow your business while staying true to your faith.",
+                    intro_paragraph2: "According to recent studies, businesses that maintain a consistent social media presence see 32% more engagement and 23% higher conversion rates. However, as Muslim business owners, our approach must differ in both content and execution to align with Islamic principles.",
+                    halal_paragraph1: "Before diving into tactics, it's crucial to understand what makes marketing \"halal.\" At its core, halal marketing means:",
+                    halal_list: "<li>Avoiding deception or exaggeration in product claims</li><li>Ensuring all images and content are modest and appropriate</li><li>Not promoting haram products or services</li><li>Being transparent about business practices</li><li>Respecting competitors and avoiding negative campaigns</li>",
+                    halal_quote: "\"The halal way is not just about what we sell, but how we present it to the world. Our marketing should reflect the beauty and integrity of our faith.\"",
+                    content_paragraph1: "Creating content that resonates with your audience while adhering to Islamic values requires careful planning. Here's a framework to follow:",
+                    content_types: "Content Types That Work",
+                    content_type: "Content Type",
+                    description: "Description",
+                    halal_considerations: "Halal Considerations",
+                    educational: "Educational Posts",
+                    educational_desc: "How-to guides, tutorials, tips",
+                    educational_halal: "Ensure all advice aligns with Islamic principles",
+                    behind_scenes: "Behind-the-Scenes",
+                    behind_scenes_desc: "Show your work process, team",
+                    behind_scenes_halal: "Maintain modesty in images/videos",
+                    testimonials: "Testimonials",
+                    testimonials_desc: "Customer success stories",
+                    testimonials_halal: "Use real, verifiable testimonials",
+                    islamic: "Islamic Content",
+                    islamic_desc: "Relevant ayahs, hadiths",
+                    islamic_halal: "Ensure accurate references",
+                    content_calendar: "Creating a Content Calendar",
+                    calendar_paragraph1: "Planning your content in advance helps maintain consistency. Consider these important dates for the Bangladeshi market:",
+                    calendar_paragraph2: "Remember to balance promotional content with value-added posts. A good ratio is 20% promotional, 80% educational/entertaining content.",
+                    platform_paragraph1: "Not all social media platforms are created equal, especially when considering halal marketing. Here's our recommended platform strategy for Bangladeshi female entrepreneurs:",
+                    facebook: "Facebook",
+                    facebook_paragraph: "With over 40 million users in Bangladesh, Facebook remains the most important platform. Create a business page (not a personal profile) and join relevant groups in your niche.",
+                    instagram: "Instagram",
+                    instagram_paragraph: "Ideal for visual businesses. Use Stories for daily updates and Highlights for permanent featured content. Remember to keep all images modest.",
+                    linkedin: "LinkedIn",
+                    linkedin_paragraph: "Essential for B2B businesses. Share professional achievements and industry insights while maintaining Islamic decorum.",
+                    tiktok: "TikTok",
+                    tiktok_paragraph: "While popular, be extremely cautious with content. Only use if you can fully control what appears in your feed and comments.",
+                    engagement_paragraph1: "Engagement is key to social media success. Here are halal-compliant ways to boost interaction:",
+                    engagement_tip1: "<strong>Respond promptly:</strong> Answer questions and comments within 24 hours",
+                    engagement_tip2: "<strong>Ask questions:</strong> Encourage discussion with thoughtful prompts",
+                    engagement_tip3: "<strong>Use polls:</strong> Great for getting feedback without compromising values",
+                    engagement_tip4: "<strong>Go live:</strong> Host Q&A sessions with proper hijab and background",
+                    engagement_tip5: "<strong>Share user content:</strong> With permission, showcase customer photos/stories",
+                    case_study1: "Noor's Handicrafts",
+                    case_study1_content: "Noor grew her Dhaka-based handicraft business from 5 to 50 orders per week by implementing a halal social media strategy. She focuses on:",
+                    case_study1_point1: "Behind-the-scenes videos of her all-female team at work",
+                    case_study1_point2: "Educational content about traditional Bangladeshi crafts",
+                    case_study1_point3: "Testimonials from satisfied customers with family-friendly images",
+                    case_study2: "Halal Beauty by Farah",
+                    case_study2_content: "Farah's cosmetics line saw a 300% increase in sales after revamping her Instagram strategy to focus on:",
+                    case_study2_point1: "Ingredient transparency and halal certification details",
+                    case_study2_point2: "Tutorials featuring hijabi models",
+                    case_study2_point3: "Collaborations with other halal businesses",
+                    conclusion_paragraph1: "Building a successful social media presence as a Muslim female entrepreneur in Bangladesh is absolutely achievable while maintaining your Islamic values. The key is to focus on authenticity, provide genuine value, and always prioritize halal principles in your content and engagement.",
+                    conclusion_paragraph2: "Remember that success on social media is a marathon, not a sprint. Stay consistent, keep learning, and don't hesitate to adjust your strategy as you grow.",
+                    social_media: "Social Media",
+                    strategy: "Strategy",
+                    halal: "Halal",
+                    bangladesh: "Bangladesh",
+                    share_this_article: "Share this article",
+                    facebook: "Facebook",
+                    twitter: "Twitter",
+                    pinterest: "Pinterest",
+                    copy_link: "Copy Link",
+                    you_may_also_like: "You may also like",
+                    related_article1_title: "Facebook Ad Strategies That Work in 2023",
+                    related_article1_excerpt: "Discover the latest Facebook ad strategies delivering results for small businesses in Bangladesh.",
+                    related_article2_title: "Starting an Online Business in Bangladesh",
+                    related_article2_excerpt: "Step-by-step guide covering everything from registration to payment gateways.",
+                    nusrat_jahan: "Nusrat Jahan",
+                    may_10: "May 10, 2023",
+                    farhana_akter: "Farhana Akter",
+                    apr_28: "Apr 28, 2023",
+                    key_takeaways: "Key Takeaways",
+                    takeaway1: "Halal marketing maintains Islamic values in all content",
+                    takeaway2: "Facebook and Instagram are most effective in Bangladesh",
+                    takeaway3: "Educational content performs best for halal businesses",
+                    takeaway4: "Modest imagery and transparency build trust",
+                    takeaway5: "Consistency is more important than frequency",
+                    resources: "Resources",
+                    resource1: "Halal Marketing Guidelines (PDF)",
+                    resource2: "Video: Content Creation for Muslimahs",
+                    resource3: "Free Canva Templates for Halal Businesses",
+                    resource4: "Islamic Marketing Content Calendar",
+                    
+                    // Newsletter
+                    newsletter: "NEWSLETTER",
+                    stay_updated: "Stay Updated With Our Latest Articles",
+                    newsletter_subtitle: "Join our newsletter to receive monthly updates with marketing tips, success stories and exclusive offers.",
+                    email_placeholder: "Your email address",
+                    
+                    // Footer
+                    footer_tagline: "Halal digital marketing solutions for female entrepreneurs",
+                    quick_links: "Quick Links",
+                    contact_us: "Contact Us",
+                    developer: "Developer",
+                    developed_by: "Website developed by:",
+                    all_rights: "All rights reserved.",
+                    dhaka_bangladesh: "Dhaka, Bangladesh",
+                    
+                    // Misc
+                    halal_certified: "Halal Certified"
+                },
+                bn: {
+                    // Navigation
+                    home: "হোম",
+                    services: "সেবাসমূহ",
+                    blog: "ব্লগ",
+                    about: "আমাদের সম্পর্কে",
+                    contact: "যোগাযোগ",
+                    subscribe: "সাবস্ক্রাইব",
+                    
+                    // Article
+                    back_to_blog: "ব্লগে ফিরে যান",
+                    marketing: "মার্কেটিং",
+                    "5_min_read": "৫ মিনিট পড়া",
+                    may_15: "১৫ মে, ২০২৩",
+                    author_name: "রুবাইয়া বিনতে রশীদ",
+                    marketing_expert: "মার্কেটিং বিশেষজ্ঞ",
+                    author_bio: "রুবাইয়া বিনতে রশীদ হলেন টার্গেট মার্কেটিং বিডির প্রতিষ্ঠাতা, ডিজিটাল মার্কেটিং এ বিশেষজ্ঞ।",
+                    table_of_contents: "সূচিপত্র",
+                    introduction: "ভূমিকা",
+                    halal_principles: "মার্কেটিংয়ে হালাল নীতি",
+                    content_strategy: "কনটেন্ট কৌশল",
+                    platform_selection: "প্ল্যাটফর্ম নির্বাচন",
+                    engagement_tips: "এনগেজমেন্ট টিপস",
+                    case_studies: "কেস স্টাডি",
+                    conclusion: "উপসংহার",
+                    intro_paragraph1: "আজকের ডিজিটাল যুগে, সোশ্যাল মিডিয়া সব আকারের ব্যবসার জন্য একটি অপরিহার্য সরঞ্জাম হয়ে উঠেছে। বাংলাদেশের মুসলিম উদ্যোক্তাদের জন্য, বিশেষ করে নারীদের জন্য, ইসলামিক মূল্যবোধ বজায় রেখে সোশ্যাল মিডিয়া ল্যান্ডস্কেপ নেভিগেট করা চ্যালেঞ্জিং হতে পারে। এই গাইডটি আপনাকে একটি কার্যকর, হালাল সোশ্যাল মিডিয়া কৌশল তৈরি করতে সাহায্য করবে যা আপনার ব্যবসা বৃদ্ধি করতে সাহায্য করবে যখন আপনি আপনার বিশ্বাসের প্রতি সত্য থাকবেন।",
+                    intro_paragraph2: "সাম্প্রতিক গবেষণা অনুসারে, যেসব ব্যবসা একটি সামঞ্জস্যপূর্ণ সোশ্যাল মিডিয়া উপস্থিতি বজায় রাখে তারা 32% বেশি এনগেজমেন্ট এবং 23% বেশি কনভার্শন রেট দেখে। তবে, মুসলিম ব্যবসার মালিক হিসাবে, ইসলামিক নীতির সাথে সামঞ্জস্য রাখার জন্য আমাদের পদ্ধতি কনটেন্ট এবং এক্সিকিউশন উভয় ক্ষেত্রেই আলাদা হতে হবে।",
+                    halal_paragraph1: "কৌশলে ডুব দেওয়ার আগে, কী মার্কেটিংকে \"হালাল\" করে তা বোঝা গুরুত্বপূর্ণ। এর মূলতে, হালাল মার্কেটিং মানে:",
+                    halal_list: "<li>পণ্যের দাবিতে প্রতারণা বা অতিরঞ্জন এড়ানো</li><li>নিশ্চিত করা যে সমস্ত ছবি এবং কনটেন্ট মডেস্ট এবং উপযুক্ত</li><li>হারাম পণ্য বা সেবা প্রচার না করা</li><li>ব্যবসার অনুশীলন সম্পর্কে স্বচ্ছ হওয়া</li><li>প্রতিযোগীদের সম্মান করা এবং নেতিবাচক প্রচারণা এড়ানো</li>",
+                    halal_quote: "\"হালাল পদ্ধতি শুধু আমরা কী বিক্রি করি তা নয়, বরং আমরা কীভাবে এটি বিশ্বের কাছে উপস্থাপন করি। আমাদের মার্কেটিং আমাদের বিশ্বাসের সৌন্দর্য এবং সততা প্রতিফলিত করা উচিত।\"",
+                    content_paragraph1: "ইসলামিক মূল্যবোধ মেনে চলার সময় আপনার শ্রোতাদের সাথে অনুরণিত কনটেন্ট তৈরি করার জন্য সতর্ক পরিকল্পনা প্রয়োজন। এখানে অনুসরণ করার জন্য একটি ফ্রেমওয়ার্ক:",
+                    content_types: "কাজ করে এমন কনটেন্টের ধরন",
+                    content_type: "কনটেন্টের ধরন",
+                    description: "বর্ণনা",
+                    halal_considerations: "হালাল বিবেচনা",
+                    educational: "শিক্ষামূলক পোস্ট",
+                    educational_desc: "কীভাবে গাইড, টিউটোরিয়াল, টিপস",
+                    educational_halal: "নিশ্চিত করুন যে সমস্ত পরামর্শ ইসলামিক নীতির সাথে সামঞ্জস্যপূর্ণ",
+                    behind_scenes: "দৃশ্যের পিছনে",
+                    behind_scenes_desc: "আপনার কাজের প্রক্রিয়া, দল দেখান",
+                    behind_scenes_halal: "ছবি/ভিডিওতে মডেস্টি বজায় রাখুন",
+                    testimonials: "সাক্ষ্যগ্রহণ",
+                    testimonials_desc: "গ্রাহকের সাফল্যের গল্প",
+                    testimonials_halal: "বাস্তব, যাচাইযোগ্য সাক্ষ্যগ্রহণ ব্যবহার করুন",
+                    islamic: "ইসলামিক কনটেন্ট",
+                    islamic_desc: "প্রাসঙ্গিক আয়াত, হাদিস",
+                    islamic_halal: "সঠিক রেফারেন্স নিশ্চিত করুন",
+                    content_calendar: "কনটেন্ট ক্যালেন্ডার তৈরি করা",
+                    calendar_paragraph1: "আপনার কনটেন্ট আগে থেকে পরিকল্পনা করা সামঞ্জস্য বজায় রাখতে সাহায্য করে। বাংলাদেশের বাজারের জন্য এই গুরুত্বপূর্ণ তারিখগুলি বিবেচনা করুন:",
+                    calendar_paragraph2: "প্রচারমূলক কনটেন্টের সাথে মূল্য-যুক্ত পোস্টের ভারসাম্য বজায় রাখতে মনে রাখবেন। একটি ভাল অনুপাত হল 20% প্রচারমূলক, 80% শিক্ষামূলক/বিনোদনমূলক কনটেন্ট।",
+                    platform_paragraph1: "সমস্ত সোশ্যাল মিডিয়া প্ল্যাটফর্ম সমানভাবে তৈরি হয় না, বিশেষ করে হালাল মার্কেটিং বিবেচনা করার সময়। এখানে বাংলাদেশের নারী উদ্যোক্তাদের জন্য আমাদের প্রস্তাবিত প্ল্যাটফর্ম কৌশল:",
+                    facebook: "ফেসবুক",
+                    facebook_paragraph: "বাংলাদেশে 40 মিলিয়নেরও বেশি ব্যবহারকারী সহ, ফেসবুক সবচেয়ে গুরুত্বপূর্ণ প্ল্যাটফর্ম হিসাবে রয়ে গেছে। একটি ব্যবসার পৃষ্ঠা তৈরি করুন (ব্যক্তিগত প্রোফাইল নয়) এবং আপনার নিচের প্রাসঙ্গিক গ্রুপগুলিতে যোগ দিন।",
+                    instagram: "ইনস্টাগ্রাম",
+                    instagram_paragraph: "ভিজ্যুয়াল ব্যবসার জন্য আদর্শ। দৈনিক আপডেটের জন্য স্টোরি এবং স্থায়ী ফিচার্ড কনটেন্টের জন্য হাইলাইট ব্যবহার করুন। সমস্ত ছবি মডেস্ট রাখতে মনে রাখবেন।",
+                    linkedin: "লিঙ্কডইন",
+                    linkedin_paragraph: "B2B ব্যবসার জন্য অপরিহার্য। ইসলামিক শিষ্টাচার বজায় রেখে পেশাদার অর্জন এবং শিল্পের অন্তর্দৃষ্টি শেয়ার করুন।",
+                    tiktok: "টিকটক",
+                    tiktok_paragraph: "জনপ্রিয় হলেও, কনটেন্ট নিয়ে অত্যন্ত সতর্ক থাকুন। শুধুমাত্র ব্যবহার করুন যদি আপনি সম্পূর্ণরূপে নিয়ন্ত্রণ করতে পারেন যে আপনার ফিড এবং মন্তব্যগুলিতে কী উপস্থিত হয়।",
+                    engagement_paragraph1: "সোশ্যাল মিডিয়া সাফল্যের জন্য এনগেজমেন্ট মূল। এখানে হালাল-সম্মত উপায় রয়েছে ইন্টারঅ্যাকশন বাড়ানোর জন্য:",
+                    engagement_tip1: "<strong>তাৎক্ষণিকভাবে প্রতিক্রিয়া দিন:</strong> 24 ঘন্টার মধ্যে প্রশ্ন এবং মন্তব্যের উত্তর দিন",
+                    engagement_tip2: "<strong>প্রশ্ন জিজ্ঞাসা করুন:</strong> চিন্তাশীল প্রম্পট দিয়ে আলোচনা উত্সাহিত করুন",
+                    engagement_tip3: "<strong>পোল ব্যবহার করুন:</strong> মূল্যবোধ ছাড়াই প্রতিক্রিয়া পাওয়ার জন্য দুর্দান্ত",
+                    engagement_tip4: "<strong>লাইভ যান:</strong> সঠিক হিজাব এবং ব্যাকগ্রাউন্ড সহ Q&A সেশন হোস্ট করুন",
+                    engagement_tip5: "<strong>ব্যবহারকারী কনটেন্ট শেয়ার করুন:</strong> অনুমতি সহ, গ্রাহকের ছবি/গল্প প্রদর্শন করুন",
+                    case_study1: "নূরের হস্তশিল্প",
+                    case_study1_content: "নূর তার ঢাকা-ভিত্তিক হস্তশিল্প ব্যবসাকে সপ্তাহে 5 থেকে 50 অর্ডারে বাড়িয়েছেন একটি হালাল সোশ্যাল মিডিয়া কৌশল বাস্তবায়ন করে। তিনি ফোকাস করেন:",
+                    case_study1_point1: "তার সমস্ত-মহিলা দলের কাজের পিছনের দৃশ্যের ভিডিও",
+                    case_study1_point2: "ঐতিহ্যবাহী বাংলাদেশী শিল্প সম্পর্কে শিক্ষামূলক কনটেন্ট",
+                    case_study1_point3: "পরিবার-বান্ধব ছবি সহ সন্তুষ্ট গ্রাহকদের সাক্ষ্যগ্রহণ",
+                    case_study2: "ফারাহ দ্বারা হালাল বিউটি",
+                    case_study2_content: "ফারাহর প্রসাধনী লাইনটি 300% বিক্রি বৃদ্ধি দেখেছে তার ইনস্টাগ্রাম কৌশলটি পুনরায় সংস্কার করার পরে ফোকাস করে:",
+                    case_study2_point1: "উপাদান স্বচ্ছতা এবং হালাল সার্টিফিকেশন বিবরণ",
+                    case_study2_point2: "হিজাবি মডেল ফিচার করে টিউটোরিয়াল",
+                    case_study2_point3: "অন্যান্য হালাল ব্যবসার সাথে সহযোগিতা",
+                    conclusion_paragraph1: "বাংলাদেশে একজন মুসলিম নারী উদ্যোক্তা হিসাবে আপনার ইসলামিক মূল্যবোধ বজায় রেখে একটি সফল সোশ্যাল মিডিয়া উপস্থিতি তৈরি করা একেবারে সম্ভব। মূল বিষয় হল সত্যতা ফোকাস করা, সত্যিকারের মূল্য প্রদান করা এবং আপনার কনটেন্ট এবং এনগেজমেন্টে সর্বদা হালাল নীতিগুলিকে অগ্রাধিকার দেওয়া।",
+                    conclusion_paragraph2: "মনে রাখবেন যে সোশ্যাল মিডিয়ায় সাফল্য একটি ম্যারাথন, স্প্রিন্ট নয়। সামঞ্জস্যপূর্ণ থাকুন, শেখা চালিয়ে যান এবং আপনি বাড়ার সাথে সাথে আপনার কৌশলটি সামঞ্জস্য করতে দ্বিধা করবেন না।",
+                    social_media: "সোশ্যাল মিডিয়া",
+                    strategy: "কৌশল",
+                    halal: "হালাল",
+                    bangladesh: "বাংলাদেশ",
+                    share_this_article: "এই নিবন্ধটি শেয়ার করুন",
+                    facebook: "ফেসবুক",
+                    twitter: "টুইটার",
+                    pinterest: "পিন্টারেস্ট",
+                    copy_link: "লিঙ্ক কপি করুন",
+                    about_the_author: "লেখক সম্পর্কে",
+                    you_may_also_like: "আপনার পছন্দ হতে পারে",
+                    related_article1_title: "২০২৩ সালে কার্যকর ফেসবুক বিজ্ঞাপন কৌশল",
+                    related_article1_excerpt: "বাংলাদেশের ছোট ব্যবসার জন্য ফলাফল দিচ্ছে এমন সর্বশেষ ফেসবুক বিজ্ঞাপন কৌশলগুলি আবিষ্কার করুন।",
+                    related_article2_title: "বাংলাদেশে একটি অনলাইন ব্যবসা শুরু করা",
+                    related_article2_excerpt: "নিবন্ধন থেকে পেমেন্ট গেটওয়ে পর্যন্ত সবকিছু কভার করে ধাপে ধাপে গাইড।",
+                    nusrat_jahan: "নুসরাত জাহান",
+                    may_10: "১০ মে, ২০২৩",
+                    farhana_akter: "ফারহানা আক্তার",
+                    apr_28: "২৮ এপ্রিল, ২০২৩",
+                    key_takeaways: "প্রধান Takeaways",
+                    takeaway1: "হালাল মার্কেটিং সমস্ত কনটেন্টে ইসলামিক মূল্যবোধ বজায় রাখে",
+                    takeaway2: "বাংলাদেশে ফেসবুক এবং ইনস্টাগ্রাম সবচেয়ে কার্যকর",
+                    takeaway3: "হালাল ব্যবসার জন্য শিক্ষামূলক কনটেন্ট সবচেয়ে ভালো কাজ করে",
+                    takeaway4: "মডেস্ট ইমেজারি এবং স্বচ্ছতা বিশ্বাস তৈরি করে",
+                    takeaway5: "সামঞ্জস্যতা ফ্রিকোয়েন্সির চেয়ে বেশি গুরুত্বপূর্ণ",
+                    resources: "সম্পদ",
+                    resource1: "হালাল মার্কেটিং নির্দেশিকা (PDF)",
+                    resource2: "ভিডিও: মুসলিমাদের জন্য কনটেন্ট তৈরি",
+                    resource3: "হালাল ব্যবসার জন্য বিনামূল্যে ক্যানভা টেমপ্লেট",
+                    resource4: "ইসলামিক মার্কেটিং কনটেন্ট ক্যালেন্ডার",
+                    
+                    // Newsletter
+                    newsletter: "নিউজলেটার",
+                    stay_updated: "আমাদের সর্বশেষ নিবন্ধের সাথে আপডেট থাকুন",
+                    newsletter_subtitle: "মাসিক আপডেট, মার্কেটিং টিপস, সাফল্যের গল্প এবং একচেটিয়া অফার পেতে আমাদের নিউজলেটারে যোগ দিন।",
+                    email_placeholder: "আপনার ইমেইল ঠিকানা",
+                    
+                    // Footer
+                    footer_tagline: "নারী উদ্যোক্তাদের জন্য হালাল ডিজিটাল মার্কেটিং সমাধান",
+                    quick_links: "দ্রুত লিংক",
+                    contact_us: "যোগাযোগ করুন",
+                    developer: "ডেভেলপার",
+                    developed_by: "ওয়েবসাইট ডেভেলপ করেছেন:",
+                    all_rights: "সমস্ত অধিকার সংরক্ষিত।",
+                    dhaka_bangladesh: "ঢাকা, বাংলাদেশ",
+                    
+                    // Misc
+                    halal_certified: "হালাল সার্টিফাইড"
+                }
+            };
+
+            function switchLanguage(lang) {
+                // Add font change animation
+                document.body.style.animation = 'fontChange 0.5s ease-in-out';
+                
+                // Update all translatable elements
+                document.querySelectorAll('[data-i18n]').forEach(element => {
+                    const key = element.getAttribute('data-i18n');
+                    if (translations[lang][key]) {
+                        if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                            element.placeholder = translations[lang][key];
+                        } else if (element.hasAttribute('data-i18n-value')) {
+                            // Skip elements with custom values
+                        } else {
+                            element.innerHTML = translations[lang][key];
+                        }
+                    }
+                });
+                
+                // Switch font family for Bangla
+                if (lang === 'bn') {
+                    setTimeout(() => {
+                        document.body.style.fontFamily = "'Hind Siliguri', sans-serif";
+                    }, 250); // Halfway through the animation
+                } else {
+                    setTimeout(() => {
+                        document.body.style.fontFamily = "'Poppins', sans-serif";
+                    }, 250);
+                }
+                
+                // Remove animation after it completes
+                setTimeout(() => {
+                    document.body.style.animation = '';
+                }, 500);
+                
+                // Store language preference
+                localStorage.setItem('preferredLanguage', lang);
+            }
+
+            // Initialize language toggle buttons
+            function initLanguageToggle() {
+                const preferredLanguage = localStorage.getItem('preferredLanguage') || 'en';
+                
+                // Set initial language
+                switchLanguage(preferredLanguage);
+                
+                // Update button states
+                if (preferredLanguage === 'en') {
+                    document.getElementById('enBtn').classList.add('active', 'bg-primary', 'text-white');
+                    document.getElementById('enBtn').classList.remove('border');
+                    document.getElementById('bnBtn').classList.remove('active', 'bg-primary', 'text-white');
+                    document.getElementById('bnBtn').classList.add('border', 'border-primary');
+                    
+                    // Mobile buttons
+                    document.getElementById('enBtnMobile').classList.add('active', 'bg-primary', 'text-white');
+                    document.getElementById('enBtnMobile').classList.remove('border');
+                    document.getElementById('bnBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                    document.getElementById('bnBtnMobile').classList.add('border', 'border-primary');
+                } else {
+                    document.getElementById('bnBtn').classList.add('active', 'bg-primary', 'text-white');
+                    document.getElementById('bnBtn').classList.remove('border');
+                    document.getElementById('enBtn').classList.remove('active', 'bg-primary', 'text-white');
+                    document.getElementById('enBtn').classList.add('border', 'border-primary');
+                    
+                    // Mobile buttons
+                    document.getElementById('bnBtnMobile').classList.add('active', 'bg-primary', 'text-white');
+                    document.getElementById('bnBtnMobile').classList.remove('border');
+                    document.getElementById('enBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                    document.getElementById('enBtnMobile').classList.add('border', 'border-primary');
+                }
+                
+                // Add event listeners
+                document.getElementById('enBtn').addEventListener('click', function() {
+                    switchLanguage('en');
+                    this.classList.add('active', 'bg-primary', 'text-white');
+                    this.classList.remove('border');
+                    document.getElementById('bnBtn').classList.remove('active', 'bg-primary', 'text-white');
+                    document.getElementById('bnBtn').classList.add('border', 'border-primary');
+                    
+                    // Update mobile buttons
+                    document.getElementById('enBtnMobile').classList.add('active', 'bg-primary', 'text-white');
+                    document.getElementById('enBtnMobile').classList.remove('border');
+                    document.getElementById('bnBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                    document.getElementById('bnBtnMobile').classList.add('border', 'border-primary');
+                });
+                
+                document.getElementById('bnBtn').addEventListener('click', function() {
+                    switchLanguage('bn');
+                    this.classList.add('active', 'bg-primary', 'text-white');
+                    this.classList.remove('border');
+                    document.getElementById('enBtn').classList.remove('active', 'bg-primary', 'text-white');
+                    document.getElementById('enBtn').classList.add('border', 'border-primary');
+                    
+                    // Update mobile buttons
+                    document.getElementById('bnBtnMobile').classList.add('active', 'bg-primary', 'text-white');
+                    document.getElementById('bnBtnMobile').classList.remove('border');
+                    document.getElementById('enBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                    document.getElementById('enBtnMobile').classList.add('border', 'border-primary');
+                });
+                
+                // Mobile buttons
+                document.getElementById('enBtnMobile').addEventListener('click', function() {
+                    switchLanguage('en');
+                    this.classList.add('active', 'bg-primary', 'text-white');
+                    this.classList.remove('border');
+                    document.getElementById('bnBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                    document.getElementById('bnBtnMobile').classList.add('border', 'border-primary');
+                    
+                    // Update desktop buttons
+                    document.getElementById('enBtn').classList.add('active', 'bg-primary', 'text-white');
+                    document.getElementById('enBtn').classList.remove('border');
+                    document.getElementById('bnBtn').classList.remove('active', 'bg-primary', 'text-white');
+                    document.getElementById('bnBtn').classList.add('border', 'border-primary');
+                });
+                
+                document.getElementById('bnBtnMobile').addEventListener('click', function() {
+                    switchLanguage('bn');
+                    this.classList.add('active', 'bg-primary', 'text-white');
+                    this.classList.remove('border');
+                    document.getElementById('enBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                    document.getElementById('enBtnMobile').classList.add('border', 'border-primary');
+                    
+                    // Update desktop buttons
+                    document.getElementById('bnBtn').classList.add('active', 'bg-primary', 'text-white');
+                    document.getElementById('bnBtn').classList.remove('border');
+                    document.getElementById('enBtn').classList.remove('active', 'bg-primary', 'text-white');
+                    document.getElementById('enBtn').classList.add('border', 'border-primary');
+                });
+            }
+
+            // Initialize everything when DOM is loaded
+            document.addEventListener('DOMContentLoaded', function() {
+                initLanguageToggle();
+                
+                // Set current year in footer
+                document.getElementById('currentYear').textContent = new Date().getFullYear();
+                
+                // Lazy load images when they come into view
+                const lazyLoadImages = () => {
+                    const lazyImages = document.querySelectorAll('.lazy-img:not(.loaded)');
+                    
+                    lazyImages.forEach(img => {
+                        if (img.getBoundingClientRect().top <= window.innerHeight && img.getBoundingClientRect().bottom >= 0) {
+                            img.classList.add('loaded');
+                        }
+                    });
+                };
+                
+                window.addEventListener('scroll', lazyLoadImages);
+                window.addEventListener('resize', lazyLoadImages);
+                window.addEventListener('orientationchange', lazyLoadImages);
+                
+                // Initial check
+                lazyLoadImages();
+                
+                // Smooth scrolling for table of contents links
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        
+                        const targetId = this.getAttribute('href');
+                        const targetElement = document.querySelector(targetId);
+                        
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 100,
+                                behavior: 'smooth'
+                            });
+                        }
+                    });
+                });
+            });
+        </script>
+    </body>
+    </html>
