@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog | Target Marketing BD</title>
     <meta name="description" content="Halal digital marketing insights for female entrepreneurs in Bangladesh">
-    
+
     <!-- Preload critical resources -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        as="style">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
-    
+
     <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap">
-    
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -84,7 +88,7 @@
             }
         }
     </script>
-    
+
     <style>
         /* Loading Bar */
         .loading-bar {
@@ -97,7 +101,7 @@
             transition: width 0.3s ease;
             width: 0%;
         }
-        
+
         /* Halal Badge */
         .halal-badge {
             position: absolute;
@@ -110,7 +114,7 @@
             font-size: 12px;
             font-weight: bold;
         }
-        
+
         /* Blog Card */
         .blog-card {
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -119,12 +123,12 @@
             border-radius: 12px;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
         }
-        
+
         .blog-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
-        
+
         .blog-card::before {
             content: '';
             position: absolute;
@@ -137,28 +141,28 @@
             transition: opacity 0.3s ease;
             z-index: 1;
         }
-        
+
         .blog-card:hover::before {
             opacity: 1;
         }
-        
+
         .blog-card-content {
             position: relative;
             z-index: 2;
         }
-        
+
         /* Category Badge */
         .category-badge {
             transition: all 0.3s ease;
             transform: translateY(10px);
             opacity: 0;
         }
-        
+
         .blog-card:hover .category-badge {
             transform: translateY(0);
             opacity: 1;
         }
-        
+
         /* Read More Button */
         .read-more-btn {
             transform: translateY(20px);
@@ -171,33 +175,33 @@
             font-weight: 500;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
-        
+
         .blog-card:hover .read-more-btn {
             transform: translateY(0);
             opacity: 1;
         }
-        
+
         /* Language Toggle */
         .language-toggle {
             transition: all 0.3s ease;
         }
-        
+
         .language-toggle.active {
             background-color: #228B7D;
             color: white;
         }
-        
+
         /* Mobile Menu */
         .mobile-menu {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease-out;
         }
-        
+
         .mobile-menu.open {
             max-height: 500px;
         }
-        
+
         /* Mobile Menu Overlay */
         .mobile-menu-overlay {
             display: none;
@@ -206,63 +210,64 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0,0,0,0.5);
+            background-color: rgba(0, 0, 0, 0.5);
             z-index: 40;
         }
-        
+
         .mobile-menu-overlay.active {
             display: block;
         }
-        
+
         /* Hero Gradient */
         .hero-gradient {
             background: linear-gradient(135deg, rgba(4, 68, 67, 0.9) 0%, rgba(34, 139, 125, 0.9) 100%);
         }
-        
+
         /* Featured Post Overlay */
         .featured-overlay {
             background: linear-gradient(to bottom, rgba(13, 48, 44, 0) 0%, rgba(13, 48, 44, 0.9) 100%);
         }
-        
+
         /* Image Loading */
         .lazy-img {
             opacity: 0;
             transition: opacity 0.4s ease;
         }
-        
+
         .lazy-img.loaded {
             opacity: 1;
         }
-        
+
         /* Wave Animation */
         .wave-animation {
             animation: wave 8s linear infinite;
         }
-        
+
         /* Text Reveal */
         .text-reveal {
             opacity: 0;
             transform: translateY(20px);
             transition: all 0.6s ease;
         }
-        
+
         .text-reveal.show {
             opacity: 1;
             transform: translateY(0);
         }
-        
+
         /* Subscribe Button */
         .subscribe-btn {
             background: linear-gradient(to right, #228B7D, #66ADA5);
             transition: all 0.3s ease;
         }
-        
+
         .subscribe-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(34, 139, 125, 0.3);
         }
     </style>
 </head>
+
 <body class="font-poppins bg-gray-50 text-gray-800">
     <!-- Loading Bar -->
     <div id="loadingBar" class="loading-bar"></div>
@@ -277,43 +282,56 @@
                         <span class="text-xl font-bold text-primary">Target Marketing BD</span>
                     </a>
                 </div>
-                
+
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="index.html" class="text-primary hover:text-accent transition" data-i18n="home">Home</a>
-                    <a href="services.html" class="text-primary hover:text-accent transition" data-i18n="services">Services</a>
+                    <a href="services.html" class="text-primary hover:text-accent transition"
+                        data-i18n="services">Services</a>
                     <a href="blog.html" class="text-primary font-medium" data-i18n="blog">Blog</a>
                     <a href="about.html" class="text-primary hover:text-accent transition" data-i18n="about">About</a>
-                    <a href="contact.html" class="text-primary hover:text-accent transition" data-i18n="contact">Contact</a>
-                    <a href="#newsletter" class="subscribe-btn px-6 py-2 text-white rounded-full font-medium" data-i18n="subscribe">Subscribe</a>
-                    
+                    <a href="contact.html" class="text-primary hover:text-accent transition"
+                        data-i18n="contact">Contact</a>
+                    <a href="#newsletter" class="subscribe-btn px-6 py-2 text-white rounded-full font-medium"
+                        data-i18n="subscribe">Subscribe</a>
+
                     <div class="flex items-center space-x-2 ml-6">
                         <button id="enBtn" class="language-toggle active px-3 py-1 rounded-full text-sm">EN</button>
-                        <button id="bnBtn" class="language-toggle px-3 py-1 rounded-full text-sm border border-primary">BN</button>
+                        <button id="bnBtn"
+                            class="language-toggle px-3 py-1 rounded-full text-sm border border-primary">BN</button>
                     </div>
                 </div>
-                
+
                 <button class="md:hidden focus:outline-none" id="mobileMenuBtn">
                     <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
             </div>
-            
+
             <!-- Mobile Menu Overlay -->
             <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
-            
+
             <!-- Mobile Menu -->
             <div class="mobile-menu md:hidden absolute left-0 right-0 bg-white shadow-lg z-50" id="mobileMenu">
                 <div class="pt-4 pb-2 px-6 space-y-2 text-sm font-medium">
-                    <a href="index.html" class="block py-2 text-primary hover:text-accent transition" data-i18n="home">Home</a>
-                    <a href="services.html" class="block py-2 text-primary hover:text-accent transition" data-i18n="services">Services</a>
+                    <a href="index.html" class="block py-2 text-primary hover:text-accent transition"
+                        data-i18n="home">Home</a>
+                    <a href="services.html" class="block py-2 text-primary hover:text-accent transition"
+                        data-i18n="services">Services</a>
                     <a href="blog.html" class="block py-2 text-primary font-medium" data-i18n="blog">Blog</a>
-                    <a href="about.html" class="block py-2 text-primary hover:text-accent transition" data-i18n="about">About</a>
-                    <a href="contact.html" class="block py-2 text-primary hover:text-accent transition" data-i18n="contact">Contact</a>
-                    <a href="#newsletter" class="block py-2 subscribe-btn text-white rounded-full text-center font-medium" data-i18n="subscribe">Subscribe</a>
+                    <a href="about.html" class="block py-2 text-primary hover:text-accent transition"
+                        data-i18n="about">About</a>
+                    <a href="contact.html" class="block py-2 text-primary hover:text-accent transition"
+                        data-i18n="contact">Contact</a>
+                    <a href="#newsletter"
+                        class="block py-2 subscribe-btn text-white rounded-full text-center font-medium"
+                        data-i18n="subscribe">Subscribe</a>
                     <div class="flex items-center space-x-2 px-3 py-4 justify-center">
-                        <button id="enBtnMobile" class="language-toggle active px-4 py-2 rounded-full text-sm">English</button>
-                        <button id="bnBtnMobile" class="language-toggle px-4 py-2 rounded-full text-sm border border-primary">বাংলা</button>
+                        <button id="enBtnMobile"
+                            class="language-toggle active px-4 py-2 rounded-full text-sm">English</button>
+                        <button id="bnBtnMobile"
+                            class="language-toggle px-4 py-2 rounded-full text-sm border border-primary">বাংলা</button>
                     </div>
                 </div>
             </div>
@@ -325,26 +343,27 @@
         <div class="container mx-auto">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-12 md:mb-0">
-                    <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight" id="blogTitle" data-i18n="blog_title">Marketing insights journal</h1>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight" id="blogTitle" data-i18n="blog_title">
+                        Marketing insights journal</h1>
                     <p class="text-lg md:text-xl mb-8 opacity-90 max-w-lg" data-i18n="blog_subtitle">
                         Practical tips, success stories and ethical strategies for female entrepreneurs in Bangladesh
                     </p>
                     <div class="relative max-w-md">
-                        <input type="text" placeholder="Search articles..." class="w-full px-6 py-3 rounded-full bg-white bg-opacity-20 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-accent" data-i18n="search_placeholder">
-                        <button class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-accent text-white p-2 rounded-full">
+                        <input type="text" placeholder="Search articles..."
+                            class="w-full px-6 py-3 rounded-full bg-white bg-opacity-20 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-accent"
+                            data-i18n="search_placeholder">
+                        <button
+                            class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-accent text-white p-2 rounded-full">
                             <i class="fas fa-search"></i>
                         </button>
                     </div>
                 </div>
-                
+
                 <div class="md:w-1/2 animate-float">
                     <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
-                             alt="Digital marketing"
-                             class="rounded-lg shadow-2xl w-full max-w-md mx-auto wave-animation"
-                             loading="lazy"
-                             width="634"
-                             height="423">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                            alt="Digital marketing" class="rounded-lg shadow-2xl w-full max-w-md mx-auto wave-animation"
+                            loading="lazy" width="634" height="423">
                         <div class="halal-badge" data-i18n="halal_certified">Halal Certified</div>
                     </div>
                 </div>
@@ -357,12 +376,8 @@
         <div class="bg-white rounded-xl shadow-2xl overflow-hidden transform transition duration-500 hover:shadow-3xl">
             <div class="md:flex">
                 <div class="md:w-2/3 relative">
-                    <img src="assets/halal-social-media-strategy.jpg" 
-                         alt="Featured post" 
-                         class="w-full h-full object-cover lazy-img"
-                         loading="lazy"
-                         width="1350"
-                         height="900">
+                    <img src="assets/halal-social-media-strategy.jpg" alt="Featured post"
+                        class="w-full h-full object-cover lazy-img" loading="lazy" width="1350" height="900">
                     <div class="absolute inset-0 featured-overlay flex items-end p-8">
                         <div>
                             <div class="flex items-center text-white text-sm mb-4">
@@ -371,22 +386,22 @@
                                 <span class="mx-2">•</span>
                                 <span data-i18n="5_min_read">5 min read</span>
                             </div>
-                            <h2 class="text-2xl md:text-4xl font-bold text-white mb-4" data-i18n="featured_post_title">How to Create a Halal Social Media Strategy for Your Business</h2>
+                            <h2 class="text-2xl md:text-4xl font-bold text-white mb-4" data-i18n="featured_post_title">
+                                How to Create a Halal Social Media Strategy for Your Business</h2>
                             <p class="text-white text-opacity-90 mb-6 max-w-2xl" data-i18n="featured_post_excerpt">
-                                Learn how to build an effective social media presence while maintaining Islamic values and reaching your target audience.
+                                Learn how to build an effective social media presence while maintaining Islamic values
+                                and reaching your target audience.
                             </p>
                             <div class="flex items-center">
                                 <div class="w-10 h-10 rounded-full bg-white mr-3 overflow-hidden">
-                                    <img src="https://randomuser.me/api/portraits/women/32.jpg" 
-                                         alt="Author" 
-                                         class="w-full h-full object-cover lazy-img"
-                                         loading="lazy"
-                                         width="100"
-                                         height="100">
+                                    <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Author"
+                                        class="w-full h-full object-cover lazy-img" loading="lazy" width="100"
+                                        height="100">
                                 </div>
                                 <div>
                                     <p class="font-medium text-white" data-i18n="author_name">Ayesha Rahman</p>
-                                    <p class="text-sm text-white text-opacity-80" data-i18n="published_on">Published on May 15, 2023</p>
+                                    <p class="text-sm text-white text-opacity-80" data-i18n="published_on">Published on
+                                        May 15, 2023</p>
                                 </div>
                             </div>
                         </div>
@@ -394,19 +409,30 @@
                 </div>
                 <div class="md:w-1/3 p-8">
                     <div class="flex flex-wrap gap-2 mb-6">
-                        <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-accent hover:text-white transition" data-i18n="social_media">Social Media</span>
-                        <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-accent hover:text-white transition" data-i18n="strategy">Strategy</span>
-                        <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-accent hover:text-white transition" data-i18n="halal">Halal</span>
+                        <span
+                            class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-accent hover:text-white transition"
+                            data-i18n="social_media">Social Media</span>
+                        <span
+                            class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-accent hover:text-white transition"
+                            data-i18n="strategy">Strategy</span>
+                        <span
+                            class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-accent hover:text-white transition"
+                            data-i18n="halal">Halal</span>
                     </div>
                     <p class="text-gray-600 mb-6" data-i18n="featured_post_content">
-                        In today's digital age, having a strong social media presence is crucial for business success. However, as Muslim entrepreneurs, we must ensure our strategies align with Islamic values. This comprehensive guide covers everything from content creation to audience engagement while maintaining halal principles.
+                        In today's digital age, having a strong social media presence is crucial for business success.
+                        However, as Muslim entrepreneurs, we must ensure our strategies align with Islamic values. This
+                        comprehensive guide covers everything from content creation to audience engagement while
+                        maintaining halal principles.
                     </p>
                     <div class="flex items-center justify-between">
                         <div class="flex items-center">
                             <i class="fas fa-eye text-gray-400 mr-2"></i>
                             <span class="text-sm text-gray-500" data-i18n="views">1.2K views</span>
                         </div>
-                        <a href="article.html?slug=halal-social-media-strategy" class="px-6 py-2 bg-primary text-white rounded-full font-medium hover:bg-dark transition flex items-center" data-i18n="read_full">
+                        <a href="article.html?slug=halal-social-media-strategy"
+                            class="px-6 py-2 bg-primary text-white rounded-full font-medium hover:bg-dark transition flex items-center"
+                            data-i18n="read_full">
                             Read Full <i class="fas fa-arrow-right ml-2"></i>
                         </a>
                     </div>
@@ -418,27 +444,33 @@
     <!-- Blog Grid -->
     <section class="container mx-auto px-4 py-12">
         <div class="flex flex-col md:flex-row justify-between items-center mb-12">
-            <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4 md:mb-0" data-i18n="latest_articles">Latest Articles</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4 md:mb-0" data-i18n="latest_articles">Latest
+                Articles</h2>
             <div class="flex space-x-2">
-                <button class="category-filter active px-4 py-2 bg-primary text-white rounded-full text-sm font-medium" data-category="all" data-i18n="all">All</button>
-                <button class="category-filter px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-full text-sm font-medium transition" data-category="marketing" data-i18n="marketing">Marketing</button>
-                <button class="category-filter px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-full text-sm font-medium transition" data-category="design" data-i18n="design">Design</button>
-                <button class="category-filter px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-full text-sm font-medium transition" data-category="business" data-i18n="business">Business</button>
+                <button class="category-filter active px-4 py-2 bg-primary text-white rounded-full text-sm font-medium"
+                    data-category="all" data-i18n="all">All</button>
+                <button
+                    class="category-filter px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-full text-sm font-medium transition"
+                    data-category="marketing" data-i18n="marketing">Marketing</button>
+                <button
+                    class="category-filter px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-full text-sm font-medium transition"
+                    data-category="design" data-i18n="design">Design</button>
+                <button
+                    class="category-filter px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-full text-sm font-medium transition"
+                    data-category="business" data-i18n="business">Business</button>
             </div>
         </div>
-        
+
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Article 1 -->
             <div class="blog-card bg-white rounded-xl shadow-md overflow-hidden" data-category="marketing">
                 <div class="relative h-48">
-                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
-                         alt="Facebook ads" 
-                         class="w-full h-full object-cover lazy-img"
-                         loading="lazy"
-                         width="1350"
-                         height="900">
+                    <img src="assets/cover.jpg"
+                        alt="Facebook ads" class="w-full h-full object-cover lazy-img" loading="lazy" width="1350"
+                        height="900">
                     <div class="halal-badge" data-i18n="halal_certified">Halal Certified</div>
-                    <div class="category-badge absolute top-4 left-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-medium" data-i18n="marketing">Marketing</div>
+                    <div class="category-badge absolute top-4 left-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-medium"
+                        data-i18n="marketing">Marketing</div>
                 </div>
                 <div class="p-6 blog-card-content">
                     <div class="flex items-center text-sm text-gray-500 mb-3">
@@ -446,33 +478,34 @@
                         <span class="mx-2">•</span>
                         <span data-i18n="may_10">May 10, 2023</span>
                     </div>
-                    <h3 class="text-xl font-bold text-primary mb-3" data-i18n="article1_title">Facebook Ad Strategies That Work in 2023</h3>
+                    <h3 class="text-xl font-bold text-primary mb-3" data-i18n="article1_title">Facebook Ad Strategies
+                        That Work in 2023</h3>
                     <p class="text-gray-600 mb-4" data-i18n="article1_excerpt">
-                        Discover the latest Facebook ad strategies that are delivering results for small businesses in Bangladesh this year.
+                        Discover the latest Facebook ad strategies that are delivering results for small businesses in
+                        Bangladesh this year.
                     </p>
                     <div class="flex items-center justify-between">
                         <div class="flex items-center text-sm text-gray-500">
                             <i class="fas fa-clock mr-1"></i>
                             <span data-i18n="4_min_read">4 min read</span>
                         </div>
-                        <a href="article.html?=fslugacebook-ad-strategies-2023" class="read-more-btn text-white font-medium flex items-center hover:text-white hover:shadow-md">
+                        <a href="article.html?=fslugacebook-ad-strategies-2023"
+                            class="read-more-btn text-white font-medium flex items-center hover:text-white hover:shadow-md">
                             Read Full <i class="fas fa-arrow-right ml-2"></i>
                         </a>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Article 2 -->
             <div class="blog-card bg-white rounded-xl shadow-md overflow-hidden" data-category="design">
                 <div class="relative h-48">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
-                         alt="Color psychology" 
-                         class="w-full h-full object-cover lazy-img"
-                         loading="lazy"
-                         width="1350"
-                         height="900">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                        alt="Color psychology" class="w-full h-full object-cover lazy-img" loading="lazy" width="1350"
+                        height="900">
                     <div class="halal-badge" data-i18n="halal_certified">Halal Certified</div>
-                    <div class="category-badge absolute top-4 left-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-medium" data-i18n="design">Design</div>
+                    <div class="category-badge absolute top-4 left-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-medium"
+                        data-i18n="design">Design</div>
                 </div>
                 <div class="p-6 blog-card-content">
                     <div class="flex items-center text-sm text-gray-500 mb-3">
@@ -480,33 +513,34 @@
                         <span class="mx-2">•</span>
                         <span data-i18n="may_5">May 5, 2023</span>
                     </div>
-                    <h3 class="text-xl font-bold text-primary mb-3" data-i18n="article2_title">Color Psychology in Branding</h3>
+                    <h3 class="text-xl font-bold text-primary mb-3" data-i18n="article2_title">Color Psychology in
+                        Branding</h3>
                     <p class="text-gray-600 mb-4" data-i18n="article2_excerpt">
-                        Learn how to choose the right colors for your brand that resonate with your target audience and convey your message.
+                        Learn how to choose the right colors for your brand that resonate with your target audience and
+                        convey your message.
                     </p>
                     <div class="flex items-center justify-between">
                         <div class="flex items-center text-sm text-gray-500">
                             <i class="fas fa-clock mr-1"></i>
                             <span data-i18n="6_min_read">6 min read</span>
                         </div>
-                        <a href="article.html?slug=color-psychology-in-branding" class="read-more-btn text-white font-medium flex items-center hover:text-white hover:shadow-md">
+                        <a href="article.html?slug=color-psychology-in-branding"
+                            class="read-more-btn text-white font-medium flex items-center hover:text-white hover:shadow-md">
                             Read Full <i class="fas fa-arrow-right ml-2"></i>
                         </a>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Article 3 -->
             <div class="blog-card bg-white rounded-xl shadow-md overflow-hidden" data-category="business">
                 <div class="relative h-48">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
-                         alt="Online business" 
-                         class="w-full h-full object-cover lazy-img"
-                         loading="lazy"
-                         width="1350"
-                         height="900">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                        alt="Online business" class="w-full h-full object-cover lazy-img" loading="lazy" width="1350"
+                        height="900">
                     <div class="halal-badge" data-i18n="halal_certified">Halal Certified</div>
-                    <div class="category-badge absolute top-4 left-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-medium" data-i18n="business">Business</div>
+                    <div class="category-badge absolute top-4 left-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-medium"
+                        data-i18n="business">Business</div>
                 </div>
                 <div class="p-6 blog-card-content">
                     <div class="flex items-center text-sm text-gray-500 mb-3">
@@ -514,33 +548,34 @@
                         <span class="mx-2">•</span>
                         <span data-i18n="apr_28">Apr 28, 2023</span>
                     </div>
-                    <h3 class="text-xl font-bold text-primary mb-3" data-i18n="article3_title">Starting an Online Business in Bangladesh</h3>
+                    <h3 class="text-xl font-bold text-primary mb-3" data-i18n="article3_title">Starting an Online
+                        Business in Bangladesh</h3>
                     <p class="text-gray-600 mb-4" data-i18n="article3_excerpt">
-                        Step-by-step guide covering everything from business registration to payment gateways for aspiring female entrepreneurs.
+                        Step-by-step guide covering everything from business registration to payment gateways for
+                        aspiring female entrepreneurs.
                     </p>
                     <div class="flex items-center justify-between">
                         <div class="flex items-center text-sm text-gray-500">
                             <i class="fas fa-clock mr-1"></i>
                             <span data-i18n="8_min_read">8 min read</span>
                         </div>
-                        <a href="article.html?slug=starting-online-business-bangladesh" class="read-more-btn text-white font-medium flex items-center hover:text-white hover:shadow-md">
+                        <a href="article.html?slug=starting-online-business-bangladesh"
+                            class="read-more-btn text-white font-medium flex items-center hover:text-white hover:shadow-md">
                             Read Full <i class="fas fa-arrow-right ml-2"></i>
                         </a>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Article 4 -->
             <div class="blog-card bg-white rounded-xl shadow-md overflow-hidden" data-category="interview">
                 <div class="relative h-48">
-                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
-                         alt="Success story" 
-                         class="w-full h-full object-cover lazy-img"
-                         loading="lazy"
-                         width="1350"
-                         height="900">
+                    <img src="https://img.freepik.com/free-vector/paper-plane-flying-sky-inspiring-employees-achieve-success_1017-59085.jpg?ga=GA1.1.718032388.1750073923&semt=ais_hybrid&w=740"
+                        alt="Success story" class="w-full h-full object-cover lazy-img" loading="lazy" width="1350"
+                        height="900">
                     <div class="halal-badge" data-i18n="halal_certified">Halal Certified</div>
-                    <div class="category-badge absolute top-4 left-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-medium" data-i18n="interview">Interview</div>
+                    <div class="category-badge absolute top-4 left-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-medium"
+                        data-i18n="interview">Interview</div>
                 </div>
                 <div class="p-6 blog-card-content">
                     <div class="flex items-center text-sm text-gray-500 mb-3">
@@ -548,33 +583,34 @@
                         <span class="mx-2">•</span>
                         <span data-i18n="apr_22">Apr 22, 2023</span>
                     </div>
-                    <h3 class="text-xl font-bold text-primary mb-3" data-i18n="article4_title">Success Story: Rima's Handicraft Business</h3>
+                    <h3 class="text-xl font-bold text-primary mb-3" data-i18n="article4_title">Success Story: Rima's
+                        Handicraft Business</h3>
                     <p class="text-gray-600 mb-4" data-i18n="article4_excerpt">
-                        Exclusive interview with Rima Begum who grew her small handicraft business into a thriving online enterprise.
+                        Exclusive interview with Rima Begum who grew her small handicraft business into a thriving
+                        online enterprise.
                     </p>
                     <div class="flex items-center justify-between">
                         <div class="flex items-center text-sm text-gray-500">
                             <i class="fas fa-clock mr-1"></i>
                             <span data-i18n="10_min_read">10 min read</span>
                         </div>
-                        <a href="article.html?slug=rima-handicraft-success-story" class="read-more-btn text-white font-medium flex items-center hover:text-white hover:shadow-md">
+                        <a href="article.html?slug=rima-handicraft-success-story"
+                            class="read-more-btn text-white font-medium flex items-center hover:text-white hover:shadow-md">
                             Read Full <i class="fas fa-arrow-right ml-2"></i>
                         </a>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Article 5 -->
             <div class="blog-card bg-white rounded-xl shadow-md overflow-hidden" data-category="photography">
                 <div class="relative h-48">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
-                         alt="Product photography" 
-                         class="w-full h-full object-cover lazy-img"
-                         loading="lazy"
-                         width="1350"
-                         height="900">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                        alt="Product photography" class="w-full h-full object-cover lazy-img" loading="lazy"
+                        width="1350" height="900">
                     <div class="halal-badge" data-i18n="halal_certified">Halal Certified</div>
-                    <div class="category-badge absolute top-4 left-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-medium" data-i18n="photography">Photography</div>
+                    <div class="category-badge absolute top-4 left-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-medium"
+                        data-i18n="photography">Photography</div>
                 </div>
                 <div class="p-6 blog-card-content">
                     <div class="flex items-center text-sm text-gray-500 mb-3">
@@ -582,33 +618,34 @@
                         <span class="mx-2">•</span>
                         <span data-i18n="apr_15">Apr 15, 2023</span>
                     </div>
-                    <h3 class="text-xl font-bold text-primary mb-3" data-i18n="article5_title">Product Photography Tips for E-commerce</h3>
+                    <h3 class="text-xl font-bold text-primary mb-3" data-i18n="article5_title">Product Photography Tips
+                        for E-commerce</h3>
                     <p class="text-gray-600 mb-4" data-i18n="article5_excerpt">
-                        Professional-looking product photos don't require expensive equipment. Here's how to get great results with basic tools.
+                        Professional-looking product photos don't require expensive equipment. Here's how to get great
+                        results with basic tools.
                     </p>
                     <div class="flex items-center justify-between">
                         <div class="flex items-center text-sm text-gray-500">
                             <i class="fas fa-clock mr-1"></i>
                             <span data-i18n="5_min_read">5 min read</span>
                         </div>
-                        <a href="article.html?slug=ecommerce-product-photography-tips" class="read-more-btn text-white font-medium flex items-center hover:text-white hover:shadow-md">
+                        <a href="article.html?slug=ecommerce-product-photography-tips"
+                            class="read-more-btn text-white font-medium flex items-center hover:text-white hover:shadow-md">
                             Read Full <i class="fas fa-arrow-right ml-2"></i>
                         </a>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Article 6 -->
             <div class="blog-card bg-white rounded-xl shadow-md overflow-hidden" data-category="strategy">
                 <div class="relative h-48">
-                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
-                         alt="Digital marketing plan" 
-                         class="w-full h-full object-cover lazy-img"
-                         loading="lazy"
-                         width="1350"
-                         height="900">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                        alt="Digital marketing plan" class="w-full h-full object-cover lazy-img" loading="lazy"
+                        width="1350" height="900">
                     <div class="halal-badge" data-i18n="halal_certified">Halal Certified</div>
-                    <div class="category-badge absolute top-4 left-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-medium" data-i18n="strategy">Strategy</div>
+                    <div class="category-badge absolute top-4 left-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-medium"
+                        data-i18n="strategy">Strategy</div>
                 </div>
                 <div class="p-6 blog-card-content">
                     <div class="flex items-center text-sm text-gray-500 mb-3">
@@ -616,25 +653,29 @@
                         <span class="mx-2">•</span>
                         <span data-i18n="apr_8">Apr 8, 2023</span>
                     </div>
-                    <h3 class="text-xl font-bold text-primary mb-3" data-i18n="article6_title">Digital Marketing Plan for Small Budgets</h3>
+                    <h3 class="text-xl font-bold text-primary mb-3" data-i18n="article6_title">Digital Marketing Plan
+                        for Small Budgets</h3>
                     <p class="text-gray-600 mb-4" data-i18n="article6_excerpt">
-                        How to allocate limited resources for maximum impact in the Bangladeshi market. Real case studies included.
+                        How to allocate limited resources for maximum impact in the Bangladeshi market. Real case
+                        studies included.
                     </p>
                     <div class="flex items-center justify-between">
                         <div class="flex items-center text-sm text-gray-500">
                             <i class="fas fa-clock mr-1"></i>
                             <span data-i18n="7_min_read">7 min read</span>
                         </div>
-                        <a href="article.html?slug=digital-marketing-small-budgets" class="read-more-btn text-white font-medium flex items-center hover:text-white hover:shadow-md">
+                        <a href="article.html?slug=digital-marketing-small-budgets"
+                            class="read-more-btn text-white font-medium flex items-center hover:text-white hover:shadow-md">
                             Read Full <i class="fas fa-arrow-right ml-2"></i>
                         </a>
                     </div>
                 </div>
             </div>
         </div>
-        
+
         <div class="text-center mt-12">
-            <button id="loadMoreBtn" class="px-8 py-3 bg-white border-2 border-primary text-primary rounded-full font-semibold hover:bg-primary hover:text-white transition flex items-center mx-auto">
+            <button id="loadMoreBtn"
+                class="px-8 py-3 bg-white border-2 border-primary text-primary rounded-full font-semibold hover:bg-primary hover:text-white transition flex items-center mx-auto">
                 <span data-i18n="load_more">Load More Articles</span>
                 <i class="fas fa-sync-alt ml-2"></i>
             </button>
@@ -650,36 +691,56 @@
                 Browse articles by topics that interest you most
             </p>
         </div>
-        
+
         <div class="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
-            <a href="#" class="px-5 py-2 bg-white shadow-sm rounded-full text-gray-700 hover:bg-primary hover:text-white transition flex items-center" data-i18n="social_media">
+            <a href="#"
+                class="px-5 py-2 bg-white shadow-sm rounded-full text-gray-700 hover:bg-primary hover:text-white transition flex items-center"
+                data-i18n="social_media">
                 <i class="fas fa-hashtag mr-2"></i> Social Media
             </a>
-            <a href="#" class="px-5 py-2 bg-white shadow-sm rounded-full text-gray-700 hover:bg-primary hover:text-white transition flex items-center" data-i18n="marketing">
+            <a href="#"
+                class="px-5 py-2 bg-white shadow-sm rounded-full text-gray-700 hover:bg-primary hover:text-white transition flex items-center"
+                data-i18n="marketing">
                 <i class="fas fa-hashtag mr-2"></i> Marketing
             </a>
-            <a href="#" class="px-5 py-2 bg-white shadow-sm rounded-full text-gray-700 hover:bg-primary hover:text-white transition flex items-center" data-i18n="branding">
+            <a href="#"
+                class="px-5 py-2 bg-white shadow-sm rounded-full text-gray-700 hover:bg-primary hover:text-white transition flex items-center"
+                data-i18n="branding">
                 <i class="fas fa-hashtag mr-2"></i> Branding
             </a>
-            <a href="#" class="px-5 py-2 bg-white shadow-sm rounded-full text-gray-700 hover:bg-primary hover:text-white transition flex items-center" data-i18n="ecommerce">
+            <a href="#"
+                class="px-5 py-2 bg-white shadow-sm rounded-full text-gray-700 hover:bg-primary hover:text-white transition flex items-center"
+                data-i18n="ecommerce">
                 <i class="fas fa-hashtag mr-2"></i> E-commerce
             </a>
-            <a href="#" class="px-5 py-2 bg-white shadow-sm rounded-full text-gray-700 hover:bg-primary hover:text-white transition flex items-center" data-i18n="seo">
+            <a href="#"
+                class="px-5 py-2 bg-white shadow-sm rounded-full text-gray-700 hover:bg-primary hover:text-white transition flex items-center"
+                data-i18n="seo">
                 <i class="fas fa-hashtag mr-2"></i> SEO
             </a>
-            <a href="#" class="px-5 py-2 bg-white shadow-sm rounded-full text-gray-700 hover:bg-primary hover:text-white transition flex items-center" data-i18n="content">
+            <a href="#"
+                class="px-5 py-2 bg-white shadow-sm rounded-full text-gray-700 hover:bg-primary hover:text-white transition flex items-center"
+                data-i18n="content">
                 <i class="fas fa-hashtag mr-2"></i> Content
             </a>
-            <a href="#" class="px-5 py-2 bg-white shadow-sm rounded-full text-gray-700 hover:bg-primary hover:text-white transition flex items-center" data-i18n="photography">
+            <a href="#"
+                class="px-5 py-2 bg-white shadow-sm rounded-full text-gray-700 hover:bg-primary hover:text-white transition flex items-center"
+                data-i18n="photography">
                 <i class="fas fa-hashtag mr-2"></i> Photography
             </a>
-            <a href="#" class="px-5 py-2 bg-white shadow-sm rounded-full text-gray-700 hover:bg-primary hover:text-white transition flex items-center" data-i18n="design">
+            <a href="#"
+                class="px-5 py-2 bg-white shadow-sm rounded-full text-gray-700 hover:bg-primary hover:text-white transition flex items-center"
+                data-i18n="design">
                 <i class="fas fa-hashtag mr-2"></i> Design
             </a>
-            <a href="#" class="px-5 py-2 bg-white shadow-sm rounded-full text-gray-700 hover:bg-primary hover:text-white transition flex items-center" data-i18n="strategy">
+            <a href="#"
+                class="px-5 py-2 bg-white shadow-sm rounded-full text-gray-700 hover:bg-primary hover:text-white transition flex items-center"
+                data-i18n="strategy">
                 <i class="fas fa-hashtag mr-2"></i> Strategy
             </a>
-            <a href="#" class="px-5 py-2 bg-white shadow-sm rounded-full text-gray-700 hover:bg-primary hover:text-white transition flex items-center" data-i18n="halal">
+            <a href="#"
+                class="px-5 py-2 bg-white shadow-sm rounded-full text-gray-700 hover:bg-primary hover:text-white transition flex items-center"
+                data-i18n="halal">
                 <i class="fas fa-hashtag mr-2"></i> Halal
             </a>
         </div>
@@ -692,13 +753,19 @@
                 <div class="inline-block bg-white bg-opacity-20 rounded-full px-6 py-2 mb-6">
                     <span class="text-sm font-medium" data-i18n="newsletter">NEWSLETTER</span>
                 </div>
-                <h2 class="text-3xl md:text-4xl font-bold mb-6" data-i18n="stay_updated">Stay Updated With Our Latest Articles</h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6" data-i18n="stay_updated">Stay Updated With Our Latest
+                    Articles</h2>
                 <p class="text-lg mb-8 max-w-2xl mx-auto opacity-90" data-i18n="newsletter_subtitle">
-                    Join our newsletter to receive monthly updates with marketing tips, success stories and exclusive offers.
+                    Join our newsletter to receive monthly updates with marketing tips, success stories and exclusive
+                    offers.
                 </p>
                 <form class="flex flex-col md:flex-row gap-4 max-w-lg mx-auto">
-                    <input type="email" placeholder="Your email address" class="flex-grow px-6 py-3 rounded-full bg-white bg-opacity-20 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-accent" data-i18n="email_placeholder">
-                    <button type="submit" class="px-8 py-3 bg-accent text-white rounded-full font-semibold hover:bg-secondary transition" data-i18n="subscribe">
+                    <input type="email" placeholder="Your email address"
+                        class="flex-grow px-6 py-3 rounded-full bg-white bg-opacity-20 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-accent"
+                        data-i18n="email_placeholder">
+                    <button type="submit"
+                        class="px-8 py-3 bg-accent text-white rounded-full font-semibold hover:bg-secondary transition"
+                        data-i18n="subscribe">
                         Subscribe
                     </button>
                 </form>
@@ -718,10 +785,12 @@
                     <h4 class="text-lg font-bold mb-4" data-i18n="quick_links">Quick Links</h4>
                     <ul class="space-y-2">
                         <li><a href="index.html" class="hover:text-accent transition" data-i18n="home">Home</a></li>
-                        <li><a href="services.html" class="hover:text-accent transition" data-i18n="services">Services</a></li>
+                        <li><a href="services.html" class="hover:text-accent transition"
+                                data-i18n="services">Services</a></li>
                         <li><a href="blog.html" class="hover:text-accent transition" data-i18n="blog">Blog</a></li>
                         <li><a href="about.html" class="hover:text-accent transition" data-i18n="about">About</a></li>
-                        <li><a href="contact.html" class="hover:text-accent transition" data-i18n="contact">Contact</a></li>
+                        <li><a href="contact.html" class="hover:text-accent transition" data-i18n="contact">Contact</a>
+                        </li>
                     </ul>
                 </div>
                 <div>
@@ -745,21 +814,75 @@
                     <h4 class="text-lg font-bold mb-4" data-i18n="developer">Developer</h4>
                     <p data-i18n="developed_by">Website developed by:</p>
                     <p class="mt-2 font-semibold">Raiyan Bin Rashid <br> Jotirmoy Bhowmik</p>
-                    <p class="text-sm mt-4 text-accent">© <span id="currentYear"></span> Target Marketing BD. <span data-i18n="all_rights">All rights reserved.</span></p>
+                    <p class="text-sm mt-4 text-accent">© <span id="currentYear"></span> Target Marketing BD. <span
+                            data-i18n="all_rights">All rights reserved.</span></p>
                 </div>
             </div>
         </div>
     </footer>
 
     <!-- Messenger Button -->
-    <a href="https://m.me/tmbd.xyz" target="_blank" id="messengerBtn" class="fixed bottom-8 right-8 bg-blue-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl hover:bg-blue-700 transition duration-300 z-40">
+    <a href="https://m.me/tmbd.xyz" target="_blank" id="messengerBtn"
+        class="fixed bottom-8 right-8 bg-blue-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl hover:bg-blue-700 transition duration-300 z-40">
         <i class="fab fa-facebook-messenger text-2xl"></i>
+        <span class="loading-spinner hidden"></span>
     </a>
+    <style>
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .loading-spinner {
+            border: 3px solid #fff;
+            border-top: 3px solid #2563eb;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            animation: spin 1s linear infinite;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .loading #messengerBtn .fab.fa-facebook-messenger {
+            opacity: 0.3;
+        }
+
+        .loading #messengerBtn .loading-spinner {
+            display: block;
+        }
+    </style>
+    <script>
+        // Only show spinner after page load, not on refresh or initial load
+        document.addEventListener('DOMContentLoaded', function () {
+            // Example: Show spinner when Messenger button is clicked
+            const messengerBtn = document.getElementById('messengerBtn');
+            messengerBtn.addEventListener('click', function (e) {
+                // Only show spinner if not already loading
+                if (!document.body.classList.contains('loading')) {
+                    document.body.classList.add('loading');
+                    // Hide spinner after a short delay or when navigating away
+                    setTimeout(() => {
+                        document.body.classList.remove('loading');
+                    }, 1200);
+                }
+            });
+        });
+    </script>
 
     <!-- Scripts -->
     <script>
         // Loading bar animation
-        window.addEventListener('load', function() {
+        window.addEventListener('load', function () {
             const loadingBar = document.getElementById('loadingBar');
             let width = 1;
             const interval = setInterval(() => {
@@ -774,20 +897,20 @@
                 } else {
                     width += 2;
                     loadingBar.style.width = width + '%';
-                    
+
                     // Slow down as we approach 100%
                     if (width > 80) {
                         width += 0.5;
                     }
                 }
             }, 20);
-            
+
             // Lazy load images
             const lazyImages = document.querySelectorAll('.lazy-img');
             lazyImages.forEach(img => {
                 img.classList.add('loaded');
             });
-            
+
 
             const blogTitle = document.getElementById('blogTitle');
             blogTitle.textContent = blogTitles[0]; // Always use the first title
@@ -800,14 +923,14 @@
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
         const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-        
-        mobileMenuBtn.addEventListener('click', function() {
+
+        mobileMenuBtn.addEventListener('click', function () {
             mobileMenu.classList.toggle('open');
             mobileMenuOverlay.classList.toggle('active');
             document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : 'auto';
         });
-        
-        mobileMenuOverlay.addEventListener('click', function() {
+
+        mobileMenuOverlay.addEventListener('click', function () {
             mobileMenu.classList.remove('open');
             mobileMenuOverlay.classList.remove('active');
             document.body.style.overflow = 'auto';
@@ -815,7 +938,7 @@
 
         // Category filtering
         document.querySelectorAll('.category-filter').forEach(button => {
-            button.addEventListener('click', function() {
+            button.addEventListener('click', function () {
                 // Update active button
                 document.querySelectorAll('.category-filter').forEach(btn => {
                     btn.classList.remove('active', 'bg-primary', 'text-white');
@@ -823,10 +946,10 @@
                 });
                 this.classList.add('active', 'bg-primary', 'text-white');
                 this.classList.remove('bg-gray-100', 'text-gray-800');
-                
+
                 const category = this.getAttribute('data-category');
                 const articles = document.querySelectorAll('.blog-card');
-                
+
                 articles.forEach(article => {
                     if (category === 'all' || article.getAttribute('data-category') === category) {
                         article.style.display = 'block';
@@ -844,9 +967,21 @@
         });
 
         // Load more articles
-        document.getElementById('loadMoreBtn').addEventListener('click', function() {
-            // In a real implementation, this would load more articles from an API
-            alert('আপাতত এইটুকুই আর্টিকেল আমাদের কাছে আছে।');
+        document.getElementById('loadMoreBtn').addEventListener('click', function () {
+            // Show a styled notification instead of alert
+            let existing = document.getElementById('loadMoreNotice');
+            if (existing) {
+            existing.remove();
+            }
+            const notice = document.createElement('div');
+            notice.id = 'loadMoreNotice';
+            notice.className = 'fixed bottom-8 left-1/2 transform -translate-x-1/2 bg-primary text-white px-6 py-3 rounded-full shadow-lg z-50 flex items-center space-x-2 animate-fade-in';
+            notice.innerHTML = `<i class="fas fa-info-circle mr-2"></i> <span>আপাতত এইটুকুই আর্টিকেল আমাদের কাছে আছে।</span>`;
+            document.body.appendChild(notice);
+            setTimeout(() => {
+            notice.style.opacity = '0';
+            setTimeout(() => notice.remove(), 400);
+            }, 2500);
         });
 
         // Language switching functionality
@@ -859,12 +994,12 @@
                 about: "About",
                 contact: "Contact",
                 subscribe: "Subscribe",
-                
+
                 // Hero
                 blog_title: "Marketing insights journal",
                 blog_subtitle: "Practical tips, success stories and ethical strategies for female entrepreneurs in Bangladesh",
                 search_placeholder: "Search articles...",
-                
+
                 // Featured Post
                 featured: "Featured",
                 marketing: "Marketing",
@@ -879,7 +1014,7 @@
                 featured_post_content: "In today's digital age, having a strong social media presence is crucial for business success. However, as Muslim entrepreneurs, we must ensure our strategies align with Islamic values. This comprehensive guide covers everything from content creation to audience engagement while maintaining halal principles.",
                 views: "1.2K views",
                 read_full: "Read Full",
-                
+
                 // Blog Grid
                 latest_articles: "Latest Articles",
                 all: "All",
@@ -919,7 +1054,7 @@
                 "7_min_read": "7 min read",
                 learn_more: "Learn More",
                 load_more: "Load More Articles",
-                
+
                 // Popular Tags
                 popular_tags: "Popular Tags",
                 tags_subtitle: "Browse articles by topics that interest you most",
@@ -927,13 +1062,13 @@
                 ecommerce: "E-commerce",
                 seo: "SEO",
                 content: "Content",
-                
+
                 // Newsletter
                 newsletter: "NEWSLETTER",
                 stay_updated: "Stay Updated With Our Latest Articles",
                 newsletter_subtitle: "Join our newsletter to receive monthly updates with marketing tips, success stories and exclusive offers.",
                 email_placeholder: "Your email address",
-                
+
                 // Footer
                 footer_tagline: "Halal digital marketing solutions for female entrepreneurs",
                 quick_links: "Quick Links",
@@ -942,7 +1077,7 @@
                 developed_by: "Website developed by:",
                 all_rights: "All rights reserved.",
                 dhaka_bangladesh: "Dhaka, Bangladesh",
-                
+
                 // Misc
                 halal_certified: "Halal Certified"
             },
@@ -954,12 +1089,12 @@
                 about: "আমাদের সম্পর্কে",
                 contact: "যোগাযোগ",
                 subscribe: "সাবস্ক্রাইব",
-                
+
                 // Hero
                 blog_title: "মার্কেটিং ইনসাইটস জার্নাল",
                 blog_subtitle: "সোজাসাপ্টা টিপস, অনুপ্রেরণামূলক গল্প এবং নৈতিক পরামর্শের জন্য আমাদের কমিউনিটিতে যোগ দিন, আত্মবিশ্বাসের সাথে একটি সমৃদ্ধ ব্যবসা গড়ে তুলুন।",
                 search_placeholder: "আর্টিকেল খুঁজুন...",
-                
+
                 // Featured Post
                 featured: "ফিচার্ড",
                 marketing: "মার্কেটিং",
@@ -974,7 +1109,7 @@
                 featured_post_content: "আজকের ডিজিটাল যুগে, ব্যবসার সাফল্যের জন্য একটি শক্তিশালী সোশ্যাল মিডিয়া উপস্থিতি অপরিহার্য। তবে, মুসলিম উদ্যোক্তা হিসেবে আমাদের অবশ্যই নিশ্চিত করতে হবে যে আমাদের কৌশলগুলি ইসলামিক মূল্যবোধের সাথে সামঞ্জস্যপূর্ণ। এই বিস্তৃত গাইডে হালাল নীতি বজায় রেখে কনটেন্ট তৈরি থেকে শুরু করে অডিয়েন্স এনগেজমেন্ট পর্যন্ত সবকিছুই কভার করা হয়েছে।",
                 views: "১.২K বার দেখা হয়েছে",
                 read_full: "সম্পূর্ণ পড়ুন",
-                
+
                 // Blog Grid
                 latest_articles: "সর্বশেষ আর্টিকেলসমূহ",
                 all: "সব",
@@ -1014,7 +1149,7 @@
                 "7_min_read": "৭ মিনিট পড়া",
                 learn_more: "আরও জানুন",
                 load_more: "আরও আর্টিকেল লোড করুন",
-                
+
                 // Popular Tags
                 popular_tags: "জনপ্রিয় ট্যাগসমূহ",
                 tags_subtitle: "আপনার সবচেয়ে আগ্রহের বিষয় অনুসারে আর্টিকেল ব্রাউজ করুন",
@@ -1022,13 +1157,13 @@
                 ecommerce: "ই-কমার্স",
                 seo: "এসইও",
                 content: "কনটেন্ট",
-                
+
                 // Newsletter
                 newsletter: "নিউজলেটার",
                 stay_updated: "আমাদের সর্বশেষ আর্টিকেলের সাথে আপডেট থাকুন",
                 newsletter_subtitle: "মাসিক আপডেট, মার্কেটিং টিপস, সাফল্যের গল্প এবং একচেটিয়া অফার পেতে আমাদের নিউজলেটারে যোগ দিন।",
                 email_placeholder: "আপনার ইমেইল ঠিকানা",
-                
+
                 // Footer
                 footer_tagline: "নারী উদ্যোক্তাদের জন্য হালাল ডিজিটাল মার্কেটিং সমাধান",
                 quick_links: "দ্রুত লিংক",
@@ -1037,7 +1172,7 @@
                 developed_by: "ওয়েবসাইট ডেভেলপ করেছেন:",
                 all_rights: "সমস্ত অধিকার সংরক্ষিত।",
                 dhaka_bangladesh: "ঢাকা, বাংলাদেশ",
-                
+
                 // Misc
                 halal_certified: "হালাল সার্টিফাইড"
             }
@@ -1046,7 +1181,7 @@
         function switchLanguage(lang) {
             // Add font change animation
             document.body.style.animation = 'fontChange 0.5s ease-in-out';
-            
+
             // Update all translatable elements
             document.querySelectorAll('[data-i18n]').forEach(element => {
                 const key = element.getAttribute('data-i18n');
@@ -1060,7 +1195,7 @@
                     }
                 }
             });
-            
+
             // Switch font family for Bangla
             if (lang === 'bn') {
                 setTimeout(() => {
@@ -1071,12 +1206,12 @@
                     document.body.style.fontFamily = "'Poppins', sans-serif";
                 }, 250);
             }
-            
+
             // Remove animation after it completes
             setTimeout(() => {
                 document.body.style.animation = '';
             }, 500);
-            
+
             // Store language preference
             localStorage.setItem('preferredLanguage', lang);
         }
@@ -1084,17 +1219,17 @@
         // Initialize language toggle buttons
         function initLanguageToggle() {
             const preferredLanguage = localStorage.getItem('preferredLanguage') || 'en';
-            
+
             // Set initial language
             switchLanguage(preferredLanguage);
-            
+
             // Update button states
             if (preferredLanguage === 'en') {
                 document.getElementById('enBtn').classList.add('active', 'bg-primary', 'text-white');
                 document.getElementById('enBtn').classList.remove('border');
                 document.getElementById('bnBtn').classList.remove('active', 'bg-primary', 'text-white');
                 document.getElementById('bnBtn').classList.add('border', 'border-primary');
-                
+
                 // Mobile buttons
                 document.getElementById('enBtnMobile').classList.add('active', 'bg-primary', 'text-white');
                 document.getElementById('enBtnMobile').classList.remove('border');
@@ -1105,65 +1240,65 @@
                 document.getElementById('bnBtn').classList.remove('border');
                 document.getElementById('enBtn').classList.remove('active', 'bg-primary', 'text-white');
                 document.getElementById('enBtn').classList.add('border', 'border-primary');
-                
+
                 // Mobile buttons
                 document.getElementById('bnBtnMobile').classList.add('active', 'bg-primary', 'text-white');
                 document.getElementById('bnBtnMobile').classList.remove('border');
                 document.getElementById('enBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
                 document.getElementById('enBtnMobile').classList.add('border', 'border-primary');
             }
-            
+
             // Add event listeners
-            document.getElementById('enBtn').addEventListener('click', function() {
+            document.getElementById('enBtn').addEventListener('click', function () {
                 switchLanguage('en');
                 this.classList.add('active', 'bg-primary', 'text-white');
                 this.classList.remove('border');
                 document.getElementById('bnBtn').classList.remove('active', 'bg-primary', 'text-white');
                 document.getElementById('bnBtn').classList.add('border', 'border-primary');
-                
+
                 // Update mobile buttons
                 document.getElementById('enBtnMobile').classList.add('active', 'bg-primary', 'text-white');
                 document.getElementById('enBtnMobile').classList.remove('border');
                 document.getElementById('bnBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
                 document.getElementById('bnBtnMobile').classList.add('border', 'border-primary');
             });
-            
-            document.getElementById('bnBtn').addEventListener('click', function() {
+
+            document.getElementById('bnBtn').addEventListener('click', function () {
                 switchLanguage('bn');
                 this.classList.add('active', 'bg-primary', 'text-white');
                 this.classList.remove('border');
                 document.getElementById('enBtn').classList.remove('active', 'bg-primary', 'text-white');
                 document.getElementById('enBtn').classList.add('border', 'border-primary');
-                
+
                 // Update mobile buttons
                 document.getElementById('bnBtnMobile').classList.add('active', 'bg-primary', 'text-white');
                 document.getElementById('bnBtnMobile').classList.remove('border');
                 document.getElementById('enBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
                 document.getElementById('enBtnMobile').classList.add('border', 'border-primary');
             });
-            
+
             // Mobile buttons
-            document.getElementById('enBtnMobile').addEventListener('click', function() {
+            document.getElementById('enBtnMobile').addEventListener('click', function () {
                 switchLanguage('en');
                 this.classList.add('active', 'bg-primary', 'text-white');
                 this.classList.remove('border');
                 document.getElementById('bnBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
                 document.getElementById('bnBtnMobile').classList.add('border', 'border-primary');
-                
+
                 // Update desktop buttons
                 document.getElementById('enBtn').classList.add('active', 'bg-primary', 'text-white');
                 document.getElementById('enBtn').classList.remove('border');
                 document.getElementById('bnBtn').classList.remove('active', 'bg-primary', 'text-white');
                 document.getElementById('bnBtn').classList.add('border', 'border-primary');
             });
-            
-            document.getElementById('bnBtnMobile').addEventListener('click', function() {
+
+            document.getElementById('bnBtnMobile').addEventListener('click', function () {
                 switchLanguage('bn');
                 this.classList.add('active', 'bg-primary', 'text-white');
                 this.classList.remove('border');
                 document.getElementById('enBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
                 document.getElementById('enBtnMobile').classList.add('border', 'border-primary');
-                
+
                 // Update desktop buttons
                 document.getElementById('bnBtn').classList.add('active', 'bg-primary', 'text-white');
                 document.getElementById('bnBtn').classList.remove('border');
@@ -1173,30 +1308,31 @@
         }
 
         // Initialize everything when DOM is loaded
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             initLanguageToggle();
-            
+
             // Set current year in footer
             document.getElementById('currentYear').textContent = new Date().getFullYear();
-            
+
             // Lazy load images when they come into view
             const lazyLoadImages = () => {
                 const lazyImages = document.querySelectorAll('.lazy-img:not(.loaded)');
-                
+
                 lazyImages.forEach(img => {
                     if (img.getBoundingClientRect().top <= window.innerHeight && img.getBoundingClientRect().bottom >= 0) {
                         img.classList.add('loaded');
                     }
                 });
             };
-            
+
             window.addEventListener('scroll', lazyLoadImages);
             window.addEventListener('resize', lazyLoadImages);
             window.addEventListener('orientationchange', lazyLoadImages);
-            
+
             // Initial check
             lazyLoadImages();
         });
     </script>
 </body>
+
 </html>

@@ -303,7 +303,48 @@
                     </svg>
                 </button>
             </div>
-            
+            <!-- Suggestion Bar for New Users -->
+            <div id="suggestionBar" class="fixed top-0 left-0 w-full flex items-center justify-center z-[99999] transition-all duration-300" style="display:none; height:100vh; background:transparent;">
+                <div id="suggestionBox" class="bg-white bg-opacity-90 rounded-2xl shadow-2xl px-8 py-8 flex flex-col items-center max-w-md w-full mx-4 border border-accent" style="font-family:'Hind Siliguri',sans-serif;">
+                    <span class="mb-6 text-xl font-semibold text-accent text-center" style="font-family:'Hind Siliguri',sans-serif;">আপনি কি বাংলায় লেখা দেখাতে চান?</span>
+                    <div class="flex gap-4">
+                        <button id="suggestYes" class="bg-accent text-white font-bold px-6 py-2 rounded-full shadow hover:bg-secondary transition text-lg" style="font-family:'Hind Siliguri',sans-serif;">হ্যাঁ</button>
+                        <button id="suggestNo" class="bg-gray-100 text-accent font-bold px-6 py-2 rounded-full shadow hover:bg-gray-200 transition text-lg" style="font-family:'Hind Siliguri',sans-serif;">না</button>
+                    </div>
+                </div>
+            </div>
+            <script>
+                // Show suggestion bar only for new users (no language set)
+                document.addEventListener('DOMContentLoaded', function() {
+                    if (!localStorage.getItem('preferredLanguage')) {
+                        const bar = document.getElementById('suggestionBar');
+                        bar.style.display = 'flex';
+                        document.querySelector('nav').style.marginTop = bar.offsetHeight + 'px';
+                    }
+                    document.getElementById('suggestYes').onclick = function() {
+                        localStorage.setItem('preferredLanguage', 'bn');
+                        switchLanguage('bn');
+                        document.getElementById('suggestionBar').style.display = 'none';
+                        document.querySelector('nav').style.marginTop = '';
+                    };
+                    document.getElementById('suggestNo').onclick = function() {
+                        localStorage.setItem('preferredLanguage', 'en');
+                        switchLanguage('en');
+                        document.getElementById('suggestionBar').style.display = 'none';
+                        document.querySelector('nav').style.marginTop = '';
+                    };
+                    // Click outside box sets to Bengali
+                    document.getElementById('suggestionBar').addEventListener('mousedown', function(e) {
+                        const box = document.getElementById('suggestionBox');
+                        if (!box.contains(e.target)) {
+                            localStorage.setItem('preferredLanguage', 'bn');
+                            switchLanguage('bn');
+                            document.getElementById('suggestionBar').style.display = 'none';
+                            document.querySelector('nav').style.marginTop = '';
+                        }
+                    });
+                });
+            </script>
             <!-- Mobile Menu Overlay -->
             <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
             
@@ -338,9 +379,9 @@
                     </p>
                     <div class="flex space-x-4">
                         <a href="#story" class="explore-btn px-6 py-3 bg-white text-primary rounded-full font-semibold hover:bg-gray-100 transition flex items-center btn-animate text-reveal" style="transition-delay: 0.7s">
-                            <span data-i18n="explore_story">Our Story</span>
+                            <span data-i18n="explore_story" class="whitespace-nowrap">Our Story</span>
                             <script>
-                                // Smooth spring-like scroll to #story
+                                // Smooth scroll to #story with subtle motion blur (text blur only)
                                 document.addEventListener('DOMContentLoaded', function() {
                                     const exploreBtn = document.querySelector('a.explore-btn');
                                     if (exploreBtn) {
@@ -350,26 +391,43 @@
                                             if (!target) return;
                                             const start = window.scrollY || window.pageYOffset;
                                             const end = target.getBoundingClientRect().top + start - 40; // offset for nav
-                                            const duration = 900;
+                                            const duration = 1800; // slower animation
                                             let startTime = null;
+                                            let lastEased = 0;
 
-                                            function easeOutElastic(t) {
-                                                const c4 = (2 * Math.PI) / 3;
-                                                return t === 0
-                                                    ? 0
-                                                    : t === 1
-                                                    ? 1
-                                                    : Math.pow(2, -10 * t) * Math.sin((t * 10 - 0.75) * c4) + 1;
+                                            // Smoother, less bouncy ease (easeInOutCubic)
+                                            function easeInOutCubic(t) {
+                                                return t < 0.5
+                                                    ? 4 * t * t * t
+                                                    : 1 - Math.pow(-2 * t + 2, 3) / 2;
+                                            }
+
+                                            // Add blur to all text elements during scroll
+                                            function setTextBlur(amount) {
+                                                const textSelectors = 'h1,h2,h3,h4,h5,h6,p,span,a,li,button,label,blockquote,td,th,div';
+                                                document.querySelectorAll(textSelectors).forEach(el => {
+                                                    el.style.transition = 'filter 0.15s';
+                                                    el.style.filter = amount > 0 ? `blur(${amount}px)` : '';
+                                                });
                                             }
 
                                             function animateScroll(currentTime) {
                                                 if (!startTime) startTime = currentTime;
                                                 const timeElapsed = currentTime - startTime;
                                                 const progress = Math.min(timeElapsed / duration, 1);
-                                                const eased = easeOutElastic(progress);
+                                                const eased = easeInOutCubic(progress);
                                                 window.scrollTo(0, start + (end - start) * eased);
+
+                                                // Motion blur: more blur when moving fast, less when slowing down
+                                                const velocity = Math.abs((eased - lastEased) * (end - start));
+                                                const blurAmount = Math.min(velocity / 120, 5); // max 5px blur
+                                                setTextBlur(progress < 1 ? blurAmount : 0);
+                                                lastEased = eased;
+
                                                 if (progress < 1) {
                                                     requestAnimationFrame(animateScroll);
+                                                } else {
+                                                    setTextBlur(0); // Remove blur at end
                                                 }
                                             }
                                             requestAnimationFrame(animateScroll);
@@ -379,8 +437,7 @@
                             </script>
                             <i class="fas fa-arrow-down ml-2"></i>
                         </a>
-                        <a href="services.html" class="px-6 py-3 border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-primary transition flex items-center btn-animate text-reveal" style="transition-delay: 0.9s" data-i18n="our_services">
-                            Our Services
+                        <a href="services.html" class="px-6 py-3 border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-primary transition flex items-center btn-animate text-reveal whitespace-nowrap" style="transition-delay: 0.9s" data-i18n="our_services"></a>
                         </a>
                     </div>
                 </div>
@@ -654,9 +711,53 @@
     </footer>
 
     <!-- Messenger Button -->
-    <a href="https://m.me/tmbd.xyz" target="_blank" id="messengerBtn" class="fixed bottom-8 right-8 bg-blue-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl hover:bg-blue-700 transition duration-300 z-40 btn-animate">
+    <a href="https://m.me/tmbd.xyz" target="_blank" id="messengerBtn" class="fixed bottom-8 right-8 bg-blue-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl hover:bg-blue-700 transition duration-300 z-40">
         <i class="fab fa-facebook-messenger text-2xl"></i>
+        <span class="loading-spinner hidden"></span>
     </a>
+    <style>
+        @keyframes spin {
+            0% { transform: rotate(0deg);}
+            100% { transform: rotate(360deg);}
+        }
+        .loading-spinner {
+            border: 3px solid #fff;
+            border-top: 3px solid #2563eb;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            animation: spin 1s linear infinite;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            pointer-events: none;
+        }
+        .loading #messengerBtn .fab.fa-facebook-messenger {
+            opacity: 0.3;
+        }
+        .loading #messengerBtn .loading-spinner {
+            display: block;
+        }
+    </style>
+    <script>
+        // Only show spinner after page load, not on refresh or initial load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Example: Show spinner when Messenger button is clicked
+            const messengerBtn = document.getElementById('messengerBtn');
+            messengerBtn.addEventListener('click', function(e) {
+                // Only show spinner if not already loading
+                if (!document.body.classList.contains('loading')) {
+                    document.body.classList.add('loading');
+                    // Hide spinner after a short delay or when navigating away
+                    setTimeout(() => {
+                        document.body.classList.remove('loading');
+                    }, 1200);
+                }
+            });
+        });
+    </script>
 
     <!-- Scripts -->
     <script>

@@ -199,11 +199,84 @@
         /* Success Message */
         .success-message {
             display: none;
+        }
+
+        /* Success Confirmation */
+        .success-confirmation {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
             padding: 20px;
-            background-color: #d4edda;
-            color: #155724;
-            border-radius: 8px;
-            margin-bottom: 20px;
+        }
+
+        /* Circle Entrance */
+        .circle {
+            animation: popBounce 0.6s ease-out forwards;
+            box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+            animation-delay: 0.2s;
+        }
+
+        @keyframes popBounce {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            70% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Tick Draw Animation */
+        .tick path {
+            stroke-dasharray: 100;
+            stroke-dashoffset: 100;
+            animation: drawTick 1s ease forwards 0.4s;
+        }
+
+        @keyframes drawTick {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        /* Pulse Animation for tick */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        .pulse {
+            animation: pulse 0.6s ease-in-out;
+            transform-origin: center;
+        }
+
+        /* Dots Floating */
+        .dots span {
+            position: absolute;
+            border-radius: 50%;
+            background-color: #16a34a;
+            animation: float 2.4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 1; }
+            50% { transform: translateY(-10px) scale(1.2); opacity: 0.5; }
+        }
+
+        /* Disabled button */
+        .btn-disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
         }
     </style>
 </head>
@@ -356,9 +429,75 @@
                         </label>
                     </div>
 
-                    <button type="submit" class="w-full px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-dark transition btn-animate" data-i18n="place_order">
+                    <button type="submit" id="submitBtn" class="w-full px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-dark transition btn-animate" data-i18n="place_order">
                         Place Order
-                    </button>
+                    <script>
+                    // Button lock for 15 minutes (even after refresh)
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const submitBtn = document.getElementById('submitBtn');
+                        const LOCK_KEY = 'orderBtnLockTime';
+                        const LOCK_DURATION = 15 * 60 * 1000; // 15 minutes in ms
+
+                        // Convert English digits to Bangla
+                        function toBanglaDigits(num) {
+                            return num.toString().replace(/\d/g, d => '০১২৩৪৫৬৭৮৯'[d]);
+                        }
+
+                        function getBtnText() {
+                            // Use the current language for button text
+                            const lang = localStorage.getItem('preferredLanguage') || 'en';
+                            return lang === 'bn' ? 'অর্ডার করুন' : 'Place Order';
+                        }
+
+                        function updateButtonState() {
+                            const lastTime = localStorage.getItem(LOCK_KEY);
+                            if (lastTime) {
+                                const elapsed = Date.now() - parseInt(lastTime, 10);
+                                if (elapsed < LOCK_DURATION) {
+                                    submitBtn.disabled = true;
+                                    submitBtn.classList.add('btn-disabled');
+                                    // Show remaining time in Bangla if bn, else English
+                                    const lang = localStorage.getItem('preferredLanguage') || 'en';
+                                    const remainingMs = LOCK_DURATION - elapsed;
+                                    const min = Math.floor(remainingMs / 60000);
+                                    const sec = Math.floor((remainingMs % 60000) / 1000);
+                                    if (lang === 'bn') {
+                                        submitBtn.innerHTML = `<i class="fas fa-lock mr-2"></i> ${toBanglaDigits(min)} মিনিট ${toBanglaDigits(sec)} সেকেন্ড পর আবার চেষ্টা করুন`;
+                                    } else {
+                                        submitBtn.innerHTML = `<i class="fas fa-lock mr-2"></i> Try again in ${min} min ${sec} sec`;
+                                    }
+                                } else {
+                                    submitBtn.disabled = false;
+                                    submitBtn.classList.remove('btn-disabled');
+                                    submitBtn.innerHTML = getBtnText();
+                                    localStorage.removeItem(LOCK_KEY);
+                                }
+                            } else {
+                                submitBtn.disabled = false;
+                                submitBtn.classList.remove('btn-disabled');
+                                submitBtn.innerHTML = getBtnText();
+                            }
+                        }
+
+                        updateButtonState();
+
+                        // Set lock on successful submit
+                        document.getElementById('orderForm').addEventListener('submit', function () {
+                            localStorage.setItem(LOCK_KEY, Date.now().toString());
+                            updateButtonState();
+                        });
+
+                        // Update button text on language switch
+                        window.addEventListener('storage', function (e) {
+                            if (e.key === 'preferredLanguage') {
+                                updateButtonState();
+                            }
+                        });
+
+                        // Update button state every second for accurate countdown
+                        setInterval(updateButtonState, 1000);
+                    });
+                </script>
                 </form>
             </div>
         </div>
@@ -419,6 +558,32 @@
         class="fixed bottom-8 right-8 bg-blue-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl hover:bg-blue-700 transition duration-300 z-40 btn-animate">
         <i class="fab fa-facebook-messenger text-2xl"></i>
     </a>
+
+    <!-- Success Confirmation -->
+    <div id="successConfirmation" class="success-confirmation">
+        <div class="bg-white p-8 rounded-xl shadow-2xl max-w-md w-full text-center relative">
+            <!-- Animated Dots -->
+            <div class="absolute inset-0 dots pointer-events-none">
+                <span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+
+            <!-- Green Circle with Tick -->
+            <div class="circle mx-auto w-20 h-20 bg-green-500 text-white flex items-center justify-center rounded-full relative z-10">
+                <svg class="tick w-10 h-10" fill="none" stroke="white" stroke-width="3" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                </svg>
+            </div>
+
+            <!-- Bangla Text -->
+            <h2 class="text-2xl font-bold text-gray-800 mt-6 mb-2" id="confirmation-title">ধন্যবাদ!</h2>
+            <p class="text-gray-500 mb-6" id="confirmation-message">আপনার অর্ডার সফলভাবে আমাদের হাতে পৌছেছে। শীঘ্রই আপনাকে আমরা কল করব ইনশাআল্লাহ।</p>
+
+            <!-- Buttons -->
+            <div class="flex justify-center gap-4">
+                <a href="index.html" class="px-5 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition" id="confirmation-button">আমাদের ওয়েবসাইট দেখুন</a>
+            </div>
+        </div>
+    </div>
 
     <!-- Scripts -->
     <script>
@@ -483,6 +648,12 @@
         document.getElementById('orderForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
+            // Disable the submit button to prevent multiple clicks
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = true;
+            submitBtn.classList.add('btn-disabled');
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Processing...';
+            
             const form = e.target;
             const formData = new FormData(form);
             
@@ -496,21 +667,41 @@
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    // Show success message
-                    document.getElementById('successMessage').style.display = 'block';
+                    // Show the success confirmation
+                    document.getElementById('successConfirmation').style.display = 'flex';
+                    
+                    // Hide the form
                     document.getElementById('orderForm').style.display = 'none';
                     
-                    // Scroll to success message
-                    document.getElementById('successMessage').scrollIntoView({
-                        behavior: 'smooth'
+                    // Show success message
+                    document.getElementById('successMessage').style.display = 'block';
+                    
+                    // Trigger animations
+                    const tickPath = document.querySelector('.tick path');
+                    const tickContainer = document.querySelector('.tick');
+                    
+                    tickPath.addEventListener('animationend', () => {
+                        tickContainer.classList.add('pulse');
                     });
                 } else {
+                    // Show error message (in Bangla)
                     alert('আপনার অর্ডারটি সফলভাবে আমরা পেয়েছি, দ্রুতই আপনার সাথে যোগাযোগ করা হবে।');
+                    
+                    // Re-enable the button
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove('btn-disabled');
+                    submitBtn.innerHTML = 'Place Order';
                 }
             })
             .catch(error => {
                 console.error('Error:', error);
+                // Show error message (in Bangla)
                 alert('আপনার অর্ডারটি সফলভাবে আমরা পেয়েছি, দ্রুতই আপনার সাথে যোগাযোগ করা হবে।');
+                
+                // Re-enable the button
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('btn-disabled');
+                submitBtn.innerHTML = 'Place Order';
             });
         });
 
@@ -552,7 +743,12 @@
                 developer: "Developer",
                 developed_by: "Website developed by:",
                 all_rights: "All rights reserved.",
-                dhaka_bangladesh: "Dhaka, Bangladesh"
+                dhaka_bangladesh: "Dhaka, Bangladesh",
+
+                // Confirmation
+                confirmation_title: "Thank You!",
+                confirmation_message: "Your order has been successfully received. We will contact you shortly.",
+                confirmation_button: "Visit Our Website"
             },
             bn: {
                 // Navigation
@@ -590,7 +786,12 @@
                 developer: "ডেভেলপার",
                 developed_by: "ওয়েবসাইট ডেভেলপ করেছেন:",
                 all_rights: "সমস্ত অধিকার সংরক্ষিত।",
-                dhaka_bangladesh: "ঢাকা, বাংলাদেশ"
+                dhaka_bangladesh: "ঢাকা, বাংলাদেশ",
+
+                // Confirmation
+                confirmation_title: "ধন্যবাদ!",
+                confirmation_message: "আপনার অর্ডার সফলভাবে আমাদের হাতে পৌছেছে। শীঘ্রই আপনাকে আমরা কল করব ইনশাআল্লাহ।",
+                confirmation_button: "আমাদের ওয়েবসাইট দেখুন"
             }
         };
 
@@ -611,6 +812,11 @@
                     }
                 }
             });
+
+            // Update confirmation elements
+            document.getElementById('confirmation-title').textContent = translations[lang]['confirmation_title'];
+            document.getElementById('confirmation-message').textContent = translations[lang]['confirmation_message'];
+            document.getElementById('confirmation-button').textContent = translations[lang]['confirmation_button'];
 
             // Switch font family for Bangla
             if (lang === 'bn') {

@@ -11,15 +11,24 @@
             if (getSlug() && getSlug() !== allowedSlug) {
                 // Hide all content except the not found message
                 document.body.innerHTML = `
-                    <div style="font-family: 'Hind Siliguri', sans-serif; background: #f5f7fa; color: #044443; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0;">
-                        <div class="notfound" style="text-align: center;">
-                            <h1 style="font-size: 3rem; margin-bottom: 1rem;">Sorry, this article is currently unavailable.</h1>
-                            <p style="font-size: 1.5rem;">দুঃখিত, এই আর্টিকেলটি বর্তমানে দেখানো যাচ্ছে না।</p>
-                            <a href="blog.html" class="back-btn" style="margin-top: 2rem; display: inline-block; padding: 0.75rem 2rem; background: #228B7D; color: #fff; border-radius: 9999px; text-decoration: none; font-weight: 600; transition: transform 0.5s cubic-bezier(.68,-0.55,.27,1.55), box-shadow 0.3s; box-shadow: 0 8px 24px rgba(34,139,125,0.18);" 
+                    <div style="font-family: 'Hind Siliguri', sans-serif; background: #f5f7fa; color: #044443; min-height: 100vh; margin: 0; display: flex; align-items: center; justify-content: center;">
+                        <div class="notfound" style="text-align: center; max-width: 90vw; padding: 2rem;">
+                            <h1 style="font-size: 2.2rem; margin-bottom: 1rem;">Sorry, this article is currently unavailable.</h1>
+                            <p style="font-size: 1.1rem; margin-bottom: 2rem;">দুঃখিত, এই আর্টিকেলটি বর্তমানে দেখানো যাচ্ছে না।</p>
+                            <a href="blog.html" class="back-btn" style="margin-top: 2rem; display: inline-block; padding: 0.75rem 2rem; background: #228B7D; color: #fff; border-radius: 9999px; text-decoration: none; font-weight: 600; transition: transform 0.5s cubic-bezier(.68,-0.55,.27,1.55), box-shadow 0.3s; box-shadow: 0 8px 24px rgba(34,139,125,0.18); font-size: 1rem;"
                                 onclick="event.preventDefault(); const btn=this; btn.style.transform='scale(0.95)'; btn.style.boxShadow='0 2px 8px rgba(34,139,125,0.10)'; setTimeout(()=>{btn.style.transform='scale(1)'; btn.style.boxShadow='0 8px 24px rgba(34,139,125,0.18)'; setTimeout(()=>{window.location.href='blog.html';},150);},150);">
-                                 ব্লগ পেজে ফিরে যান | Back to Blog
-                            </a>    </div>
+                                ব্লগ পেজে ফিরে যান | Back to Blog
+                            </a>
+                        </div>
                     </div>
+                    <style>
+                        @media (max-width: 600px) {
+                            .notfound h1 { font-size: 1.3rem !important; }
+                            .notfound p { font-size: 0.95rem !important; }
+                            .notfound a { font-size: 0.95rem !important; padding: 0.6rem 1.2rem !important; }
+                            .notfound { padding: 1rem !important; }
+                        }
+                    </style>
                 `;
             }
         });
@@ -850,10 +859,55 @@
             </div>
         </footer>
 
-        <!-- Messenger Button -->
-        <a href="https://m.me/tmbd.xyz" target="_blank" id="messengerBtn" class="fixed bottom-8 right-8 bg-blue-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl hover:bg-blue-700 transition duration-300 z-40">
-            <i class="fab fa-facebook-messenger text-2xl"></i>
-        </a>
+    <!-- Messenger Button -->
+    <a href="https://m.me/tmbd.xyz" target="_blank" id="messengerBtn" class="fixed bottom-8 right-8 bg-blue-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl hover:bg-blue-700 transition duration-300 z-40">
+        <i class="fab fa-facebook-messenger text-2xl"></i>
+        <span class="loading-spinner hidden"></span>
+    </a>
+    <style>
+        @keyframes spin {
+            0% { transform: rotate(0deg);}
+            100% { transform: rotate(360deg);}
+        }
+        .loading-spinner {
+            border: 3px solid #fff;
+            border-top: 3px solid #2563eb;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            animation: spin 1s linear infinite;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            pointer-events: none;
+        }
+        .loading #messengerBtn .fab.fa-facebook-messenger {
+            opacity: 0.3;
+        }
+        .loading #messengerBtn .loading-spinner {
+            display: block;
+        }
+    </style>
+    <script>
+        // Only show spinner after page load, not on refresh or initial load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Example: Show spinner when Messenger button is clicked
+            const messengerBtn = document.getElementById('messengerBtn');
+            messengerBtn.addEventListener('click', function(e) {
+                // Only show spinner if not already loading
+                if (!document.body.classList.contains('loading')) {
+                    document.body.classList.add('loading');
+                    // Hide spinner after a short delay or when navigating away
+                    setTimeout(() => {
+                        document.body.classList.remove('loading');
+                    }, 1200);
+                }
+            });
+        });
+    </script>
+
 
         <!-- Scripts -->
         <script>
