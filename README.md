@@ -19,8 +19,6 @@ This is a static website built with standard web technologies (HTML, CSS, JavaSc
 To view the website:
 
 Clone the repository:
-Bash
-
 git clone https://github.com/raiyanruhan/tmbd.xyz.git
 cd tmbd.xyz
 Open index.html: Simply open the index.html file in your preferred web browser.
