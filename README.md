@@ -21,12 +21,8 @@ To view the website:
 Clone the repository:
 Bash
 
-git clone [Your Repository URL Here]
-(Replace [Your Repository URL Here] with the actual URL of your GitHub or other code repository).
-Navigate to the project directory:
-Bash
-
-cd [your-project-folder-name]
+git clone https://github.com/raiyanruhan/tmbd.xyz.git
+cd tmbd.xyz
 Open index.html: Simply open the index.html file in your preferred web browser.
 That's it! The website should load directly in your browser.
 
