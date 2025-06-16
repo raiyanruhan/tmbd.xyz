@@ -976,7 +976,82 @@
             const notice = document.createElement('div');
             notice.id = 'loadMoreNotice';
             notice.className = 'fixed bottom-8 left-1/2 transform -translate-x-1/2 bg-primary text-white px-6 py-3 rounded-full shadow-lg z-50 flex items-center space-x-2 animate-fade-in';
-            notice.innerHTML = `<i class="fas fa-info-circle mr-2"></i> <span>আপাতত এইটুকুই আর্টিকেল আমাদের কাছে আছে।</span>`;
+            // Translation for "No more articles" notification
+            const lang = localStorage.getItem('preferredLanguage') || 'en';
+            let message = '';
+            if (lang === 'bn') {
+                message = 'আপাতত এইটুকুই আর্টিকেল আমাদের কাছে আছে।';
+            } else {
+                message = 'No more articles available at the moment.';
+            }
+            // Create a modal/dialogue box
+            const dialog = document.createElement('div');
+            dialog.style.position = 'fixed';
+            dialog.style.left = '0';
+            dialog.style.top = '0';
+            dialog.style.width = '100vw';
+            dialog.style.height = '100vh';
+            dialog.style.background = 'rgba(0,0,0,0.35)';
+            dialog.style.display = 'flex';
+            dialog.style.alignItems = 'center';
+            dialog.style.justifyContent = 'center';
+            dialog.style.zIndex = '9999';
+            dialog.style.transition = 'opacity 0.3s';
+            dialog.style.opacity = '1';
+
+            const box = document.createElement('div');
+            box.style.background = '#fff';
+            box.style.borderRadius = '1rem';
+            box.style.boxShadow = '0 8px 32px rgba(0,0,0,0.18)';
+            box.style.padding = '2rem 2.5rem';
+            box.style.maxWidth = '90vw';
+            box.style.width = '100%';
+            box.style.textAlign = 'center';
+            box.style.position = 'relative';
+            box.style.minWidth = '260px';
+            box.style.boxSizing = 'border-box';
+
+            // Responsive adjustments
+            box.style.margin = '0 1rem';
+            box.style.fontSize = '1rem';
+
+            box.innerHTML = `
+                <div style="font-size:2rem;color:#228B7D;margin-bottom:1rem;">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <div style="font-size:1.1rem;color:#044443;margin-bottom:1.5rem;word-break:break-word;">
+                    ${message}
+                </div>
+                <button id="dialogCloseBtn" style="background:#228B7D;color:#fff;padding:0.5rem 1.5rem;border:none;border-radius:9999px;font-weight:600;cursor:pointer;">
+                    ${lang === 'bn' ? 'ঠিক আছে' : 'OK'}
+                </button>
+            `;
+
+            dialog.appendChild(box);
+            document.body.appendChild(dialog);
+
+            // Close on button click
+            document.getElementById('dialogCloseBtn').onclick = () => {
+                dialog.style.opacity = '0';
+                setTimeout(() => dialog.remove(), 300);
+            };
+
+            // Close if clicked outside the box
+            dialog.addEventListener('mousedown', function (e) {
+                if (!box.contains(e.target)) {
+                    dialog.style.opacity = '0';
+                    setTimeout(() => dialog.remove(), 300);
+                }
+            });
+
+            // Optional: Close on Escape key
+            document.addEventListener('keydown', function escListener(e) {
+                if (e.key === 'Escape') {
+                    dialog.style.opacity = '0';
+                    setTimeout(() => dialog.remove(), 300);
+                    document.removeEventListener('keydown', escListener);
+                }
+            });
             document.body.appendChild(notice);
             setTimeout(() => {
             notice.style.opacity = '0';
