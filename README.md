@@ -15,9 +15,9 @@ Welcome to the official website of **Target Marketing BD (TMBD)**! We are dedica
 
 ## Technologies Used
 
-- **HTML5:** For structuring web content.
-- **CSS3:** For styling and visual presentation.
-- **JavaScript (Vanilla JS):** For interactive and dynamic elements.
+- **HTML5** for structure  
+- **Tailwind CSS** for styling  
+- **JavaScript** for interactivity
 
 ## Setup & Usage
 
