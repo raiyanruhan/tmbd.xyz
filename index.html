@@ -304,12 +304,38 @@
                 </button>
             </div>
             <!-- Suggestion Bar for New Users -->
-            <div id="suggestionBar" class="fixed top-0 left-0 w-full flex items-center justify-center z-[99999] transition-all duration-300" style="display:none; height:100vh; background:transparent;">
-                <div id="suggestionBox" class="bg-white bg-opacity-90 rounded-2xl shadow-2xl px-8 py-8 flex flex-col items-center max-w-md w-full mx-4 border border-accent" style="font-family:'Hind Siliguri',sans-serif;">
-                    <span class="mb-6 text-xl font-semibold text-accent text-center" style="font-family:'Hind Siliguri',sans-serif;">আপনি কি বাংলায় লেখা দেখাতে চান?</span>
-                    <div class="flex gap-4">
-                        <button id="suggestYes" class="bg-accent text-white font-bold px-6 py-2 rounded-full shadow hover:bg-secondary transition text-lg" style="font-family:'Hind Siliguri',sans-serif;">হ্যাঁ</button>
-                        <button id="suggestNo" class="bg-gray-100 text-accent font-bold px-6 py-2 rounded-full shadow hover:bg-gray-200 transition text-lg" style="font-family:'Hind Siliguri',sans-serif;">না</button>
+            <div id="suggestionBar" class="fixed inset-0 w-full flex items-center justify-center z-[99999] transition-all duration-300" style="display:none; background:rgba(255,255,255,0.7); backdrop-filter: blur(8px);">
+                <div id="suggestionBox" class="bg-white rounded-2xl shadow-2xl px-8 py-10 flex flex-col items-center max-w-md w-full mx-4 border border-accent" style="box-shadow:0 8px 32px 0 rgba(34,139,125,0.18);">
+                    <span class="mb-8 text-2xl font-semibold text-accent text-center" style="font-family:'Hind Siliguri',sans-serif;">আপনি কি বাংলায় লেখা দেখাতে চান?</span>
+                    <div class="flex gap-6 w-full justify-center">
+                        <button id="suggestYes" class="font-bold px-8 py-3 rounded-full shadow transition text-lg border border-[#054442] bg-[#054442] text-white hover:bg-white hover:text-[#054442]" style="font-family:'Hind Siliguri',sans-serif; transition:all 0.2s;">হ্যাঁ</button>
+                        <button id="suggestNo" class="font-bold px-8 py-3 rounded-full shadow transition text-lg border border-[#054442] bg-white text-[#054442] hover:bg-[#054442] hover:text-white" style="font-family:'Hind Siliguri',sans-serif; transition:all 0.2s;">না</button>
+                    </div>
+                </div>
+            </div>
+            <script>
+                // Toggle button color on click
+                document.addEventListener('DOMContentLoaded', function() {
+                    const yesBtn = document.getElementById('suggestYes');
+                    const noBtn = document.getElementById('suggestNo');
+                    yesBtn.addEventListener('click', function() {
+                        yesBtn.style.background = '#054442';
+                        yesBtn.style.color = '#fff';
+                        yesBtn.style.border = '1.5px solid #054442';
+                        noBtn.style.background = '#fff';
+                        noBtn.style.color = '#054442';
+                        noBtn.style.border = '1.5px solid #054442';
+                    });
+                    noBtn.addEventListener('click', function() {
+                        noBtn.style.background = '#054442';
+                        noBtn.style.color = '#fff';
+                        noBtn.style.border = '1.5px solid #054442';
+                        yesBtn.style.background = '#fff';
+                        yesBtn.style.color = '#054442';
+                        yesBtn.style.border = '1.5px solid #054442';
+                    });
+                });
+            </script>
                     </div>
                 </div>
             </div>
