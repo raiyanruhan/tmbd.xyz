@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developers | Target Marketing BD</title>
+    <meta name="description" content="Meet the developers behind Target Marketing BD - Raiyan Bin Rashid and Sayed Ibn Masud">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+25&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#044443',
+                        secondary: '#228B7D',
+                        accent: '#66ADA5',
+                        dark: '#0D302C',
+                        light: '#F5F7FA',
+                        code: '#1E1E1E',
+                        selection: 'rgba(102, 173, 165, 0.3)'
+                    },
+                    fontFamily: {
+                        jersey: ['Jersey 25', 'sans-serif'],
+                        poppins: ['Poppins', 'sans-serif'],
+                        siliguri: ['Hind Siliguri', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-in': 'fadeIn 1s ease-in forwards',
+                        'pulse-slow': 'pulse 5s infinite',
+                        'gradient': 'gradient 8s ease infinite',
+                        'text-gradient': 'textGradient 8s ease infinite',
+                        'ripple': 'ripple 1.5s ease-out infinite',
+                        'blob': 'blob 7s infinite',
+                        'loader-spin': 'loaderSpin 1.5s linear infinite',
+                        'page-fade': 'pageFade 1.2s ease-out forwards',
+                        'card-enter': 'cardEnter 0.8s ease-out forwards'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-12px)' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        gradient: {
+                            '0%': { 'background-position': '0% 50%' },
+                            '50%': { 'background-position': '100% 50%' },
+                            '100%': { 'background-position': '0% 50%' }
+                        },
+                        textGradient: {
+                            '0%': { 'background-position': '0% 50%' },
+                            '50%': { 'background-position': '100% 50%' },
+                            '100%': { 'background-position': '0% 50%' }
+                        },
+                        ripple: {
+                            '0%': { transform: 'scale(0.8)', opacity: '1' },
+                            '100%': { transform: 'scale(2.5)', opacity: '0' }
+                        },
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -20px) scale(1.05)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.95)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' }
+                        },
+                        loaderSpin: {
+                            '0%': { transform: 'rotate(0deg)' },
+                            '100%': { transform: 'rotate(360deg)' }
+                        },
+                        pageFade: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        cardEnter: {
+                            '0%': { opacity: '0', transform: 'translateY(30px) scale(0.95)' },
+                            '100%': { opacity: '1', transform: 'translateY(0) scale(1)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Selection Color */
+        ::selection {
+            background: var(--tw-color-selection);
+            color: rgb(170, 170, 120);
+        }
+        
+        /* Loading Animation */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #F5F7FA;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.6s ease-out;
+        }
+        /* Uncommon loader animation: morphing spinning blob */
+        @keyframes loaderMorphSpin {
+            0% {
+            border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+            transform: rotate(0deg) scale(1);
+            }
+            20% {
+            border-radius: 60% 40% 55% 45% / 45% 60% 40% 55%;
+            transform: rotate(72deg) scale(1.08);
+            }
+            40% {
+            border-radius: 40% 60% 45% 55% / 60% 45% 55% 40%;
+            transform: rotate(144deg) scale(0.95);
+            }
+            60% {
+            border-radius: 55% 45% 60% 40% / 40% 55% 45% 60%;
+            transform: rotate(216deg) scale(1.12);
+            }
+            80% {
+            border-radius: 45% 55% 40% 60% / 55% 40% 60% 45%;
+            transform: rotate(288deg) scale(0.98);
+            }
+            100% {
+            border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+            transform: rotate(360deg) scale(1);
+            }
+        }
+        .loader {
+            animation: loaderMorphSpin 0.5s linear infinite !important;
+        }
+        
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 5px solid rgba(4, 68, 67, 0.2);
+            border-top-color: #044443;
+            border-radius: 50%;
+            animation: loaderSpin 1.5s linear infinite;
+            position: relative;
+        }
+        
+        .loader::after {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            border: 5px solid rgba(102, 173, 165, 0.1);
+            border-radius: 50%;
+        }
+        
+        .loading-text {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #044443;
+            font-weight: 500;
+        }
+        
+        /* Developer Card */
+        .developer-card {
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            position: relative;
+            overflow: visible;
+            min-height: 500px;
+            opacity: 1; /* Changed from 0 to 1 */
+            animation: cardEnter 0.8s ease-out forwards;
+        }
+        
+        .developer-card:nth-child(1) {
+            animation-delay: 0.3s;
+        }
+        
+        .developer-card:nth-child(2) {
+            animation-delay: 0.6s;
+        }
+        
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            min-height: 500px;
+        }
+        
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 16px;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-front {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-back {
+            background: linear-gradient(135deg, #0D302C, #044443);
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: white;
+        }
+        
+        .card-back-content {
+            transform: translateZ(50px);
+            text-align: center;
+            z-index: 2;
+        }
+        
+        .card-back-circle {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(102, 173, 165, 0.2) 0%, transparent 70%);
+            animation: ripple 3s infinite;
+            z-index: 1;
+        }
+        
+        .card-back-circle:nth-child(1) {
+            top: -50px;
+            right: -50px;
+            animation-delay: 0s;
+        }
+        
+        .card-back-circle:nth-child(2) {
+            bottom: -30px;
+            left: -30px;
+            animation-delay: 1s;
+        }
+        
+        /* Terminal Window */
+        .terminal-window {
+            background: #1E1E1E;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        .terminal-header {
+            background: #333;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .terminal-button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+        
+        .terminal-button.red { background: #FF5F56; }
+        .terminal-button.yellow { background: #FFBD2E; }
+        .terminal-button.green { background: #27C93F; }
+        
+        .terminal-body {
+            padding: 16px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #D4D4D4;
+        }
+        
+        .terminal-prompt {
+            color: #569CD6;
+        }
+        
+        .terminal-command {
+            color: #CE9178;
+        }
+        
+        .terminal-response {
+            color: #B5CEA8;
+        }
+        
+        /* Touch Response */
+        .touch-response {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            pointer-events: none;
+            transform: scale(0);
+            animation: ripple 0.6s ease-out;
+            z-index: 100;
+        }
+        
+        /* Fun Button */
+        .fun-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #044443, #228B7D);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            z-index: 90;
+            transition: transform 0.2s ease;
+        }
+        
+        .fun-button:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 300px;
+            height: 100vh;
+            background: white;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            transition: right 0.3s ease;
+            z-index: 1000;
+            padding-top: 80px;
+        }
+        
+        .mobile-menu.open {
+            right: 0;
+        }
+        
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        /* Page Content */
+        .page-content {
+            opacity: 1;
+            animation: pageFade 1.2s ease-out forwards;
+        }
+        
+        /* For reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+            
+            .page-content {
+                animation: none !important;
+                opacity: 1;
+            }
+            
+            .developer-card {
+                animation: none !important;
+                opacity: 1;
+            }
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #66ADA5;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #228B7D;
+        }
+
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(90deg, #044443, #228B7D, #66ADA5);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradient 8s ease infinite;
+        }
+    </style>
+</head>
+<body class="font-poppins bg-gray-50 text-gray-800 overflow-x-hidden">
+    <!-- Loading Animation -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader"></div>
+        <div class="loading-text">Loading Developers...</div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="/" class="flex items-center">
+                        <img src="assets/logo.jpg" alt="Target Marketing BD Logo" class="h-12 mr-4">
+                        <span class="text-xl font-bold text-primary">Target Marketing BD</span>
+                    </a>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="text-primary hover:text-accent transition" data-i18n="home">Home</a>
+                    <a href="services" class="text-primary hover:text-accent transition" data-i18n="services">Services</a>
+                    <a href="blog" class="text-primary hover:text-accent transition" data-i18n="blog">Blog</a>
+                    <a href="about" class="text-primary hover:text-accent transition" data-i18n="about">About</a>
+                    <a href="contact" class="text-primary hover:text-accent transition" data-i18n="contact">Contact</a>
+                    <a href="developers" class="text-primary font-medium" data-i18n="developers">Developers</a>
+                    
+                    <div class="flex items-center space-x-2 ml-6">
+                        <button id="enBtn" class="language-toggle active px-3 py-1 rounded-full text-sm bg-primary text-white">EN</button>
+                        <button id="bnBtn" class="language-toggle px-3 py-1 rounded-full text-sm border border-primary">BN</button>
+                    </div>
+                </div>
+                
+                <button class="md:hidden focus:outline-none" id="mobileMenuBtn" aria-label="Toggle menu">
+                    <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="pt-4 pb-2 px-6 space-y-2 text-sm font-medium">
+            <a href="/" class="block py-2 text-primary hover:text-accent transition" data-i18n="home">Home</a>
+            <a href="services" class="block py-2 text-primary hover:text-accent transition" data-i18n="services">Services</a>
+            <a href="blog" class="block py-2 text-primary hover:text-accent transition" data-i18n="blog">Blog</a>
+            <a href="about" class="block py-2 text-primary hover:text-accent transition" data-i18n="about">About</a>
+            <a href="contact" class="block py-2 text-primary hover:text-accent transition" data-i18n="contact">Contact</a>
+            <a href="developers" class="block py-2 text-primary hover:text-accent transition" data-i18n="developers">Developers</a>
+            <div class="flex items-center space-x-2 px-3 py-4 justify-center">
+                <button id="enBtnMobile" class="language-toggle active px-4 py-2 rounded-full text-sm bg-primary text-white">English</button>
+                <button id="bnBtnMobile" class="language-toggle px-4 py-2 rounded-full text-sm border border-primary">বাংলা</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="pt-32 pb-20 px-4 min-h-screen page-content">
+        <div class="container mx-auto">
+            <!-- Hero Section -->
+            <section class="mb-20 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 gradient-text" data-i18n="developers_title">Meet Our Developers</h1>
+                <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto" data-i18n="developers_subtitle">The talented individuals behind the digital presence of Target Marketing BD</p>
+                
+                <div class="mt-12 flex justify-center">
+                    <div class="terminal-window max-w-2xl w-full">
+                        <div class="terminal-header">
+                            <div class="terminal-button red"></div>
+                            <div class="terminal-button yellow"></div>
+                            <div class="terminal-button green"></div>
+                            <div class="ml-2 text-xs text-gray-300">bash — 80×24</div>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="mb-2"><span class="terminal-prompt">$</span> <span class="terminal-command">whoami</span></div>
+                            <div class="terminal-response" data-i18n="terminal_whoami">target-marketing-bd-developers</div>
+                            <div class="mb-2 mt-4"><span class="terminal-prompt">$</span> <span class="terminal-command">cat team.txt</span></div>
+                            <div class="terminal-response" data-i18n="terminal_team">
+                                Raiyan Bin Rashid - Frontend Developer & Designer<br>
+                                Sayed Ibn Masud - Backend Developer & Maintenance
+                            </div>
+                            <div class="mb-2 mt-4"><span class="terminal-prompt">$</span> <span class="terminal-command">./start.sh</span></div>
+                            <div class="terminal-response" data-i18n="terminal_start">Initializing developer profiles...</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Developers Grid -->
+            <section>
+                <h2 class="text-3xl font-bold text-center mb-16 text-primary" data-i18n="our_team">Our Development Team</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                    <!-- Raiyan Bin Rashid -->
+                    <div class="developer-card" id="raiyanCard">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <div class="relative h-64 bg-gradient-to-r from-primary to-secondary overflow-hidden">
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <img src="https://avatars.githubusercontent.com/u/139604422?v=4" alt="Raiyan Bin Rashid" 
+                                             class="w-32 h-32 rounded-full border-4 border-white shadow-lg object-cover"
+                                             onerror="this.src='https://via.placeholder.com/150?text=Raiyan'">
+                                    </div>
+                                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                                        <h3 class="text-2xl font-bold text-white" data-i18n="raiyan_name">Raiyan Bin Rashid</h3>
+                                        <p class="text-accent font-mono" data-i18n="raiyan_role">Frontend Developer & Designer</p>
+                                    </div>
+                                </div>
+                                <div class="p-6 flex-grow">
+                                    <p class="text-gray-600 mb-4" data-i18n="raiyan_shortbio">Specializing in creating visually stunning and highly functional digital experiences with a focus on user-centered design.</p>
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span class="px-3 py-1 rounded-full text-xs bg-primary/10 text-primary font-mono">HTML/CSS</span>
+                                        <span class="px-3 py-1 rounded-full text-xs bg-primary/10 text-primary font-mono">JavaScript</span>
+                                        <span class="px-3 py-1 rounded-full text-xs bg-primary/10 text-primary font-mono">UI/UX Design</span>
+                                        <span class="px-3 py-1 rounded-full text-xs bg-primary/10 text-primary font-mono">Tailwind CSS</span>
+                                        <span class="px-3 py-1 rounded-full text-xs bg-primary/10 text-primary font-mono">Figma</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <a href="Raiyan.html" class="inline-flex items-center bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded-full transition group">
+                                            <span data-i18n="view_profile">View Profile</span>
+                                            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                                        </a>
+                                        <button class="flip-button p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition" aria-label="Flip card">
+                                            <i class="fas fa-sync-alt text-primary"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-back">
+                                <div class="card-back-circle"></div>
+                                <div class="card-back-circle"></div>
+                                <div class="card-back-content">
+                                    <h3 class="text-2xl font-bold mb-2" data-i18n="raiyan_name">Raiyan Bin Rashid</h3>
+                                    <p class="text-accent font-mono mb-4" data-i18n="raiyan_role">Frontend Developer & Designer</p>
+                                    <div class="flex justify-center space-x-4 mb-6">
+                                        <a href="https://github.com/raiyanruhan" target="_blank" class="text-white hover:text-accent transition" aria-label="GitHub">
+                                            <i class="fab fa-github text-xl"></i>
+                                        </a>
+                                        <a href="https://linkedin.com" target="_blank" class="text-white hover:text-accent transition" aria-label="LinkedIn">
+                                            <i class="fab fa-linkedin text-xl"></i>
+                                        </a>
+                                        <a href="https://twitter.com" target="_blank" class="text-white hover:text-accent transition" aria-label="Twitter">
+                                            <i class="fab fa-twitter text-xl"></i>
+                                        </a>
+                                    </div>
+                                    <button class="flip-back-button px-4 py-2 rounded-full bg-white text-primary font-medium hover:bg-gray-100 transition">
+                                        <span data-i18n="back_to_front">Back to Front</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Sayed Ibn Masud -->
+                    <div class="developer-card" id="sayedCard">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <div class="relative h-64 bg-gradient-to-r from-dark to-accent overflow-hidden">
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <img src="https://avatars.githubusercontent.com/u/12345678?v=4" alt="Sayed Ibn Masud" 
+                                             class="w-32 h-32 rounded-full border-4 border-white shadow-lg object-cover"
+                                             onerror="this.src='https://via.placeholder.com/150?text=Sayed'">
+                                    </div>
+                                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                                        <h3 class="text-2xl font-bold text-white" data-i18n="sayed_name">Sayed Ibn Masud</h3>
+                                        <p class="text-accent font-mono" data-i18n="sayed_role">Backend Developer & Maintenance</p>
+                                    </div>
+                                </div>
+                                <div class="p-6 flex-grow">
+                                    <p class="text-gray-600 mb-4" data-i18n="sayed_shortbio">Ensuring system reliability and performance with robust backend solutions and infrastructure maintenance.</p>
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span class="px-3 py-1 rounded-full text-xs bg-primary/10 text-primary font-mono">Python</span>
+                                        <span class="px-3 py-1 rounded-full text-xs bg-primary/10 text-primary font-mono">Django</span>
+                                        <span class="px-3 py-1 rounded-full text-xs bg-primary/10 text-primary font-mono">Database</span>
+                                        <span class="px-3 py-1 rounded-full text-xs bg-primary/10 text-primary font-mono">DevOps</span>
+                                        <span class="px-3 py-1 rounded-full text-xs bg-primary/10 text-primary font-mono">Security</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <a href="developers/sayed" class="inline-flex items-center bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded-full transition group shadow-lg focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2">
+                                            <span data-i18n="view_profile">View Profile</span>
+                                            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                                        </a>
+                                        <button class="flip-button p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition" aria-label="Flip card">
+                                            <i class="fas fa-sync-alt text-primary"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-back">
+                                <div class="card-back-circle"></div>
+                                <div class="card-back-circle"></div>
+                                <div class="card-back-content">
+                                    <h3 class="text-2xl font-bold mb-2" data-i18n="sayed_name">Sayed Ibn Masud</h3>
+                                    <p class="text-accent font-mono mb-4" data-i18n="sayed_role">Backend Developer & Maintenance</p>
+                                    <div class="flex justify-center space-x-4 mb-6">
+                                        <a href="https://github.com/sayedibnmasud" target="_blank" class="text-white hover:text-accent transition" aria-label="GitHub">
+                                            <i class="fab fa-github text-xl"></i>
+                                        </a>
+                                        <a href="https://linkedin.com" target="_blank" class="text-white hover:text-accent transition" aria-label="LinkedIn">
+                                            <i class="fab fa-linkedin text-xl"></i>
+                                        </a>
+                                        <a href="https://twitter.com" target="_blank" class="text-white hover:text-accent transition" aria-label="Twitter">
+                                            <i class="fab fa-twitter text-xl"></i>
+                                        </a>
+                                    </div>
+                                    <button class="flip-back-button px-4 py-2 rounded-full bg-white text-primary font-medium hover:bg-gray-100 transition">
+                                        <span data-i18n="back_to_front">Back to Front</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Stats Section -->
+            <section class="mt-24">
+                <div class="bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 text-white">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                        <div>
+                            <div class="text-4xl font-bold mb-2" data-i18n="projects_completed">50+</div>
+                            <div class="text-sm uppercase tracking-wider" data-i18n="projects">Projects Completed</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-bold mb-2" data-i18n="code_commits">1000+</div>
+                            <div class="text-sm uppercase tracking-wider" data-i18n="commits">Code Commits</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-bold mb-2" data-i18n="happy_clients">30+</div>
+                            <div class="text-sm uppercase tracking-wider" data-i18n="clients">Happy Clients</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Collaboration Section -->
+            <section class="mt-24 text-center">
+                <h2 class="text-3xl font-bold mb-6 text-primary" data-i18n="collaborate_title">Want to Collaborate?</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8" data-i18n="collaborate_text">We're always open to discussing new projects, creative ideas or opportunities to be part of your vision.</p>
+                <a href="contact" class="inline-block bg-primary hover:bg-secondary text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl" data-i18n="get_in_touch">Get in Touch</a>
+            </section>
+        </div>
+    </main>
+
+    <!-- Fun Button -->
+    <div class="fun-button" id="funButton">
+        <i class="fas fa-magic"></i>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12 px-4">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <img src="assets/logo.jpg" alt="Target Marketing BD Logo" class="h-16 mb-4">
+                    <p data-i18n="footer_tagline">Digital marketing solutions for female entrepreneurs</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4" data-i18n="quick_links">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/" class="hover:text-accent transition" data-i18n="home">Home</a></li>
+                        <li><a href="services" class="hover:text-accent transition" data-i18n="services">Services</a></li>
+                        <li><a href="blog" class="hover:text-accent transition" data-i18n="blog">Blog</a></li>
+                        <li><a href="about" class="hover:text-accent transition" data-i18n="about">About</a></li>
+                        <li><a href="contact" class="hover:text-accent transition" data-i18n="contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4" data-i18n="contact_us">Contact Us</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-2 text-accent"></i>
+                            <span>targetmarketingbd@gmail.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-2 text-accent"></i>
+                            <span>+880 1860 043330</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2 text-accent"></i>
+                            <span data-i18n="dhaka_bangladesh">Dhaka, Bangladesh</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4" data-i18n="developer">Developer</h4>
+                    <p data-i18n="developed_by">Website developed by:</p>
+                    <p class="mt-2 font-semibold">
+                        <a href="https://github.com/raiyanruhan/" target="_blank" rel="noopener" class="hover:text-accent transition">
+                            Raiyan Bin Rashid <br>
+                            <a href="https://github.com/sayedibnmasud" target="_blank" rel="noopener" class="hover:text-accent transition">Sayed Ibn Masud</a>
+                        </a>
+                    </p>
+                    <p class="text-sm mt-4 text-accent">© <span id="currentYear"></span> Target Marketing BD. <span
+                            data-i18n="all_rights">All rights reserved.</span></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Enhanced Microsoft-style loading animation
+        window.addEventListener('load', function() {
+            // Animate loader dots (Microsoft style)
+            const loadingText = document.querySelector('.loading-text');
+            loadingText.innerHTML = `
+            <span class="dot" style="animation-delay:0s;">.</span>
+            <span class="dot" style="animation-delay:0.2s;">.</span>
+            <span class="dot" style="animation-delay:0.4s;">.</span>
+            <span class="dot" style="animation-delay:0.6s;">.</span>
+            <span class="dot" style="animation-delay:0.8s;">.</span>
+            <span style="margin-left:8px;">Loading Developers</span>
+            `;
+
+            // Add styles for animated dots
+            const style = document.createElement('style');
+            style.textContent = `
+            .loading-text {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 18px;
+                font-weight: 500;
+            }
+            .loading-text .dot {
+                font-size: 32px;
+                color: #228B7D;
+                opacity: 0.3;
+                animation: ms-dot-bounce 1.2s infinite;
+                margin-right: 2px;
+            }
+            @keyframes ms-dot-bounce {
+                0%, 100% { opacity: 0.3; transform: translateY(0);}
+                30% { opacity: 1; transform: translateY(-10px);}
+                60% { opacity: 0.3; transform: translateY(0);}
+            }
+            `;
+            document.head.appendChild(style);
+
+            setTimeout(() => {
+            const loadingScreen = document.getElementById('loadingScreen');
+            loadingScreen.style.opacity = '0';
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+                document.body.style.overflow = 'auto';
+
+                // Force cards to animate in after load
+                document.querySelectorAll('.developer-card').forEach(card => {
+                card.style.animation = 'cardEnter 0.8s ease-out forwards';
+                });
+            }, 600);
+            }, 1600);
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        
+        function toggleMenu() {
+            mobileMenu.classList.toggle('open');
+            mobileMenuOverlay.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : 'auto';
+        }
+        
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+        mobileMenuOverlay.addEventListener('click', toggleMenu);
+
+        // Card flip functionality
+        document.querySelectorAll('.flip-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const card = this.closest('.developer-card');
+                const cardInner = card.querySelector('.card-inner');
+                cardInner.style.transform = 'rotateY(180deg)';
+            });
+        });
+
+        document.querySelectorAll('.flip-back-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const card = this.closest('.developer-card');
+                const cardInner = card.querySelector('.card-inner');
+                cardInner.style.transform = 'rotateY(0deg)';
+            });
+        });
+
+        // Card hover effect for desktop
+        function setupCardHover(card) {
+            const cardInner = card.querySelector('.card-inner');
+            
+            // Mouse movement effect for desktop
+            card.addEventListener('mousemove', (e) => {
+                if (window.innerWidth > 768) {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const angleX = (y - centerY) / 20;
+                    const angleY = (centerX - x) / 20;
+                    
+                    cardInner.style.transform = `rotateX(${angleX}deg) rotateY(${angleY}deg)`;
+                }
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                if (window.innerWidth > 768) {
+                    cardInner.style.transform = 'rotateX(0) rotateY(0)';
+                }
+            });
+            
+            // Touch effect for mobile
+            card.addEventListener('touchstart', (e) => {
+                if (window.innerWidth <= 768) {
+                    card.classList.add('active');
+                    
+                    // Create touch response effect
+                    const touch = e.touches[0];
+                    const touchResponse = document.createElement('div');
+                    touchResponse.className = 'touch-response';
+                    touchResponse.style.left = `${touch.clientX - card.getBoundingClientRect().left - 30}px`;
+                    touchResponse.style.top = `${touch.clientY - card.getBoundingClientRect().top - 30}px`;
+                    card.appendChild(touchResponse);
+                    
+                    // Remove after animation
+                    setTimeout(() => {
+                        touchResponse.remove();
+                    }, 600);
+                }
+            });
+            
+            card.addEventListener('touchend', () => {
+                if (window.innerWidth <= 768) {
+                    card.classList.remove('active');
+                }
+            });
+        }
+
+        // Initialize card hover effects
+        document.querySelectorAll('.developer-card').forEach(card => {
+            setupCardHover(card);
+        });
+
+        // Fun button that avoids mouse
+        const funButton = document.getElementById('funButton');
+        let buttonX = window.innerWidth - 90;
+        let buttonY = window.innerHeight - 90;
+        let mouseX = 0;
+        let mouseY = 0;
+        let isAvoiding = false;
+
+        // Position the button initially
+        funButton.style.left = `${buttonX}px`;
+        funButton.style.top = `${buttonY}px`;
+
+        // Mouse movement tracking
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            // Check distance to button
+            const distance = Math.sqrt(Math.pow(mouseX - (buttonX + 30), 2) + Math.pow(mouseY - (buttonY + 30), 2));
+            
+            if (distance < 100 && !isAvoiding) {
+                isAvoiding = true;
+                
+                // Calculate new position (away from mouse)
+                let newX = buttonX;
+                let newY = buttonY;
+                
+                if (mouseX < window.innerWidth / 2) {
+                    newX = Math.min(buttonX + 100, window.innerWidth - 60);
+                } else {
+                    newX = Math.max(buttonX - 100, 0);
+                }
+                
+                if (mouseY < window.innerHeight / 2) {
+                    newY = Math.min(buttonY + 100, window.innerHeight - 60);
+                } else {
+                    newY = Math.max(buttonY - 100, 0);
+                }
+                
+                // Update position
+                buttonX = newX;
+                buttonY = newY;
+                
+                funButton.style.transition = 'left 0.3s ease-out, top 0.3s ease-out';
+                funButton.style.left = `${buttonX}px`;
+                funButton.style.top = `${buttonY}px`;
+                
+                setTimeout(() => {
+                    isAvoiding = false;
+                    funButton.style.transition = '';
+                }, 300);
+            }
+        });
+
+        // Fun button click effect
+        funButton.addEventListener('click', () => {
+            // Create confetti effect
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'absolute w-2 h-2 rounded-full';
+                confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                confetti.style.left = `${buttonX + 30}px`;
+                confetti.style.top = `${buttonY + 30}px`;
+                confetti.style.transform = 'scale(0)';
+                confetti.style.animation = `float ${1 + Math.random() * 2}s ease-out forwards`;
+                
+                // Random direction and distance
+                const angle = Math.random() * Math.PI * 2;
+                const distance = 50 + Math.random() * 100;
+                const x = Math.cos(angle) * distance;
+                const y = Math.sin(angle) * distance;
+                
+                confetti.style.setProperty('--translate-x', `${x}px`);
+                confetti.style.setProperty('--translate-y', `${y}px`);
+                
+                document.body.appendChild(confetti);
+                
+                // Remove after animation
+                setTimeout(() => {
+                    confetti.remove();
+                }, 2000);
+            }
+        });
+
+        // Language switching functionality
+        const translations = {
+            en: {
+                // Navigation
+                home: "Home",
+                services: "Services",
+                blog: "Blog",
+                about: "About",
+                contact: "Contact",
+                developers: "Developers",
+                
+                // Page Content
+                developers_title: "Meet Our Developers",
+                developers_subtitle: "The talented individuals behind the digital presence of Target Marketing BD",
+                terminal_whoami: "target-marketing-bd-developers",
+                terminal_team: "Raiyan Bin Rashid - Frontend Developer & Designer\nSayed Ibn Masud - Backend Developer & Maintenance",
+                terminal_start: "Initializing developer profiles...",
+                our_team: "Our Development Team",
+                view_profile: "View Profile",
+                back_to_front: "Back to Front",
+                projects_completed: "50+",
+                projects: "Projects Completed",
+                code_commits: "1000+",
+                commits: "Code Commits",
+                happy_clients: "30+",
+                clients: "Happy Clients",
+                collaborate_title: "Want to Collaborate?",
+                collaborate_text: "We're always open to discussing new projects, creative ideas or opportunities to be part of your vision.",
+                get_in_touch: "Get in Touch",
+                
+                // Developer Info
+                raiyan_name: "Raiyan Bin Rashid",
+                raiyan_role: "Frontend Developer & Designer",
+                raiyan_shortbio: "Specializing in creating visually stunning and highly functional digital experiences with a focus on user-centered design.",
+                
+                sayed_name: "Sayed Ibn Masud",
+                sayed_role: "Backend Developer & Maintenance",
+                sayed_shortbio: "Ensuring system reliability and performance with robust backend solutions and infrastructure maintenance.",
+                
+                // Footer
+                footer_tagline: "Digital marketing solutions for female entrepreneurs",
+                quick_links: "Quick Links",
+                contact_us: "Contact Us",
+                developer: "Developer",
+                developed_by: "Website developed by:",
+                all_rights: "All rights reserved.",
+                dhaka_bangladesh: "Dhaka, Bangladesh"
+            },
+            bn: {
+                // Navigation
+                home: "হোম",
+                services: "সেবাসমূহ",
+                blog: "ব্লগ",
+                about: "আমাদের সম্পর্কে",
+                contact: "যোগাযোগ",
+                developers: "ডেভেলপাররা",
+                
+                // Page Content
+                developers_title: "আমাদের ডেভেলপারদের সাথে পরিচিত হোন",
+                developers_subtitle: "টার্গেট মার্কেটিং বিডির ডিজিটাল উপস্থিতির পেছনের প্রতিভাবান ব্যক্তিরা",
+                terminal_whoami: "টার্গেট-মার্কেটিং-বিডি-ডেভেলপাররা",
+                terminal_team: "রাইয়ান বিন রশীদ - ফ্রন্টএন্ড ডেভেলপার ও ডিজাইনার\nসায়েদ ইবনে মাসুদ - ব্যাকএন্ড ডেভেলপার ও রক্ষণাবেক্ষণ",
+                terminal_start: "ডেভেলপার প্রোফাইল শুরু করা হচ্ছে...",
+                our_team: "আমাদের ডেভেলপমেন্ট টিম",
+                view_profile: "প্রোফাইল দেখুন",
+                back_to_front: "সামনে ফিরে যান",
+                projects_completed: "৫০+",
+                projects: "সম্পূর্ণ প্রকল্প",
+                code_commits: "১০০০+",
+                commits: "কোড কমিট",
+                happy_clients: "৩০+",
+                clients: "সন্তুষ্ট ক্লায়েন্ট",
+                collaborate_title: "সহযোগিতা করতে চান?",
+                collaborate_text: "আমরা সবসময় নতুন প্রকল্প, সৃজনশীল ধারণা বা আপনার ভিশনের অংশ হওয়ার সুযোগ নিয়ে আলোচনা করতে উন্মুক্ত।",
+                get_in_touch: "যোগাযোগ করুন",
+                
+                // Developer Info
+                raiyan_name: "রাইয়ান বিন রশীদ",
+                raiyan_role: "ফ্রন্টএন্ড ডেভেলপার ও ডিজাইনার",
+                raiyan_shortbio: "ব্যবহারকারী-কেন্দ্রিক ডিজাইনের উপর ফোকাস করে দৃশ্যত চমৎকার এবং অত্যন্ত কার্যকরী ডিজিটাল অভিজ্ঞতা তৈরি করতে বিশেষজ্ঞ।",
+                
+                sayed_name: "সায়েদ ইবনে মাসুদ",
+                sayed_role: "ব্যাকএন্ড ডেভেলপার ও রক্ষণাবেক্ষণ",
+                sayed_shortbio: "শক্তিশালী ব্যাকএন্ড সমাধান এবং অবকাঠামো রক্ষণাবেক্ষণের মাধ্যমে সিস্টেমের নির্ভরযোগ্যতা এবং কর্মক্ষমতা নিশ্চিত করা।",
+                
+                // Footer
+                footer_tagline: "নারী উদ্যোক্তাদের জন্য ডিজিটাল মার্কেটিং সমাধান",
+                quick_links: "দ্রুত লিংক",
+                contact_us: "যোগাযোগ করুন",
+                developer: "ডেভেলপার",
+                developed_by: "ওয়েবসাইট ডেভেলপ করেছেন:",
+                all_rights: "সমস্ত অধিকার সংরক্ষিত।",
+                dhaka_bangladesh: "ঢাকা, বাংলাদেশ"
+            }
+        };
+
+        function switchLanguage(lang) {
+            // Update all translatable elements
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[lang][key];
+                    } else {
+                        // Preserve newlines in terminal text
+                        if (element.classList.contains('terminal-response')) {
+                            element.innerHTML = translations[lang][key].replace(/\n/g, '<br>');
+                        } else {
+                            element.textContent = translations[lang][key];
+                        }
+                    }
+                }
+            });
+            
+            // Switch font family for Bangla
+            if (lang === 'bn') {
+                document.body.style.fontFamily = "'Hind Siliguri', sans-serif";
+            } else {
+                document.body.style.fontFamily = "'Poppins', sans-serif";
+            }
+            
+            // Store language preference
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // Initialize language toggle buttons
+        function initLanguageToggle() {
+            const preferredLanguage = localStorage.getItem('preferredLanguage') || 'en';
+            
+            // Set initial language
+            switchLanguage(preferredLanguage);
+            
+            // Update button states
+            if (preferredLanguage === 'en') {
+                document.getElementById('enBtn').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtn').classList.remove('border');
+                document.getElementById('bnBtn').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtn').classList.add('border', 'border-primary');
+                
+                // Mobile buttons
+                document.getElementById('enBtnMobile').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtnMobile').classList.remove('border');
+                document.getElementById('bnBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtnMobile').classList.add('border', 'border-primary');
+            } else {
+                document.getElementById('bnBtn').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtn').classList.remove('border');
+                document.getElementById('enBtn').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtn').classList.add('border', 'border-primary');
+                
+                // Mobile buttons
+                document.getElementById('bnBtnMobile').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtnMobile').classList.remove('border');
+                document.getElementById('enBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtnMobile').classList.add('border', 'border-primary');
+            }
+            
+            // Add event listeners
+            document.getElementById('enBtn').addEventListener('click', function() {
+                switchLanguage('en');
+                this.classList.add('active', 'bg-primary', 'text-white');
+                this.classList.remove('border');
+                document.getElementById('bnBtn').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtn').classList.add('border', 'border-primary');
+                
+                // Update mobile buttons
+                document.getElementById('enBtnMobile').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtnMobile').classList.remove('border');
+                document.getElementById('bnBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtnMobile').classList.add('border', 'border-primary');
+            });
+            
+            document.getElementById('bnBtn').addEventListener('click', function() {
+                switchLanguage('bn');
+                this.classList.add('active', 'bg-primary', 'text-white');
+                this.classList.remove('border');
+                document.getElementById('enBtn').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtn').classList.add('border', 'border-primary');
+                
+                // Update mobile buttons
+                document.getElementById('bnBtnMobile').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtnMobile').classList.remove('border');
+                document.getElementById('enBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtnMobile').classList.add('border', 'border-primary');
+            });
+            
+            // Mobile buttons
+            document.getElementById('enBtnMobile').addEventListener('click', function() {
+                switchLanguage('en');
+                this.classList.add('active', 'bg-primary', 'text-white');
+                this.classList.remove('border');
+                document.getElementById('bnBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtnMobile').classList.add('border', 'border-primary');
+                
+                // Update desktop buttons
+                document.getElementById('enBtn').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtn').classList.remove('border');
+                document.getElementById('bnBtn').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtn').classList.add('border', 'border-primary');
+            });
+            
+            document.getElementById('bnBtnMobile').addEventListener('click', function() {
+                switchLanguage('bn');
+                this.classList.add('active', 'bg-primary', 'text-white');
+                this.classList.remove('border');
+                document.getElementById('enBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtnMobile').classList.add('border', 'border-primary');
+                
+                // Update desktop buttons
+                document.getElementById('bnBtn').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtn').classList.remove('border');
+                document.getElementById('enBtn').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtn').classList.add('border', 'border-primary');
+            });
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initLanguageToggle();
+            
+            // Set current year in footer
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            
+            // Handle window resize for fun button
+            window.addEventListener('resize', () => {
+                buttonX = Math.min(buttonX, window.innerWidth - 60);
+                buttonY = Math.min(buttonY, window.innerHeight - 60);
+                funButton.style.left = `${buttonX}px`;
+                funButton.style.top = `${buttonY}px`;
+            });
+            
+            // Image fallback handling
+            document.querySelectorAll('img').forEach(img => {
+                img.onerror = function() {
+                    this.src = 'https://via.placeholder.com/150?text=Profile';
+                };
+            });
+        });
+    </script>
+</body>
+</html>
