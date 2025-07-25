@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raiyan Bin Rashid | Frontend Developer | Target Marketing BD</title>
+    <meta name="description" content="Professional profile of Raiyan Bin Rashid - Frontend Developer & UI/UX Designer at Target Marketing BD">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#044443',
+                        secondary: '#228B7D',
+                        accent: '#66ADA5',
+                        dark: '#0D302C',
+                        light: '#F5F7FA',
+                        code: '#1E1E1E'
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'gradient': 'gradient 8s ease infinite',
+                        'text-gradient': 'textGradient 8s ease infinite',
+                        'blob': 'blob 7s infinite',
+                        'pulse-slow': 'pulse 5s infinite'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-12px)' }
+                        },
+                        gradient: {
+                            '0%': { 'background-position': '0% 50%' },
+                            '50%': { 'background-position': '100% 50%' },
+                            '100%': { 'background-position': '0% 50%' }
+                        },
+                        textGradient: {
+                            '0%': { 'background-position': '0% 50%' },
+                            '50%': { 'background-position': '100% 50%' },
+                            '100%': { 'background-position': '0% 50%' }
+                        },
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -20px) scale(1.05)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.95)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        ::selection {
+            color: #727272;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #044443, #228B7D, #66ADA5);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradient 8s ease infinite;
+        }
+        
+        .skill-pill {
+            transition: all 0.3s ease;
+        }
+        
+        .skill-pill:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(4, 68, 67, 0.2);
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -32px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #228B7D;
+            border: 3px solid white;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: -25px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e2e8f0;
+        }
+        
+        .code-block {
+            font-family: 'JetBrains Mono', monospace;
+            tab-size: 2;
+        }
+        
+        .avatar-blob {
+            animation: blob 7s infinite;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #66ADA5;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #228B7D;
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="font-poppins bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="/" class="flex items-center">
+                        <img src="/assets/logo.jpg" alt="Target Marketing BD Logo" class="h-10 mr-3">
+                        <span class="text-lg font-bold text-primary">Target Marketing BD</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="/developers" class="text-gray-600 hover:text-primary transition">
+                        <i class="fas fa-arrow-left mr-2"></i> Back to Developers
+                    </a>
+                </div>
+                <button class="md:hidden focus:outline-none" id="mobileMenuBtn">
+                    <i class="fas fa-bars text-xl text-primary"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-24 pb-12">
+        <!-- Hero Section -->
+        <section class="py-12 px-4">
+            <div class="container mx-auto max-w-6xl">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                        <div class="relative">
+                            <div class="w-48 h-48 rounded-full overflow-hidden border-4 border-white shadow-xl avatar-blob">
+                                <img src="https://avatars.githubusercontent.com/u/139604422?v=4" alt="Raiyan Bin Rashid" 
+                                     class="w-full h-full object-cover"
+                                     onerror="this.src='https://via.placeholder.com/200?text=Raiyan'">
+                            </div>
+                            <div class="absolute -bottom-3 -right-3 bg-white rounded-full p-2 shadow-md">
+                                <div class="bg-primary text-white rounded-full w-12 h-12 flex items-center justify-center">
+                                    <i class="fas fa-code text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-2/3 md:pl-12 text-center md:text-left">
+                        <h1 class="text-4xl md:text-5xl font-bold mb-2 gradient-text">Raiyan Bin Rashid</h1>
+                        <h2 class="text-2xl md:text-3xl text-secondary font-semibold mb-4">Frontend Developer & UI/UX Designer</h2>
+                        <p class="text-lg text-gray-600 mb-6 max-w-2xl">
+                            Creating beautiful, functional digital experiences with a focus on user-centered design and cutting-edge frontend technologies.
+                        </p>
+                        <div class="flex flex-wrap justify-center md:justify-start gap-3 mb-8">
+                            <a href="https://github.com/raiyanruhan" target="_blank" class="bg-gray-100 hover:bg-gray-200 text-gray-800 px-4 py-2 rounded-full transition flex items-center">
+                                <i class="fab fa-github mr-2"></i> GitHub
+                            </a>
+                            <a href="https://linkedin.com/raiyanbinrashid" target="_blank" class="bg-blue-100 hover:bg-blue-200 text-blue-800 px-4 py-2 rounded-full transition flex items-center">
+                                <i class="fab fa-linkedin mr-2"></i> LinkedIn
+                            <a href="#" id="openContactModal" class="bg-accent hover:bg-secondary text-white px-4 py-2 rounded-full transition flex items-center">
+                                <i class="fas fa-envelope mr-2"></i> Contact
+                            </a>
+                            <!-- Contact Modal -->
+                            <div id="contactModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden">
+                                <div id="contactModalContent" class="bg-white rounded-xl shadow-lg max-w-md w-full p-8 relative modal-closed">
+                                    <button id="closeContactModal" class="absolute top-4 right-4 text-gray-400 hover:text-primary text-2xl">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                    <h3 class="text-2xl font-bold mb-4 text-primary">Contact Raiyan</h3>
+                                    <form id="contactForm" class="space-y-4">
+                                        <div>
+                                            <label for="userEmail" class="block text-sm font-medium text-gray-700 mb-1">Your Email</label>
+                                            <input type="email" id="userEmail" name="userEmail" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent" placeholder="you@example.com">
+                                        </div>
+                                        <div>
+                                            <label for="userMessage" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                                            <textarea id="userMessage" name="userMessage" rows="4" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent" placeholder="Type your message..."></textarea>
+                                        </div>
+                                        <button type="submit" class="w-full bg-primary hover:bg-secondary text-white font-bold py-2 rounded-lg transition">Send</button>
+                                        <div id="contactSuccess" class="hidden text-green-600 mt-3 text-center animate-none">
+                                            <span class="inline-block align-middle mr-2" id="sentCheckIcon" style="display:none;">
+                                                <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                                                </svg>
+                                            </span>
+                                            Message sent!
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <script>
+                                // Modal open/close logic with different uncommon animations
+                                const openBtn = document.getElementById('openContactModal');
+                                const closeBtn = document.getElementById('closeContactModal');
+                                const modal = document.getElementById('contactModal');
+                                const modalContent = document.getElementById('contactModalContent');
+                                const contactSuccess = document.getElementById('contactSuccess');
+                                const sentCheckIcon = document.getElementById('sentCheckIcon');
+                                const sendBtn = document.querySelector('#contactForm button[type="submit"]');
+
+                                openBtn.onclick = function(e) {
+                                    e.preventDefault();
+                                    modal.classList.remove('hidden');
+                                    document.body.style.overflow = 'hidden';
+                                    modalContent.classList.remove('modal-closed', 'modal-exit');
+                                    // Opening: bounce in from top
+                                    setTimeout(() => {
+                                        modalContent.classList.add('modal-open');
+                                    }, 10);
+                                };
+                                closeBtn.onclick = closeModal;
+                                modal.onclick = function(e) {
+                                    if (e.target === this) closeModal();
+                                };
+                                function closeModal() {
+                                    // Closing: flip out
+                                    modalContent.classList.remove('modal-open');
+                                    modalContent.classList.add('modal-exit');
+                                    setTimeout(() => {
+                                        modal.classList.add('hidden');
+                                        modalContent.classList.remove('modal-exit');
+                                        modalContent.classList.add('modal-closed');
+                                        document.body.style.overflow = '';
+                                    }, 600);
+                                }
+                                // Simple form handler (demo only) with sent animation
+                                document.getElementById('contactForm').onsubmit = function(e) {
+                                    e.preventDefault();
+                                    contactSuccess.classList.remove('hidden');
+                                    contactSuccess.classList.remove('animate-none');
+                                    contactSuccess.classList.add('sent-animate');
+                                    sentCheckIcon.style.display = 'inline-block';
+                                    // Animate the send button
+                                    sendBtn.classList.add('send-btn-animate');
+                                    setTimeout(() => {
+                                        closeModal();
+                                        contactSuccess.classList.add('hidden');
+                                        contactSuccess.classList.remove('sent-animate');
+                                        contactSuccess.classList.add('animate-none');
+                                        sentCheckIcon.style.display = 'none';
+                                        document.getElementById('contactForm').reset();
+                                        sendBtn.classList.remove('send-btn-animate');
+                                    }, 1500);
+                                };
+                            </script>
+                            <style>
+                                /* Modal open: bounce in from top */
+                                @keyframes modalBounceIn {
+                                    0% {
+                                        opacity: 0;
+                                        transform: translateY(-200px) scale(0.7) rotate(-10deg);
+                                    }
+                                    60% {
+                                        opacity: 1;
+                                        transform: translateY(30px) scale(1.05) rotate(2deg);
+                                    }
+                                    80% {
+                                        transform: translateY(-10px) scale(0.98) rotate(-1deg);
+                                    }
+                                    100% {
+                                        opacity: 1;
+                                        transform: translateY(0) scale(1) rotate(0deg);
+                                    }
+                                }
+                                /* Modal close: flip out */
+                                @keyframes modalFlipOut {
+                                    0% {
+                                        opacity: 1;
+                                        transform: translateY(0) scale(1) rotate(0deg);
+                                    }
+                                    40% {
+                                        opacity: 1;
+                                        transform: rotateY(-10deg) scale(0.98);
+                                    }
+                                    100% {
+                                        opacity: 0;
+                                        transform: rotateY(90deg) scale(0.7);
+                                    }
+                                }
+                                #contactModalContent.modal-closed {
+                                    opacity: 0;
+                                    transform: translateY(-200px) scale(0.7) rotate(-10deg);
+                                    transition: none;
+                                }
+                                #contactModalContent.modal-open {
+                                    animation: modalBounceIn 0.7s cubic-bezier(.68,-0.55,.27,1.55) forwards;
+                                }
+                                #contactModalContent.modal-exit {
+                                    animation: modalFlipOut 0.6s cubic-bezier(.68,-0.55,.27,1.55) forwards;
+                                }
+                                /* Message sent animation */
+                                @keyframes sentPop {
+                                    0% {
+                                        opacity: 0;
+                                        transform: scale(0.7) translateY(20px);
+                                    }
+                                    60% {
+                                        opacity: 1;
+                                        transform: scale(1.1) translateY(-5px);
+                                    }
+                                    80% {
+                                        transform: scale(0.98) translateY(2px);
+                                    }
+                                    100% {
+                                        opacity: 1;
+                                        transform: scale(1) translateY(0);
+                                    }
+                                }
+                                .sent-animate {
+                                    animation: sentPop 0.7s cubic-bezier(.68,-0.55,.27,1.55);
+                                }
+                                /* Beautiful send button animation */
+                                @keyframes sendBtnPulse {
+                                    0% {
+                                        box-shadow: 0 0 0 0 rgba(34, 139, 125, 0.7), 0 0 0 0 rgba(102, 173, 165, 0.5);
+                                        transform: scale(1);
+                                    }
+                                    40% {
+                                        box-shadow: 0 0 0 8px rgba(34, 139, 125, 0.15), 0 0 0 16px rgba(102, 173, 165, 0.10);
+                                        transform: scale(1.08) rotate(-2deg);
+                                    }
+                                    60% {
+                                        box-shadow: 0 0 0 12px rgba(34, 139, 125, 0.10), 0 0 0 24px rgba(102, 173, 165, 0.07);
+                                        transform: scale(0.97) rotate(2deg);
+                                    }
+                                    100% {
+                                        box-shadow: 0 0 0 0 rgba(34, 139, 125, 0), 0 0 0 0 rgba(102, 173, 165, 0);
+                                        transform: scale(1) rotate(0deg);
+                                    }
+                                }
+                                .send-btn-animate {
+                                    animation: sendBtnPulse 0.7s cubic-bezier(.68,-0.55,.27,1.55);
+                                    background: linear-gradient(90deg, #228B7D 0%, #66ADA5 100%);
+                                    color: #fff !important;
+                                    box-shadow: 0 0 0 0 rgba(34, 139, 125, 0.7);
+                                }
+                                /* Optional: add a glowing effect on hover for the send button */
+                                #contactForm button[type="submit"]:hover {
+                                    box-shadow: 0 0 0 4px #66ADA555, 0 2px 8px #228B7D33;
+                                    background: linear-gradient(90deg, #66ADA5 0%, #228B7D 100%);
+                                    color: #fff;
+                                }
+                            </style>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="py-12 px-4 bg-white">
+            <div class="container mx-auto max-w-6xl">
+                <h2 class="text-3xl font-bold text-center mb-12 text-primary">Technical Skills</h2>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <!-- Frontend Skills -->
+                    <div class="bg-gray-50 p-6 rounded-xl">
+                        <div class="text-secondary mb-4 flex items-center">
+                            <i class="fas fa-laptop-code text-2xl mr-3"></i>
+                            <h3 class="text-xl font-semibold">Frontend</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-pill bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-mono">HTML5</span>
+                            <span class="skill-pill bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-mono">CSS3</span>
+                            <span class="skill-pill bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-mono">JavaScript</span>
+                            <span class="skill-pill bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-mono">React</span>
+                            <span class="skill-pill bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-mono">Vue.js</span>
+                            <span class="skill-pill bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-mono">Tailwind CSS</span>
+                            <span class="skill-pill bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-mono">SASS</span>
+                            <span class="skill-pill bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-mono">Bootstrap</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Design Skills -->
+                    <div class="bg-gray-50 p-6 rounded-xl">
+                        <div class="text-secondary mb-4 flex items-center">
+                            <i class="fas fa-paint-brush text-2xl mr-3"></i>
+                            <h3 class="text-xl font-semibold">Design</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-pill bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-mono">Figma</span>
+                            <span class="skill-pill bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-mono">Adobe XD</span>
+                            <span class="skill-pill bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-mono">UI/UX</span>
+                            <span class="skill-pill bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-mono">Wireframing</span>
+                            <span class="skill-pill bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-mono">Prototyping</span>
+                            <span class="skill-pill bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-mono">Illustration</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Tools -->
+                    <div class="bg-gray-50 p-6 rounded-xl">
+                        <div class="text-secondary mb-4 flex items-center">
+                            <i class="fas fa-tools text-2xl mr-3"></i>
+                            <h3 class="text-xl font-semibold">Tools</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-pill bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-mono">Git</span>
+                            <span class="skill-pill bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-mono">Webpack</span>
+                            <span class="skill-pill bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-mono">Vite</span>
+                            <span class="skill-pill bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-mono">NPM</span>
+                            <span class="skill-pill bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-mono">VS Code</span>
+                            <span class="skill-pill bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-mono">Chrome DevTools</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Other Skills -->
+                    <div class="bg-gray-50 p-6 rounded-xl">
+                        <div class="text-secondary mb-4 flex items-center">
+                            <i class="fas fa-plus-circle text-2xl mr-3"></i>
+                            <h3 class="text-xl font-semibold">Other</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-pill bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-mono">Responsive Design</span>
+                            <span class="skill-pill bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-mono">Accessibility</span>
+                            <span class="skill-pill bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-mono">Performance</span>
+                            <span class="skill-pill bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-mono">SEO</span>
+                            <span class="skill-pill bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-mono">JAMstack</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="py-12 px-4 bg-white">
+            <div class="container mx-auto max-w-6xl">
+                <h2 class="text-3xl font-bold text-center mb-12 text-primary">Featured Projects</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1 -->
+                    <div class="project-card bg-gray-50 rounded-xl overflow-hidden shadow-md">
+                        <div class="h-48 bg-gradient-to-r from-primary to-secondary relative overflow-hidden">
+                            <img src="https://scontent.fjsr11-1.fna.fbcdn.net/v/t39.30808-6/518162297_122258322368189138_6315024078231482889_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=7JRR1_rdXYUQ7kNvwHtL9GP&_nc_oc=Adln8ylYFky10CjB0tf6V_8gkY0N8iM1RusbkbRs73p0fwJNqHMgkM54ZlBsbik4txo&_nc_zt=23&_nc_ht=scontent.fjsr11-1.fna&_nc_gid=l2PxlHJL72C-rM3eTWYJjw&oh=00_AfRGiETv28zCCFfZE35lhBZYrY4cgokc6mQJ2Y8z1pgzdg&oe=6882C650" 
+                                 alt="E-commerce Dashboard" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+                                <button class="bg-white text-primary px-4 py-2 rounded-full font-medium hover:bg-gray-100 transition">
+                                    View Project
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-dark mb-2">TMBD Website</h3>
+                            <p class="text-gray-600 mb-4">
+                                Clean Website for Target Marketing BD.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-primary/10 text-primary px-2 py-1 rounded text-xs font-mono">HTML</span>
+                                <span class="bg-primary/10 text-primary px-2 py-1 rounded text-xs font-mono">Tailwind</span>
+                                <span class="bg-primary/10 text-primary px-2 py-1 rounded text-xs font-mono">JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 2 -->
+                    <div class="project-card bg-gray-50 rounded-xl overflow-hidden shadow-md">
+                        <div class="h-48 bg-gradient-to-r from-dark to-accent relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" 
+                                 alt="Health App" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+                                <button class="bg-white text-primary px-4 py-2 rounded-full font-medium hover:bg-gray-100 transition">
+                                    View Project
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-dark mb-2">Rescue Ranger</h3>
+                            <p class="text-gray-600 mb-4">
+                                It could be controlled over Wi-Fi, tracked through GPS, detect obstacles, all from scratch.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-primary/10 text-primary px-2 py-1 rounded text-xs font-mono">GPS tracking</span>
+                                <span class="bg-primary/10 text-primary px-2 py-1 rounded text-xs font-mono">Obstacle detection</span>
+                                <span class="bg-primary/10 text-primary px-2 py-1 rounded text-xs font-mono">LCD display</span>
+                                <span class="bg-primary/10 text-primary px-2 py-1 rounded text-xs font-mono">Serial Connection</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 3 -->
+                    <div class="project-card bg-gray-50 rounded-xl overflow-hidden shadow-md">
+                        <div class="h-48 bg-gradient-to-r from-secondary to-accent relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                                 alt="Design System" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+                                <button class="bg-white text-primary px-4 py-2 rounded-full font-medium hover:bg-gray-100 transition">
+                                    View Project
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-dark mb-2">Portfolio Website</h3>
+                            <p class="text-gray-600 mb-4">
+                                Developed a clean, responsive personal site for Sayed Ibn Masud.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-primary/10 text-primary px-2 py-1 rounded text-xs font-mono">HTML</span>
+                                <span class="bg-primary/10 text-primary px-2 py-1 rounded text-xs font-mono">Tailwind</span>
+                                <span class="bg-primary/10 text-primary px-2 py-1 rounded text-xs font-mono">JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-10">
+                    <a href="#" class="inline-flex items-center text-primary hover:text-secondary font-medium transition">
+                        View All Projects
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Raiyan Bin Rashid</h3>
+                    <p class="text-gray-400">Frontend Developer & UI/UX Designer creating digital experiences that matter.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition">Home</a></li>
+                        <li><a href="#skills" class="text-gray-400 hover:text-accent transition">Skills</a></li>
+                        <li><a href="#projects" class="text-gray-400 hover:text-accent transition">Projects</a></li>
+                        <li><a href="#experience" class="text-gray-400 hover:text-accent transition">Experience</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Connect</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://github.com/raiyanruhan" target="_blank" class="text-gray-400 hover:text-accent transition flex items-center"><i class="fab fa-github mr-2"></i> GitHub</a></li>
+                        <li><a href="https://linkedin.com" target="_blank" class="text-gray-400 hover:text-accent transition flex items-center"><i class="fab fa-linkedin mr-2"></i> LinkedIn</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-2 text-accent"></i>
+                            <span class="text-gray-400">raiyaan.ruhan@gmail.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-2 text-accent"></i>
+                            <span class="text-gray-400">+880 1720 507065</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2 text-accent"></i>
+                            <span class="text-gray-400">Bogura, Bangladesh</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
+                <p>© <span id="currentYear"></span> Raiyan Bin Rashid. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.createElement('div');
+        mobileMenu.innerHTML = `
+            <div class="fixed inset-0 bg-black/50 z-50 hidden" id="mobileMenuOverlay"></div>
+            <div class="fixed top-0 right-0 w-64 h-full bg-white shadow-lg z-50 transform translate-x-full transition-transform duration-300 p-6" id="mobileMenuContent">
+                <div class="flex justify-end mb-6">
+                    <button id="closeMobileMenu" class="text-gray-600 hover:text-primary">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                <nav class="space-y-4">
+                    <a href="/developers" class="block py-2 text-gray-700 hover:text-primary transition">
+                        <i class="fas fa-arrow-left mr-2"></i> Back to Developers
+                    </a>
+                    <a href="#skills" class="block py-2 text-gray-700 hover:text-primary transition">Skills</a>
+                    <a href="#projects" class="block py-2 text-gray-700 hover:text-primary transition">Projects</a>
+                    <a href="#experience" class="block py-2 text-gray-700 hover:text-primary transition">Experience</a>
+                    <a href="#contact" class="block py-2 text-gray-700 hover:text-primary transition">Contact</a>
+                </nav>
+            </div>
+        `;
+        document.body.appendChild(mobileMenu);
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            document.getElementById('mobileMenuOverlay').classList.remove('hidden');
+            document.getElementById('mobileMenuContent').classList.remove('translate-x-full');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        document.getElementById('mobileMenuOverlay').addEventListener('click', closeMobileMenu);
+        document.getElementById('closeMobileMenu').addEventListener('click', closeMobileMenu);
+        
+        function closeMobileMenu() {
+            document.getElementById('mobileMenuOverlay').classList.add('hidden');
+            document.getElementById('mobileMenuContent').classList.add('translate-x-full');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                closeMobileMenu();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

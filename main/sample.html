@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work Samples | Target Marketing BD</title>
+    <meta name="description" content="View our portfolio of digital marketing work samples for female entrepreneurs in Bangladesh">
+
+    <!-- Preload critical resources -->
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+
+    <!-- Fonts -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#044443',
+                        secondary: '#228B7D',
+                        accent: '#66ADA5',
+                        dark: '#0D302C',
+                        light: '#F5F7FA'
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                        siliguri: ['Hind Siliguri', 'sans-serif']
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-in': 'fadeIn 1s ease-in forwards',
+                        'slide-up': 'slideUp 0.8s ease-out forwards',
+                        'blink': 'blink 1.5s infinite',
+                        'pulse-slow': 'pulse 5s infinite',
+                        'wave': 'wave 8s linear infinite',
+                        'tilt': 'tilt 10s infinite linear',
+                        'bounce': 'bounce 1s infinite',
+                        'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        blink: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0.5' }
+                        },
+                        wave: {
+                            '0%': { transform: 'rotate(0deg)' },
+                            '10%': { transform: 'rotate(14deg)' },
+                            '20%': { transform: 'rotate(-8deg)' },
+                            '30%': { transform: 'rotate(14deg)' },
+                            '40%': { transform: 'rotate(-4deg)' },
+                            '50%': { transform: 'rotate(10deg)' },
+                            '60%': { transform: 'rotate(0deg)' },
+                            '100%': { transform: 'rotate(0deg)' }
+                        },
+                        tilt: {
+                            '0%, 50%, 100%': { transform: 'rotate(0deg)' },
+                            '25%': { transform: 'rotate(2deg)' },
+                            '75%': { transform: 'rotate(-2deg)' }
+                        },
+                        bounce: {
+                            '0%, 100%': {
+                                transform: 'translateY(-25%)',
+                                animationTimingFunction: 'cubic-bezier(0.8,0,1,1)'
+                            },
+                            '50%': {
+                                transform: 'none',
+                                animationTimingFunction: 'cubic-bezier(0,0,0.2,1)'
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Loading Bar */
+        .loading-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(to right, #044443, #228B7D);
+            z-index: 9999;
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+
+        /* Category Filter */
+        .category-filter {
+            transition: all 0.3s ease;
+        }
+
+        .category-filter.active {
+            background-color: #228B7D;
+            color: white;
+        }
+
+        /* Language Toggle */
+        .language-toggle {
+            transition: all 0.3s ease;
+        }
+
+        .language-toggle.active {
+            background-color: #228B7D;
+            color: white;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .mobile-menu.open {
+            max-height: 500px;
+        }
+
+        /* Hero Gradient */
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(4, 68, 67, 0.9) 0%, rgba(34, 139, 125, 0.9) 100%);
+        }
+
+        /* Image Loading */
+        .lazy-img {
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .lazy-img.loaded {
+            opacity: 1;
+        }
+
+        /* Text Reveal */
+        .text-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .text-reveal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Button animations */
+        .btn-animate {
+            transition: all 0.3s ease;
+        }
+
+        .btn-animate:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-animate:active {
+            transform: translateY(1px);
+        }
+
+        /* Search bar */
+        .search-container {
+            transition: all 0.3s ease;
+        }
+
+        .search-container:focus-within {
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Mobile menu overlay */
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 40;
+        }
+
+        .mobile-menu-overlay.active {
+            display: block;
+        }
+
+        /* Explore button animation */
+        .explore-btn {
+            animation: pulse 2s infinite;
+        }
+
+        .explore-btn:hover {
+            animation: none;
+        }
+
+        /* Sample Card */
+        .sample-card {
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+        }
+
+        .sample-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.15);
+        }
+
+        .sample-card:active {
+            transform: translateY(0);
+            box-shadow: 0 5px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .sample-card-image {
+            transition: transform 0.3s ease;
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .sample-card:hover .sample-card-image {
+            transform: scale(1.05);
+        }
+
+        .sample-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(4, 68, 67, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .sample-card:hover .sample-overlay {
+            opacity: 1;
+        }
+
+        .sample-overlay-text {
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        /* Image Viewer Modal */
+        .image-viewer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .image-viewer.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .image-viewer-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .image-viewer img {
+            max-width: 100%;
+            max-height: 80vh;
+            display: block;
+            margin: 0 auto;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .image-viewer-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .image-viewer-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+
+        .image-viewer-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .image-viewer-nav:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .image-viewer-prev {
+            left: 20px;
+        }
+
+        .image-viewer-next {
+            right: 20px;
+        }
+
+        .image-viewer-info {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: white;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 0 0 8px 8px;
+        }
+
+        /* Back to Services Button */
+        .back-to-services {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 50;
+            background-color: #228B7D;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .back-to-services:hover {
+            background-color: #1a6b60;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .back-to-services:active {
+            transform: translateY(0);
+        }
+
+        /* Right-click protection */
+        body.protected {
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
+        /* Mobile-specific styles */
+        @media (max-width: 767px) {
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .hero-buttons a {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .category-buttons {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .category-buttons button {
+                flex: 1 0 45%;
+                margin: 0.25rem;
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .sample-card {
+                margin-bottom: 1.5rem;
+            }
+            
+            .search-container {
+                margin-bottom: 1rem;
+            }
+            
+
+
+            .image-viewer img {
+                max-height: 60vh;
+            }
+
+            .image-viewer-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.5rem;
+            }
+
+            .image-viewer-prev {
+                left: 10px;
+            }
+
+            .image-viewer-next {
+                right: 10px;
+            }
+
+            .back-to-services {
+                bottom: 15px;
+                right: 15px;
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .image-viewer img {
+                max-height: 50vh;
+            }
+
+            .image-viewer-nav {
+                width: 35px;
+                height: 35px;
+                font-size: 1.2rem;
+            }
+
+            .back-to-services {
+                bottom: 10px;
+                right: 10px;
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="font-poppins bg-gray-50 text-gray-800">
+    <!-- Loading Bar -->
+    <div id="loadingBar" class="loading-bar"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-4 sm:px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="/" class="flex items-center">
+                        <img src="assets/logo.jpg" alt="Target Marketing BD Logo" class="h-10 sm:h-12 mr-2 sm:mr-4">
+                        <span class="text-lg sm:text-xl font-bold text-primary">Target Marketing BD</span>
+                    </a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
+                    <a href="/" class="text-primary hover:text-accent transition" data-i18n="home">Home</a>
+                    <a href="services" class="text-primary hover:text-accent transition" data-i18n="services">Services</a>
+                    <a href="blog" class="text-primary hover:text-accent transition" data-i18n="blog">Blog</a>
+                    <a href="about" class="text-primary hover:text-accent transition" data-i18n="about">About</a>
+                    <a href="contact" class="text-primary hover:text-accent transition" data-i18n="contact">Contact</a>
+
+                    <div class="flex items-center space-x-2 ml-4 lg:ml-6">
+                        <button id="enBtn" class="language-toggle active px-3 py-1 rounded-full text-sm">EN</button>
+                        <button id="bnBtn"
+                            class="language-toggle px-3 py-1 rounded-full text-sm border border-primary">BN</button>
+                    </div>
+                </div>
+
+                <button class="md:hidden focus:outline-none" id="mobileMenuBtn">
+                    <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Overlay -->
+            <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+            <!-- Mobile Menu -->
+            <div class="mobile-menu md:hidden absolute left-0 right-0 bg-white shadow-lg z-50" id="mobileMenu">
+                <div class="pt-4 pb-2 px-4 space-y-2 text-sm font-medium">
+                    <a href="/" class="block py-2 text-primary hover:text-accent transition"
+                        data-i18n="home">Home</a>
+                    <a href="services" class="block py-2 text-primary hover:text-accent transition"
+                        data-i18n="services">Services</a>
+                    <a href="blog" class="block py-2 text-primary hover:text-accent transition"
+                        data-i18n="blog">Blog</a>
+                    <a href="about" class="block py-2 text-primary hover:text-accent transition"
+                        data-i18n="about">About</a>
+                    <a href="contact" class="block py-2 text-primary hover:text-accent transition"
+                        data-i18n="contact">Contact</a>
+                    <div class="flex items-center space-x-2 px-3 py-4 justify-center">
+                        <button id="enBtnMobile"
+                            class="language-toggle active px-4 py-2 rounded-full text-sm">English</button>
+                        <button id="bnBtnMobile"
+                            class="language-toggle px-4 py-2 rounded-full text-sm border border-primary">বাংলা</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 md:pb-24 px-4 hero-gradient text-white">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 leading-tight text-center md:text-left" data-i18n="samples_title">Our Work Samples</h1>
+                    <p class="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 opacity-90 max-w-lg text-center md:text-left" data-i18n="samples_subtitle">
+                        Browse our digital marketing portfolio to see examples of our successful projects.
+                    </p>
+                    <div class="hero-buttons flex flex-col sm:flex-row gap-4">
+                        <a href="#samples"
+                            class="explore-btn px-6 py-3 bg-white text-primary rounded-full font-semibold hover:bg-gray-100 transition flex items-center justify-center btn-animate no-text-break">
+                            <span data-i18n="explore_samples" class="whitespace-nowrap w-full flex justify-center items-center">Explore Samples</span>
+                            <script>
+                                // Smooth scroll for anchor links
+                                document.addEventListener('DOMContentLoaded', function () {
+                                    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                                        anchor.addEventListener('click', function (e) {
+                                            const targetId = this.getAttribute('href').slice(1);
+                                            const target = document.getElementById(targetId);
+                                            if (target) {
+                                                e.preventDefault();
+                                                target.scrollIntoView({ behavior: 'smooth' });
+                                            }
+                                        });
+                                    });
+                                });
+                            </script>
+                            <i class="fas fa-arrow-down ml-2"></i>
+                        </a>
+                            <a href="services"
+                            class="px-6 py-3 border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-primary transition flex items-center justify-center btn-animate"
+                            data-i18n="back_sample">
+                            <span class="w-full flex justify-center items-center">Back to Services</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="md:w-1/2 mt-8 md:mt-0">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1535397318751-32521c97e1c3?q=80&w=773&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Digital marketing work samples"
+                            class="rounded-lg shadow-2xl w-full max-w-md mx-auto wave-animation object-cover"
+                            style="aspect-ratio: 3/2; width:100%; height:auto; max-height:450px;"
+                            loading="lazy"
+                            width="1080" height="720">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Samples Categories and Search -->
+    <section id="samples" class="container mx-auto px-4 py-8 md:py-12">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-8 md:mb-12">
+            <div class="relative w-full md:w-1/3 search-container mb-4 md:mb-0">
+                <input type="text" id="sampleSearch" placeholder="Search samples..."
+                    class="w-full px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-gray-100 focus:outline-none focus:ring-2 focus:ring-accent"
+                    data-i18n="search_placeholder">
+                <button
+                    class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-accent text-white p-1 sm:p-2 rounded-full">
+                    <i class="fas fa-search text-sm sm:text-base"></i>
+                </button>
+            </div>
+            <div class="category-buttons flex flex-wrap justify-center gap-2 w-full md:w-auto">
+                <button class="category-filter active px-4 sm:px-6 py-1 sm:py-2 bg-primary text-white rounded-full font-medium text-sm sm:text-base"
+                    data-category="all" data-i18n="all_samples">All Samples</button>
+                <button
+                    class="category-filter px-4 sm:px-6 py-1 sm:py-2 bg-gray-100 hover:bg-gray-200 rounded-full font-medium text-sm sm:text-base transition"
+                    data-category="logo" data-i18n="logo_design">Logo Design</button>
+                <button
+                    class="category-filter px-4 sm:px-6 py-1 sm:py-2 bg-gray-100 hover:bg-gray-200 rounded-full font-medium text-sm sm:text-base transition"
+                    data-category="cover" data-i18n="cover_photo">Cover Photo</button>
+                <button
+                    class="category-filter px-4 sm:px-6 py-1 sm:py-2 bg-gray-100 hover:bg-gray-200 rounded-full font-medium text-sm sm:text-base transition"
+                    data-category="ad" data-i18n="ad_design">Ad Design</button>
+                <button
+                    class="category-filter px-4 sm:px-6 py-1 sm:py-2 bg-gray-100 hover:bg-gray-200 rounded-full font-medium text-sm sm:text-base transition"
+                    data-category="video" data-i18n="video">Video</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Samples Grid -->
+    <section class="container mx-auto px-4 py-8 md:py-12">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            <!-- Sample 1 - Logo -->
+            <div class="sample-card" data-category="logo" data-sample-name="Cosmetics Logo">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://images.pexels.com/photos/277390/pexels-photo-277390.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        alt="Cosmetics Logo Design" class="sample-card-image lazy-img" loading="lazy">
+
+                    <div class="sample-overlay">
+                        <div class="sample-overlay-text" data-i18n="click_to_view">Click to view</div>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-lg font-bold text-primary mb-2" data-i18n="cosmetics_logo">Cosmetics Logo</h3>
+                    <p class="text-gray-600 text-sm" data-i18n="logo_category">Logo Design</p>
+                </div>
+            </div>
+
+            <!-- Sample 2 - Cover -->
+            <div class="sample-card" data-category="cover" data-sample-name="Fashion Cover">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://images.pexels.com/photos/934070/pexels-photo-934070.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        alt="Fashion Cover Photo" class="sample-card-image lazy-img" loading="lazy">
+
+                    <div class="sample-overlay">
+                        <div class="sample-overlay-text" data-i18n="click_to_view">Click to view</div>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-lg font-bold text-primary mb-2" data-i18n="fashion_cover">Fashion Cover</h3>
+                    <p class="text-gray-600 text-sm" data-i18n="cover_category">Cover Photo</p>
+                </div>
+            </div>
+
+            <!-- Sample 3 - Ad -->
+            <div class="sample-card" data-category="ad" data-sample-name="Jewelry Ad">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://images.pexels.com/photos/965981/pexels-photo-965981.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        alt="Jewelry Ad Design" class="sample-card-image lazy-img" loading="lazy">
+
+                    <div class="sample-overlay">
+                        <div class="sample-overlay-text" data-i18n="click_to_view">Click to view</div>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-lg font-bold text-primary mb-2" data-i18n="jewelry_ad">Jewelry Ad</h3>
+                    <p class="text-gray-600 text-sm" data-i18n="ad_category">Ad Design</p>
+                </div>
+            </div>
+
+            <!-- Sample 4 - Logo -->
+            <div class="sample-card" data-category="logo" data-sample-name="Bakery Logo">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://images.pexels.com/photos/1854652/pexels-photo-1854652.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        alt="Bakery Logo Design" class="sample-card-image lazy-img" loading="lazy">
+
+                    <div class="sample-overlay">
+                        <div class="sample-overlay-text" data-i18n="click_to_view">Click to view</div>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-lg font-bold text-primary mb-2" data-i18n="bakery_logo">Bakery Logo</h3>
+                    <p class="text-gray-600 text-sm" data-i18n="logo_category">Logo Design</p>
+                </div>
+            </div>
+
+            <!-- Sample 5 - Video -->
+            <div class="sample-card" data-category="video" data-sample-name="Makeup Video">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://images.pexels.com/photos/3373736/pexels-photo-3373736.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        alt="Makeup Video Thumbnail" class="sample-card-image lazy-img" loading="lazy">
+
+                    <div class="sample-overlay">
+                        <div class="sample-overlay-text" data-i18n="click_to_view">Click to view</div>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-lg font-bold text-primary mb-2" data-i18n="makeup_video">Makeup Video</h3>
+                    <p class="text-gray-600 text-sm" data-i18n="video_category">Video</p>
+                </div>
+            </div>
+
+            <!-- Sample 6 - Ad -->
+            <div class="sample-card" data-category="ad" data-sample-name="Clothing Ad">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://images.pexels.com/photos/994517/pexels-photo-994517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        alt="Clothing Ad Design" class="sample-card-image lazy-img" loading="lazy">
+
+                    <div class="sample-overlay">
+                        <div class="sample-overlay-text" data-i18n="click_to_view">Click to view</div>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-lg font-bold text-primary mb-2" data-i18n="clothing_ad">Clothing Ad</h3>
+                    <p class="text-gray-600 text-sm" data-i18n="ad_category">Ad Design</p>
+                </div>
+            </div>
+
+            <!-- Sample 7 - Cover -->
+            <div class="sample-card" data-category="cover" data-sample-name="Beauty Cover">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://images.pexels.com/photos/3993212/pexels-photo-3993212.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        alt="Beauty Cover Photo" class="sample-card-image lazy-img" loading="lazy">
+
+                    <div class="sample-overlay">
+                        <div class="sample-overlay-text" data-i18n="click_to_view">Click to view</div>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-lg font-bold text-primary mb-2" data-i18n="beauty_cover">Beauty Cover</h3>
+                    <p class="text-gray-600 text-sm" data-i18n="cover_category">Cover Photo</p>
+                </div>
+            </div>
+
+            <!-- Sample 8 - Logo -->
+            <div class="sample-card" data-category="logo" data-sample-name="Cafe Logo">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        alt="Cafe Logo Design" class="sample-card-image lazy-img" loading="lazy">
+
+                    <div class="sample-overlay">
+                        <div class="sample-overlay-text" data-i18n="click_to_view">Click to view</div>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-lg font-bold text-primary mb-2" data-i18n="cafe_logo">Cafe Logo</h3>
+                    <p class="text-gray-600 text-sm" data-i18n="logo_category">Logo Design</p>
+                </div>
+            </div>
+
+            <!-- Sample 9 - Video -->
+            <div class="sample-card" data-category="video" data-sample-name="Skincare Video">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        alt="Skincare Video Thumbnail" class="sample-card-image lazy-img" loading="lazy">
+
+                    <div class="sample-overlay">
+                        <div class="sample-overlay-text" data-i18n="click_to_view">Click to view</div>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-lg font-bold text-primary mb-2" data-i18n="skincare_video">Skincare Video</h3>
+                    <p class="text-gray-600 text-sm" data-i18n="video_category">Video</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Newsletter -->
+    <section id="newsletter" class="bg-primary text-white py-12 md:py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="inline-block bg-white bg-opacity-20 rounded-full px-4 sm:px-6 py-1 sm:py-2 mb-4 sm:mb-6">
+                    <span class="text-xs sm:text-sm font-medium" data-i18n="newsletter">NEWSLETTER</span>
+                </div>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6" data-i18n="stay_updated">Stay Updated With Our Latest
+                    Services</h2>
+                <p class="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto opacity-90" data-i18n="newsletter_subtitle">
+                    Join our newsletter to receive updates with new services, special offers and marketing tips.
+                </p>
+                <form class="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-lg mx-auto">
+                    <input type="email" placeholder="Your email address"
+                        class="flex-grow px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-white bg-opacity-20 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-accent text-sm sm:text-base"
+                        data-i18n="email_placeholder">
+                    <button type="submit"
+                        class="px-6 sm:px-8 py-2 sm:py-3 bg-accent text-white rounded-full font-semibold hover:bg-secondary transition btn-animate text-sm sm:text-base"
+                        data-i18n="subscribe">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-8 md:py-12 px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8 container mx-auto">
+            <div>
+                <img src="assets/logo.jpg" alt="Target Marketing BD Logo" class="h-12 sm:h-16 mb-3 sm:mb-4">
+                <p class="text-sm sm:text-base" data-i18n="footer_tagline">digital marketing solutions for female entrepreneurs</p>
+            </div>
+            <div>
+                <h4 class="text-base sm:text-lg font-bold mb-2 sm:mb-4" data-i18n="quick_links">Quick Links</h4>
+                <ul class="space-y-1 sm:space-y-2">
+                    <li><a href="/" class="hover:text-accent transition text-sm sm:text-base" data-i18n="home">Home</a></li>
+                    <li><a href="services" class="hover:text-accent transition text-sm sm:text-base"
+                            data-i18n="services">Services</a></li>
+                    <li><a href="blog" class="hover:text-accent transition text-sm sm:text-base" data-i18n="blog">Blog</a></li>
+                    <li><a href="about" class="hover:text-accent transition text-sm sm:text-base" data-i18n="about">About</a></li>
+                    <li><a href="contact" class="hover:text-accent transition text-sm sm:text-base" data-i18n="contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-base sm:text-lg font-bold mb-2 sm:mb-4" data-i18n="contact_us">Contact Us</h4>
+                <ul class="space-y-1 sm:space-y-2">
+                    <li class="flex items-start">
+                        <i class="fas fa-envelope mt-1 mr-2 text-accent text-sm sm:text-base"></i>
+                        <span class="text-sm sm:text-base">targetmarketingbd@gmail.com</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-phone-alt mt-1 mr-2 text-accent text-sm sm:text-base"></i>
+                        <span class="text-sm sm:text-base">+880 1860 043330</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-map-marker-alt mt-1 mr-2 text-accent text-sm sm:text-base"></i>
+                        <span class="text-sm sm:text-base" data-i18n="dhaka_bangladesh">Dhaka, Bangladesh</span>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-base sm:text-lg font-bold mb-2 sm:mb-4" data-i18n="developer">Developer</h4>
+                <p class="text-sm sm:text-base" data-i18n="developed_by">Website developed by:</p>
+                <p class="mt-2 font-semibold">
+                    <a href="developers" target="_blank" rel="noopener" class="hover:text-accent transition">
+                        Raiyan Bin Rashid <br> Sayed Ibn masud
+                </p>
+                <p class="text-xs sm:text-sm mt-3 sm:mt-4 text-accent">© <span id="currentYear"></span> Target Marketing BD. <span
+                        data-i18n="all_rights">All rights reserved.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Services Button -->
+    <a href="services" class="back-to-services btn-animate flex items-center" data-i18n="back_to_services" style="top: 20px; left: 20px; bottom: auto; right: auto; z-index: 41; position: fixed;">
+        <i class="fas fa-arrow-left mr-2"></i>
+        <span>Back to Services</span>
+    </a>
+
+    <!-- Messenger Button -->
+    <a href="https://m.me/tmbd.xyz" target="_blank" id="messengerBtn" class="fixed bottom-8 right-8 bg-blue-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl hover:bg-blue-700 transition duration-300 z-40">
+        <i class="fab fa-facebook-messenger text-2xl"></i>
+        <span class="loading-spinner hidden"></span>
+    </a>
+    <style>
+        @keyframes spin {
+            0% { transform: rotate(0deg);}
+            100% { transform: rotate(360deg);}
+        }
+        .loading-spinner {
+            border: 3px solid #fff;
+            border-top: 3px solid #2563eb;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            animation: spin 1s linear infinite;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            pointer-events: none;
+        }
+        .loading #messengerBtn .fab.fa-facebook-messenger {
+            opacity: 0.3;
+        }
+        .loading #messengerBtn .loading-spinner {
+            display: block;
+        }
+    </style>
+
+    <!-- Image Viewer Modal -->
+    <div class="image-viewer" id="imageViewer">
+        <div class="image-viewer-content">
+            <button class="image-viewer-close" id="imageViewerClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <button class="image-viewer-nav image-viewer-prev" id="imageViewerPrev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <img src="" alt="" id="imageViewerImage">
+            <button class="image-viewer-nav image-viewer-next" id="imageViewerNext">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="image-viewer-info">
+                <h3 id="imageViewerTitle"></h3>
+                <p id="imageViewerCategory"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Loading bar animation
+        window.addEventListener('load', function () {
+            const loadingBar = document.getElementById('loadingBar');
+            let width = 1;
+            const interval = setInterval(() => {
+                if (width >= 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        loadingBar.style.opacity = '0';
+                        setTimeout(() => {
+                            loadingBar.style.display = 'none';
+                        }, 300);
+                    }, 300);
+                } else {
+                    width += 2;
+                    loadingBar.style.width = width + '%';
+
+                    // Slow down as we approach 100%
+                    if (width > 80) {
+                        width += 0.5;
+                    }
+                }
+            }, 20);
+
+            // Lazy load images
+            const lazyImages = document.querySelectorAll('.lazy-img');
+            lazyImages.forEach(img => {
+                img.classList.add('loaded');
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+
+        mobileMenuBtn.addEventListener('click', function () {
+            mobileMenu.classList.toggle('open');
+            mobileMenuOverlay.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : 'auto';
+        });
+
+        mobileMenuOverlay.addEventListener('click', function () {
+            mobileMenu.classList.remove('open');
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Sample category filtering
+        document.querySelectorAll('.category-filter').forEach(button => {
+            button.addEventListener('click', function () {
+                // Update active button
+                document.querySelectorAll('.category-filter').forEach(btn => {
+                    btn.classList.remove('active', 'bg-primary', 'text-white');
+                    btn.classList.add('bg-gray-100', 'text-gray-800');
+                });
+                this.classList.add('active', 'bg-primary', 'text-white');
+                this.classList.remove('bg-gray-100', 'text-gray-800');
+
+                const category = this.getAttribute('data-category');
+                const samples = document.querySelectorAll('.sample-card');
+
+                samples.forEach(sample => {
+                    if (category === 'all' || sample.getAttribute('data-category') === category) {
+                        sample.style.display = 'block';
+                        setTimeout(() => {
+                            sample.style.opacity = '1';
+                        }, 50);
+                    } else {
+                        sample.style.opacity = '0';
+                        setTimeout(() => {
+                            sample.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Sample search functionality
+        document.getElementById('sampleSearch').addEventListener('input', function () {
+            const searchTerm = this.value.toLowerCase();
+            const samples = document.querySelectorAll('.sample-card');
+
+            samples.forEach(sample => {
+                const sampleName = sample.getAttribute('data-sample-name').toLowerCase();
+                if (sampleName.includes(searchTerm)) {
+                    sample.style.display = 'block';
+                    setTimeout(() => {
+                        sample.style.opacity = '1';
+                    }, 50);
+                } else {
+                    sample.style.opacity = '0';
+                    setTimeout(() => {
+                        sample.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
+
+        // Image viewer functionality
+        const imageViewer = document.getElementById('imageViewer');
+        const imageViewerImage = document.getElementById('imageViewerImage');
+        const imageViewerTitle = document.getElementById('imageViewerTitle');
+        const imageViewerCategory = document.getElementById('imageViewerCategory');
+        const imageViewerClose = document.getElementById('imageViewerClose');
+        const imageViewerPrev = document.getElementById('imageViewerPrev');
+        const imageViewerNext = document.getElementById('imageViewerNext');
+
+        // Get all sample cards and their images
+        const sampleCards = Array.from(document.querySelectorAll('.sample-card'));
+        let currentImageIndex = 0;
+
+        // Function to open image viewer
+        function openImageViewer(index) {
+            currentImageIndex = index;
+            const sample = sampleCards[index];
+            const img = sample.querySelector('img');
+            const title = sample.querySelector('h3').textContent;
+            const category = sample.querySelector('p').textContent;
+
+            imageViewerImage.src = img.src;
+            imageViewerImage.alt = img.alt;
+            imageViewerTitle.textContent = title;
+            imageViewerCategory.textContent = category;
+
+            // Add right-click protection
+            document.body.classList.add('protected');
+            
+            // Show image viewer
+            imageViewer.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close image viewer
+        function closeImageViewer() {
+            imageViewer.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            
+            // Remove right-click protection
+            document.body.classList.remove('protected');
+        }
+
+        // Navigate to previous image
+        function showPrevImage() {
+            currentImageIndex = (currentImageIndex - 1 + sampleCards.length) % sampleCards.length;
+            const sample = sampleCards[currentImageIndex];
+            const img = sample.querySelector('img');
+            const title = sample.querySelector('h3').textContent;
+            const category = sample.querySelector('p').textContent;
+
+            imageViewerImage.src = img.src;
+            imageViewerImage.alt = img.alt;
+            imageViewerTitle.textContent = title;
+            imageViewerCategory.textContent = category;
+        }
+
+        // Navigate to next image
+        function showNextImage() {
+            currentImageIndex = (currentImageIndex + 1) % sampleCards.length;
+            const sample = sampleCards[currentImageIndex];
+            const img = sample.querySelector('img');
+            const title = sample.querySelector('h3').textContent;
+            const category = sample.querySelector('p').textContent;
+
+            imageViewerImage.src = img.src;
+            imageViewerImage.alt = img.alt;
+            imageViewerTitle.textContent = title;
+            imageViewerCategory.textContent = category;
+        }
+
+        // Add click event to all sample cards
+        sampleCards.forEach((sample, index) => {
+            sample.addEventListener('click', () => {
+                openImageViewer(index);
+            });
+        });
+
+        // Add event listeners for image viewer controls
+        imageViewerClose.addEventListener('click', closeImageViewer);
+        imageViewerPrev.addEventListener('click', showPrevImage);
+        imageViewerNext.addEventListener('click', showNextImage);
+
+        // Close when clicking outside image
+        imageViewer.addEventListener('click', function(e) {
+            if (e.target === imageViewer) {
+                closeImageViewer();
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (imageViewer.classList.contains('active')) {
+                if (e.key === 'Escape') {
+                    closeImageViewer();
+                } else if (e.key === 'ArrowLeft') {
+                    showPrevImage();
+                } else if (e.key === 'ArrowRight') {
+                    showNextImage();
+                }
+            }
+        });
+
+        // Right-click protection
+        document.addEventListener('contextmenu', function(e) {
+            if (document.body.classList.contains('protected')) {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // Prevent dragging images
+        document.addEventListener('dragstart', function(e) {
+            if (e.target.tagName === 'IMG') {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // Language switching functionality
+        const translations = {
+            en: {
+                // Navigation
+                home: "Home",
+                services: "Services",
+                work_samples: "Work Samples",
+                blog: "Blog",
+                about: "About",
+                contact: "Contact",
+                subscribe: "Subscribe",
+
+                // Hero
+                samples_title: "Our Work Samples",
+                samples_subtitle: "Browse our digital marketing portfolio to see examples of our successful projects.",
+                explore_samples: "Explore Samples",
+                back_sample: "Back to Services",
+                search_placeholder: "Search samples...",
+                click_to_view: "Click to view",
+
+                // Categories
+                all_samples: "All Samples",
+                logo_design: "Logo Design",
+                cover_photo: "Cover Photo",
+                ad_design: "Ad Design",
+                video: "Video",
+
+                // Sample Titles
+                cosmetics_logo: "Cosmetics Logo",
+                fashion_cover: "Fashion Cover",
+                jewelry_ad: "Jewelry Ad",
+                bakery_logo: "Bakery Logo",
+                makeup_video: "Makeup Video",
+                clothing_ad: "Clothing Ad",
+                beauty_cover: "Beauty Cover",
+                cafe_logo: "Cafe Logo",
+                skincare_video: "Skincare Video",
+
+                // Sample Categories
+                logo_category: "Logo Design",
+                cover_category: "Cover Photo",
+                ad_category: "Ad Design",
+                video_category: "Video",
+
+                // Testimonials
+                client_testimonials: "Client Testimonials",
+                testimonials_subtitle: "What our clients say about our services",
+                testimonial3_text: "\"The website they created for my business is not only beautiful but also fully functional. Their attention to detail is impressive.\"",
+                testimonial3_name: "Nusrat Jahan",
+                testimonial3_title: "CEO, Organic Cosmetics",
+
+                // Newsletter
+                newsletter: "NEWSLETTER",
+                stay_updated: "Stay Updated With Our Latest Services",
+                newsletter_subtitle: "Join our newsletter to receive updates with new services, special offers and marketing tips.",
+                email_placeholder: "Your email address",
+
+                // Footer
+                footer_tagline: "digital marketing solutions for female entrepreneurs",
+                quick_links: "Quick Links",
+                contact_us: "Contact Us",
+                developer: "Developer",
+                developed_by: "Website developed by:",
+                all_rights: "All rights reserved.",
+                dhaka_bangladesh: "Dhaka, Bangladesh",
+
+                // Misc
+                back_to_services: "Back to Services"
+            },
+            bn: {
+                // Navigation
+                home: "হোম",
+                services: "সেবাসমূহ",
+                work_samples: "কাজের নমুনা",
+                blog: "ব্লগ",
+                about: "আমাদের সম্পর্কে",
+                contact: "যোগাযোগ",
+                subscribe: "সাবস্ক্রাইব",
+
+                // Hero
+                samples_title: "আমাদের কাজের নমুনা",
+                samples_subtitle: "আমাদের ডিজিটাল মার্কেটিং পোর্টফোলিও দেখুন। এখানে আমাদের কিছু কাজের ছবিগুলো তুলে ধরা হয়েছে।",
+                explore_samples: "নমুনা এক্সপ্লোর করুন",
+                back_sample: "সার্ভিস পেজে ফিরে যান",
+                search_placeholder: "নমুনা খুঁজুন...",
+                click_to_view: "দেখতে ক্লিক করুন",
+
+                // Categories
+                all_samples: "সমস্ত নমুনা",
+                logo_design: "লোগো ডিজাইন",
+                cover_photo: "কভার ফটো",
+                ad_design: "বিজ্ঞাপন ডিজাইন",
+                video: "ভিডিও",
+
+                // Sample Titles
+                cosmetics_logo: "কসমেটিক্স লোগো",
+                fashion_cover: "ফ্যাশন কভার",
+                jewelry_ad: "জুয়েলারি বিজ্ঞাপন",
+                bakery_logo: "বেকারি লোগো",
+                makeup_video: "মেকআপ ভিডিও",
+                clothing_ad: "পোশাক বিজ্ঞাপন",
+                beauty_cover: "বিউটি কভার",
+                cafe_logo: "ক্যাফে লোগো",
+                skincare_video: "স্কিনকেয়ার ভিডিও",
+
+                // Sample Categories
+                logo_category: "লোগো ডিজাইন",
+                cover_category: "কভার ফটো",
+                ad_category: "বিজ্ঞাপন ডিজাইন",
+                video_category: "ভিডিও",
+
+                // Newsletter
+                newsletter: "নিউজলেটার",
+                stay_updated: "আমাদের সর্বশেষ সেবার সাথে আপডেট থাকুন",
+                newsletter_subtitle: "নতুন সেবা, বিশেষ অফার এবং মার্কেটিং টিপস পেতে আমাদের নিউজলেটারে যোগ দিন।",
+                email_placeholder: "আপনার ইমেইল ঠিকানা",
+
+                // Footer
+                footer_tagline: "নারী উদ্যোক্তাদের জন্য ডিজিটাল মার্কেটিং সমাধান",
+                quick_links: "দ্রুত লিংক",
+                contact_us: "যোগাযোগ করুন",
+                developer: "ডেভেলপার",
+                developed_by: "ওয়েবসাইট ডেভেলপ করেছেন:",
+                all_rights: "সমস্ত অধিকার সংরক্ষিত।",
+                dhaka_bangladesh: "ঢাকা, বাংলাদেশ",
+
+                // Misc
+                back_to_services: "সেবায় ফিরে যান"
+            }
+        };
+
+        function switchLanguage(lang) {
+            // Update all translatable elements
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+
+            // Switch font family for Bangla
+            if (lang === 'bn') {
+                document.body.style.fontFamily = "'Hind Siliguri', sans-serif";
+            } else {
+                document.body.style.fontFamily = "'Poppins', sans-serif";
+            }
+
+            // Store language preference
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // Initialize language toggle buttons
+        function initLanguageToggle() {
+            const preferredLanguage = localStorage.getItem('preferredLanguage') || 'en';
+
+            // Set initial language
+            switchLanguage(preferredLanguage);
+
+            // Update button states
+            if (preferredLanguage === 'en') {
+                document.getElementById('enBtn').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtn').classList.remove('border');
+                document.getElementById('bnBtn').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtn').classList.add('border', 'border-primary');
+
+                // Mobile buttons
+                document.getElementById('enBtnMobile').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtnMobile').classList.remove('border');
+                document.getElementById('bnBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtnMobile').classList.add('border', 'border-primary');
+            } else {
+                document.getElementById('bnBtn').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtn').classList.remove('border');
+                document.getElementById('enBtn').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtn').classList.add('border', 'border-primary');
+
+                // Mobile buttons
+                document.getElementById('bnBtnMobile').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtnMobile').classList.remove('border');
+                document.getElementById('enBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtnMobile').classList.add('border', 'border-primary');
+            }
+
+            // Add event listeners
+            document.getElementById('enBtn').addEventListener('click', function () {
+                switchLanguage('en');
+                this.classList.add('active', 'bg-primary', 'text-white');
+                this.classList.remove('border');
+                document.getElementById('bnBtn').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtn').classList.add('border', 'border-primary');
+
+                // Update mobile buttons
+                document.getElementById('enBtnMobile').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtnMobile').classList.remove('border');
+                document.getElementById('bnBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtnMobile').classList.add('border', 'border-primary');
+            });
+
+            document.getElementById('bnBtn').addEventListener('click', function () {
+                switchLanguage('bn');
+                this.classList.add('active', 'bg-primary', 'text-white');
+                this.classList.remove('border');
+                document.getElementById('enBtn').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtn').classList.add('border', 'border-primary');
+
+                // Update mobile buttons
+                document.getElementById('bnBtnMobile').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtnMobile').classList.remove('border');
+                document.getElementById('enBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtnMobile').classList.add('border', 'border-primary');
+            });
+
+            // Mobile buttons
+            document.getElementById('enBtnMobile').addEventListener('click', function () {
+                switchLanguage('en');
+                this.classList.add('active', 'bg-primary', 'text-white');
+                this.classList.remove('border');
+                document.getElementById('bnBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtnMobile').classList.add('border', 'border-primary');
+
+                // Update desktop buttons
+                document.getElementById('enBtn').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtn').classList.remove('border');
+                document.getElementById('bnBtn').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtn').classList.add('border', 'border-primary');
+            });
+
+            document.getElementById('bnBtnMobile').addEventListener('click', function () {
+                switchLanguage('bn');
+                this.classList.add('active', 'bg-primary', 'text-white');
+                this.classList.remove('border');
+                document.getElementById('enBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtnMobile').classList.add('border', 'border-primary');
+
+                // Update desktop buttons
+                document.getElementById('bnBtn').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtn').classList.remove('border');
+                document.getElementById('enBtn').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtn').classList.add('border', 'border-primary');
+            });
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function () {
+            initLanguageToggle();
+
+            // Set current year in footer
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+            // Lazy load images when they come into view
+            const lazyLoadImages = () => {
+                const lazyImages = document.querySelectorAll('.lazy-img:not(.loaded)');
+
+                lazyImages.forEach(img => {
+                    if (img.getBoundingClientRect().top <= window.innerHeight && img.getBoundingClientRect().bottom >= 0) {
+                        img.classList.add('loaded');
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', lazyLoadImages);
+            window.addEventListener('resize', lazyLoadImages);
+            window.addEventListener('orientationchange', lazyLoadImages);
+
+            // Initial check
+            lazyLoadImages();
+            
+            // Messenger button loading state
+            const messengerBtn = document.getElementById('messengerBtn');
+            messengerBtn.addEventListener('click', function(e) {
+                if (!document.body.classList.contains('loading')) {
+                    document.body.classList.add('loading');
+                    setTimeout(() => {
+                        document.body.classList.remove('loading');
+                    }, 1200);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

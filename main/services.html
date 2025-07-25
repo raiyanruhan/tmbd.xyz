@@ -1,0 +1,2292 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Target Marketing BD</title>
+    <meta name="description" content="digital marketing services for female entrepreneurs in Bangladesh">
+
+    <!-- Preload critical resources -->
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+
+    <!-- Fonts -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#044443',
+                        secondary: '#228B7D',
+                        accent: '#66ADA5',
+                        dark: '#0D302C',
+                        light: '#F5F7FA'
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                        siliguri: ['Hind Siliguri', 'sans-serif']
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-in': 'fadeIn 1s ease-in forwards',
+                        'slide-up': 'slideUp 0.8s ease-out forwards',
+                        'blink': 'blink 1.5s infinite',
+                        'pulse-slow': 'pulse 5s infinite',
+                        'wave': 'wave 8s linear infinite',
+                        'tilt': 'tilt 10s infinite linear',
+                        'bounce': 'bounce 1s infinite',
+                        'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        blink: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0.5' }
+                        },
+                        wave: {
+                            '0%': { transform: 'rotate(0deg)' },
+                            '10%': { transform: 'rotate(14deg)' },
+                            '20%': { transform: 'rotate(-8deg)' },
+                            '30%': { transform: 'rotate(14deg)' },
+                            '40%': { transform: 'rotate(-4deg)' },
+                            '50%': { transform: 'rotate(10deg)' },
+                            '60%': { transform: 'rotate(0deg)' },
+                            '100%': { transform: 'rotate(0deg)' }
+                        },
+                        tilt: {
+                            '0%, 50%, 100%': { transform: 'rotate(0deg)' },
+                            '25%': { transform: 'rotate(2deg)' },
+                            '75%': { transform: 'rotate(-2deg)' }
+                        },
+                        bounce: {
+                            '0%, 100%': {
+                                transform: 'translateY(-25%)',
+                                animationTimingFunction: 'cubic-bezier(0.8,0,1,1)'
+                            },
+                            '50%': {
+                                transform: 'none',
+                                animationTimingFunction: 'cubic-bezier(0,0,0.2,1)'
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Loading Bar */
+        .loading-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(to right, #044443, #228B7D);
+            z-index: 9999;
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+
+        /* Service Card */
+        .service-card {
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card:active {
+            transform: translateY(0);
+            box-shadow: 0 5px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card-image {
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-card-image {
+            transform: scale(1.05);
+        }
+
+        /* Category Filter */
+        .category-filter {
+            transition: all 0.3s ease;
+        }
+
+        .category-filter.active {
+            background-color: #228B7D;
+            color: white;
+        }
+
+        /* Modal */
+        .service-modal {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .service-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Language Toggle */
+        .language-toggle {
+            transition: all 0.3s ease;
+        }
+
+        .language-toggle.active {
+            background-color: #228B7D;
+            color: white;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .mobile-menu.open {
+            max-height: 500px;
+        }
+
+        /* Hero Gradient */
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(4, 68, 67, 0.9) 0%, rgba(34, 139, 125, 0.9) 100%);
+        }
+
+        /* Image Loading */
+        .lazy-img {
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .lazy-img.loaded {
+            opacity: 1;
+        }
+
+        /* Wave Animation */
+        .wave-animation {
+            animation: wave 8s linear infinite;
+        }
+
+        /* Text Reveal */
+        .text-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .text-reveal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Button animations */
+        .btn-animate {
+            transition: all 0.3s ease;
+        }
+
+        .btn-animate:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-animate:active {
+            transform: translateY(1px);
+        }
+
+        /* Search bar */
+        .search-container {
+            transition: all 0.3s ease;
+        }
+
+        .search-container:focus-within {
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Mobile menu overlay */
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 40;
+        }
+
+        .mobile-menu-overlay.active {
+            display: block;
+        }
+
+        /* Explore button animation */
+        .explore-btn {
+            animation: pulse 2s infinite;
+        }
+
+        .explore-btn:hover {
+            animation: none;
+        }
+
+        /* Service card overlay */
+        .service-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(4, 68, 67, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .service-card:hover .service-overlay {
+            opacity: 1;
+        }
+
+        .service-overlay-text {
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        /* Card content alignment */
+        .card-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-footer {
+            margin-top: auto;
+        }
+
+        /* Mobile-specific styles */
+        @media (max-width: 767px) {
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .hero-buttons a {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .category-buttons {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .category-buttons button {
+                flex: 1 0 45%;
+                margin: 0.25rem;
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .service-card {
+                margin-bottom: 1.5rem;
+            }
+            
+            .search-container {
+                margin-bottom: 1rem;
+            }
+            
+            .testimonial-card {
+                margin-bottom: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="font-poppins bg-gray-50 text-gray-800">
+    <!-- Loading Bar -->
+    <div id="loadingBar" class="loading-bar"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-4 sm:px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="/" class="flex items-center">
+                        <img src="assets/logo.jpg" alt="Target Marketing BD Logo" class="h-10 sm:h-12 mr-2 sm:mr-4">
+                        <span class="text-lg sm:text-xl font-bold text-primary">Target Marketing BD</span>
+                    </a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
+                    <a href="/" class="text-primary hover:text-accent transition" data-i18n="home">Home</a>
+                    <a href="services" class="text-primary font-medium" data-i18n="services">Services</a>
+                    <a href="blog" class="text-primary hover:text-accent transition" data-i18n="blog">Blog</a>
+                    <a href="about" class="text-primary hover:text-accent transition" data-i18n="about">About</a>
+                    <a href="contact" class="text-primary hover:text-accent transition"
+                        data-i18n="contact">Contact</a>
+
+                    <div class="flex items-center space-x-2 ml-4 lg:ml-6">
+                        <button id="enBtn" class="language-toggle active px-3 py-1 rounded-full text-sm">EN</button>
+                        <button id="bnBtn"
+                            class="language-toggle px-3 py-1 rounded-full text-sm border border-primary">BN</button>
+                    </div>
+                </div>
+
+                <button class="md:hidden focus:outline-none" id="mobileMenuBtn">
+                    <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Overlay -->
+            <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+            <!-- Mobile Menu -->
+            <div class="mobile-menu md:hidden absolute left-0 right-0 bg-white shadow-lg z-50" id="mobileMenu">
+                <div class="pt-4 pb-2 px-4 space-y-2 text-sm font-medium">
+                    <a href="/" class="block py-2 text-primary hover:text-accent transition"
+                        data-i18n="home">Home</a>
+                    <a href="services" class="block py-2 text-primary hover:text-accent transition"
+                        data-i18n="services">Services</a>
+                    <a href="blog" class="block py-2 text-primary hover:text-accent transition"
+                        data-i18n="blog">Blog</a>
+                    <a href="about" class="block py-2 text-primary hover:text-accent transition"
+                        data-i18n="about">About</a>
+                    <a href="contact" class="block py-2 text-primary hover:text-accent transition"
+                        data-i18n="contact">Contact</a>
+                    <a href="#newsletter"
+                        class="block py-2 btn-animate bg-accent text-white rounded-full text-center font-medium"
+                        data-i18n="subscribe">Subscribe</a>
+                    <div class="flex items-center space-x-2 px-3 py-4 justify-center">
+                        <button id="enBtnMobile"
+                            class="language-toggle active px-4 py-2 rounded-full text-sm">English</button>
+                        <button id="bnBtnMobile"
+                            class="language-toggle px-4 py-2 rounded-full text-sm border border-primary">বাংলা</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 md:pb-32 px-4 hero-gradient text-white">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 leading-tight text-center md:text-left" data-i18n="services_title">Our Services</h1>
+                    <p class="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 opacity-90 max-w-lg" data-i18n="services_subtitle">
+                    </p>
+                    <div class="hero-buttons flex flex-col sm:flex-row gap-4">
+                        <a href="#services"
+                            class="explore-btn px-6 py-3 bg-white text-primary rounded-full font-semibold hover:bg-gray-100 transition flex items-center justify-center btn-animate no-text-break"
+                            <span data-i18n="explore_services" class="whitespace-nowrap w-full flex justify-center items-center">Explore Services</span>
+                            <script>
+                                // Smooth, slower spring-like scroll to search bar with text-only motion blur effect
+                                document.addEventListener('DOMContentLoaded', function () {
+                                    const exploreBtn = document.querySelector('.explore-btn');
+                                    const searchBar = document.getElementById('serviceSearch');
+                                    if (exploreBtn && searchBar) {
+                                        exploreBtn.addEventListener('click', function (e) {
+                                            e.preventDefault();
+                                            const targetY = searchBar.getBoundingClientRect().top + window.scrollY - 40; // offset for nav
+                                            let startY = window.scrollY;
+                                            let distance = targetY - startY;
+                                            let startTime = null;
+                                            let blurApplied = false;
+
+                                            // Only blur text elements, not the full window
+                                            const textSelectors = [
+                                                'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+                                                'p', 'span', 'li', 'a', 'label', '.service-overlay-text', '.halal-badge'
+                                            ];
+                                            let blurredEls = [];
+
+                                            function applyTextBlur() {
+                                                if (!blurApplied) {
+                                                    blurredEls = [];
+                                                    textSelectors.forEach(sel => {
+                                                        document.querySelectorAll(sel).forEach(el => {
+                                                            el.style.transition = 'filter 0.2s';
+                                                            el.style.filter = 'blur(3px) brightness(1.08)';
+                                                            blurredEls.push(el);
+                                                        });
+                                                    });
+                                                    blurApplied = true;
+                                                }
+                                            }
+                                            function removeTextBlur() {
+                                                blurredEls.forEach(el => {
+                                                    el.style.filter = '';
+                                                });
+                                                blurApplied = false;
+                                            }
+
+                                            function springScroll(timestamp) {
+                                                if (!startTime) startTime = timestamp;
+                                                let elapsed = timestamp - startTime;
+                                                let duration = 1800; // ms, slower
+                                                let t = Math.min(elapsed / duration, 1);
+                                                // Smoother spring: easeOutElastic with less bounce
+                                                let c5 = (2 * Math.PI) / 4.5;
+                                                let spring =
+                                                    t === 0
+                                                        ? 0
+                                                        : t === 1
+                                                            ? 1
+                                                            : Math.pow(2, -8 * t) * Math.sin((t * 10 - 0.75) * c5) + 1;
+                                                window.scrollTo(0, startY + distance * spring);
+
+                                                // Apply blur at start, remove at end
+                                                if (t < 1) {
+                                                    applyTextBlur();
+                                                    requestAnimationFrame(springScroll);
+                                                } else {
+                                                    setTimeout(removeTextBlur, 120); // let blur linger briefly
+                                                }
+                                            }
+                                            requestAnimationFrame(springScroll);
+                                        });
+                                    }
+                                });
+                            </script>
+                            <i class="fas fa-arrow-down ml-2"></i>
+                        </a>
+                        <a href="sample"
+                            class="px-6 py-3 border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-primary transition flex items-center justify-center btn-animate"
+                            data-i18n="view_sample">
+                            <span class="w-full flex justify-center items-center">View Sample</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="md:w-1/2 mt-8 md:mt-0">
+                    <div class="relative">
+                        <img src="https://images.pexels.com/photos/2325447/pexels-photo-2325447.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                            alt="Digital marketing services"
+                            class="rounded-lg shadow-2xl w-full max-w-md mx-auto wave-animation" loading="lazy"
+                            width="634" height="423">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Categories and Search -->
+    <section class="container mx-auto px-4 py-8 md:py-12">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-8 md:mb-12">
+            <div class="relative w-full md:w-1/3 search-container mb-4 md:mb-0">
+                <input type="text" id="serviceSearch" placeholder="Search services..."
+                    class="w-full px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-gray-100 focus:outline-none focus:ring-2 focus:ring-accent"
+                    data-i18n="search_placeholder">
+                <button
+                    class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-accent text-white p-1 sm:p-2 rounded-full">
+                    <i class="fas fa-search text-sm sm:text-base"></i>
+                </button>
+            </div>
+            <div class="category-buttons flex flex-wrap justify-center gap-2 w-full md:w-auto">
+                <button class="category-filter active px-4 sm:px-6 py-1 sm:py-2 bg-primary text-white rounded-full font-medium text-sm sm:text-base"
+                    data-category="all" data-i18n="all_services">All Services</button>
+                <button
+                    class="category-filter px-4 sm:px-6 py-1 sm:py-2 bg-gray-100 hover:bg-gray-200 rounded-full font-medium text-sm sm:text-base transition"
+                    data-category="design" data-i18n="design">Graphics Design</button>
+                <button
+                    class="category-filter px-4 sm:px-6 py-1 sm:py-2 bg-gray-100 hover:bg-gray-200 rounded-full font-medium text-sm sm:text-base transition"
+                    data-category="marketing" data-i18n="marketing">Facebook Marketing</button>
+                <button
+                    class="category-filter px-4 sm:px-6 py-1 sm:py-2 bg-gray-100 hover:bg-gray-200 rounded-full font-medium text-sm sm:text-base transition"
+                    data-category="advanced" data-i18n="advanced">Advanced</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section id="services" class="container mx-auto px-4 py-8 md:py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            <!-- Logo Design -->
+            <div class="service-card bg-white rounded-xl overflow-hidden" data-category="design"
+                data-service-name="Logo Design" onclick="openServiceModal('logo-design')">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="assets/halal-social-media-strategy.jpg"
+                        alt="Logo Design" class="w-full h-full object-cover service-card-image">
+                    <div class="service-overlay">
+                        <div class="service-overlay-text" data-i18n="click_to_view">Click to view details</div>
+                    </div>
+                </div>
+                <div class="p-4 sm:p-6 card-content">
+                    <h3 class="text-lg sm:text-xl font-bold text-primary mb-2 sm:mb-3" data-i18n="logo_design_title">Logo Design</h3>
+                    <p class="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base" data-i18n="logo_design_short_desc">Professional logo design to establish your brand identity</p>
+                    <div class="card-footer">
+                        <div class="flex items-center justify-between">
+                            <div class="text-accent font-semibold text-sm sm:text-base">Starting from ৳1,499</div>
+                            <button
+                                class="px-3 sm:px-4 py-1 sm:py-2 bg-primary text-white rounded-full text-xs sm:text-sm font-medium hover:bg-dark transition btn-animate"
+                                data-i18n="learn_more"
+                                onclick="event.stopPropagation(); openServiceModal('logo-design');">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cover Photo Design -->
+            <div class="service-card bg-white rounded-xl overflow-hidden" data-category="design"
+                data-service-name="Cover Photo Design" onclick="openServiceModal('cover-photo')">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://img.freepik.com/free-vector/colorful-facebook-cover_1035-2960.jpg?ga=GA1.1.718032388.1750073923&semt=ais_hybrid&w=740"
+                        alt="Cover Photo Design" class="w-full h-full object-cover service-card-image">
+                    <div class="service-overlay">
+                        <div class="service-overlay-text" data-i18n="click_to_view">Click to view details</div>
+                    </div>
+                </div>
+                <div class="p-4 sm:p-6 card-content">
+                    <h3 class="text-lg sm:text-xl font-bold text-primary mb-2 sm:mb-3" data-i18n="cover_photo_title">Cover Photo Design</h3>
+                    <p class="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base" data-i18n="cover_photo_short_desc">Eye-catching cover photos for your Facebook page</p>
+                    <div class="card-footer">
+                        <div class="flex items-center justify-between">
+                            <div class="text-accent font-semibold text-sm sm:text-base">Starting from ৳499</div>
+                            <button
+                                class="px-3 sm:px-4 py-1 sm:py-2 bg-primary text-white rounded-full text-xs sm:text-sm font-medium hover:bg-dark transition btn-animate"
+                                data-i18n="learn_more"
+                                onclick="event.stopPropagation(); openServiceModal('cover-photo');">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Logo + Cover Package -->
+            <div class="service-card bg-white rounded-xl overflow-hidden" data-category="design"
+                data-service-name="Logo + Cover Package" onclick="openServiceModal('logo-cover-package')">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                        alt="Logo + Cover Package" class="w-full h-full object-cover service-card-image">
+
+                    <div class="service-overlay">
+                        <div class="service-overlay-text" data-i18n="click_to_view">Click to view details</div>
+                    </div>
+                </div>
+                <div class="p-4 sm:p-6 card-content">
+                    <h3 class="text-lg sm:text-xl font-bold text-primary mb-2 sm:mb-3" data-i18n="logo_cover_title">Logo + Cover Package</h3>
+                    <p class="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base" data-i18n="logo_cover_short_desc">Complete branding package with logo and cover photo</p>
+                    <div class="card-footer">
+                        <div class="flex items-center justify-between">
+                            <div class="text-accent font-semibold text-sm sm:text-base">Starting from ৳1,699</div>
+                            <button
+                                class="px-3 sm:px-4 py-1 sm:py-2 bg-primary text-white rounded-full text-xs sm:text-sm font-medium hover:bg-dark transition btn-animate"
+                                data-i18n="learn_more"
+                                onclick="event.stopPropagation(); openServiceModal('logo-cover-package');">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Premium Logo Design -->
+            <div class="service-card bg-white rounded-xl overflow-hidden" data-category="design"
+                data-service-name="Premium Logo Design" onclick="openServiceModal('premium-logo')">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                        alt="Premium Logo Design" class="w-full h-full object-cover service-card-image">
+                    <div class="service-overlay">
+                        <div class="service-overlay-text" data-i18n="click_to_view">Click to view details</div>
+                    </div>
+                </div>
+                <div class="p-4 sm:p-6 card-content">
+                    <h3 class="text-lg sm:text-xl font-bold text-primary mb-2 sm:mb-3" data-i18n="premium_logo_title">Premium Logo Design</h3>
+                    <p class="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base" data-i18n="premium_logo_short_desc">High-end logo design for established brands</p>
+                    <div class="card-footer">
+                        <div class="flex items-center justify-between">
+                            <div class="text-accent font-semibold text-sm sm:text-base">Starting from ৳4,999</div>
+                            <button
+                                class="px-3 sm:px-4 py-1 sm:py-2 bg-primary text-white rounded-full text-xs sm:text-sm font-medium hover:bg-dark transition btn-animate"
+                                data-i18n="learn_more"
+                                onclick="event.stopPropagation(); openServiceModal('premium-logo');">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leaflet Design -->
+            <div class="service-card bg-white rounded-xl overflow-hidden" data-category="design"
+                data-service-name="Leaflet Design" onclick="openServiceModal('leaflet-design')">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                        alt="Leaflet Design" class="w-full h-full object-cover service-card-image">
+                        <div class="service-overlay">
+                        <div class="service-overlay-text" data-i18n="click_to_view">Click to view details</div>
+                    </div>
+                </div>
+                <div class="p-4 sm:p-6 card-content">
+                    <h3 class="text-lg sm:text-xl font-bold text-primary mb-2 sm:mb-3" data-i18n="leaflet_title">Leaflet Design</h3>
+                    <p class="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base" data-i18n="leaflet_short_desc">Professional leaflet designs for marketing campaigns</p>
+                    <div class="card-footer">
+                        <div class="flex items-center justify-between">
+                            <div class="text-accent font-semibold text-sm sm:text-base">Starting from ৳1,899</div>
+                            <button
+                                class="px-3 sm:px-4 py-1 sm:py-2 bg-primary text-white rounded-full text-xs sm:text-sm font-medium hover:bg-dark transition btn-animate"
+                                data-i18n="learn_more"
+                                onclick="event.stopPropagation(); openServiceModal('leaflet-design');">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business Card Design -->
+            <div class="service-card bg-white rounded-xl overflow-hidden" data-category="design"
+                data-service-name="Business Card Design" onclick="openServiceModal('business-card')">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="assets/business.jpg"
+                        alt="Business Card Design" class="w-full h-full object-cover service-card-image">
+
+                    <div class="service-overlay">
+                        <div class="service-overlay-text" data-i18n="click_to_view">Click to view details</div>
+                    </div>
+                </div>
+                <div class="p-4 sm:p-6 card-content">
+                    <h3 class="text-lg sm:text-xl font-bold text-primary mb-2 sm:mb-3" data-i18n="business_card_title">Business Card Design</h3>
+                    <p class="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base" data-i18n="business_card_short_desc">Professional business cards to represent your brand</p>
+                    <div class="card-footer">
+                        <div class="flex items-center justify-between">
+                            <div class="text-accent font-semibold text-sm sm:text-base">Starting from ৳499</div>
+                            <button
+                                class="px-3 sm:px-4 py-1 sm:py-2 bg-primary text-white rounded-full text-xs sm:text-sm font-medium hover:bg-dark transition btn-animate"
+                                data-i18n="learn_more"
+                                onclick="event.stopPropagation(); openServiceModal('business-card');">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Banner Design -->
+            <div class="service-card bg-white rounded-xl overflow-hidden" data-category="design"
+                data-service-name="Banner Design" onclick="openServiceModal('banner-design')">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                        alt="Banner Design" class="w-full h-full object-cover service-card-image">
+
+                    <div class="service-overlay">
+                        <div class="service-overlay-text" data-i18n="click_to_view">Click to view details</div>
+                    </div>
+                </div>
+                <div class="p-4 sm:p-6 card-content">
+                    <h3 class="text-lg sm:text-xl font-bold text-primary mb-2 sm:mb-3" data-i18n="banner_title">Banner Design</h3>
+                    <p class="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base" data-i18n="banner_short_desc">Eye-catching banners for promotions and advertisements</p>
+                    <div class="card-footer">
+                        <div class="flex items-center justify-between">
+                            <div class="text-accent font-semibold text-sm sm:text-base">Starting from ৳599</div>
+                            <button
+                                class="px-3 sm:px-4 py-1 sm:py-2 bg-primary text-white rounded-full text-xs sm:text-sm font-medium hover:bg-dark transition btn-animate"
+                                data-i18n="learn_more"
+                                onclick="event.stopPropagation(); openServiceModal('banner-design');">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sales Ad Image Design -->
+            <div class="service-card bg-white rounded-xl overflow-hidden" data-category="design"
+                data-service-name="Sales Ad Image Design" onclick="openServiceModal('sales-ad-design')">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="assets/image.jpg"
+                        alt="Sales Ad Image Design" class="w-full h-full object-cover service-card-image">
+
+                    <div class="service-overlay">
+                        <div class="service-overlay-text" data-i18n="click_to_view">Click to view details</div>
+                    </div>
+                </div>
+                <div class="p-4 sm:p-6 card-content">
+                    <h3 class="text-lg sm:text-xl font-bold text-primary mb-2 sm:mb-3" data-i18n="sales_ad_title">Sales Ad Image Design</h3>
+                    <p class="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base" data-i18n="sales_ad_short_desc">3 size sales ad images for Facebook campaigns</p>
+                    <div class="card-footer">
+                        <div class="flex items-center justify-between">
+                            <div class="text-accent font-semibold text-sm sm:text-base">Starting from ৳1,299</div>
+                            <button
+                                class="px-3 sm:px-4 py-1 sm:py-2 bg-primary text-white rounded-full text-xs sm:text-sm font-medium hover:bg-dark transition btn-animate"
+                                data-i18n="learn_more"
+                                onclick="event.stopPropagation(); openServiceModal('sales-ad-design');">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- YouTube Thumbnail Design -->
+            <div class="service-card bg-white rounded-xl overflow-hidden" data-category="design"
+                data-service-name="YouTube Thumbnail Design" onclick="openServiceModal('youtube-thumbnail')">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1603566234384-f5f5b59168cc?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="YouTube Thumbnail Design" class="w-full h-full object-cover service-card-image">
+
+                    <div class="service-overlay">
+                        <div class="service-overlay-text" data-i18n="click_to_view">Click to view details</div>
+                    </div>
+                </div>
+                <div class="p-4 sm:p-6 card-content">
+                    <h3 class="text-lg sm:text-xl font-bold text-primary mb-2 sm:mb-3" data-i18n="youtube_thumb_title">YouTube Thumbnail Design</h3>
+                    <p class="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base" data-i18n="youtube_thumb_short_desc">Click-worthy thumbnails to boost your video views</p>
+                    <div class="card-footer">
+                        <div class="flex items-center justify-between">
+                            <div class="text-accent font-semibold text-sm sm:text-base">Starting from ৳599</div>
+                            <button
+                                class="px-3 sm:px-4 py-1 sm:py-2 bg-primary text-white rounded-full text-xs sm:text-sm font-medium hover:bg-dark transition btn-animate"
+                                data-i18n="learn_more"
+                                onclick="event.stopPropagation(); openServiceModal('youtube-thumbnail');">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Facebook Page Setup -->
+            <div class="service-card bg-white rounded-xl overflow-hidden" data-category="marketing"
+                data-service-name="Facebook Page Setup" onclick="openServiceModal('fb-page-setup')">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://img.freepik.com/free-vector/social-media-cover-template_23-2148899525.jpg?t=st=1750090918~exp=1750094518~hmac=14b8b45394bbfb79b88603d3ff1c65e87ec43c3f804b86b2ac17be0b0b484aa2&w=1380"
+                        alt="Facebook Page Setup" class="w-full h-full object-cover service-card-image">
+
+                    <div class="service-overlay">
+                        <div class="service-overlay-text" data-i18n="click_to_view">Click to view details</div>
+                    </div>
+                </div>
+                <div class="p-4 sm:p-6 card-content">
+                    <h3 class="text-lg sm:text-xl font-bold text-primary mb-2 sm:mb-3" data-i18n="fb_page_title">Facebook Page Setup</h3>
+                    <p class="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base" data-i18n="fb_page_short_desc">Professional Facebook page setup with all settings adjusted</p>
+                    <div class="card-footer">
+                        <div class="flex items-center justify-between">
+                            <div class="text-accent font-semibold text-sm sm:text-base">Starting from ৳499</div>
+                            <button
+                                class="px-3 sm:px-4 py-1 sm:py-2 bg-primary text-white rounded-full text-xs sm:text-sm font-medium hover:bg-dark transition btn-animate"
+                                data-i18n="learn_more"
+                                onclick="event.stopPropagation(); openServiceModal('fb-page-setup');">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Writing -->
+            <div class="service-card bg-white rounded-xl overflow-hidden" data-category="marketing"
+                data-service-name="Content Writing" onclick="openServiceModal('content-writing')">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                        alt="Content Writing" class="w-full h-full object-cover service-card-image">
+
+                    <div class="service-overlay">
+                        <div class="service-overlay-text" data-i18n="click_to_view">Click to view details</div>
+                    </div>
+                </div>
+                <div class="p-4 sm:p-6 card-content">
+                    <h3 class="text-lg sm:text-xl font-bold text-primary mb-2 sm:mb-3" data-i18n="content_writing_title">Content Writing</h3>
+                    <p class="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base" data-i18n="content_writing_short_desc">Customer-friendly content explaining product importance</p>
+                    <div class="card-footer">
+                        <div class="flex items-center justify-between">
+                            <div class="text-accent font-semibold text-sm sm:text-base">Starting from ৳349</div>
+                            <button
+                                class="px-3 sm:px-4 py-1 sm:py-2 bg-primary text-white rounded-full text-xs sm:text-sm font-medium hover:bg-dark transition btn-animate"
+                                data-i18n="learn_more"
+                                onclick="event.stopPropagation(); openServiceModal('content-writing');">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Editing -->
+            <div class="service-card bg-white rounded-xl overflow-hidden" data-category="marketing"
+                data-service-name="Video Editing" onclick="openServiceModal('video-editing')">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://img.freepik.com/free-vector/computer-monitor-graphic-animator-creating-video-game-modeling-motion-processing-video-file-using-professional-editor-vector-illustration-graphic-design-art-designer-workplace-concept_74855-13038.jpg?ga=GA1.1.718032388.1750073923&semt=ais_hybrid&w=740"
+                        alt="Video Editing" class="w-full h-full object-cover service-card-image">
+
+                    <div class="service-overlay">
+                        <div class="service-overlay-text" data-i18n="click_to_view">Click to view details</div>
+                    </div>
+                </div>
+                <div class="p-4 sm:p-6 card-content">
+                    <h3 class="text-lg sm:text-xl font-bold text-primary mb-2 sm:mb-3" data-i18n="video_editing_title">Video Editing</h3>
+                    <p class="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base" data-i18n="video_editing_short_desc">Professional video editing for your marketing content</p>
+                    <div class="card-footer">
+                        <div class="flex items-center justify-between">
+                            <div class="text-accent font-semibold text-sm sm:text-base">Starting from ৳399</div>
+                            <button
+                                class="px-3 sm:px-4 py-1 sm:py-2 bg-primary text-white rounded-full text-xs sm:text-sm font-medium hover:bg-dark transition btn-animate"
+                                data-i18n="learn_more"
+                                onclick="event.stopPropagation(); openServiceModal('video-editing');">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Facebook Ads Campaign -->
+            <div class="service-card bg-white rounded-xl overflow-hidden" data-category="marketing"
+                data-service-name="Facebook Ads Campaign" onclick="openServiceModal('fb-ads-campaign')">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                        alt="Facebook Ads Campaign" class="w-full h-full object-cover service-card-image">
+
+                    <div class="service-overlay">
+                        <div class="service-overlay-text" data-i18n="click_to_view">Click to view details</div>
+                    </div>
+                </div>
+                <div class="p-4 sm:p-6 card-content">
+                    <h3 class="text-lg sm:text-xl font-bold text-primary mb-2 sm:mb-3" data-i18n="fb_ads_title">Facebook Ads Campaign</h3>
+                    <p class="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base" data-i18n="fb_ads_short_desc">Professional ad campaigns to reach your target audience</p>
+                    <div class="card-footer">
+                        <div class="flex items-center justify-between">
+                            <div class="text-accent font-semibold text-sm sm:text-base">Starting from ৳399</div>
+                            <button
+                                class="px-3 sm:px-4 py-1 sm:py-2 bg-primary text-white rounded-full text-xs sm:text-sm font-medium hover:bg-dark transition btn-animate"
+                                data-i18n="learn_more"
+                                onclick="event.stopPropagation(); openServiceModal('fb-ads-campaign');">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business Consultation -->
+            <div class="service-card bg-white rounded-xl overflow-hidden" data-category="marketing"
+                data-service-name="Business Consultation" onclick="openServiceModal('business-consultation')">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://img.freepik.com/premium-photo/handshake-business-partners_160672-6084.jpg?ga=GA1.1.718032388.1750073923&semt=ais_hybrid&w=740"
+                        alt="Business Consultation" class="w-full h-full object-cover service-card-image">
+
+                    <div class="service-overlay">
+                        <div class="service-overlay-text" data-i18n="click_to_view">Click to view details</div>
+                    </div>
+                </div>
+                <div class="p-4 sm:p-6 card-content">
+                    <h3 class="text-lg sm:text-xl font-bold text-primary mb-2 sm:mb-3" data-i18n="consultation_title">Business Consultation</h3>
+                    <p class="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base" data-i18n="consultation_short_desc">40-minute consultation to create your business roadmap</p>
+                    <div class="card-footer">
+                        <div class="flex items-center justify-between">
+                            <div class="text-accent font-semibold text-sm sm:text-base">Starting from ৳399</div>
+                            <button
+                                class="px-3 sm:px-4 py-1 sm:py-2 bg-primary text-white rounded-full text-xs sm:text-sm font-medium hover:bg-dark transition btn-animate"
+                                data-i18n="learn_more"
+                                onclick="event.stopPropagation(); openServiceModal('business-consultation');">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Website Development -->
+            <div class="service-card bg-white rounded-xl overflow-hidden" data-category="advanced"
+                data-service-name="Website Development" onclick="openServiceModal('website-development')">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://img.freepik.com/free-vector/ui-ux-designers-isometric-composition-with-small-people-creating-custom-design-web-site-3d-vector-illustration_1284-68939.jpg?ga=GA1.1.718032388.1750073923&semt=ais_hybrid&w=740"
+                        alt="Website Development" class="w-full h-full object-cover service-card-image">
+
+                    <div class="service-overlay">
+                        <div class="service-overlay-text" data-i18n="click_to_view">Click to view details</div>
+                    </div>
+                </div>
+                <div class="p-4 sm:p-6 card-content">
+                    <h3 class="text-lg sm:text-xl font-bold text-primary mb-2 sm:mb-3" data-i18n="website_title">Website Development</h3>
+                    <p class="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base" data-i18n="website_short_desc">Custom websites to showcase your business</p>
+                    <div class="card-footer">
+                        <div class="flex items-center justify-between">
+                            <div class="text-accent font-semibold text-sm sm:text-base">Starting from ৳20,000</div>
+                            <button
+                                class="px-3 sm:px-4 py-1 sm:py-2 bg-primary text-white rounded-full text-xs sm:text-sm font-medium hover:bg-dark transition btn-animate"
+                                data-i18n="learn_more"
+                                onclick="event.stopPropagation(); openServiceModal('website-development');">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Voice Over Service -->
+            <div class="service-card bg-white rounded-xl overflow-hidden" data-category="design"
+                data-service-name="Voice Over Service" onclick="openServiceModal('voice-over')">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                        alt="Voice Over Service" class="w-full h-full object-cover service-card-image">
+
+                    <div class="service-overlay">
+                        <div class="service-overlay-text" data-i18n="click_to_view">Click to view details</div>
+                    </div>
+                </div>
+                <div class="p-4 sm:p-6 card-content">
+                    <h3 class="text-lg sm:text-xl font-bold text-primary mb-2 sm:mb-3" data-i18n="voice_over_title">Voice Over Service</h3>
+                    <p class="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base" data-i18n="voice_over_short_desc">Professional male voice overs for your videos</p>
+                    <div class="card-footer">
+                        <div class="flex items-center justify-between">
+                            <div class="text-accent font-semibold text-sm sm:text-base">Starting from ৳399</div>
+                            <button
+                                class="px-3 sm:px-4 py-1 sm:py-2 bg-primary text-white rounded-full text-xs sm:text-sm font-medium hover:bg-dark transition btn-animate"
+                                data-i18n="learn_more"
+                                onclick="event.stopPropagation(); openServiceModal('voice-over');">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="bg-gray-50 py-12 px-4">
+        <div class="container mx-auto">
+            <div class="text-center mb-8 md:mb-12">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-3 sm:mb-4" data-i18n="client_testimonials">Client
+                    Testimonials</h2>
+                <div class="w-20 h-1 bg-accent mx-auto mb-4 sm:mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base" data-i18n="testimonials_subtitle">
+                    What our clients say about our services
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition testimonial-card">
+                    <div class="flex items-center mb-3">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4 sm:mb-6 italic text-sm sm:text-base">
+                        "Alhamdulillah, I'm satisfied with the designer from Target Marketing BD and have run ad
+                        campaigns with them. Alhamdulillah, Mashallah, Barakallah, I've received very good responses.
+                        Thanks to Target Marketing BD."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gray-300 mr-3 sm:mr-4 overflow-hidden">
+                            <img src="assets/client.png" alt="Client"
+                                class="w-full h-full object-cover lazy-img" loading="lazy" width="100" height="100">
+                        </div>
+                        <div>
+                            <p class="font-medium text-gray-800 text-sm sm:text-base">Souda Afrin Mim</p>
+                            <p class="text-xs sm:text-sm text-gray-500">Satisfied Client</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition testimonial-card">
+                    <div class="flex items-center mb-3">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4 sm:mb-6 italic text-sm sm:text-base">
+                        "Thanks to Target Marketing BD for correcting the mistakes on my page and providing appropriate
+                        advice."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gray-300 mr-3 sm:mr-4 overflow-hidden">
+                            <img src="assets/client.png" alt="Client"
+                                class="w-full h-full object-cover lazy-img" loading="lazy" width="100" height="100">
+                        </div>
+                        <div>
+                            <p class="font-medium text-gray-800 text-sm sm:text-base">Mst Rukaiya Nawrin</p>
+                            <p class="text-xs sm:text-sm text-gray-500">Happy Customer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition testimonial-card">
+                    <div class="flex items-center mb-3">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4 sm:mb-6 italic text-sm sm:text-base" data-i18n="testimonial3_text">
+                        "The website they created for my business is not only beautiful but also fully functional. Their
+                        attention to detail is impressive."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gray-300 mr-3 sm:mr-4 overflow-hidden">
+                            <img src="assets/client.png" alt="Client"
+                                class="w-full h-full object-cover lazy-img" loading="lazy" width="100" height="100">
+                        </div>
+                        <div>
+                            <p class="font-medium text-gray-800 text-sm sm:text-base" data-i18n="testimonial3_name">Nusrat Jahan</p>
+                            <p class="text-xs sm:text-sm text-gray-500" data-i18n="testimonial3_title">CEO, Organic Cosmetics</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section id="newsletter" class="bg-primary text-white py-12 md:py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="inline-block bg-white bg-opacity-20 rounded-full px-4 sm:px-6 py-1 sm:py-2 mb-4 sm:mb-6">
+                    <span class="text-xs sm:text-sm font-medium" data-i18n="newsletter">NEWSLETTER</span>
+                </div>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6" data-i18n="stay_updated">Stay Updated With Our Latest
+                    Services</h2>
+                <p class="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto opacity-90" data-i18n="newsletter_subtitle">
+                    Join our newsletter to receive updates with new services, special offers and marketing tips.
+                </p>
+                <form class="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-lg mx-auto">
+                    <input type="email" placeholder="Your email address"
+                        class="flex-grow px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-white bg-opacity-20 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-accent text-sm sm:text-base"
+                        data-i18n="email_placeholder">
+                    <button type="submit"
+                        class="px-6 sm:px-8 py-2 sm:py-3 bg-accent text-white rounded-full font-semibold hover:bg-secondary transition btn-animate text-sm sm:text-base"
+                        data-i18n="subscribe">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-8 md:py-12 px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8 container mx-auto">
+            <div>
+                <img src="assets/logo.jpg" alt="Target Marketing BD Logo" class="h-12 sm:h-16 mb-3 sm:mb-4">
+                <p class="text-sm sm:text-base" data-i18n="footer_tagline">digital marketing solutions for female entrepreneurs</p>
+            </div>
+            <div>
+                <h4 class="text-base sm:text-lg font-bold mb-2 sm:mb-4" data-i18n="quick_links">Quick Links</h4>
+                <ul class="space-y-1 sm:space-y-2">
+                    <li><a href="/" class="hover:text-accent transition text-sm sm:text-base" data-i18n="home">Home</a></li>
+                    <li><a href="services" class="hover:text-accent transition text-sm sm:text-base"
+                            data-i18n="services">Services</a></li>
+                    <li><a href="blog" class="hover:text-accent transition text-sm sm:text-base" data-i18n="blog">Blog</a></li>
+                    <li><a href="about" class="hover:text-accent transition text-sm sm:text-base" data-i18n="about">About</a></li>
+                    <li><a href="contact" class="hover:text-accent transition text-sm sm:text-base" data-i18n="contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-base sm:text-lg font-bold mb-2 sm:mb-4" data-i18n="contact_us">Contact Us</h4>
+                <ul class="space-y-1 sm:space-y-2">
+                    <li class="flex items-start">
+                        <i class="fas fa-envelope mt-1 mr-2 text-accent text-sm sm:text-base"></i>
+                        <span class="text-sm sm:text-base">targetmarketingbd@gmail.com</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-phone-alt mt-1 mr-2 text-accent text-sm sm:text-base"></i>
+                        <span class="text-sm sm:text-base">+880 1860 043330</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-map-marker-alt mt-1 mr-2 text-accent text-sm sm:text-base"></i>
+                        <span class="text-sm sm:text-base" data-i18n="dhaka_bangladesh">Dhaka, Bangladesh</span>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-base sm:text-lg font-bold mb-2 sm:mb-4" data-i18n="developer">Developer</h4>
+                <p class="text-sm sm:text-base" data-i18n="developed_by">Website developed by:</p>
+                <p class="mt-2 font-semibold">
+                    <a href="developers" target="_blank" rel="noopener" class="hover:text-accent transition">
+                        Raiyan Bin Rashid <br> Sayed Ibn masud
+                </p>
+                <p class="text-xs sm:text-sm mt-3 sm:mt-4 text-accent">© <span id="currentYear"></span> Target Marketing BD. <span
+                        data-i18n="all_rights">All rights reserved.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Messenger Button -->
+    <a href="https://m.me/tmbd.xyz" target="_blank" id="messengerBtn" class="fixed bottom-8 right-8 bg-blue-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl hover:bg-blue-700 transition duration-300 z-40">
+        <i class="fab fa-facebook-messenger text-2xl"></i>
+        <span class="loading-spinner hidden"></span>
+    </a>
+    <style>
+        @keyframes spin {
+            0% { transform: rotate(0deg);}
+            100% { transform: rotate(360deg);}
+        }
+        .loading-spinner {
+            border: 3px solid #fff;
+            border-top: 3px solid #2563eb;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            animation: spin 1s linear infinite;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            pointer-events: none;
+        }
+        .loading #messengerBtn .fab.fa-facebook-messenger {
+            opacity: 0.3;
+        }
+        .loading #messengerBtn .loading-spinner {
+            display: block;
+        }
+    </style>
+    <script>
+        // Only show spinner after page load, not on refresh or initial load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Example: Show spinner when Messenger button is clicked
+            const messengerBtn = document.getElementById('messengerBtn');
+            messengerBtn.addEventListener('click', function(e) {
+                // Only show spinner if not already loading
+                if (!document.body.classList.contains('loading')) {
+                    document.body.classList.add('loading');
+                    // Hide spinner after a short delay or when navigating away
+                    setTimeout(() => {
+                        document.body.classList.remove('loading');
+                    }, 1200);
+                }
+            });
+        });
+    </script>
+
+    <!-- Service Modal -->
+    <div class="service-modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="relative">
+                <button class="absolute top-2 right-2 sm:top-4 sm:right-4 text-gray-500 hover:text-primary z-10 btn-animate" onclick="closeServiceModal()">
+                    <i class="fas fa-times text-xl sm:text-2xl text-white md:text-primary"></i>
+                </button>
+                <div class="flex flex-col md:flex-row">
+                    <div class="md:w-1/2 bg-gradient-to-r from-primary to-secondary text-white p-4 sm:p-6 md:p-8">
+                        <h3 id="modal-service-title" class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Service Title</h3>
+                        <div class="h-40 sm:h-48 mb-4 sm:mb-6 flex items-center justify-center">
+                            <img id="modal-service-image" src="" alt="Service Image" class="max-h-full max-w-full rounded-lg">
+                        </div>
+                        <ul id="modal-service-features" class="space-y-2 sm:space-y-3 text-sm sm:text-base">
+                            <!-- Features will be added here dynamically -->
+                        </ul>
+                    </div>
+                    <div class="md:w-1/2 p-4 sm:p-6 md:p-8">
+                        <h4 class="text-lg sm:text-xl font-bold text-primary mb-3 sm:mb-4" data-i18n="service_details">Service Details</h4>
+                        <p id="modal-service-desc" class="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">
+                            Service description will be added here dynamically
+                        </p>
+                        <div class="bg-gray-50 p-3 sm:p-4 rounded-lg mb-4 sm:mb-6">
+                            <h5 class="font-bold text-primary mb-1 sm:mb-2 text-sm sm:text-base" data-i18n="pricing">Pricing</h5>
+                            <p id="modal-service-pricing" class="text-gray-600 text-sm sm:text-base">Starting from ৳XXX</p>
+                        </div>
+                        <div class="bg-gray-50 p-3 sm:p-4 rounded-lg mb-4 sm:mb-6">
+                            <h5 class="font-bold text-primary mb-1 sm:mb-2 text-sm sm:text-base" data-i18n="delivery_time">Delivery Time</h5>
+                            <p id="modal-service-time" class="text-gray-600 text-sm sm:text-base">X-X business days</p>
+                        </div>
+                        <button onclick="redirectToOrder()"
+                            class="w-full text-center px-4 sm:px-6 py-2 sm:py-3 bg-primary text-white rounded-lg font-semibold hover:bg-dark transition btn-animate text-sm sm:text-base"
+                            data-i18n="order_now">
+                            Order Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Loading bar animation
+        window.addEventListener('load', function () {
+            const loadingBar = document.getElementById('loadingBar');
+            let width = 1;
+            const interval = setInterval(() => {
+                if (width >= 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        loadingBar.style.opacity = '0';
+                        setTimeout(() => {
+                            loadingBar.style.display = 'none';
+                        }, 300);
+                    }, 300);
+                } else {
+                    width += 2;
+                    loadingBar.style.width = width + '%';
+
+                    // Slow down as we approach 100%
+                    if (width > 80) {
+                        width += 0.5;
+                    }
+                }
+            }, 20);
+
+            // Lazy load images
+            const lazyImages = document.querySelectorAll('.lazy-img');
+            lazyImages.forEach(img => {
+                img.classList.add('loaded');
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+
+        mobileMenuBtn.addEventListener('click', function () {
+            mobileMenu.classList.toggle('open');
+            mobileMenuOverlay.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : 'auto';
+        });
+
+        mobileMenuOverlay.addEventListener('click', function () {
+            mobileMenu.classList.remove('open');
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Service category filtering
+        document.querySelectorAll('.category-filter').forEach(button => {
+            button.addEventListener('click', function () {
+                // Update active button
+                document.querySelectorAll('.category-filter').forEach(btn => {
+                    btn.classList.remove('active', 'bg-primary', 'text-white');
+                    btn.classList.add('bg-gray-100', 'text-gray-800');
+                });
+                this.classList.add('active', 'bg-primary', 'text-white');
+                this.classList.remove('bg-gray-100', 'text-gray-800');
+
+                const category = this.getAttribute('data-category');
+                const services = document.querySelectorAll('.service-card');
+
+                services.forEach(service => {
+                    if (category === 'all' || service.getAttribute('data-category') === category) {
+                        service.style.display = 'block';
+                        setTimeout(() => {
+                            service.style.opacity = '1';
+                        }, 50);
+                    } else {
+                        service.style.opacity = '0';
+                        setTimeout(() => {
+                            service.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Service search functionality
+        document.getElementById('serviceSearch').addEventListener('input', function () {
+            const searchTerm = this.value.toLowerCase();
+            const services = document.querySelectorAll('.service-card');
+
+            services.forEach(service => {
+                const serviceName = service.getAttribute('data-service-name').toLowerCase();
+                if (serviceName.includes(searchTerm)) {
+                    service.style.display = 'block';
+                    setTimeout(() => {
+                        service.style.opacity = '1';
+                    }, 50);
+                } else {
+                    service.style.opacity = '0';
+                    setTimeout(() => {
+                        service.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
+
+        // Service details data
+        const servicesData = {
+            'logo-design': {
+                title: "Logo Design",
+                title_bn: "লোগো ডিজাইন",
+                image: "assets/logo.jpg",
+                features: [
+                    "Professional logo design",
+                    "Multiple design concepts",
+                    "Unlimited revisions",
+                    "High-resolution files",
+                    "Transparent background PNG",
+                    "Vector files (AI, EPS, PDF)",
+                    "Color variations",
+                    "Brand guidelines document"
+                ],
+                features_bn: [
+                    "প্রফেশনাল লোগো ডিজাইন",
+                    "একাধিক ডিজাইন কনসেপ্ট",
+                    "সীমাহীন রিভিশন",
+                    "হাই-রেজোলিউশন ফাইল",
+                    "ট্রান্সপারেন্ট ব্যাকগ্রাউন্ড PNG",
+                    "ভেক্টর ফাইল (AI, EPS, PDF)",
+                    "বিভিন্ন রঙের ভ্যারিয়েশন",
+                    "ব্র্যান্ড গাইডলাইন ডকুমেন্ট"
+                ],
+                desc: "In today's digital world, there is no alternative to graphic design in digital marketing. From logos to every post in advertisements, a professional designer is needed everywhere. To showcase the professionalism and credibility of your brand, eye-catching and professional graphics are required. We provide all graphic design services.",
+                desc_bn: "বর্তমান ডিজিটাল বিশ্বে ডিজিটাল মার্কেটিং এ গ্রাফিক্স ডিজাইনের কোন বিকল্প নেই। লোগো থেকে শুরু করে বিজ্ঞাপনের প্রতিটি পোস্টে সর্বত্রই একজন প্রফেশনাল ডিজাইনার প্রয়োজন। আপনার ব্র্যান্ডের প্রফেশনালিত্ব ও বিশ্বাসযোগ্যতা প্রদর্শনের জন্য চোখে পড়ার মতো ও প্রফেশনাল গ্রাফিক্স প্রয়োজন। আমরা গ্রাফিক্স ডিজাইনের সকল সেবা প্রদান করি।",
+                pricing: "Starting from ৳1,499",
+                pricing_bn: "শুরু হচ্ছে ৳১,৪৯৯ থেকে",
+                time: "3-5 business days",
+                time_bn: "৩-৫ কর্মদিবস"
+            },
+            'cover-photo': {
+                title: "Cover Photo Design",
+                title_bn: "কভার ফটো ডিজাইন",
+                image: "https://img.freepik.com/free-vector/colorful-facebook-cover_1035-2960.jpg?ga=GA1.1.718032388.1750073923&semt=ais_hybrid&w=740",
+                features: [
+                    "Facebook cover photo design",
+                    "Mobile and desktop optimized",
+                    "Branded design",
+                    "High-resolution files",
+                    "Multiple design concepts",
+                    "Unlimited revisions",
+                    "Social media ready",
+                    "Quick turnaround"
+                ],
+                features_bn: [
+                    "ফেইসবুক কভার ফটো ডিজাইন",
+                    "মোবাইল ও ডেস্কটপ অপ্টিমাইজড",
+                    "ব্র্যান্ডেড ডিজাইন",
+                    "হাই-রেজোলিউশন ফাইল",
+                    "একাধিক ডিজাইন কনসেপ্ট",
+                    "সীমাহীন রিভিশন",
+                    "সোশ্যাল মিডিয়া রেডি",
+                    "দ্রুত ডেলিভারি"
+                ],
+                desc: "A professional cover photo helps establish your brand identity on Facebook. We create eye-catching cover photos that represent your business effectively and attract potential customers.",
+                desc_bn: "একটি প্রফেশনাল কভার ফটো ফেইসবুকে আপনার ব্র্যান্ড আইডেন্টিটি প্রতিষ্ঠা করতে সাহায্য করে। আমরা চোখে পড়ার মতো কভার ফটো তৈরি করি যা আপনার ব্যবসাকে কার্যকরভাবে উপস্থাপন করে এবং সম্ভাব্য গ্রাহকদের আকর্ষণ করে।",
+                pricing: "Starting from ৳499",
+                pricing_bn: "শুরু হচ্ছে ৳৪৯৯ থেকে",
+                time: "2-3 business days",
+                time_bn: "২-৩ কর্মদিবস"
+            },
+            'logo-cover-package': {
+                title: "Logo + Cover Package",
+                title_bn: "লোগো + কভার প্যাকেজ",
+                image: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+                features: [
+                    "Professional logo design",
+                    "Facebook cover photo design",
+                    "Brand consistency",
+                    "Multiple design concepts",
+                    "Unlimited revisions",
+                    "High-resolution files",
+                    "Transparent background PNG",
+                    "Vector files included"
+                ],
+                features_bn: [
+                    "প্রফেশনাল লোগো ডিজাইন",
+                    "ফেইসবুক কভার ফটো ডিজাইন",
+                    "ব্র্যান্ড কনসিসটেন্সি",
+                    "একাধিক ডিজাইন কনসেপ্ট",
+                    "সীমাহীন রিভিশন",
+                    "হাই-রেজোলিউশন ফাইল",
+                    "ট্রান্সপারেন্ট ব্যাকগ্রাউন্ড PNG",
+                    "ভেক্টর ফাইল অন্তর্ভুক্ত"
+                ],
+                desc: "Complete branding package with logo and cover photo designed to work together for a cohesive brand identity. Perfect for new businesses looking to establish their online presence.",
+                desc_bn: "লোগো এবং কভার ফটো সহ সম্পূর্ণ ব্র্যান্ডিং প্যাকেজ যা একটি সুসংহত ব্র্যান্ড আইডেন্টিটির জন্য একসাথে কাজ করার জন্য ডিজাইন করা হয়েছে। অনলাইন উপস্থিতি প্রতিষ্ঠা করতে চাওয়া নতুন ব্যবসার জন্য উপযুক্ত।",
+                pricing: "Starting from ৳1,699 (save ৳299)",
+                pricing_bn: "শুরু হচ্ছে ৳১,৬৯৯ থেকে (৳২৯৯ সেভ করুন)",
+                time: "3-5 business days",
+                time_bn: "৩-৫ কর্মদিবস"
+            },
+            'premium-logo': {
+                title: "Premium Logo Design",
+                title_bn: "প্রিমিয়াম লোগো ডিজাইন",
+                image: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+                features: [
+                    "High-end logo design",
+                    "Multiple design concepts",
+                    "Unlimited revisions",
+                    "Brand style guide",
+                    "Stationery design (business card, letterhead)",
+                    "Social media kit",
+                    "3D mockups",
+                    "Priority support"
+                ],
+                features_bn: [
+                    "হাই-এন্ড লোগো ডিজাইন",
+                    "একাধিক ডিজাইন কনসেপ্ট",
+                    "সীমাহীন রিভিশন",
+                    "ব্র্যান্ড স্টাইল গাইড",
+                    "স্টেশনারি ডিজাইন (বিজনেস কার্ড, লেটারহেড)",
+                    "সোশ্যাল মিডিয়া কিট",
+                    "3D মকআপ",
+                    "অগ্রাধিকার সাপোর্ট"
+                ],
+                desc: "Our premium logo design service is for established brands looking for a sophisticated, high-end identity. Includes comprehensive brand guidelines and application examples.",
+                desc_bn: "আমাদের প্রিমিয়াম লোগো ডিজাইন সার্ভিসটি প্রতিষ্ঠিত ব্র্যান্ডগুলির জন্য যারা একটি পরিশীলিত, উচ্চমানের পরিচয় খুঁজছেন। ব্যাপক ব্র্যান্ড গাইডলাইন এবং অ্যাপ্লিকেশন উদাহরণ অন্তর্ভুক্ত।",
+                pricing: "Starting from ৳4,999",
+                pricing_bn: "শুরু হচ্ছে ৳৪,৯৯৯ থেকে",
+                time: "5-7 business days",
+                time_bn: "৫-৭ কর্মদিবস"
+            },
+            'leaflet-design': {
+                title: "Leaflet Design",
+                title_bn: "লিফলেট ডিজাইন",
+                image: "https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+                features: [
+                    "Professional leaflet design",
+                    "Single or double-sided",
+                    "Print-ready files",
+                    "Multiple design concepts",
+                    "Unlimited revisions",
+                    "High-resolution PDF",
+                    "CMYK color mode",
+                    "Bleed included"
+                ],
+                features_bn: [
+                    "প্রফেশনাল লিফলেট ডিজাইন",
+                    "একপাশ বা দ্বিপাক্ষিক",
+                    "প্রিন্ট-রেডি ফাইল",
+                    "একাধিক ডিজাইন কনসেপ্ট",
+                    "সীমাহীন রিভিশন",
+                    "হাই-রেজোলিউশন PDF",
+                    "CMYK কালার মোড",
+                    "ব্লিড অন্তর্ভুক্ত"
+                ],
+                desc: "Eye-catching leaflet designs for your marketing campaigns. We create professional leaflets that effectively communicate your message and attract customers.",
+                desc_bn: "আপনার মার্কেটিং ক্যাম্পেইনের জন্য চোখে পড়ার মতো লিফলেট ডিজাইন। আমরা প্রফেশনাল লিফলেট তৈরি করি যা কার্যকরভাবে আপনার বার্তা যোগাযোগ করে এবং গ্রাহকদের আকর্ষণ করে।",
+                pricing: "Starting from ৳1,899",
+                pricing_bn: "শুরু হচ্ছে ৳১,৮৯৯ থেকে",
+                time: "3-5 business days",
+                time_bn: "৩-৫ কর্মদিবস"
+            },
+            'business-card': {
+                title: "Business Card Design",
+                title_bn: "বিজনেস কার্ড ডিজাইন",
+                image: "https://images.unsplash.com/photo-1579389083078-4e7018379f7e?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+                features: [
+                    "Professional business card design",
+                    "Single or double-sided",
+                    "Print-ready files",
+                    "Multiple design concepts",
+                    "Unlimited revisions",
+                    "High-resolution PDF",
+                    "CMYK color mode",
+                    "Bleed included"
+                ],
+                features_bn: [
+                    "প্রফেশনাল বিজনেস কার্ড ডিজাইন",
+                    "একপাশ বা দ্বিপাক্ষিক",
+                    "প্রিন্ট-রেডি ফাইল",
+                    "একাধিক ডিজাইন কনসেপ্ট",
+                    "সীমাহীন রিভিশন",
+                    "হাই-রেজোলিউশন PDF",
+                    "CMYK কালার মোড",
+                    "ব্লিড অন্তর্ভুক্ত"
+                ],
+                desc: "Make a great first impression with professionally designed business cards that represent your brand effectively.",
+                desc_bn: "প্রফেশনালি ডিজাইন করা বিজনেস কার্ড দিয়ে একটি দুর্দান্ত প্রথম ছাপ তৈরি করুন যা আপনার ব্র্যান্ডকে কার্যকরভাবে উপস্থাপন করে।",
+                pricing: "Starting from ৳499",
+                pricing_bn: "শুরু হচ্ছে ৳৪৯৯ থেকে",
+                time: "2-3 business days",
+                time_bn: "২-৩ কর্মদিবস"
+            },
+            'banner-design': {
+                title: "Banner Design",
+                title_bn: "ব্যানার ডিজাইন",
+                image: "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+                features: [
+                    "Professional banner design",
+                    "Multiple sizes available",
+                    "Print-ready files",
+                    "Multiple design concepts",
+                    "Unlimited revisions",
+                    "High-resolution files",
+                    "CMYK color mode",
+                    "Bleed included"
+                ],
+                features_bn: [
+                    "প্রফেশনাল ব্যানার ডিজাইন",
+                    "একাধিক সাইজ উপলব্ধ",
+                    "প্রিন্ট-রেডি ফাইল",
+                    "একাধিক ডিজাইন কনসেপ্ট",
+                    "সীমাহীন রিভিশন",
+                    "হাই-রেজোলিউশন ফাইল",
+                    "CMYK কালার মোড",
+                    "ব্লিড অন্তর্ভুক্ত"
+                ],
+                desc: "Eye-catching banners for promotions and advertisements. We design banners that grab attention and communicate your message effectively.",
+                desc_bn: "প্রচার এবং বিজ্ঞাপনের জন্য চোখে পড়ার মতো ব্যানার। আমরা এমন ব্যানার ডিজাইন করি যা দৃষ্টি আকর্ষণ করে এবং আপনার বার্তা কার্যকরভাবে যোগাযোগ করে।",
+                pricing: "Starting from ৳599",
+                pricing_bn: "শুরু হচ্ছে ৳৫৯৯ থেকে",
+                time: "2-3 business days",
+                time_bn: "২-৩ কর্মদিবস"
+            },
+            'sales-ad-design': {
+                title: "Sales Ad Image Design",
+                title_bn: "বিক্রয় বিজ্ঞাপন ইমেজ ডিজাইন",
+                image: "assets/image.jpg",
+                features: [
+                    "3 size sales ad images",
+                    "Facebook optimized",
+                    "Mobile-friendly",
+                    "Multiple design concepts",
+                    "Unlimited revisions",
+                    "High-resolution files",
+                    "Transparent background option",
+                    "Quick turnaround"
+                ],
+                features_bn: [
+                    "৩ সাইজের বিক্রয় বিজ্ঞাপন ইমেজ",
+                    "ফেইসবুক অপ্টিমাইজড",
+                    "মোবাইল-ফ্রেন্ডলি",
+                    "একাধিক ডিজাইন কনসেপ্ট",
+                    "সীমাহীন রিভিশন",
+                    "হাই-রেজোলিউশন ফাইল",
+                    "ট্রান্সপারেন্ট ব্যাকগ্রাউন্ড অপশন",
+                    "দ্রুত ডেলিভারি"
+                ],
+                desc: "Professional sales ad images designed to convert. We create eye-catching ads that highlight your products and drive sales.",
+                desc_bn: "রূপান্তরের জন্য ডিজাইন করা প্রফেশনাল বিক্রয় বিজ্ঞাপন ইমেজ। আমরা চোখে পড়ার মতো বিজ্ঞাপন তৈরি করি যা আপনার পণ্যগুলিকে হাইলাইট করে এবং বিক্রয় চালায়।",
+                pricing: "Starting from ৳1,299",
+                pricing_bn: "শুরু হচ্ছে ৳১,২৯৯ থেকে",
+                time: "3-5 business days",
+                time_bn: "৩-৫ কর্মদিবস"
+            },
+            'youtube-thumbnail': {
+                title: "YouTube Thumbnail Design",
+                title_bn: "ইউটিউব থাম্বনেইল ডিজাইন",
+                image: "https://images.unsplash.com/photo-1603566234384-f5f5b59168cc?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                features: [
+                    "Custom YouTube thumbnails",
+                    "Eye-catching designs",
+                    "Branded templates",
+                    "Multiple concepts",
+                    "Unlimited revisions",
+                    "High-resolution files",
+                    "Quick turnaround",
+                    "Mobile optimized"
+                ],
+                features_bn: [
+                    "কাস্টম ইউটিউব থাম্বনেইল",
+                    "চোখে পড়ার মতো ডিজাইন",
+                    "ব্র্যান্ডেড টেমপ্লেট",
+                    "একাধিক কনসেপ্ট",
+                    "সীমাহীন রিভিশন",
+                    "হাই-রেজোলিউশন ফাইল",
+                    "দ্রুত ডেলিভারি",
+                    "মোবাইল অপ্টিমাইজড"
+                ],
+                desc: "Click-worthy thumbnails to boost your video views. We design thumbnails that stand out and encourage viewers to click on your videos.",
+                desc_bn: "আপনার ভিডিও ভিউ বাড়ানোর জন্য ক্লিক-যোগ্য থাম্বনেইল। আমরা এমন থাম্বনেইল ডিজাইন করি যা আলাদা হয়ে দাঁড়ায় এবং দর্শকদের আপনার ভিডিওতে ক্লিক করতে উত্সাহিত করে।",
+                pricing: "Starting from ৳599",
+                pricing_bn: "শুরু হচ্ছে ৳৫৯৯ থেকে",
+                time: "2-3 business days",
+                time_bn: "২-৩ কর্মদিবস"
+            },
+            'fb-page-setup': {
+                title: "Facebook Page Setup",
+                title_bn: "প্রফেশনাল ফেইসবুক পেজ সেটআপ",
+                image: "https://img.freepik.com/free-vector/social-media-cover-template_23-2148899525.jpg?t=st=1750090918~exp=1750094518~hmac=14b8b45394bbfb79b88603d3ff1c65e87ec43c3f804b86b2ac17be0b0b484aa2&w=1380",
+                features: [
+                    "Professional Facebook page setup",
+                    "Profile picture optimization",
+                    "Cover photo design",
+                    "About section setup",
+                    "Call-to-action button",
+                    "Page category optimization",
+                    "Username setup",
+                    "Basic settings configuration"
+                ],
+                features_bn: [
+                    "প্রফেশনাল ফেইসবুক পেজ সেটআপ",
+                    "প্রোফাইল পিকচার অপ্টিমাইজেশন",
+                    "কভার ফটো ডিজাইন",
+                    "অ্যাবাউট সেকশন সেটআপ",
+                    "কল-টু-অ্যাকশন বাটন",
+                    "পেজ ক্যাটাগরি অপ্টিমাইজেশন",
+                    "ইউজারনেম সেটআপ",
+                    "বেসিক সেটিংস কনফিগারেশন"
+                ],
+                desc: "There is no alternative to a professional Facebook page to make an online business a brand. So we provide all services for professional Facebook page setup.",
+                desc_bn: "অনলাইন বিজনেসকে ব্র্যান্ড বানাতে হলে প্রফেশনাল ফেইসবুক পেজের কোন বিকল্প নেই। তাই আমরা দিচ্ছি প্রফেশনাল ফেইসবুক পেজ সেটআপের সকল সার্ভিস।",
+                pricing: "Only Facebook page setup - ৳499 | Logo + Cover + Full page setup package - ৳2,199",
+                pricing_bn: "শুধু ফেইসবুক পেজ সেটআপ - ৳৪৯৯ | লোগো + কভার + ফুল পেজ সেটআপ প্যাকেজ - ৳২,১৯৯",
+                time: "1 business day",
+                time_bn: "১ কর্মদিবস"
+            },
+            'content-writing': {
+                title: "Content Writing",
+                title_bn: "কনটেন্ট রাইটিং",
+                image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+                features: [
+                    "Facebook Ad Copy Writing",
+                    "Monthly Content Writing Service",
+                    "Product Descriptions",
+                    "Blog Articles",
+                    "Social Media Captions",
+                    "Website Content",
+                    "SEO optimized",
+                    "Engaging content"
+                ],
+                features_bn: [
+                    "ফেইসবুক এড কপি রাইটিং",
+                    "মাসিক কনটেন্ট রাইটিং সার্ভিস",
+                    "পণ্য বিবরণ",
+                    "ব্লগ আর্টিকেল",
+                    "সোশ্যাল মিডিয়া ক্যাপশন",
+                    "ওয়েবসাইট কনটেন্ট",
+                    "SEO অপ্টিমাইজড",
+                    "আকর্ষণীয় কনটেন্ট"
+                ],
+                desc: "Content is King! If you're marketing on Facebook and your content writing isn't professional, it means there's a red light for your business! So give 100% attention to content. For the convenience of women entrepreneurs, we provide all kinds of professional content writing services.",
+                desc_bn: "কনটেন্ট ইজ দ্য কিং! ফেইসবুকে মার্কেটিং করবেন, আর কনটেন্ট রাইটিং প্রফেশনাল হবেনা, তারমানে আপনার ব্যবসায় লালবাত্তি! কনটেন্টে তাই শতভাগ মনোযোগ দিন। নারী উদ্যোক্তাদের সুবিধার্থে আমরা দিচ্ছি সবরকমের প্রফেশনাল কনটেন্ট রাইটিং সার্ভিস।",
+                pricing: "Single standard size content for Facebook ad campaign - ৳349",
+                pricing_bn: "ফেইসবুক এড ক্যাম্পেইনের জন্য একটি সিঙ্গেল স্ট্যান্ডার্ড সাইজ কনটেন্ট - ৳৩৪৯",
+                time: "1-2 business days",
+                time_bn: "১-২ কর্মদিবস"
+            },
+            'video-editing': {
+                title: "Video Editing",
+                title_bn: "ভিডিও এডিটিং",
+                image: "https://img.freepik.com/free-vector/computer-monitor-graphic-animator-creating-video-game-modeling-motion-processing-video-file-using-professional-editor-vector-illustration-graphic-design-art-designer-workplace-concept_74855-13038.jpg?ga=GA1.1.718032388.1750073923&semt=ais_hybrid&w=740",
+                features: [
+                    "Facebook Reels Making",
+                    "Video Editing",
+                    "Ad Content Making & Editing",
+                    "Transitions & Effects",
+                    "Text Overlays",
+                    "Music & Sound Effects",
+                    "Color Correction",
+                    "Mobile Optimization"
+                ],
+                features_bn: [
+                    "ফেইসবুক রিলস মেকিং",
+                    "ভিডিও এডিটিং",
+                    "এড কনটেন্ট মেকিং এন্ড এডিটিং",
+                    "ট্রানজিশন ও ইফেক্ট",
+                    "টেক্সট ওভারলে",
+                    "মিউজিক ও সাউন্ড ইফেক্ট",
+                    "কালার কারেকশন",
+                    "মোবাইল অপ্টিমাইজেশন"
+                ],
+                desc: "Currently, the most effective method to increase reach on Facebook is through reels or video making. For business expansion, professional video making and editing is required. We provide these professional video services.",
+                desc_bn: "বর্তমানে ফেইসবুকে রিচ বাড়ানোর জন্য সবচেয়ে কার্যকরী পদ্ধতি হলো রিলস বা ভিডিও মেকিং। বিজনেসের প্রসারের জন্য দরকার হয় প্রফেশনাল ভিডিও মেকিং এবং এডিটিং। আমরা দিচ্ছি প্রফেশনাল ভিডিওর এই সার্ভিসগুলো।",
+                pricing: "Video Editing - ৳399 (client provides main content) | 1-2 minute video/reels making for service-based pages - ৳1,499",
+                pricing_bn: "ভিডিও এডিটিং - ক্লায়েন্ট মূল কনটেন্ট দিয়ে দিলে অনলি এডিটিং-৳৩৯৯ | সার্ভিস বেজড পেজের জন্য ১-২ মিনিটের ভিডিও/রিলস মেকিং-৳১,৪৯৯",
+                time: "3-5 business days",
+                time_bn: "৩-৫ কর্মদিবস"
+            },
+            'fb-ads-campaign': {
+                title: "Facebook Ads Campaign",
+                title_bn: "ফেইসবুক অ্যাড ক্যাম্পেইন",
+                image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+                features: [
+                    "Engagement/Page Like Ad Campaign",
+                    "Sales Ad Campaign",
+                    "Carousel Ad Campaign",
+                    "Video Retargeted Marketing",
+                    "Pixel Setup",
+                    "Server Site Tracking",
+                    "Detailed Targeting",
+                    "Performance Analysis"
+                ],
+                features_bn: [
+                    "এনগেজমেন্ট/পেজ লাইক এড ক্যাম্পেইন",
+                    "সেলস এড ক্যাম্পেইন",
+                    "ক্যারোজাল এড ক্যাম্পেইন",
+                    "ভিডিও রিটার্গেটেড মার্কেটিং",
+                    "পিক্সেল সেট আপ",
+                    "সার্ভার সাইট ট্র্যাকিং",
+                    "ডিটেইলড টার্গেটিং",
+                    "পারফরম্যান্স অ্যানালাইসিস"
+                ],
+                desc: "Paid marketing on Facebook means Facebook ad campaigns or boosting! Along with your page's organic growth, you must also run paid marketing. For this, you need an experienced Facebook ad expert. We provide the opportunity for ad campaigns through detailed targeting in the latest method so that your page gets real followers and creates its own sales funnel!",
+                desc_bn: "ফেইসবুকে পেইড মার্কেটিং মানেই ফেইসবুক এড ক্যাম্পেইন বা বুস্টিং! আপনার পেজের অর্গানিক গ্রোথের পাশাপাশি অবশ্যই পেইড মার্কেটিং ও চালাতে হবে। সেজন্য আপনার প্রয়োজন একজন অভিজ্ঞ ফেইসবুক এড এক্সপার্ট। আমরা দিচ্ছি লেটেস্ট পদ্ধতিতে ডিটেইলড টার্গেটিং এর মাধ্যমে এড ক্যাম্পেইনের সুযোগ। যাতে আপনার পেজের রিয়েল ফলোয়ার বাড়ে এবং তৈরি হয় নিজস্ব সেলস ফানেল!",
+                pricing: "Engagement/Page Like Ad Campaign - Service charge ৳349 per ad + Facebook ad budget + VAT | Sales Ad Campaign - Service charge ৳399 per ad + Facebook ad budget + VAT | Carousel Ad Campaign - Service charge ৳449 per ad + Facebook ad budget + VAT",
+                pricing_bn: "এনগেজমেন্ট/পেজ লাইক এড ক্যাম্পেইন- প্রতি এডে সার্ভিস চার্জ ৳৩৪৯+ফেইসবুকের এড বাজেট+ভ্যাট | সেলস এড ক্যাম্পেইন- প্রতি এডে সার্ভিস চার্জ ৳৩৯৯+ফেইসবুকের এড বাজেট+ভ্যাট | ক্যারোজাল এড ক্যাম্পেইন- প্রতি এডে সার্ভিস চার্জ ৳৪৪৯+ফেইসবুকের এড বাজেট+ভ্যাট",
+                time: "3-5 business days for setup",
+                time_bn: "সেটআপের জন্য ৩-৫ কর্মদিবস"
+            },
+            'business-consultation': {
+                title: "Business & Marketing Consultation",
+                title_bn: "বিজনেস এন্ড মার্কেটিং কনসালটেন্সি",
+                image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+                features: [
+                    "40-minute Business & Marketing Consultation",
+                    "Business Roadmap Creation",
+                    "Branding Strategy",
+                    "Market Positioning",
+                    "Competitor Analysis",
+                    "Online Session via Zoom",
+                    "Actionable Advice",
+                    "Follow-up Support"
+                ],
+                features_bn: [
+                    "৪০ মিনিটের বিজনেস ও মার্কেটিং কনসালটেন্সি",
+                    "বিজনেস রোডম্যাপ ক্রিয়েশন",
+                    "ব্র্যান্ডিং স্ট্র্যাটেজি",
+                    "মার্কেট পজিশনিং",
+                    "কম্পিটিটর অ্যানালাইসিস",
+                    "জুম লাইভে অনলাইন সেশন",
+                    "কার্যকরী পরামর্শ",
+                    "ফলো-আপ সাপোর্ট"
+                ],
+                desc: "If you are completely new to business, you must feel like you are at a loss. Right? For these helpless women entrepreneurs, we provide a 40-minute business and marketing consultation. Where you will learn how to do business, how to make your small business a brand, a roadmap will be created for you in these 40 minutes inshaAllah. The session is conducted online on Zoom Live.",
+                desc_bn: "আপনি যদি ব্যবসায় একেবারেই নতুন হন, তাহলে নিশ্চয়ই আপনার নিজেকে কূল কিনারাহীন মনে হয়। তাই না? ঠিক এই দিশেহারা নারী উদ্যোক্তাদের আমরা দিই একটি ৪০ মিনিটের বিজনেস ও মার্কেটিং কনসালটেন্সি। যেখানে আপনি শিখবেন, কিভাবে ব্যবসা করতে হয়, কিভাবে আপনার ছোট বিজনেসকে ব্র্যান্ড বানাবেন তার একটা রোডম্যাপ তৈরি করে দেয়া হবে এই ৪০ মিনিটে ইনশাআল্লাহ। জুম লাইভে অনলাইনে সেশনটি নেয়া হয়।",
+                pricing: "Business & Marketing Consultation - ৳399",
+                pricing_bn: "বিজনেস এন্ড মার্কেটিং কনসালটেন্সি- ৳৩৯৯",
+                time: "1 business day to schedule",
+                time_bn: "সিডিউল করার জন্য ১ কর্মদিবস"
+            },
+            'website-development': {
+                title: "Website Development",
+                title_bn: "ওয়েবসাইট ডেভেলপমেন্ট",
+                image: "https://img.freepik.com/free-vector/ui-ux-designers-isometric-composition-with-small-people-creating-custom-design-web-site-3d-vector-illustration_1284-68939.jpg?ga=GA1.1.718032388.1750073923&semt=ais_hybrid&w=740",
+                features: [
+                    "Custom Website Design",
+                    "Mobile Responsive",
+                    "SEO Optimized",
+                    "E-commerce Functionality",
+                    "Facebook Pixel Setup",
+                    "Server Site Tracking",
+                    "Content Management System",
+                    "Maintenance Support"
+                ],
+                features_bn: [
+                    "কাস্টম ওয়েবসাইট ডিজাইন",
+                    "মোবাইল রেস্পন্সিভ",
+                    "SEO অপ্টিমাইজড",
+                    "ই-কমার্স ফাংশনালিটি",
+                    "ফেইসবুক পিক্সেল সেট আপ",
+                    "সার্ভার সাইট ট্র্যাকিং",
+                    "কনটেন্ট ম্যানেজমেন্ট সিস্টেম",
+                    "মেইনটেনেন্স সাপোর্ট"
+                ],
+                desc: "For business management, we provide website development services. Along with this, you will get all advanced level Facebook marketing services related to the website including Facebook pixel setup, server site tracking in one place.",
+                desc_bn: "ব্যবসা পরিচালনার জন্য আমরা ওয়েবসাইট ডেভেলপমেন্ট সার্ভিস দিয়ে থাকি। এরসাথে ওয়েবসাইটে ফেইসবুক পিক্সেল সেট আপ, সার্ভার সাইট ট্র্যাকিংসহ ওয়েবসাইট সংক্রান্ত ফেইসবুক মার্কেটিং এর যাবতীয় এডভান্স লেভেল সার্ভিস ও পেয়ে যাবেন একই জায়গায়।",
+                pricing: "Starting from ৳20,000",
+                pricing_bn: "শুরু হচ্ছে ৳২০,০০০ থেকে",
+                time: "10-15 business days",
+                time_bn: "১০-১৫ কর্মদিবস"
+            },
+            'voice-over': {
+                title: "Voice Over Service (Male)",
+                title_bn: "প্রফেশনাল ভয়েস ওভার সার্ভিস (পুরুষ)",
+                image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+                features: [
+                    "Professional Male Voice Over",
+                    "1-2 Minute Videos",
+                    "Clear Pronunciation",
+                    "Multiple Takes",
+                    "Background Music Option",
+                    "Quick Turnaround",
+                    "High Quality Audio",
+                    "File Format Options"
+                ],
+                features_bn: [
+                    "প্রফেশনাল মেল ভয়েস ওভার",
+                    "১-২ মিনিটের ভিডিও",
+                    "পরিষ্কার উচ্চারণ",
+                    "একাধিক টেক",
+                    "ব্যাকগ্রাউন্ড মিউজিক অপশন",
+                    "দ্রুত ডেলিভারি",
+                    "উচ্চ মানের অডিও",
+                    "ফাইল ফরম্যাট অপশন"
+                ],
+                desc: "For female entrepreneurs managing businesses, professional voice overs are often needed for video creation. We provide professional male voice artists for your videos through professional voice overs that can bring fundamental changes to your ad content instantly inshaAllah! (Note: This service doesn't violate Islamic screen guidelines)",
+                desc_bn: "নারী উদ্যোক্তাদের ব্যবসা পরিচালনার ক্ষেত্রে ভিডিও তৈরীতে প্রায়শই প্রয়োজন হয় প্রফেশনাল ভয়েস ওভার। আমরা দিচ্ছি প্রফেশনাল মেল ভয়েস আর্টিস্টের মাধ্যমে আপনার ভিডিওতে প্রফেশনাল ভয়েস ওভার। যা মুহুর্তেই আপনার এডের কনটেন্টে আমূল পরিবর্তন নিয়ে আসতে পারে ইনশাআল্লাহ ! (বি দ্র- এই সার্ভিস দিতে/নিতে গিয়ে কারো পর্দার খেলাফ হয়না)",
+                pricing: "Professional voice over for 1-2 minute reels/videos - ৳399",
+                pricing_bn: "১-২ মিনিটের রিলস/ভিডিওতে প্রফেশনাল ভয়েস ওভার -৳৩৯৯",
+                time: "1-2 business days",
+                time_bn: "১-২ কর্মদিবস"
+            }
+        };
+
+        // Modal functionality
+        const modal = document.querySelector('.service-modal');
+        let currentServiceId = '';
+        
+        function openServiceModal(serviceId) {
+            currentServiceId = serviceId;
+            const service = servicesData[serviceId];
+            const currentLang = localStorage.getItem('preferredLanguage') || 'en';
+            
+            // Set modal content based on language
+            const title = currentLang === 'bn' ? service.title_bn : service.title;
+            const features = currentLang === 'bn' ? service.features_bn : service.features;
+            const desc = currentLang === 'bn' ? service.desc_bn : service.desc;
+            const pricing = currentLang === 'bn' ? service.pricing_bn : service.pricing;
+            const time = currentLang === 'bn' ? service.time_bn : service.time;
+            
+            document.getElementById('modal-service-title').textContent = title;
+            document.getElementById('modal-service-image').src = service.image;
+            document.getElementById('modal-service-image').alt = title;
+            
+            const featuresList = document.getElementById('modal-service-features');
+            featuresList.innerHTML = '';
+            features.forEach(feature => {
+                featuresList.innerHTML += `
+                    <li class="flex items-start">
+                        <i class="fas fa-check mt-1 mr-2 sm:mr-3"></i>
+                        <span>${feature}</span>
+                    </li>
+                `;
+            });
+            
+            document.getElementById('modal-service-desc').textContent = desc;
+            document.getElementById('modal-service-pricing').textContent = pricing;
+            document.getElementById('modal-service-time').textContent = time;
+            
+            // Show modal
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeServiceModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal when clicking outside content
+        modal.addEventListener('click', function (e) {
+            if (e.target === modal) {
+                closeServiceModal();
+            }
+        });
+
+        // Redirect to order page with service info
+        function redirectToOrder() {
+            const service = servicesData[currentServiceId];
+            const currentLang = localStorage.getItem('preferredLanguage') || 'en';
+            const serviceName = encodeURIComponent(currentLang === 'bn' ? service.title_bn : service.title);
+            const servicePrice = encodeURIComponent(currentLang === 'bn' ? service.pricing_bn : service.pricing);
+            window.location.href = `order?service=${serviceName}&price=${servicePrice}`;
+        }
+
+        // Language switching functionality
+        const translations = {
+            en: {
+                // Navigation
+                home: "Home",
+                services: "Services",
+                blog: "Blog",
+                about: "About",
+                contact: "Contact",
+                subscribe: "Subscribe",
+
+                // Hero
+                services_title: "Our Services",
+                services_subtitle: "Grow Your Vision, Our Ethical Mission",
+                explore_services: "Explore Services",
+                view_sample: "View Samples",
+                search_placeholder: "Search services...",
+                click_to_view: "Click to view details",
+
+                // Categories
+                all_services: "All Services",
+                design: "Graphic Design",
+                marketing: "Facebook Marketing",
+                advanced: "Advanced",
+
+                // Services Titles
+                logo_design_title: "Logo Design",
+                cover_photo_title: "Cover Photo Design",
+                logo_cover_title: "Logo + Cover Package",
+                premium_logo_title: "Premium Logo Design",
+                leaflet_title: "Leaflet Design",
+                business_card_title: "Business Card Design",
+                banner_title: "Banner Design",
+                sales_ad_title: "Sales Ad Image Design",
+                youtube_thumb_title: "YouTube Thumbnail Design",
+                fb_page_title: "Facebook Page Setup",
+                content_writing_title: "Content Writing",
+                video_editing_title: "Video Editing",
+                fb_ads_title: "Facebook Ads Campaign",
+                consultation_title: "Business Consultation",
+                website_title: "Website Development",
+                voice_over_title: "Voice Over Service",
+
+                // Services Short Descriptions
+                logo_design_short_desc: "Professional logo design to establish your brand identity",
+                cover_photo_short_desc: "Eye-catching cover photos for your Facebook page",
+                logo_cover_short_desc: "Complete branding package with logo and cover photo",
+                premium_logo_short_desc: "High-end logo design for established brands",
+                leaflet_short_desc: "Professional leaflet designs for marketing campaigns",
+                business_card_short_desc: "Professional business cards to represent your brand",
+                banner_short_desc: "Eye-catching banners for promotions and advertisements",
+                sales_ad_short_desc: "3 size sales ad images for Facebook campaigns",
+                youtube_thumb_short_desc: "Click-worthy thumbnails to boost your video views",
+                fb_page_short_desc: "Professional Facebook page setup with all settings adjusted",
+                content_writing_short_desc: "Customer-friendly content explaining product importance",
+                video_editing_short_desc: "Professional video editing for your marketing content",
+                fb_ads_short_desc: "Professional ad campaigns to reach your target audience",
+                consultation_short_desc: "40-minute consultation to create your business roadmap",
+                website_short_desc: "Custom websites to showcase your business",
+                voice_over_short_desc: "Professional male voice overs for your videos",
+
+                // Testimonials
+                client_testimonials: "Client Testimonials",
+                testimonials_subtitle: "What our clients say about our services",
+                testimonial3_text: "\"The website they created for my business is not only beautiful but also fully functional. Their attention to detail is impressive.\"",
+                testimonial3_name: "Nusrat Jahan",
+                testimonial3_title: "CEO, Organic Cosmetics",
+
+                // Newsletter
+                newsletter: "NEWSLETTER",
+                stay_updated: "Stay Updated With Our Latest Services",
+                newsletter_subtitle: "Join our newsletter to receive updates with new services, special offers and marketing tips.",
+                email_placeholder: "Your email address",
+
+                // Modal
+                service_details: "Service Details",
+                pricing: "Pricing",
+                delivery_time: "Delivery Time",
+                order_now: "Order Now",
+
+                // Footer
+                footer_tagline: "digital marketing solutions for female entrepreneurs",
+                quick_links: "Quick Links",
+                contact_us: "Contact Us",
+                developer: "Developer",
+                developed_by: "Website developed by:",
+                all_rights: "All rights reserved.",
+                dhaka_bangladesh: "Dhaka, Bangladesh",
+
+                // Misc
+                learn_more: "View Details",
+            },
+            bn: {
+                // Navigation
+                home: "হোম",
+                services: "সেবাসমূহ",
+                blog: "ব্লগ",
+                about: "আমাদের সম্পর্কে",
+                contact: "যোগাযোগ",
+                subscribe: "সাবস্ক্রাইব",
+
+                // Hero
+                services_title: "আমাদের সেবাসমূহ",
+                services_subtitle: "স্বপ্ন উড়ুক আকাশে, TMBD আপনার পাশে।",
+                explore_services: "সেবা এক্সপ্লোর করুন",
+                view_sample: "নমুনা দেখুন",
+                search_placeholder: "সেবা খুঁজুন...",
+                click_to_view: "বিস্তারিত দেখতে ক্লিক করুন",
+
+                // Categories
+                all_services: "সমস্ত সেবা",
+                design: "গ্রাফিক ডিজাইন",
+                marketing: "ফেইসবুক মার্কেটিং",
+                advanced: "এডভান্সড",
+
+                // Services Titles
+                logo_design_title: "লোগো ডিজাইন",
+                cover_photo_title: "কভার ফটো ডিজাইন",
+                logo_cover_title: "লোগো + কভার প্যাকেজ",
+                premium_logo_title: "প্রিমিয়াম লোগো ডিজাইন",
+                leaflet_title: "লিফলেট ডিজাইন",
+                business_card_title: "বিজনেস কার্ড ডিজাইন",
+                banner_title: "ব্যানার ডিজাইন",
+                sales_ad_title: "বিক্রয় বিজ্ঞাপন ইমেজ ডিজাইন",
+                youtube_thumb_title: "ইউটিউব থাম্বনেইল ডিজাইন",
+                fb_page_title: "প্রফেশনাল ফেইসবুক পেজ সেটআপ",
+                content_writing_title: "কনটেন্ট রাইটিং",
+                video_editing_title: "ভিডিও এডিটিং",
+                fb_ads_title: "ফেইসবুক অ্যাড ক্যাম্পেইন",
+                consultation_title: "বিজনেস কনসালটেশন",
+                website_title: "ওয়েবসাইট ডেভেলপমেন্ট",
+                voice_over_title: "ভয়েস ওভার সার্ভিস",
+
+                // Services Short Descriptions
+                logo_design_short_desc: "প্রফেশনাল লোগো ডিজাইন আপনার ব্র্যান্ড আইডেন্টিটি প্রতিষ্ঠার জন্য",
+                cover_photo_short_desc: "আপনার ফেইসবুক পেজের জন্য আকর্ষণীয় কভার ফটো",
+                logo_cover_short_desc: "লোগো এবং কভার ফটো সহ সম্পূর্ণ ব্র্যান্ডিং প্যাকেজ",
+                premium_logo_short_desc: "প্রতিষ্ঠিত ব্র্যান্ডের জন্য উচ্চমানের লোগো ডিজাইন",
+                leaflet_short_desc: "মার্কেটিং ক্যাম্পেইনের জন্য প্রফেশনাল লিফলেট ডিজাইন",
+                business_card_short_desc: "আপনার ব্র্যান্ডের প্রতিনিধিত্ব করার জন্য প্রফেশনাল বিজনেস কার্ড",
+                banner_short_desc: "প্রচার এবং বিজ্ঞাপনের জন্য আকর্ষণীয় ব্যানার",
+                sales_ad_short_desc: "ফেইসবুক ক্যাম্পেইনের জন্য ৩ সাইজের বিক্রয় বিজ্ঞাপন ইমেজ",
+                youtube_thumb_short_desc: "আপনার ভিডিও ভিউ বাড়ানোর জন্য ক্লিক-যোগ্য থাম্বনেইল",
+                fb_page_short_desc: "সমস্ত সেটিংস সহ প্রফেশনাল ফেইসবুক পেজ সেটআপ",
+                content_writing_short_desc: "গ্রাহকবান্ধব কনটেন্ট যা পণ্যের গুরুত্ব ব্যাখ্যা করে",
+                video_editing_short_desc: "আপনার মার্কেটিং কনটেন্টের জন্য প্রফেশনাল ভিডিও এডিটিং",
+                fb_ads_short_desc: "আপনার লক্ষ্য দর্শকদের কাছে পৌঁছানোর জন্য প্রফেশনাল বিজ্ঞাপন ক্যাম্পেইন",
+                consultation_short_desc: "আপনার ব্যবসার রোডম্যাপ তৈরি করার জন্য ৪০ মিনিটের পরামর্শ",
+                website_short_desc: "আপনার ব্যবসা প্রদর্শনের জন্য কাস্টম ওয়েবসাইট",
+                voice_over_short_desc: "আপনার ভিডিওর জন্য প্রফেশনাল পুরুষ ভয়েস ওভার",
+
+                // Testimonials
+                client_testimonials: "ক্লায়েন্ট টেস্টিমোনিয়ালস",
+                testimonials_subtitle: "আমাদের সেবা সম্পর্কে আমাদের ক্লায়েন্টরা কী বলেন",
+                testimonial3_text: "\"তারা আমার ব্যবসার জন্য যে ওয়েবসাইট তৈরি করেছে তা শুধু সুন্দরই নয়, সম্পূর্ণ কার্যকরীও। তাদের বিস্তারিত দিকে মনোযোগ অসাধারণ।\"",
+                testimonial3_name: "নুসরাত জাহান",
+                testimonial3_title: "সিইও, অর্গানিক কসমেটিক্স",
+
+                // Newsletter
+                newsletter: "নিউজলেটার",
+                stay_updated: "আমাদের সর্বশেষ সেবার সাথে আপডেট থাকুন",
+                newsletter_subtitle: "নতুন সেবা, বিশেষ অফার এবং মার্কেটিং টিপস পেতে আমাদের নিউজলেটারে যোগ দিন।",
+                email_placeholder: "আপনার ইমেইল ঠিকানা",
+
+                // Modal
+                service_details: "সেবার বিবরণ",
+                pricing: "মূল্য",
+                delivery_time: "ডেলিভারি সময়",
+                order_now: "এখনই অর্ডার করুন",
+
+                // Footer
+                footer_tagline: "নারী উদ্যোক্তাদের জন্য ডিজিটাল মার্কেটিং সমাধান",
+                quick_links: "দ্রুত লিংক",
+                contact_us: "যোগাযোগ করুন",
+                developer: "ডেভেলপার",
+                developed_by: "ওয়েবসাইট ডেভেলপ করেছেন:",
+                all_rights: "সমস্ত অধিকার সংরক্ষিত।",
+                dhaka_bangladesh: "ঢাকা, বাংলাদেশ",
+
+                learn_more: "আরও জানুন"
+            }
+        };
+
+        function translateModalContent() {
+            const currentLang = localStorage.getItem('preferredLanguage') || 'en';
+            const modalElements = {
+                'service_details': document.querySelector('[data-i18n="service_details"]'),
+                'pricing': document.querySelector('[data-i18n="pricing"]'),
+                'delivery_time': document.querySelector('[data-i18n="delivery_time"]'),
+                'order_now': document.querySelector('[data-i18n="order_now"]')
+            };
+
+            for (const [key, element] of Object.entries(modalElements)) {
+                if (element && translations[currentLang][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[currentLang][key];
+                    } else {
+                        element.textContent = translations[currentLang][key];
+                    }
+                }
+            }
+        }
+
+        function switchLanguage(lang) {
+            // Update all translatable elements
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+
+            // Switch font family for Bangla
+            if (lang === 'bn') {
+                document.body.style.fontFamily = "'Hind Siliguri', sans-serif";
+            } else {
+                document.body.style.fontFamily = "'Poppins', sans-serif";
+            }
+
+            // Store language preference
+            localStorage.setItem('preferredLanguage', lang);
+            
+            // Translate modal content if open
+            if (modal.classList.contains('active')) {
+                const service = servicesData[currentServiceId];
+                document.getElementById('modal-service-title').textContent = lang === 'bn' ? service.title_bn : service.title;
+                
+                const featuresList = document.getElementById('modal-service-features');
+                featuresList.innerHTML = '';
+                const features = lang === 'bn' ? service.features_bn : service.features;
+                features.forEach(feature => {
+                    featuresList.innerHTML += `
+                        <li class="flex items-start">
+                            <i class="fas fa-check mt-1 mr-2 sm:mr-3"></i>
+                            <span>${feature}</span>
+                        </li>
+                    `;
+                });
+                
+                document.getElementById('modal-service-desc').textContent = lang === 'bn' ? service.desc_bn : service.desc;
+                document.getElementById('modal-service-pricing').textContent = lang === 'bn' ? service.pricing_bn : service.pricing;
+                document.getElementById('modal-service-time').textContent = lang === 'bn' ? service.time_bn : service.time;
+            }
+        }
+
+        // Initialize language toggle buttons
+        function initLanguageToggle() {
+            const preferredLanguage = localStorage.getItem('preferredLanguage') || 'en';
+
+            // Set initial language
+            switchLanguage(preferredLanguage);
+
+            // Update button states
+            if (preferredLanguage === 'en') {
+                document.getElementById('enBtn').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtn').classList.remove('border');
+                document.getElementById('bnBtn').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtn').classList.add('border', 'border-primary');
+
+                // Mobile buttons
+                document.getElementById('enBtnMobile').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtnMobile').classList.remove('border');
+                document.getElementById('bnBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtnMobile').classList.add('border', 'border-primary');
+            } else {
+                document.getElementById('bnBtn').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtn').classList.remove('border');
+                document.getElementById('enBtn').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtn').classList.add('border', 'border-primary');
+
+                // Mobile buttons
+                document.getElementById('bnBtnMobile').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtnMobile').classList.remove('border');
+                document.getElementById('enBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtnMobile').classList.add('border', 'border-primary');
+            }
+
+            // Add event listeners
+            document.getElementById('enBtn').addEventListener('click', function () {
+                switchLanguage('en');
+                this.classList.add('active', 'bg-primary', 'text-white');
+                this.classList.remove('border');
+                document.getElementById('bnBtn').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtn').classList.add('border', 'border-primary');
+
+                // Update mobile buttons
+                document.getElementById('enBtnMobile').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtnMobile').classList.remove('border');
+                document.getElementById('bnBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtnMobile').classList.add('border', 'border-primary');
+            });
+
+            document.getElementById('bnBtn').addEventListener('click', function () {
+                switchLanguage('bn');
+                this.classList.add('active', 'bg-primary', 'text-white');
+                this.classList.remove('border');
+                document.getElementById('enBtn').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtn').classList.add('border', 'border-primary');
+
+                // Update mobile buttons
+                document.getElementById('bnBtnMobile').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtnMobile').classList.remove('border');
+                document.getElementById('enBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtnMobile').classList.add('border', 'border-primary');
+            });
+
+            // Mobile buttons
+            document.getElementById('enBtnMobile').addEventListener('click', function () {
+                switchLanguage('en');
+                this.classList.add('active', 'bg-primary', 'text-white');
+                this.classList.remove('border');
+                document.getElementById('bnBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtnMobile').classList.add('border', 'border-primary');
+
+                // Update desktop buttons
+                document.getElementById('enBtn').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtn').classList.remove('border');
+                document.getElementById('bnBtn').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtn').classList.add('border', 'border-primary');
+            });
+
+            document.getElementById('bnBtnMobile').addEventListener('click', function () {
+                switchLanguage('bn');
+                this.classList.add('active', 'bg-primary', 'text-white');
+                this.classList.remove('border');
+                document.getElementById('enBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtnMobile').classList.add('border', 'border-primary');
+
+                // Update desktop buttons
+                document.getElementById('bnBtn').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtn').classList.remove('border');
+                document.getElementById('enBtn').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtn').classList.add('border', 'border-primary');
+            });
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function () {
+            initLanguageToggle();
+
+            // Set current year in footer
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+            // Lazy load images when they come into view
+            const lazyLoadImages = () => {
+                const lazyImages = document.querySelectorAll('.lazy-img:not(.loaded)');
+
+                lazyImages.forEach(img => {
+                    if (img.getBoundingClientRect().top <= window.innerHeight && img.getBoundingClientRect().bottom >= 0) {
+                        img.classList.add('loaded');
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', lazyLoadImages);
+            window.addEventListener('resize', lazyLoadImages);
+            window.addEventListener('orientationchange', lazyLoadImages);
+
+            // Initial check
+            lazyLoadImages();
+            
+            // Make entire service card clickable
+            document.querySelectorAll('.service-card button').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                });
+            });
+        });
+    </script>
+</body>
+</html>

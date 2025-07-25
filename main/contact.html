@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Target Marketing BD</title>
+    <meta name="description" content="Get in touch with our digital marketing services for female entrepreneurs in Bangladesh">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+    
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#044443',
+                        secondary: '#228B7D',
+                        accent: '#66ADA5',
+                        dark: '#0D302C',
+                        light: '#F5F7FA'
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                        siliguri: ['Hind Siliguri', 'sans-serif']
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-in': 'fadeIn 1s ease-in forwards',
+                        'pulse-slow': 'pulse 5s infinite',
+                        'social-click': 'socialClick 0.5s ease-out forwards'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        socialClick: {
+                            '0%': { transform: 'scale(1)', opacity: '1' },
+                            '50%': { transform: 'scale(1.3)', opacity: '0.8' },
+                            '100%': { transform: 'scale(1)', opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Loading Bar */
+        .loading-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(to right, #044443, #228B7D);
+            z-index: 9999;
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+        
+        /* Contact Card */
+        .contact-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Social Icon */
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: scale(1.1);
+        }
+        
+        .social-icon.clicked {
+            animation: socialClick 0.5s ease-out;
+        }
+        
+        /* Form Card */
+        .form-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .form-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -5px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Form Input */
+        .form-input {
+            transition: all 0.3s ease;
+            border: 1px solid #ddd;
+            background: rgba(255, 255, 255, 0.8);
+        }
+        
+        .form-input:focus {
+            border-color: #228B7D;
+            box-shadow: 0 0 0 3px rgba(34, 139, 125, 0.2);
+            background: white;
+        }
+        
+        /* Background Pattern */
+        .bg-pattern {
+            background-image: url('https://images.unsplash.com/photo-1587560699334-cc4ff634909a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+        
+        .bg-pattern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(4, 68, 67, 0.85);
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .mobile-menu.open {
+            max-height: 500px;
+        }
+        
+        /* Mobile menu overlay */
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 40;
+        }
+        
+        .mobile-menu-overlay.active {
+            display: block;
+        }
+        
+        /* Action Button */
+        .action-btn {
+            transition: all 0.3s ease;
+        }
+        
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="font-poppins bg-gray-50 text-gray-800">
+    <!-- Loading Bar -->
+    <div id="loadingBar" class="loading-bar"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="/" class="flex items-center">
+                        <img src="assets/logo.jpg" alt="Target Marketing BD Logo" class="h-12 mr-4">
+                        <span class="text-xl font-bold text-primary">Target Marketing BD</span>
+                    </a>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="text-primary hover:text-accent transition" data-i18n="home">Home</a>
+                    <a href="services" class="text-primary hover:text-accent transition" data-i18n="services">Services</a>
+                    <a href="blog" class="text-primary hover:text-accent transition" data-i18n="blog">Blog</a>
+                    <a href="about" class="text-primary hover:text-accent transition" data-i18n="about">About</a>
+                    <a href="contact" class="text-primary font-medium" data-i18n="contact">Contact</a>
+                    
+                    <div class="flex items-center space-x-2 ml-6">
+                        <button id="enBtn" class="language-toggle active px-3 py-1 rounded-full text-sm">EN</button>
+                        <button id="bnBtn" class="language-toggle px-3 py-1 rounded-full text-sm border border-primary">BN</button>
+                    </div>
+                </div>
+                
+                <button class="md:hidden focus:outline-none" id="mobileMenuBtn">
+                    <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu Overlay -->
+            <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+            
+            <!-- Mobile Menu -->
+            <div class="mobile-menu md:hidden absolute left-0 right-0 bg-white shadow-lg z-50" id="mobileMenu">
+                <div class="pt-4 pb-2 px-6 space-y-2 text-sm font-medium">
+                    <a href="/" class="block py-2 text-primary hover:text-accent transition" data-i18n="home">Home</a>
+                    <a href="services" class="block py-2 text-primary hover:text-accent transition" data-i18n="services">Services</a>
+                    <a href="blog" class="block py-2 text-primary hover:text-accent transition" data-i18n="blog">Blog</a>
+                    <a href="about" class="block py-2 text-primary hover:text-accent transition" data-i18n="about">About</a>
+                    <a href="contact" class="block py-2 text-primary hover:text-accent transition" data-i18n="contact">Contact</a>
+                    <div class="flex items-center space-x-2 px-3 py-4 justify-center">
+                        <button id="enBtnMobile" class="language-toggle active px-4 py-2 rounded-full text-sm">English</button>
+                        <button id="bnBtnMobile" class="language-toggle px-4 py-2 rounded-full text-sm border border-primary">বাংলা</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-4 bg-gradient-to-r from-primary to-secondary text-white">
+        <div class="container mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6" data-i18n="contact_hero">Get In Touch With Us</h1>
+            <p class="text-xl max-w-2xl mx-auto" data-i18n="contact_subtitle">We'd love to hear from you! Reach out to our female-friendly team for digital marketing solutions.</p>
+        </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="py-16 px-4 bg-pattern text-white relative">
+        <div class="container mx-auto relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Location -->
+                <div class="contact-card p-8 rounded-xl">
+                    <div class="bg-primary bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-map-marker-alt text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-2" data-i18n="location">Location</h3>
+                    <p class="text-gray-600 mb-4">Mirpur, Dhaka, Bangladesh</p>
+                </div>
+                
+                <!-- Phone -->
+                <div class="contact-card p-8 rounded-xl">
+                    <div class="bg-primary bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-phone-alt text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-2" data-i18n="phone">Phone</h3>
+                    <p class="text-gray-600 mb-2">01860-043330</p>
+                    <p class="text-sm text-gray-500 mb-4" data-i18n="female_calls">(Only female calls)</p>
+                    <a href="tel:+8801860043330" class="action-btn inline-block bg-primary text-white px-4 py-2 rounded-lg font-medium hover:bg-dark transition" data-i18n="call_now">
+                        Call Now
+                    </a>
+                </div>
+                
+                <!-- Email -->
+                <div class="contact-card p-8 rounded-xl">
+                    <div class="bg-primary bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-envelope text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-2" data-i18n="email">Email</h3>
+                    <p class="text-gray-600 mb-4">targetmarketingbd@gmail.com</p>
+                    <a href="mailto:targetmarketingbd@gmail.com" class="action-btn inline-block bg-primary text-white px-4 py-2 rounded-lg font-medium hover:bg-dark transition" data-i18n="email_us">
+                        Email Us
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Hours -->
+            <div class="max-w-md mx-auto mt-12 bg-white bg-opacity-90 p-6 rounded-xl text-center">
+                <div class="flex items-center justify-center space-x-2 mb-2">
+                    <i class="fas fa-clock text-primary"></i>
+                    <span class="font-medium text-primary" data-i18n="hours">Working Hours</span>
+                </div>
+                <p class="text-gray-600" data-i18n="always_open">Always open</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form and Social Media -->
+    <section class="py-16 px-4 bg-gray-50">
+        <div class="container mx-auto">
+            <div class="flex flex-col lg:flex-row gap-12">
+                <!-- Contact Form -->
+                <div class="lg:w-1/2">
+                    <div class="form-card p-8 rounded-xl">
+                        <h2 class="text-3xl font-bold text-primary mb-6" data-i18n="send_message">Send Us a Message</h2>
+                        <form id="contactForm" class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-gray-700 mb-2" data-i18n="form_name">Your Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 rounded-lg form-input focus:outline-none">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 mb-2" data-i18n="form_email">Email Address</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 rounded-lg form-input focus:outline-none">
+                            </div>
+                            <div>
+                                <label for="subject" class="block text-gray-700 mb-2" data-i18n="form_subject">Subject</label>
+                                <input type="text" id="subject" class="w-full px-4 py-3 rounded-lg form-input focus:outline-none">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-gray-700 mb-2" data-i18n="form_message">Message</label>
+                                <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-lg form-input focus:outline-none"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-dark transition" data-i18n="form_submit">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Social Media -->
+                <div class="lg:w-1/2">
+                    <div class="bg-white p-8 rounded-xl shadow-sm">
+                        <h2 class="text-3xl font-bold text-primary mb-6" data-i18n="connect_with_us">Connect With Us</h2>
+                        
+                        <!-- Social Media Links -->
+                        <div class="mb-8">
+                            <p class="text-gray-600 mb-4" data-i18n="social_text">Follow us on social media for updates and tips:</p>
+                            <div class="flex flex-wrap gap-4">
+                                <a href="https://facebook.com/targetmarketingbd" target="_blank" class="social-icon bg-gradient-to-br from-blue-600 to-blue-700 text-white rounded-full flex items-center justify-center">
+                                    <i class="fab fa-facebook-f text-xl"></i>
+                                </a>
+                                <a href="https://instagram.com/targetmarketingbd" target="_blank" class="social-icon bg-gradient-to-br from-pink-500 to-pink-600 text-white rounded-full flex items-center justify-center">
+                                    <i class="fab fa-instagram text-xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Important Note -->
+                        <div class="bg-primary bg-opacity-10 p-4 rounded-lg border-l-4 border-primary">
+                            <div class="flex items-start">
+                                <i class="fas fa-info-circle text-primary mt-1 mr-3"></i>
+                                <p class="text-gray-700" data-i18n="female_team_note">
+                                    <strong>Note:</strong> Please note that our customer support team is comprised exclusively of women. We only accept calls from female clients, and we kindly request that you respect this policy.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12 px-4">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <img src="assets/logo.jpg" alt="Target Marketing BD Logo" class="h-16 mb-4">
+                    <p data-i18n="footer_tagline">Digital marketing solutions for female entrepreneurs</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4" data-i18n="quick_links">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/" class="hover:text-accent transition" data-i18n="home">Home</a></li>
+                        <li><a href="services" class="hover:text-accent transition" data-i18n="services">Services</a></li>
+                        <li><a href="blog" class="hover:text-accent transition" data-i18n="blog">Blog</a></li>
+                        <li><a href="about" class="hover:text-accent transition" data-i18n="about">About</a></li>
+                        <li><a href="contact" class="hover:text-accent transition" data-i18n="contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4" data-i18n="contact_us">Contact Us</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-2 text-accent"></i>
+                            <span>targetmarketingbd@gmail.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-2 text-accent"></i>
+                            <span>+880 1860 043330</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2 text-accent"></i>
+                            <span data-i18n="dhaka_bangladesh">Dhaka, Bangladesh</span>
+                        </li>
+                    </ul>
+                </div>
+            <div>
+                <h4 class="text-lg font-bold mb-4" data-i18n="developer">Developer</h4>
+                <p data-i18n="developed_by">Website developed by:</p>
+                <p class="mt-2 font-semibold">
+                    <a href="developers" target="_blank" rel="noopener" class="hover:text-accent transition">
+                        Raiyan Bin Rashid <br> Sayed Ibn masud
+                </p>
+                <p class="text-sm mt-4 text-accent">© <span id="currentYear"></span> Target Marketing BD. <span
+                        data-i18n="all_rights">All rights reserved.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Messenger Button -->
+    <a href="https://m.me/tmbd.xyz" target="_blank" id="messengerBtn" class="fixed bottom-8 right-8 bg-blue-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl hover:bg-blue-700 transition duration-300 z-40">
+        <i class="fab fa-facebook-messenger text-2xl"></i>
+        <span class="loading-spinner hidden"></span>
+    </a>
+    <style>
+        @keyframes spin {
+            0% { transform: rotate(0deg);}
+            100% { transform: rotate(360deg);}
+        }
+        .loading-spinner {
+            border: 3px solid #fff;
+            border-top: 3px solid #2563eb;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            animation: spin 1s linear infinite;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            pointer-events: none;
+        }
+        .loading #messengerBtn .fab.fa-facebook-messenger {
+            opacity: 0.3;
+        }
+        .loading #messengerBtn .loading-spinner {
+            display: block;
+        }
+    </style>
+    <script>
+        // Only show spinner after page load, not on refresh or initial load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Example: Show spinner when Messenger button is clicked
+            const messengerBtn = document.getElementById('messengerBtn');
+            messengerBtn.addEventListener('click', function(e) {
+                // Only show spinner if not already loading
+                if (!document.body.classList.contains('loading')) {
+                    document.body.classList.add('loading');
+                    // Hide spinner after a short delay or when navigating away
+                    setTimeout(() => {
+                        document.body.classList.remove('loading');
+                    }, 1200);
+                }
+            });
+        });
+    </script>
+
+    <!-- Scripts -->
+    <script>
+        // Loading bar animation
+        window.addEventListener('load', function() {
+            const loadingBar = document.getElementById('loadingBar');
+            let width = 1;
+            const interval = setInterval(() => {
+                if (width >= 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        loadingBar.style.opacity = '0';
+                        setTimeout(() => {
+                            loadingBar.style.display = 'none';
+                        }, 300);
+                    }, 300);
+                } else {
+                    width += 2;
+                    loadingBar.style.width = width + '%';
+                    
+                    // Slow down as we approach 100%
+                    if (width > 80) {
+                        width += 0.5;
+                    }
+                }
+            }, 20);
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('open');
+            mobileMenuOverlay.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : 'auto';
+        });
+        
+        mobileMenuOverlay.addEventListener('click', function() {
+            mobileMenu.classList.remove('open');
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Simple validation
+            if (!name || !email || !message) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            // Here you would typically send the form data to your server
+            // For demonstration, we'll just show a success message
+            alert('Thank you for your message, ' + name + '! We will contact you soon.');
+            this.reset();
+        });
+
+        // Social icon click animation
+        document.querySelectorAll('.social-icon').forEach(icon => {
+            icon.addEventListener('click', function() {
+                this.classList.add('clicked');
+                setTimeout(() => {
+                    this.classList.remove('clicked');
+                }, 500);
+            });
+        });
+
+        // Language switching functionality
+        const translations = {
+            en: {
+                // Navigation
+                home: "Home",
+                services: "Services",
+                blog: "Blog",
+                about: "About",
+                contact: "Contact",
+                
+                // Hero
+                contact_hero: "Get In Touch With Us",
+                contact_subtitle: "We'd love to hear from you! Reach out to our female-friendly team for Digital marketing solutions.",
+                
+                // Contact Info
+                location: "Location",
+                phone: "Phone",
+                female_calls: "(Only female calls)",
+                email: "Email",
+                call_now: "Call Now",
+                email_us: "Email Us",
+                hours: "Working Hours",
+                always_open: "Always open",
+                
+                // Form
+                send_message: "Send Us a Message",
+                form_name: "Your Name",
+                form_email: "Email Address",
+                form_subject: "Subject",
+                form_message: "Message",
+                form_submit: "Send Message",
+                
+                // Social
+                connect_with_us: "Connect With Us",
+                social_text: "Follow us on social media for updates and tips:",
+                female_team_note: "Note: Our customer support team consists entirely of women. Please respect our policy of only accepting calls from female clients.",
+                
+                // Footer
+                footer_tagline: "Digital marketing solutions for female entrepreneurs",
+                quick_links: "Quick Links",
+                contact_us: "Contact Us",
+                developer: "Developer",
+                developed_by: "Website developed by:",
+                all_rights: "All rights reserved.",
+                dhaka_bangladesh: "Dhaka, Bangladesh"
+            },
+            bn: {
+                // Navigation
+                home: "হোম",
+                services: "সেবাসমূহ",
+                blog: "ব্লগ",
+                about: "আমাদের সম্পর্কে",
+                contact: "যোগাযোগ",
+                
+                // Hero
+                contact_hero: "আমাদের সাথে যোগাযোগ করুন",
+                contact_subtitle: "আমরা আপনার কাছ থেকে শুনতে আগ্রহী! ডিজিটাল মার্কেটিং সমাধানের জন্য আমাদের নারী-বান্ধব দলের সাথে যোগাযোগ করুন।",
+                
+                // Contact Info
+                location: "অবস্থান",
+                phone: "ফোন",
+                female_calls: "(শুধুমাত্র মহিলাদের কল)",
+                email: "ইমেইল",
+                call_now: "এখনই কল করুন",
+                email_us: "ইমেইল করুন",
+                hours: "কাজের সময়",
+                always_open: "সর্বদা খোলা",
+                
+                // Form
+                send_message: "আমাদের একটি বার্তা পাঠান",
+                form_name: "আপনার নাম",
+                form_email: "ইমেইল ঠিকানা",
+                form_subject: "বিষয়",
+                form_message: "বার্তা",
+                form_submit: "বার্তা পাঠান",
+                
+                // Social
+                connect_with_us: "আমাদের সাথে সংযুক্ত হোন",
+                social_text: "আপডেট এবং টিপসের জন্য আমাদের সোশ্যাল মিডিয়াতে অনুসরণ করুন:",
+                female_team_note: "দ্রষ্টব্য: অনুগ্রহ করে মনে রাখবেন যে আমাদের গ্রাহক সহায়তা দল শুধুমাত্র নারীদের নিয়ে গঠিত। আমরা কেবল নারী গ্রাহকদের কাছ থেকে কল গ্রহণ করি, এবং এই নীতিটি সম্মান জানানোর জন্য অনুরোধ করা হচ্ছে।",
+                
+                // Footer
+                footer_tagline: "নারী উদ্যোক্তাদের জন্য ডিজিটাল মার্কেটিং সমাধান",
+                quick_links: "দ্রুত লিংক",
+                contact_us: "যোগাযোগ করুন",
+                developer: "ডেভেলপার",
+                developed_by: "ওয়েবসাইট ডেভেলপ করেছেন:",
+                all_rights: "সমস্ত অধিকার সংরক্ষিত।",
+                dhaka_bangladesh: "ঢাকা, বাংলাদেশ"
+            }
+        };
+
+        function switchLanguage(lang) {
+            // Update all translatable elements
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+            
+            // Switch font family for Bangla
+            if (lang === 'bn') {
+                document.body.style.fontFamily = "'Hind Siliguri', sans-serif";
+            } else {
+                document.body.style.fontFamily = "'Poppins', sans-serif";
+            }
+            
+            // Store language preference
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // Initialize language toggle buttons
+        function initLanguageToggle() {
+            const preferredLanguage = localStorage.getItem('preferredLanguage') || 'en';
+            
+            // Set initial language
+            switchLanguage(preferredLanguage);
+            
+            // Update button states
+            if (preferredLanguage === 'en') {
+                document.getElementById('enBtn').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtn').classList.remove('border');
+                document.getElementById('bnBtn').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtn').classList.add('border', 'border-primary');
+                
+                // Mobile buttons
+                document.getElementById('enBtnMobile').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtnMobile').classList.remove('border');
+                document.getElementById('bnBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtnMobile').classList.add('border', 'border-primary');
+            } else {
+                document.getElementById('bnBtn').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtn').classList.remove('border');
+                document.getElementById('enBtn').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtn').classList.add('border', 'border-primary');
+                
+                // Mobile buttons
+                document.getElementById('bnBtnMobile').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtnMobile').classList.remove('border');
+                document.getElementById('enBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtnMobile').classList.add('border', 'border-primary');
+            }
+            
+            // Add event listeners
+            document.getElementById('enBtn').addEventListener('click', function() {
+                switchLanguage('en');
+                this.classList.add('active', 'bg-primary', 'text-white');
+                this.classList.remove('border');
+                document.getElementById('bnBtn').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtn').classList.add('border', 'border-primary');
+                
+                // Update mobile buttons
+                document.getElementById('enBtnMobile').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtnMobile').classList.remove('border');
+                document.getElementById('bnBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtnMobile').classList.add('border', 'border-primary');
+            });
+            
+            document.getElementById('bnBtn').addEventListener('click', function() {
+                switchLanguage('bn');
+                this.classList.add('active', 'bg-primary', 'text-white');
+                this.classList.remove('border');
+                document.getElementById('enBtn').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtn').classList.add('border', 'border-primary');
+                
+                // Update mobile buttons
+                document.getElementById('bnBtnMobile').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtnMobile').classList.remove('border');
+                document.getElementById('enBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtnMobile').classList.add('border', 'border-primary');
+            });
+            
+            // Mobile buttons
+            document.getElementById('enBtnMobile').addEventListener('click', function() {
+                switchLanguage('en');
+                this.classList.add('active', 'bg-primary', 'text-white');
+                this.classList.remove('border');
+                document.getElementById('bnBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtnMobile').classList.add('border', 'border-primary');
+                
+                // Update desktop buttons
+                document.getElementById('enBtn').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtn').classList.remove('border');
+                document.getElementById('bnBtn').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtn').classList.add('border', 'border-primary');
+            });
+            
+            document.getElementById('bnBtnMobile').addEventListener('click', function() {
+                switchLanguage('bn');
+                this.classList.add('active', 'bg-primary', 'text-white');
+                this.classList.remove('border');
+                document.getElementById('enBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtnMobile').classList.add('border', 'border-primary');
+                
+                // Update desktop buttons
+                document.getElementById('bnBtn').classList.add('active', 'bg-primary', 'text-white');
+                document.getElementById('bnBtn').classList.remove('border');
+                document.getElementById('enBtn').classList.remove('active', 'bg-primary', 'text-white');
+                document.getElementById('enBtn').classList.add('border', 'border-primary');
+            });
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initLanguageToggle();
+            
+            // Set current year in footer
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html>
