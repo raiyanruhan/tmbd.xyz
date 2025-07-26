@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Team | Target Marketing BD</title>
+    <title>About Us | Target Marketing BD</title>
     <meta name="description" content="Meet our dedicated team serving female entrepreneurs in Bangladesh">
     
     <!-- Preload critical resources -->
@@ -198,7 +198,7 @@
                     <a href="index.html" class="text-primary hover:text-accent transition" data-i18n="home">Home</a>
                     <a href="services.html" class="text-primary hover:text-accent transition" data-i18n="services">Services</a>
                     <a href="blog.html" class="text-primary hover:text-accent transition" data-i18n="blog">Blog</a>
-                    <a href="about.html" class="text-primary font-medium" data-i18n="about">Our Team</a>
+                    <a href="about.html" class="text-primary font-medium" data-i18n="about">About</a>
                     <a href="contact.html" class="text-primary hover:text-accent transition" data-i18n="contact">Contact</a>
                     
                     <div class="flex items-center space-x-2 ml-6">
@@ -223,7 +223,7 @@
                     <a href="index.html" class="block py-2 text-primary hover:text-accent transition" data-i18n="home">Home</a>
                     <a href="services.html" class="block py-2 text-primary hover:text-accent transition" data-i18n="services">Services</a>
                     <a href="blog.html" class="block py-2 text-primary hover:text-accent transition" data-i18n="blog">Blog</a>
-                    <a href="about.html" class="block py-2 text-primary hover:text-accent transition" data-i18n="about">Our Team</a>
+                    <a href="about.html" class="block py-2 text-primary hover:text-accent transition" data-i18n="about">About</a>
                     <a href="contact.html" class="block py-2 text-primary hover:text-accent transition" data-i18n="contact">Contact</a>
                     <div class="flex items-center space-x-2 px-3 py-4 justify-center">
                         <button id="enBtnMobile" class="language-toggle active px-4 py-2 rounded-full text-sm">English</button>
@@ -235,151 +235,62 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative h-96 w-full overflow-hidden bg-cover bg-center" style="background-image: url('assets/bg-hero-about.avif');">
-        <!-- Content -->
-        <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-20 text-white bg-black bg-opacity-50">
-          <!-- Dynamic Text with Gradient and Typewriter Effect -->
-          <h1 class="text-3xl md:text-4xl font-semibold mb-8 flex items-center justify-center space-x-2">
-            <span class="static-text text-white" data-i18n="our_team">Our team</span>
-            <span class="relative inline-block h-10 overflow-hidden">
-              <span id="typewriter" class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 whitespace-nowrap"></span>
-            </span>
-          </h1>
-          <!-- Subtitle -->
-          <p class="text-xl max-w-3xl mb-8 opacity-100 text-white" data-i18n="team_subtitle">
-            Meet the talented professionals behind our success
-          </p>
+    <section class="pt-32 pb-20 px-4 hero-gradient text-white relative">
+        <div class="islamic-pattern"></div>
+        <div class="container mx-auto text-center relative z-10">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6" data-i18n="team_hero">Our Dedicated Team</h1>
+            <p class="text-xl max-w-2xl mx-auto" data-i18n="team_subtitle">Meet the talented professionals behind our success</p>
         </div>
-      </section>
-      
-      <!-- Custom CSS for typewriter cursor -->
-      <style>
-      /* Typewriter cursor */
-      #typewriter::after {
-        content: '|';
-        display: inline-block;
-        animation: blink 1s infinite;
-        margin-left: 2px;
-      }
-      
-      @keyframes blink {
-        0%, 50%, 100% { opacity: 1; }
-        25%, 75% { opacity: 0; }
-      }
-      </style>
-      
-      <!-- JavaScript for typewriter effect -->
-      <script>
-      const phrases = {
-          en: [
-              "solves.",
-              "is skilled.",
-              "makes things happen.",
-              "leads.",
-              "brings ideas to life."
-          ],
-          bn: [
-              "সমাধান করে।",
-              "দক্ষ।",
-              "কাজ করে দেখায়।",
-              "নেতৃত্ব দেয়।",
-              "ধারণাকে বাস্তবে রূপ দেয়।"
-          ]
-      };
-      
-      const typewriterSpan = document.getElementById('typewriter');
-      let currentLanguage = 'en';
-      
-      let phraseIndex = 0;
-      let charIndex = 0;
-      const typingDelay = 100; // milliseconds per character
-      const erasingDelay = 50;
-      const delayBetweenPhrases = 1500; // pause before next phrase
-      
-      function type() {
-          const currentPhrase = phrases[currentLanguage][phraseIndex];
-          if (charIndex < currentPhrase.length) {
-              typewriterSpan.textContent += currentPhrase.charAt(charIndex);
-              charIndex++;
-              setTimeout(type, typingDelay);
-          } else {
-              // Wait before erasing
-              setTimeout(erase, delayBetweenPhrases);
-          }
-      }
-      
-      function erase() {
-          if (charIndex > 0) {
-              typewriterSpan.textContent = typewriterSpan.textContent.slice(0, -1);
-              charIndex--;
-              setTimeout(erase, erasingDelay);
-          } else {
-              // Move to next phrase
-              phraseIndex = (phraseIndex + 1) % phrases[currentLanguage].length;
-              setTimeout(type, typingDelay);
-          }
-      }
-      
-      // Start the typing effect
-      document.addEventListener('DOMContentLoaded', () => {
-          type();
-      });
-      
-      // Function to update typewriter language
-      function updateTypewriterLanguage(lang) {
-          currentLanguage = lang;
-          phraseIndex = 0;
-          charIndex = 0;
-          typewriterSpan.textContent = '';
-          type();
-      }
-      </script>
+    </section>
 
-<!-- CEO Section -->
-<section class="py-16 px-4 ceo-bg relative">
-    <div class="islamic-pattern"></div>
-    <div class="container mx-auto max-w-6xl relative z-10">
-        <div class="flex flex-col md:flex-row items-center bg-white rounded-2xl shadow-lg overflow-hidden">
-            <!-- Text Content -->
-            <div class="md:w-2/3 p-8 md:p-12">
-                <div class="flex items-center mb-4">
-                    <div class="w-16 h-1 bg-primary rounded-full mr-4"></div>
-                    <span class="text-primary font-semibold" data-i18n="ceo_title">Founder & CEO</span>
+    <!-- CEO Section -->
+    <section class="py-16 px-4 ceo-bg relative">
+        <div class="islamic-pattern"></div>
+        <div class="container mx-auto max-w-6xl relative z-10">
+            <div class="flex flex-col md:flex-row items-center bg-white rounded-2xl shadow-lg overflow-hidden">
+                <div class="md:w-1/3 relative">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" 
+                         alt="Dr. Rubaiya Binte Rashid" 
+                         class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-primary to-transparent opacity-20"></div>
                 </div>
-                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Dr. Rubaiya Binte Rashid</h2>
-                <div class="flex flex-wrap gap-2 mb-4">
-                    <div class="bg-blue bg-opacity-10 px-3 py-1 rounded-full">
-                        <span class="text-primary text-sm font-medium">BDS - Rangpur Medical College, PGT - Dhaka</span>
+                <div class="md:w-2/3 p-8 md:p-12">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-1 bg-primary rounded-full mr-4"></div>
+                        <span class="text-primary font-semibold" data-i18n="ceo_title">Founder & CEO</span>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Dr. Rubaiya Binte Rashid</h2>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <div class="bg-primary bg-opacity-10 px-3 py-1 rounded-full">
+                            <span class="text-primary text-sm font-medium">BDS, PGT</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6" data-i18n="ceo_description">
+                        Graphics Designer & Facebook Ad Expert. With her visionary leadership, she has guided Target Marketing BD to become a premier digital marketing agency serving female entrepreneurs across Bangladesh.
+                    </p>
+                    <div class="flex flex-wrap gap-4 mb-6">
+                        <div class="bg-primary bg-opacity-10 px-4 py-2 rounded-full">
+                            <span class="text-primary font-medium">Owner & CEO</span>
+                        </div>
+                        <div class="bg-primary bg-opacity-10 px-4 py-2 rounded-full">
+                            <span class="text-primary font-medium">Target Marketing BD</span>
+                        </div>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="#" class="social-icon text-primary hover:text-secondary text-xl">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-icon text-primary hover:text-secondary text-xl">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon text-primary hover:text-secondary text-xl">
+                            <i class="fab fa-facebook"></i>
+                        </a>
                     </div>
                 </div>
-                <p class="text-gray-600 mb-6" data-i18n="ceo_description">
-                    Graphics Designer & Facebook Ad Expert. With her visionary leadership, she has guided Target Marketing BD to become a premier digital marketing agency serving female entrepreneurs across Bangladesh.
-                </p>
-                <div class="flex flex-wrap gap-4 mb-6">
-                    <div class="bg-primary bg-opacity-10 px-4 py-2 rounded-full">
-                        <span class="text-primary font-medium" data-i18n="ceo_role1">Owner & CEO</span>
-                    </div>
-                    <div class="bg-primary bg-opacity-10 px-4 py-2 rounded-full">
-                        <span class="text-primary font-medium">Target Marketing BD</span>
-                    </div>
-                </div>
-                <!-- Social Media Buttons -->
-                <div class="flex space-x-4 mt-4">
-                    <a href="https://www.facebook.com/rubaiya.ruhi" class="bg-white p-3 rounded-full shadow hover:bg-gray-200 transition duration-300 text-primary hover:text-secondary text-2xl">
-                        <i class="fab fa-facebook"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/rubaiyaruhi/" class="bg-white p-3 rounded-full shadow hover:bg-gray-200 transition duration-300 text-primary hover:text-secondary text-2xl">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                </div>
-            </div>
-            <!-- Circular Image on the Right -->
-            <div class="md:w-1/3 flex justify-center p-8 md:p-12">
-                <img src="https://scontent.fjsr11-1.fna.fbcdn.net/v/t39.30808-6/489648052_2787261844813668_1815617719012380251_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHnGI0MIqxach5Y6w47Bylgrmx33Rs20LGubHfdGzbQsSlqlEnWDWfDhNQJBcYAhk0cK2lJexQ1ff0n-vtstg-f&_nc_ohc=O4R1m7e4mZgQ7kNvwGQgt06&_nc_oc=AdlqmGA1te2pPUFZcW10-EklMEX3yhGIdkOYJPaMYNHs8spaBLd9_iDFZB02gqdesbQ&_nc_zt=23&_nc_ht=scontent.fjsr11-1.fna&_nc_gid=npgFvfGSpvgUD5hkvWBczw&oh=00_AfR4vsHTRNJKVaARueCsLWXJrRPMgvPfKpAi6jrxgZ2fJg&oe=688A70AE" alt="CEO Image" class="w-48 h-48 md:w-64 md:h-64 object-cover rounded-full shadow-lg">
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Section Divider -->
     <div class="section-divider"></div>
@@ -388,9 +299,9 @@
     <section class="py-16 px-4 bg-white">
         <div class="container mx-auto">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-primary mb-2" data-i18n="design_team">Design Team</h2>
+                <h2 class="text-3xl font-bold text-primary mb-2">Design Team</h2>
                 <div class="w-20 h-1 bg-islamicGold mx-auto mb-4"></div>
-                <p class="text-gray-600 max-w-2xl mx-auto" data-i18n="design_team_desc">
+                <p class="text-gray-600 max-w-2xl mx-auto">
                     Our creative designers who bring ideas to life with stunning visuals
                 </p>
             </div>
@@ -400,15 +311,15 @@
                 <div class="team-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
                     <div class="h-48 bg-teamPink flex items-center justify-center relative">
                         <div class="islamic-pattern"></div>
-                        <img src="assets/Minimalist Hijab Icon.png" 
+                        <img src="https://w7.pngwing.com/pngs/835/277/png-transparent-hijab-islam-graphy-hijab-face-monochrome-head-thumbnail.png" 
                              alt="Tarana Tazlima" 
                              class="h-32 w-32 rounded-full object-cover border-4 border-white shadow-md relative z-10">
                     </div>
                     <div class="p-6 text-center">
                         <h3 class="text-xl font-bold text-dark mb-1">Tarana Tazlima</h3>
-                        <p class="text-sm text-primary font-medium mb-2" data-i18n="tarana_role">Brand & Visual Identity Designer</p>
-                        <p class="text-xs text-gray-500 mb-4" data-i18n="freelancer">Freelancer</p>
-                        <p class="text-gray-600 text-sm mb-4" data-i18n="tarana_desc">
+                        <p class="text-sm text-primary font-medium mb-2">Brand & Visual Identity Designer</p>
+                        <p class="text-xs text-gray-500 mb-4">Freelancer</p>
+                        <p class="text-gray-600 text-sm mb-4">
                             Professional Calligraphy & Dawah Designer with a keen eye for Islamic aesthetic.
                         </p>
                         <div class="flex justify-center space-x-3">
@@ -426,18 +337,18 @@
                 <div class="team-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
                     <div class="h-48 bg-teamBlue flex items-center justify-center relative">
                         <div class="islamic-pattern"></div>
-                        <img src="assets/Minimalist Hijab Icon.png" 
+                        <img src="https://w7.pngwing.com/pngs/835/277/png-transparent-hijab-islam-graphy-hijab-face-monochrome-head-thumbnail.png" 
                              alt="Ishrat Jahan" 
                              class="h-32 w-32 rounded-full object-cover border-4 border-white shadow-md relative z-10">
                     </div>
                     <div class="p-6 text-center">
                         <h3 class="text-xl font-bold text-dark mb-1">Ishrat Jahan</h3>
-                        <p class="text-sm text-primary font-medium mb-2" data-i18n="ishrat_role">Content Writer & Graphic Designer</p>
+                        <p class="text-sm text-primary font-medium mb-2">Content Writer & Graphic Designer</p>
                         <div class="flex justify-center gap-2 mb-4">
                             <span class="text-xs text-gray-500">BBA, MBA</span>
-                            <span class="text-xs text-gray-500" data-i18n="chittagong_uni">Chittagong University</span>
+                            <span class="text-xs text-gray-500">Chittagong University</span>
                         </div>
-                        <p class="text-gray-600 text-sm mb-4" data-i18n="ishrat_desc">
+                        <p class="text-gray-600 text-sm mb-4">
                             Combining business acumen with creative design to deliver compelling visual content.
                         </p>
                         <div class="flex justify-center space-x-3">
@@ -455,17 +366,17 @@
                 <div class="team-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
                     <div class="h-48 bg-teamGreen flex items-center justify-center relative">
                         <div class="islamic-pattern"></div>
-                        <img src="assets/Minimalist Hijab Icon.png" 
+                        <img src="https://w7.pngwing.com/pngs/835/277/png-transparent-hijab-islam-graphy-hijab-face-monochrome-head-thumbnail.png" 
                              alt="Sumaiya Afroja" 
                              class="h-32 w-32 rounded-full object-cover border-4 border-white shadow-md relative z-10">
                     </div>
                     <div class="p-6 text-center">
                         <h3 class="text-xl font-bold text-dark mb-1">Sumaiya Afroja</h3>
-                        <p class="text-sm text-primary font-medium mb-2" data-i18n="sumaiya_role">Content Writer & Graphics Designer</p>
+                        <p class="text-sm text-primary font-medium mb-2">Content Writer & Graphics Designer</p>
                         <div class="flex justify-center gap-2 mb-4">
                             <span class="text-xs text-gray-500">B.A, M.A (English)</span>
                         </div>
-                        <p class="text-gray-600 text-sm mb-4" data-i18n="sumaiya_desc">
+                        <p class="text-gray-600 text-sm mb-4">
                             Creating engaging content with visually appealing designs that tell your brand's story.
                         </p>
                         <div class="flex justify-center space-x-3">
@@ -482,14 +393,16 @@
         </div>
     </section>
 
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
 
     <!-- Creative Team Section -->
     <section class="py-16 px-4 bg-gray-50">
         <div class="container mx-auto">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-primary mb-2" data-i18n="creative_team">Creative Team</h2>
+                <h2 class="text-3xl font-bold text-primary mb-2">Creative Team</h2>
                 <div class="w-20 h-1 bg-islamicGold mx-auto mb-4"></div>
-                <p class="text-gray-600 max-w-2xl mx-auto" data-i18n="creative_team_desc">
+                <p class="text-gray-600 max-w-2xl mx-auto">
                     Our innovative team members who specialize in visual storytelling
                 </p>
             </div>
@@ -499,14 +412,14 @@
                 <div class="team-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
                     <div class="h-48 bg-teamPurple flex items-center justify-center relative">
                         <div class="islamic-pattern"></div>
-                        <img src="assets/Minimalist Hijab Icon.png" 
+                        <img src="https://w7.pngwing.com/pngs/835/277/png-transparent-hijab-islam-graphy-hijab-face-monochrome-head-thumbnail.png" 
                              alt="Habiba Akter" 
                              class="h-32 w-32 rounded-full object-cover border-4 border-white shadow-md relative z-10">
                     </div>
                     <div class="p-6 text-center">
                         <h3 class="text-xl font-bold text-dark mb-1">Habiba Akter</h3>
-                        <p class="text-sm text-primary font-medium mb-4" data-i18n="habiba_role">Creative Graphic Designer</p>
-                        <p class="text-gray-600 text-sm mb-4" data-i18n="habiba_desc">
+                        <p class="text-sm text-primary font-medium mb-4">Creative Graphic Designer</p>
+                        <p class="text-gray-600 text-sm mb-4">
                             Video Editing & Typography Enthusiast focused on clean, meaningful visuals with a passion for Dawah-inspired design.
                         </p>
                         <div class="flex justify-center space-x-3">
@@ -524,17 +437,17 @@
                 <div class="team-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
                     <div class="h-48 bg-teamPink flex items-center justify-center relative">
                         <div class="islamic-pattern"></div>
-                        <img src="assets/Minimalist Hijab Icon.png" 
+                        <img src="https://w7.pngwing.com/pngs/835/277/png-transparent-hijab-islam-graphy-hijab-face-monochrome-head-thumbnail.png" 
                              alt="Nafisa Nawal" 
                              class="h-32 w-32 rounded-full object-cover border-4 border-white shadow-md relative z-10">
                     </div>
                     <div class="p-6 text-center">
                         <h3 class="text-xl font-bold text-dark mb-1">Nafisa Nawal</h3>
-                        <p class="text-sm text-primary font-medium mb-2" data-i18n="nafisa_role">Graphics Designer & Video Editor</p>
+                        <p class="text-sm text-primary font-medium mb-2">Graphics Designer & Video Editor</p>
                         <div class="flex justify-center gap-2 mb-4">
                             <span class="text-xs text-gray-500">B.Sc (CSE)</span>
                         </div>
-                        <p class="text-gray-600 text-sm mb-4" data-i18n="nafisa_desc">
+                        <p class="text-gray-600 text-sm mb-4">
                             Combining technical skills with creative vision to produce stunning visual content.
                         </p>
                         <div class="flex justify-center space-x-3">
@@ -555,11 +468,11 @@
                         <div class="bg-white bg-opacity-20 w-20 h-20 rounded-full flex items-center justify-center mb-6 relative z-10">
                             <i class="fas fa-paint-brush text-3xl"></i>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4 relative z-10" data-i18n="creative_talent">Creative Talent Needed</h3>
-                        <p class="mb-6 opacity-90 relative z-10" data-i18n="creative_talent_desc">
+                        <h3 class="text-2xl font-bold mb-4 relative z-10">Creative Talent Needed</h3>
+                        <p class="mb-6 opacity-90 relative z-10">
                             We're looking for passionate designers to join our creative team.
                         </p>
-                        <a href="contact.html" class="inline-block bg-white text-primary px-6 py-2 rounded-full font-semibold hover:bg-opacity-90 transition relative z-10" data-i18n="apply_now">
+                        <a href="contact.html" class="inline-block bg-white text-primary px-6 py-2 rounded-full font-semibold hover:bg-opacity-90 transition relative z-10">
                             Apply Now
                         </a>
                     </div>
@@ -575,9 +488,9 @@
     <section class="py-16 px-4 bg-white">
         <div class="container mx-auto">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-primary mb-2" data-i18n="social_media_team">Social Media Team</h2>
+                <h2 class="text-3xl font-bold text-primary mb-2">Social Media Team</h2>
                 <div class="w-20 h-1 bg-islamicGold mx-auto mb-4"></div>
-                <p class="text-gray-600 max-w-2xl mx-auto" data-i18n="social_media_team_desc">
+                <p class="text-gray-600 max-w-2xl mx-auto">
                     Our experts who manage and grow your social media presence
                 </p>
             </div>
@@ -587,18 +500,18 @@
                 <div class="team-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
                     <div class="h-48 bg-teamBlue flex items-center justify-center relative">
                         <div class="islamic-pattern"></div>
-                        <img src="assets/Minimalist Hijab Icon.png" 
+                        <img src="https://w7.pngwing.com/pngs/835/277/png-transparent-hijab-islam-graphy-hijab-face-monochrome-head-thumbnail.png" 
                              alt="Mst Rabeya Khatun" 
                              class="h-32 w-32 rounded-full object-cover border-4 border-white shadow-md relative z-10">
                     </div>
                     <div class="p-6 text-center">
                         <h3 class="text-xl font-bold text-dark mb-1">Mst Rabeya Khatun</h3>
-                        <p class="text-sm text-primary font-medium mb-2" data-i18n="rabeya_role">Social Media Management</p>
+                        <p class="text-sm text-primary font-medium mb-2">Social Media Management</p>
                         <div class="flex justify-center gap-2 mb-4">
                             <span class="text-xs text-gray-500">BSc (Hons)</span>
-                            <span class="text-xs text-gray-500" data-i18n="dhaka_uni">University of Dhaka</span>
+                            <span class="text-xs text-gray-500">University of Dhaka</span>
                         </div>
-                        <p class="text-gray-600 text-sm mb-4" data-i18n="rabeya_desc">
+                        <p class="text-gray-600 text-sm mb-4">
                             Developing and implementing social media strategies to enhance brand visibility.
                         </p>
                         <div class="flex justify-center space-x-3">
@@ -616,14 +529,14 @@
                 <div class="team-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
                     <div class="h-48 bg-teamGreen flex items-center justify-center relative">
                         <div class="islamic-pattern"></div>
-                        <img src="assets/Minimalist Hijab Icon.png" 
+                        <img src="https://w7.pngwing.com/pngs/835/277/png-transparent-hijab-islam-graphy-hijab-face-monochrome-head-thumbnail.png" 
                              alt="Ayesha Afrin Shamima" 
                              class="h-32 w-32 rounded-full object-cover border-4 border-white shadow-md relative z-10">
                     </div>
                     <div class="p-6 text-center">
                         <h3 class="text-xl font-bold text-dark mb-1">Ayesha Afrin Shamima</h3>
-                        <p class="text-sm text-primary font-medium mb-4" data-i18n="ayesha_role">Social Media Management</p>
-                        <p class="text-gray-600 text-sm mb-4" data-i18n="ayesha_desc">
+                        <p class="text-sm text-primary font-medium mb-4">Social Media Management</p>
+                        <p class="text-gray-600 text-sm mb-4">
                             Creating engaging content and managing online communities for brand growth.
                         </p>
                         <div class="flex justify-center space-x-3">
@@ -631,7 +544,7 @@
                                 <i class="fab fa-twitter"></i>
                             </a>
                             <a href="#" class="social-icon text-gray-400 hover:text-primary">
-                                <i class="fab fa-facebook"></i>
+                                <i class="fab fa-tiktok"></i>
                             </a>
                         </div>
                     </div>
@@ -641,14 +554,14 @@
                 <div class="team-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
                     <div class="h-48 bg-teamPurple flex items-center justify-center relative">
                         <div class="islamic-pattern"></div>
-                        <img src="assets/Minimalist Hijab Icon.png" 
+                        <img src="https://w7.pngwing.com/pngs/835/277/png-transparent-hijab-islam-graphy-hijab-face-monochrome-head-thumbnail.png" 
                              alt="Sadia Sultana" 
                              class="h-32 w-32 rounded-full object-cover border-4 border-white shadow-md relative z-10">
                     </div>
                     <div class="p-6 text-center">
                         <h3 class="text-xl font-bold text-dark mb-1">Sadia Sultana</h3>
-                        <p class="text-sm text-primary font-medium mb-4" data-i18n="sadia_role">Social Media Management</p>
-                        <p class="text-gray-600 text-sm mb-4" data-i18n="sadia_desc">
+                        <p class="text-sm text-primary font-medium mb-4">Social Media Management</p>
+                        <p class="text-gray-600 text-sm mb-4">
                             Analyzing social metrics to optimize content strategy and engagement.
                         </p>
                         <div class="flex justify-center space-x-3">
@@ -672,9 +585,9 @@
     <section class="py-16 px-4 bg-gray-50">
         <div class="container mx-auto">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-primary mb-2" data-i18n="marketing_team">Marketing Team</h2>
+                <h2 class="text-3xl font-bold text-primary mb-2">Marketing Team</h2>
                 <div class="w-20 h-1 bg-islamicGold mx-auto mb-4"></div>
-                <p class="text-gray-600 max-w-2xl mx-auto" data-i18n="marketing_team_desc">
+                <p class="text-gray-600 max-w-2xl mx-auto">
                     Our dedicated professionals who connect businesses with their ideal customers
                 </p>
             </div>
@@ -684,14 +597,14 @@
                 <div class="team-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
                     <div class="h-48 bg-teamPink flex items-center justify-center relative">
                         <div class="islamic-pattern"></div>
-                        <img src="assets/Minimalist Hijab Icon.png" 
+                        <img src="https://w7.pngwing.com/pngs/835/277/png-transparent-hijab-islam-graphy-hijab-face-monochrome-head-thumbnail.png" 
                              alt="Isfar Jahan" 
                              class="h-32 w-32 rounded-full object-cover border-4 border-white shadow-md relative z-10">
                     </div>
                     <div class="p-6 text-center">
                         <h3 class="text-xl font-bold text-dark mb-1">Isfar Jahan</h3>
-                        <p class="text-sm text-primary font-medium mb-4" data-i18n="isfar_role">Marketing Agent</p>
-                        <p class="text-gray-600 text-sm mb-4" data-i18n="isfar_desc">
+                        <p class="text-sm text-primary font-medium mb-4">Marketing Agent</p>
+                        <p class="text-gray-600 text-sm mb-4">
                             Connecting businesses with their target audience through strategic outreach.
                         </p>
                         <div class="flex justify-center space-x-3">
@@ -709,14 +622,14 @@
                 <div class="team-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
                     <div class="h-48 bg-teamBlue flex items-center justify-center relative">
                         <div class="islamic-pattern"></div>
-                        <img src="assets/Minimalist Hijab Icon.png" 
+                        <img src="https://w7.pngwing.com/pngs/835/277/png-transparent-hijab-islam-graphy-hijab-face-monochrome-head-thumbnail.png" 
                              alt="Halima Sadia" 
                              class="h-32 w-32 rounded-full object-cover border-4 border-white shadow-md relative z-10">
                     </div>
                     <div class="p-6 text-center">
                         <h3 class="text-xl font-bold text-dark mb-1">Halima Sadia</h3>
-                        <p class="text-sm text-primary font-medium mb-4" data-i18n="halima_role">Marketing Agent</p>
-                        <p class="text-gray-600 text-sm mb-4" data-i18n="halima_desc">
+                        <p class="text-sm text-primary font-medium mb-4">Marketing Agent</p>
+                        <p class="text-gray-600 text-sm mb-4">
                             Building relationships and creating marketing opportunities for clients.
                         </p>
                         <div class="flex justify-center space-x-3">
@@ -734,14 +647,14 @@
                 <div class="team-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
                     <div class="h-48 bg-teamGreen flex items-center justify-center relative">
                         <div class="islamic-pattern"></div>
-                        <img src="assets/Minimalist Hijab Icon.png" 
+                        <img src="https://w7.pngwing.com/pngs/835/277/png-transparent-hijab-islam-graphy-hijab-face-monochrome-head-thumbnail.png" 
                              alt="Marjana Islam" 
                              class="h-32 w-32 rounded-full object-cover border-4 border-white shadow-md relative z-10">
                     </div>
                     <div class="p-6 text-center">
                         <h3 class="text-xl font-bold text-dark mb-1">Marjana Islam</h3>
-                        <p class="text-sm text-primary font-medium mb-4" data-i18n="marjana_role">Marketing Agent</p>
-                        <p class="text-gray-600 text-sm mb-4" data-i18n="marjana_desc">
+                        <p class="text-sm text-primary font-medium mb-4">Marketing Agent</p>
+                        <p class="text-gray-600 text-sm mb-4">
                             Developing marketing strategies tailored to client needs and goals.
                         </p>
                         <div class="flex justify-center space-x-3">
@@ -765,9 +678,9 @@
     <section class="py-16 px-4 bg-white">
         <div class="container mx-auto">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-primary mb-2" data-i18n="web_dev_team">Web Development Team</h2>
+                <h2 class="text-3xl font-bold text-primary mb-2">Web Development Team</h2>
                 <div class="w-20 h-1 bg-islamicGold mx-auto mb-4"></div>
-                <p class="text-gray-600 max-w-2xl mx-auto" data-i18n="web_dev_team_desc">
+                <p class="text-gray-600 max-w-2xl mx-auto">
                     Our technical experts who build and maintain digital platforms
                 </p>
             </div>
@@ -783,8 +696,8 @@
                     </div>
                     <div class="p-6 text-center">
                         <h3 class="text-xl font-bold text-dark mb-1">Raiyan Bin Rashid</h3>
-                        <p class="text-sm text-primary font-medium mb-4" data-i18n="raiyan_role">Web Developer</p>
-                        <p class="text-gray-600 text-sm mb-4" data-i18n="raiyan_desc">
+                        <p class="text-sm text-primary font-medium mb-4">Web Developer</p>
+                        <p class="text-gray-600 text-sm mb-4">
                             Creating beautiful, functional digital experiences with a focus on user-centered design and cutting-edge frontend technologies.
                         </p>
                         <div class="flex justify-center space-x-3">
@@ -808,11 +721,11 @@
                     </div>
                     <div class="p-6 text-center">
                         <h3 class="text-xl font-bold text-dark mb-1">Sayed Ibn Masud</h3>
-                        <p class="text-sm text-primary font-medium mb-4" data-i18n="sayed_role">Web Developer</p>
+                        <p class="text-sm text-primary font-medium mb-4">Web Developer</p>
                         <div class="flex justify-center gap-2 mb-4">
                             <span class="text-xs text-gray-500">B.Sc</span>
                         </div>
-                        <p class="text-gray-600 text-sm mb-4" data-i18n="sayed_desc">
+                        <p class="text-gray-600 text-sm mb-4">
                             Creating robust web applications with focus on performance and security.
                         </p>
                         <div class="flex justify-center space-x-3">
@@ -839,22 +752,22 @@
                     <div class="bg-primary bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                         <i class="fas fa-hands-helping text-primary text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-primary mb-3 text-center" data-i18n="value1_title">Empowerment</h3>
-                    <p class="text-gray-600 text-center" data-i18n="value1_desc">We believe in empowering women through digital skills and opportunities in a halal environment.</p>
+                    <h3 class="text-xl font-bold text-primary mb-3 text-center">Empowerment</h3>
+                    <p class="text-gray-600 text-center">We believe in empowering women through digital skills and opportunities in a halal environment.</p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
                     <div class="bg-primary bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                         <i class="fas fa-mosque text-primary text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-primary mb-3 text-center" data-i18n="value2_title">Islamic Ethics</h3>
-                    <p class="text-gray-600 text-center" data-i18n="value2_desc">All our services comply with Islamic business ethics and principles.</p>
+                    <h3 class="text-xl font-bold text-primary mb-3 text-center">Islamic Ethics</h3>
+                    <p class="text-gray-600 text-center">All our services comply with Islamic business ethics and principles.</p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
                     <div class="bg-primary bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                         <i class="fas fa-hand-holding-heart text-primary text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-primary mb-3 text-center" data-i18n="value3_title">Excellence</h3>
-                    <p class="text-gray-600 text-center" data-i18n="value3_desc">We strive for excellence in all our services to deliver maximum value to our clients.</p>
+                    <h3 class="text-xl font-bold text-primary mb-3 text-center">Excellence</h3>
+                    <p class="text-gray-600 text-center">We strive for excellence in all our services to deliver maximum value to our clients.</p>
                 </div>
             </div>
         </div>
@@ -885,7 +798,7 @@
                         <li><a href="index.html" class="hover:text-accent transition" data-i18n="home">Home</a></li>
                         <li><a href="services.html" class="hover:text-accent transition" data-i18n="services">Services</a></li>
                         <li><a href="blog.html" class="hover:text-accent transition" data-i18n="blog">Blog</a></li>
-                        <li><a href="about.html" class="hover:text-accent transition" data-i18n="about">Our Team</a></li>
+                        <li><a href="about.html" class="hover:text-accent transition" data-i18n="about">About</a></li>
                         <li><a href="contact.html" class="hover:text-accent transition" data-i18n="contact">Contact</a></li>
                     </ul>
                 </div>
@@ -1022,77 +935,18 @@
                 blog: "Blog",
                 about: "Our Team",
                 contact: "Contact",
-
-                // Hero Section
-                our_team: "Our team",
+                
+                // Hero
+                team_hero: "Our Dedicated Team",
                 team_subtitle: "Meet the talented professionals behind our success",
-
+                
                 // CEO Section
                 ceo_title: "Founder & CEO",
                 ceo_description: "Graphics Designer & Facebook Ad Expert. With her visionary leadership, she has guided Target Marketing BD to become a premier digital marketing agency serving female entrepreneurs across Bangladesh.",
-                ceo_role1: "Owner & CEO",
-
-                // Design Team
-                design_team: "Design Team",
-                design_team_desc: "Our creative designers who bring ideas to life with stunning visuals",
-                tarana_role: "Brand & Visual Identity Designer",
-                freelancer: "Freelancer",
-                tarana_desc: "Professional Calligraphy & Dawah Designer with a keen eye for Islamic aesthetic.",
-                ishrat_role: "Content Writer & Graphic Designer",
-                chittagong_uni: "Chittagong University",
-                ishrat_desc: "Combining business acumen with creative design to deliver compelling visual content.",
-                sumaiya_role: "Content Writer & Graphics Designer",
-                sumaiya_desc: "Creating engaging content with visually appealing designs that tell your brand's story.",
-
-                // Creative Team
-                creative_team: "Creative Team",
-                creative_team_desc: "Our innovative team members who specialize in visual storytelling",
-                habiba_role: "Creative Graphic Designer",
-                habiba_desc: "Video Editing & Typography Enthusiast focused on clean, meaningful visuals with a passion for Dawah-inspired design.",
-                nafisa_role: "Graphics Designer & Video Editor",
-                nafisa_desc: "Combining technical skills with creative vision to produce stunning visual content.",
-                creative_talent: "Creative Talent Needed",
-                creative_talent_desc: "We're looking for passionate designers to join our creative team.",
-                apply_now: "Apply Now",
-
-                // Social Media Team
-                social_media_team: "Social Media Team",
-                social_media_team_desc: "Our experts who manage and grow your social media presence",
-                rabeya_role: "Social Media Management",
-                dhaka_uni: "University of Dhaka",
-                rabeya_desc: "Developing and implementing social media strategies to enhance brand visibility.",
-                ayesha_role: "Social Media Management",
-                ayesha_desc: "Creating engaging content and managing online communities for brand growth.",
-                sadia_role: "Social Media Management",
-                sadia_desc: "Analyzing social metrics to optimize content strategy and engagement.",
-
-                // Marketing Team
-                marketing_team: "Marketing Team",
-                marketing_team_desc: "Our dedicated professionals who connect businesses with their ideal customers",
-                isfar_role: "Marketing Agent",
-                isfar_desc: "Connecting businesses with their target audience through strategic outreach.",
-                halima_role: "Marketing Agent",
-                halima_desc: "Building relationships and creating marketing opportunities for clients.",
-                marjana_role: "Marketing Agent",
-                marjana_desc: "Developing marketing strategies tailored to client needs and goals.",
-
-                // Web Development Team
-                web_dev_team: "Web Development Team",
-                web_dev_team_desc: "Our technical experts who build and maintain digital platforms",
-                raiyan_role: "Web Developer",
-                raiyan_desc: "Creating beautiful, functional digital experiences with a focus on user-centered design and cutting-edge frontend technologies.",
-                sayed_role: "Web Developer",
-                sayed_desc: "Creating robust web applications with focus on performance and security.",
-
+                
                 // Values
                 our_values: "Our Values",
-                value1_title: "Empowerment",
-                value1_desc: "We believe in empowering women through digital skills and opportunities in a halal environment.",
-                value2_title: "Islamic Ethics",
-                value2_desc: "All our services comply with Islamic business ethics and principles.",
-                value3_title: "Excellence",
-                value3_desc: "We strive for excellence in all our services to deliver maximum value to our clients.",
-
+                
                 // CTA
                 ready_to_grow: "Ready to grow your business?",
                 contact_us: "Contact Us Today",
@@ -1113,77 +967,18 @@
                 blog: "ব্লগ",
                 about: "আমাদের টিম",
                 contact: "যোগাযোগ",
-
-                // Hero Section
-                our_team: "আমাদের টিম",
+                
+                // Hero
+                team_hero: "আমাদের টিম",
                 team_subtitle: "আমাদের সাফল্যের পেছনের প্রতিভাবান পেশাদারদের সাথে পরিচিত হোন",
-
+                
                 // CEO Section
                 ceo_title: "প্রতিষ্ঠাতা ও প্রধান নির্বাহী কর্মকর্তা",
                 ceo_description: "গ্রাফিক্স ডিজাইনার ও ফেসবুক বিজ্ঞাপন বিশেষজ্ঞ। তাঁর দূরদর্শী নেতৃত্বে টার্গেট মার্কেটিং বিডি বাংলাদেশ জুড়ে নারী উদ্যোক্তাদের সেবা প্রদানকারী একটি শীর্ষস্থানীয় ডিজিটাল মার্কেটিং এজেন্সিতে পরিণত হয়েছে।",
-                ceo_role1: "মালিক ও প্রধান নির্বাহী কর্মকর্তা",
-
-                // Design Team
-                design_team: "ডিজাইন টিম",
-                design_team_desc: "আমাদের সৃজনশীল ডিজাইনাররা যারা চমকপ্রদ ভিজ্যুয়ালের সাথে ধারণাগুলিকে জীবন্ত করে তোলে",
-                tarana_role: "ব্র্যান্ড ও ভিজ্যুয়াল আইডেন্টিটি ডিজাইনার",
-                freelancer: "ফ্রিল্যান্সার",
-                tarana_desc: "পেশাদার ক্যালিগ্রাফি ও দাওয়াহ ডিজাইনার যিনি ইসলামিক নান্দনিকতার জন্য তীক্ষ্ণ দৃষ্টি রাখেন।",
-                ishrat_role: "কন্টেন্ট রাইটার ও গ্রাফিক ডিজাইনার",
-                chittagong_uni: "চট্টগ্রাম বিশ্ববিদ্যালয়",
-                ishrat_desc: "ব্যবসায়িক বিচক্ষণতা ও সৃজনশীল ডিজাইনকে একত্রিত করে আকর্ষণীয় ভিজ্যুয়াল কন্টেন্ট প্রদান করা।",
-                sumaiya_role: "কন্টেন্ট রাইটার ও গ্রাফিক্স ডিজাইনার",
-                sumaiya_desc: "আপনার ব্র্যান্ডের গল্প বলার জন্য দৃষ্টিনন্দন ডিজাইনের সাথে আকর্ষক কন্টেন্ট তৈরি করা।",
-
-                // Creative Team
-                creative_team: "ক্রিয়েটিভ টিম",
-                creative_team_desc: "আমাদের উদ্ভাবনী টিম সদস্যরা যারা ভিজ্যুয়াল স্টোরিটেলিংয়ে বিশেষজ্ঞ",
-                habiba_role: "ক্রিয়েটিভ গ্রাফিক ডিজাইনার",
-                habiba_desc: "ভিডিও এডিটিং ও টাইপোগ্রাফি উত্সাহী যিনি দাওয়াহ-অনুপ্রাণিত ডিজাইনের জন্য আবেগ নিয়ে পরিষ্কার, অর্থপূর্ণ ভিজ্যুয়ালে ফোকাস করেন।",
-                nafisa_role: "গ্রাফিক্স ডিজাইনার ও ভিডিও এডিটর",
-                nafisa_desc: "চমকপ্রদ ভিজ্যুয়াল কন্টেন্ট তৈরি করতে প্রযুক্তিগত দক্ষতা ও সৃজনশীল দৃষ্টিভঙ্গিকে একত্রিত করা।",
-                creative_talent: "ক্রিয়েটিভ ট্যালেন্ট প্রয়োজন",
-                creative_talent_desc: "আমরা আমাদের ক্রিয়েটিভ টিমে যোগ দিতে আগ্রহী ডিজাইনারদের খুঁজছি।",
-                apply_now: "এখনই আবেদন করুন",
-
-                // Social Media Team
-                social_media_team: "সোশ্যাল মিডিয়া টিম",
-                social_media_team_desc: "আমাদের বিশেষজ্ঞরা যারা আপনার সোশ্যাল মিডিয়া উপস্থিতি পরিচালনা ও বৃদ্ধি করেন",
-                rabeya_role: "সোশ্যাল মিডিয়া ম্যানেজমেন্ট",
-                dhaka_uni: "ঢাকা বিশ্ববিদ্যালয়",
-                rabeya_desc: "ব্র্যান্ডের দৃশ্যমানতা বাড়াতে সোশ্যাল মিডিয়া কৌশল তৈরি ও বাস্তবায়ন করা।",
-                ayesha_role: "সোশ্যাল মিডিয়া ম্যানেজমেন্ট",
-                ayesha_desc: "ব্র্যান্ড বৃদ্ধির জন্য আকর্ষক কন্টেন্ট তৈরি ও অনলাইন কমিউনিটি পরিচালনা করা।",
-                sadia_role: "সোশ্যাল মিডিয়া ম্যানেজমেন্ট",
-                sadia_desc: "কন্টেন্ট কৌশল ও এনগেজমেন্ট অপ্টিমাইজ করতে সোশ্যাল মেট্রিক্স বিশ্লেষণ করা।",
-
-                // Marketing Team
-                marketing_team: "মার্কেটিং টিম",
-                marketing_team_desc: "আমাদের নিবেদিত পেশাদাররা যারা ব্যবসাগুলিকে তাদের আদর্শ গ্রাহকদের সাথে সংযুক্ত করেন",
-                isfar_role: "মার্কেটিং এজেন্ট",
-                isfar_desc: "কৌশলগত আউটরিচের মাধ্যমে ব্যবসাগুলিকে তাদের লক্ষ্য শ্রোতাদের সাথে সংযুক্ত করা।",
-                halima_role: "মার্কেটিং এজেন্ট",
-                halima_desc: "ক্লায়েন্টদের জন্য সম্পর্ক গড়ে তোলা ও মার্কেটিং সুযোগ তৈরি করা।",
-                marjana_role: "মার্কেটিং এজেন্ট",
-                marjana_desc: "ক্লায়েন্টের চাহিদা ও লক্ষ্য অনুযায়ী মার্কেটিং কৌশল তৈরি করা।",
-
-                // Web Development Team
-                web_dev_team: "ওয়েব ডেভেলপমেন্ট টিম",
-                web_dev_team_desc: "আমাদের প্রযুক্তিগত বিশেষজ্ঞরা যারা ডিজিটাল প্ল্যাটফর্ম তৈরি ও রক্ষণাবেক্ষণ করেন",
-                raiyan_role: "ওয়েব ডেভেলপার",
-                raiyan_desc: "ব্যবহারকারী-কেন্দ্রিক ডিজাইন ও অত্যাধুনিক ফ্রন্টএন্ড প্রযুক্তির উপর ফোকাস করে সুন্দর, কার্যকরী ডিজিটাল অভিজ্ঞতা তৈরি করা।",
-                sayed_role: "ওয়েব ডেভেলপার",
-                sayed_desc: "পারফরম্যান্স ও নিরাপত্তার উপর ফোকাস করে শক্তিশালী ওয়েব অ্যাপ্লিকেশন তৈরি করা।",
-
+                
                 // Values
                 our_values: "আমাদের মূল্যবোধ",
-                value1_title: "ক্ষমতায়ন",
-                value1_desc: "আমরা হালাল পরিবেশে ডিজিটাল দক্ষতা ও সুযোগের মাধ্যমে নারীদের ক্ষমতায়নে বিশ্বাস করি।",
-                value2_title: "ইসলামিক নীতি",
-                value2_desc: "আমাদের সকল সেবা ইসলামিক ব্যবসায়িক নীতি ও নৈতিকতার সাথে সঙ্গতিপূর্ণ।",
-                value3_title: "উৎকর্ষতা",
-                value3_desc: "আমরা আমাদের ক্লায়েন্টদের সর্বাধিক মূল্য প্রদানের জন্য আমাদের সকল সেবায় উৎকর্ষতার জন্য প্রচেষ্টা করি।",
-
+                
                 // CTA
                 ready_to_grow: "আপনার ব্যবসা বাড়ানোর জন্য প্রস্তুত?",
                 contact_us: "আজই যোগাযোগ করুন",
@@ -1211,9 +1006,6 @@
                     }
                 }
             });
-            
-            // Update typewriter effect language
-            updateTypewriterLanguage(lang);
             
             // Switch font family for Bangla
             if (lang === 'bn') {
