@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Team | Target Marketing BD</title>
     <meta name="description" content="Meet our dedicated team serving female entrepreneurs in Bangladesh">
-    
+
     <!-- Preload critical resources -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        as="style">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
-    
+
     <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap">
-    
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -64,7 +68,7 @@
             }
         }
     </script>
-    
+
     <style>
         /* Loading Bar */
         .loading-bar {
@@ -77,18 +81,18 @@
             transition: width 0.3s ease;
             width: 0%;
         }
-        
+
         /* Mobile Menu */
         .mobile-menu {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease-out;
         }
-        
+
         .mobile-menu.open {
             max-height: 500px;
         }
-        
+
         /* Mobile menu overlay */
         .mobile-menu-overlay {
             display: none;
@@ -97,44 +101,44 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0,0,0,0.5);
+            background-color: rgba(0, 0, 0, 0.5);
             z-index: 40;
         }
-        
+
         .mobile-menu-overlay.active {
             display: block;
         }
-        
+
         /* Hero Gradient */
         .hero-gradient {
             background: linear-gradient(135deg, rgba(4, 68, 67, 0.9) 0%, rgba(34, 139, 125, 0.9) 100%);
         }
-        
+
         /* Team Card Hover Effect */
         .team-card {
             transition: all 0.3s ease;
             transform: translateY(0);
         }
-        
+
         .team-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
         }
-        
+
         /* CEO Section Background */
         .ceo-bg {
             background: linear-gradient(135deg, rgba(4, 68, 67, 0.05) 0%, rgba(34, 139, 125, 0.05) 100%);
         }
-        
+
         /* Social Icons */
         .social-icon {
             transition: all 0.3s ease;
         }
-        
+
         .social-icon:hover {
             transform: scale(1.1);
         }
-        
+
         /* Islamic Pattern Overlay */
         .islamic-pattern {
             background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyMDQsIDE3MSwgMCwgMC4wNSkiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjcGF0dGVybikiLz48L3N2Zz4=');
@@ -146,21 +150,21 @@
             bottom: 0;
             pointer-events: none;
         }
-        
+
         /* Arabic Calligraphy Style */
         .arabic-style {
             font-family: '"Traditional Arabic"', Arial, sans-serif;
             font-weight: bold;
             color: #B8860B;
         }
-        
+
         /* Section Divider */
         .section-divider {
             position: relative;
             height: 80px;
             overflow: hidden;
         }
-        
+
         .section-divider::before {
             content: "";
             position: absolute;
@@ -171,18 +175,89 @@
             background: linear-gradient(135deg, #044443 0%, #228B7D 100%);
             clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
         }
-        
+
         @media (max-width: 768px) {
             .section-divider {
                 height: 40px;
             }
         }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .text-xl {
+                font-size: 1.25rem;
+            }
+
+            .text-3xl {
+                font-size: 1.5rem;
+            }
+
+            .text-4xl {
+                font-size: 1.75rem;
+            }
+
+            .py-16 {
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+            }
+
+            .grid.grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .md\:flex-row {
+                flex-direction: column;
+            }
+
+            .md\:w-2\/3,
+            .md\:w-1\/3 {
+                width: 100%;
+            }
+
+            .md\:p-12 {
+                padding: 1rem;
+            }
+
+            .h-48 {
+                height: 12rem;
+            }
+
+            .h-32,
+            .w-32 {
+                height: 8rem;
+                width: 8rem;
+            }
+
+            .gap-8 {
+                gap: 1rem;
+            }
+
+            .mb-12 {
+                margin-bottom: 1.5rem;
+            }
+
+            .max-w-2xl {
+                max-width: 100%;
+            }
+
+            .max-w-3xl {
+                max-width: 100%;
+            }
+
+            .max-w-4xl {
+                max-width: 100%;
+            }
+
+            .max-w-6xl {
+                max-width: 100%;
+            }
+        }
     </style>
 </head>
+
 <body class="font-poppins bg-gray-50 text-gray-800">
     <!-- Loading Bar -->
     <div id="loadingBar" class="loading-bar"></div>
-
     <!-- Navigation -->
     <nav class="fixed w-full bg-white shadow-md z-50">
         <div class="container mx-auto px-6 py-4">
@@ -193,197 +268,223 @@
                         <span class="text-xl font-bold text-primary">Target Marketing BD</span>
                     </a>
                 </div>
-                
+
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="index.html" class="text-primary hover:text-accent transition" data-i18n="home">Home</a>
-                    <a href="services.html" class="text-primary hover:text-accent transition" data-i18n="services">Services</a>
+                    <a href="services.html" class="text-primary hover:text-accent transition"
+                        data-i18n="services">Services</a>
                     <a href="blog.html" class="text-primary hover:text-accent transition" data-i18n="blog">Blog</a>
                     <a href="about.html" class="text-primary font-medium" data-i18n="about">Our Team</a>
-                    <a href="contact.html" class="text-primary hover:text-accent transition" data-i18n="contact">Contact</a>
-                    
+                    <a href="contact.html" class="text-primary hover:text-accent transition"
+                        data-i18n="contact">Contact</a>
+
                     <div class="flex items-center space-x-2 ml-6">
                         <button id="enBtn" class="language-toggle active px-3 py-1 rounded-full text-sm">EN</button>
-                        <button id="bnBtn" class="language-toggle px-3 py-1 rounded-full text-sm border border-primary">BN</button>
+                        <button id="bnBtn"
+                            class="language-toggle px-3 py-1 rounded-full text-sm border border-primary">BN</button>
                     </div>
                 </div>
-                
+
                 <button class="md:hidden focus:outline-none" id="mobileMenuBtn">
                     <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
             </div>
-            
+
             <!-- Mobile Menu Overlay -->
             <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
-            
+
             <!-- Mobile Menu -->
             <div class="mobile-menu md:hidden absolute left-0 right-0 bg-white shadow-lg z-50" id="mobileMenu">
                 <div class="pt-4 pb-2 px-6 space-y-2 text-sm font-medium">
-                    <a href="index.html" class="block py-2 text-primary hover:text-accent transition" data-i18n="home">Home</a>
-                    <a href="services.html" class="block py-2 text-primary hover:text-accent transition" data-i18n="services">Services</a>
-                    <a href="blog.html" class="block py-2 text-primary hover:text-accent transition" data-i18n="blog">Blog</a>
-                    <a href="about.html" class="block py-2 text-primary hover:text-accent transition" data-i18n="about">Our Team</a>
-                    <a href="contact.html" class="block py-2 text-primary hover:text-accent transition" data-i18n="contact">Contact</a>
+                    <a href="index.html" class="block py-2 text-primary hover:text-accent transition"
+                        data-i18n="home">Home</a>
+                    <a href="services.html" class="block py-2 text-primary hover:text-accent transition"
+                        data-i18n="services">Services</a>
+                    <a href="blog.html" class="block py-2 text-primary hover:text-accent transition"
+                        data-i18n="blog">Blog</a>
+                    <a href="about.html" class="block py-2 text-primary hover:text-accent transition"
+                        data-i18n="about">Our Team</a>
+                    <a href="contact.html" class="block py-2 text-primary hover:text-accent transition"
+                        data-i18n="contact">Contact</a>
                     <div class="flex items-center space-x-2 px-3 py-4 justify-center">
-                        <button id="enBtnMobile" class="language-toggle active px-4 py-2 rounded-full text-sm">English</button>
-                        <button id="bnBtnMobile" class="language-toggle px-4 py-2 rounded-full text-sm border border-primary">বাংলা</button>
+                        <button id="enBtnMobile"
+                            class="language-toggle active px-4 py-2 rounded-full text-sm">English</button>
+                        <button id="bnBtnMobile"
+                            class="language-toggle px-4 py-2 rounded-full text-sm border border-primary">বাংলা</button>
                     </div>
                 </div>
             </div>
         </div>
     </nav>
-
     <!-- Hero Section -->
-    <section class="relative h-96 w-full overflow-hidden bg-cover bg-center" style="background-image: url('assets/bg-hero-about.avif');">
+    <section class="relative h-96 w-full overflow-hidden bg-cover bg-center"
+        style="background-image: url('assets/bg-hero-about.avif');">
         <!-- Content -->
-        <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-20 text-white bg-black bg-opacity-50">
-          <!-- Dynamic Text with Gradient and Typewriter Effect -->
-          <h1 class="text-3xl md:text-4xl font-semibold mb-8 flex items-center justify-center space-x-2">
-            <span class="static-text text-white" data-i18n="our_team">Our team</span>
-            <span class="relative inline-block h-10 overflow-hidden">
-              <span id="typewriter" class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 whitespace-nowrap"></span>
-            </span>
-          </h1>
-          <!-- Subtitle -->
-          <p class="text-xl max-w-3xl mb-8 opacity-100 text-white" data-i18n="team_subtitle">
-            Meet the talented professionals behind our success
-          </p>
+        <div
+            class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-20 text-white bg-black bg-opacity-50">
+            <!-- Dynamic Text with Gradient and Typewriter Effect -->
+            <h1
+                class="text-2xl sm:text-3xl md:text-4xl font-semibold mb-4 sm:mb-6 flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-x-2 sm:space-y-0">
+                <span class="static-text" data-i18n="our_team">Our team</span>
+                <span class="relative inline-block h-8 sm:h-10 overflow-hidden">
+                    <span id="typewriter"
+                        class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 whitespace-nowrap"></span>
+                </span>
+            </h1>
+            <!-- Subtitle -->
+            <p class="text-lg sm:text-xl max-w-2xl mb-4 sm:mb-6 opacity-100 text-white" data-i18n="team_subtitle">
+                Meet the talented professionals behind our success
+            </p>
         </div>
-      </section>
-      
-      <!-- Custom CSS for typewriter cursor -->
-      <style>
-      /* Typewriter cursor */
-      #typewriter::after {
-        content: '|';
-        display: inline-block;
-        animation: blink 1s infinite;
-        margin-left: 2px;
-      }
-      
-      @keyframes blink {
-        0%, 50%, 100% { opacity: 1; }
-        25%, 75% { opacity: 0; }
-      }
-      </style>
-      
-      <!-- JavaScript for typewriter effect -->
-      <script>
-      const phrases = {
-          en: [
-              "solves.",
-              "is skilled.",
-              "makes things happen.",
-              "leads.",
-              "brings ideas to life."
-          ],
-          bn: [
-              "সমাধান করে।",
-              "দক্ষ।",
-              "কাজ করে দেখায়।",
-              "নেতৃত্ব দেয়।",
-              "ধারণাকে বাস্তবে রূপ দেয়।"
-          ]
-      };
-      
-      const typewriterSpan = document.getElementById('typewriter');
-      let currentLanguage = 'en';
-      
-      let phraseIndex = 0;
-      let charIndex = 0;
-      const typingDelay = 100; // milliseconds per character
-      const erasingDelay = 50;
-      const delayBetweenPhrases = 1500; // pause before next phrase
-      
-      function type() {
-          const currentPhrase = phrases[currentLanguage][phraseIndex];
-          if (charIndex < currentPhrase.length) {
-              typewriterSpan.textContent += currentPhrase.charAt(charIndex);
-              charIndex++;
-              setTimeout(type, typingDelay);
-          } else {
-              // Wait before erasing
-              setTimeout(erase, delayBetweenPhrases);
-          }
-      }
-      
-      function erase() {
-          if (charIndex > 0) {
-              typewriterSpan.textContent = typewriterSpan.textContent.slice(0, -1);
-              charIndex--;
-              setTimeout(erase, erasingDelay);
-          } else {
-              // Move to next phrase
-              phraseIndex = (phraseIndex + 1) % phrases[currentLanguage].length;
-              setTimeout(type, typingDelay);
-          }
-      }
-      
-      // Start the typing effect
-      document.addEventListener('DOMContentLoaded', () => {
-          type();
-      });
-      
-      // Function to update typewriter language
-      function updateTypewriterLanguage(lang) {
-          currentLanguage = lang;
-          phraseIndex = 0;
-          charIndex = 0;
-          typewriterSpan.textContent = '';
-          type();
-      }
-      </script>
+    </section>
 
-<!-- CEO Section -->
-<section class="py-16 px-4 ceo-bg relative">
-    <div class="islamic-pattern"></div>
-    <div class="container mx-auto max-w-6xl relative z-10">
-        <div class="flex flex-col md:flex-row items-center bg-white rounded-2xl shadow-lg overflow-hidden">
-            <!-- Text Content -->
-            <div class="md:w-2/3 p-8 md:p-12">
-                <div class="flex items-center mb-4">
-                    <div class="w-16 h-1 bg-primary rounded-full mr-4"></div>
-                    <span class="text-primary font-semibold" data-i18n="ceo_title">Founder & CEO</span>
-                </div>
-                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Dr. Rubaiya Binte Rashid</h2>
-                <div class="flex flex-wrap gap-2 mb-4">
-                    <div class="bg-blue bg-opacity-10 px-3 py-1 rounded-full">
-                        <span class="text-primary text-sm font-medium">BDS - Rangpur Medical College, PGT - Dhaka</span>
+    <!-- Custom CSS for typewriter cursor -->
+    <style>
+        /* Typewriter cursor */
+        #typewriter::after {
+            content: '|';
+            display: inline-block;
+            animation: blink 1s infinite;
+            margin-left: 2px;
+        }
+
+        @keyframes blink {
+
+            0%,
+            50%,
+            100% {
+                opacity: 1;
+            }
+
+            25%,
+            75% {
+                opacity: 0;
+            }
+        }
+    </style>
+
+    <!-- JavaScript for typewriter effect -->
+    <script>
+        const phrases = {
+            en: [
+                "solves.",
+                "is skilled.",
+                "makes things happen.",
+                "leads.",
+                "brings ideas to life."
+            ],
+            bn: [
+                "সমাধান করে।",
+                "দক্ষ।",
+                "কাজ করে দেখায়।",
+                "নেতৃত্ব দেয়।",
+                "ধারণাকে বাস্তবে রূপ দেয়।"
+            ]
+        };
+
+        const typewriterSpan = document.getElementById('typewriter');
+        let currentLanguage = 'en';
+
+        let phraseIndex = 0;
+        let charIndex = 0;
+        const typingDelay = 100; // ms per character
+        const erasingDelay = 50; // ms per character
+        const delayBetweenPhrases = 1500; // ms pause before next phrase
+
+        function type() {
+            const currentPhrase = phrases[currentLanguage][phraseIndex];
+            if (charIndex < currentPhrase.length) {
+                typewriterSpan.textContent += currentPhrase.charAt(charIndex);
+                charIndex++;
+                setTimeout(type, typingDelay);
+            } else {
+                // Wait before erasing
+                setTimeout(erase, delayBetweenPhrases);
+            }
+        }
+
+        function erase() {
+            if (charIndex > 0) {
+                typewriterSpan.textContent = typewriterSpan.textContent.slice(0, -1);
+                charIndex--;
+                setTimeout(erase, erasingDelay);
+            } else {
+                // Move to next phrase
+                phraseIndex = (phraseIndex + 1) % phrases[currentLanguage].length;
+                setTimeout(type, typingDelay);
+            }
+        }
+
+        // Start the typing effect
+        document.addEventListener('DOMContentLoaded', () => {
+            type();
+        });
+
+        // Optional: Function to switch language dynamically
+        function updateTypewriterLanguage(lang) {
+            currentLanguage = lang;
+            phraseIndex = 0;
+            charIndex = 0;
+            typewriterSpan.textContent = '';
+            type();
+        }
+    </script>
+    <!-- CEO Section -->
+    <section class="py-16 px-4 ceo-bg relative">
+        <div class="islamic-pattern"></div>
+        <div class="container mx-auto max-w-6xl relative z-10">
+            <div class="flex flex-col md:flex-row items-center bg-white rounded-2xl shadow-lg overflow-hidden">
+                <!-- Text Content -->
+                <div class="md:w-2/3 p-8 md:p-12">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-1 bg-primary rounded-full mr-4"></div>
+                        <span class="text-primary font-semibold" data-i18n="ceo_title">Founder & CEO</span>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Dr. Rubaiya Binte Rashid</h2>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <div class="bg-blue bg-opacity-10 px-3 py-1 rounded-full">
+                            <span class="text-primary text-sm font-medium">BDS - Rangpur Medical College, PGT -
+                                Dhaka</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6" data-i18n="ceo_description">
+                        Graphics Designer & Facebook Ad Expert. With her visionary leadership, she has guided Target
+                        Marketing BD to become a premier digital marketing agency serving female entrepreneurs across
+                        Bangladesh.
+                    </p>
+                    <div class="flex flex-wrap gap-4 mb-6">
+                        <div class="bg-primary bg-opacity-10 px-4 py-2 rounded-full">
+                            <span class="text-primary font-medium" data-i18n="ceo_role1">Owner & CEO</span>
+                        </div>
+                        <div class="bg-primary bg-opacity-10 px-4 py-2 rounded-full">
+                            <span class="text-primary font-medium">Canva & Digital Marketing Expert</span>
+                        </div>
+                    </div>
+                    <!-- Social Media Buttons -->
+                    <div class="flex space-x-4 mt-4">
+                        <a href="https://www.facebook.com/rubaiya.ruhi"
+                            class="bg-white p-3 rounded-full shadow hover:bg-gray-200 transition duration-300 text-primary hover:text-secondary text-2xl">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/rubaiyaruhi/"
+                            class="bg-white p-3 rounded-full shadow hover:bg-gray-200 transition duration-300 text-primary hover:text-secondary text-2xl">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
                     </div>
                 </div>
-                <p class="text-gray-600 mb-6" data-i18n="ceo_description">
-                    Graphics Designer & Facebook Ad Expert. With her visionary leadership, she has guided Target Marketing BD to become a premier digital marketing agency serving female entrepreneurs across Bangladesh.
-                </p>
-                <div class="flex flex-wrap gap-4 mb-6">
-                    <div class="bg-primary bg-opacity-10 px-4 py-2 rounded-full">
-                        <span class="text-primary font-medium" data-i18n="ceo_role1">Owner & CEO</span>
-                    </div>
-                    <div class="bg-primary bg-opacity-10 px-4 py-2 rounded-full">
-                        <span class="text-primary font-medium">Target Marketing BD</span>
-                    </div>
-                </div>
-                <!-- Social Media Buttons -->
-                <div class="flex space-x-4 mt-4">
-                    <a href="https://www.facebook.com/rubaiya.ruhi" class="bg-white p-3 rounded-full shadow hover:bg-gray-200 transition duration-300 text-primary hover:text-secondary text-2xl">
-                        <i class="fab fa-facebook"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/rubaiyaruhi/" class="bg-white p-3 rounded-full shadow hover:bg-gray-200 transition duration-300 text-primary hover:text-secondary text-2xl">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
+                <!-- Circular Image on the Right -->
+                <div class="md:w-1/3 flex justify-center p-8 md:p-12">
+                    <img src="assets/Minimalist Hijab Icon.png" alt="CEO Image"
+                        class="w-48 h-48 md:w-64 md:h-64 object-cover rounded-full shadow-lg">
                 </div>
             </div>
-            <!-- Circular Image on the Right -->
-            <div class="md:w-1/3 flex justify-center p-8 md:p-12">
-                <img src="https://scontent.fjsr11-1.fna.fbcdn.net/v/t39.30808-6/489648052_2787261844813668_1815617719012380251_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHnGI0MIqxach5Y6w47Bylgrmx33Rs20LGubHfdGzbQsSlqlEnWDWfDhNQJBcYAhk0cK2lJexQ1ff0n-vtstg-f&_nc_ohc=O4R1m7e4mZgQ7kNvwGQgt06&_nc_oc=AdlqmGA1te2pPUFZcW10-EklMEX3yhGIdkOYJPaMYNHs8spaBLd9_iDFZB02gqdesbQ&_nc_zt=23&_nc_ht=scontent.fjsr11-1.fna&_nc_gid=npgFvfGSpvgUD5hkvWBczw&oh=00_AfR4vsHTRNJKVaARueCsLWXJrRPMgvPfKpAi6jrxgZ2fJg&oe=688A70AE" alt="CEO Image" class="w-48 h-48 md:w-64 md:h-64 object-cover rounded-full shadow-lg">
-            </div>
         </div>
-    </div>
-</section>
-
+    </section>
     <!-- Section Divider -->
     <div class="section-divider"></div>
-
     <!-- Design Team Section -->
     <section class="py-16 px-4 bg-white">
         <div class="container mx-auto">
@@ -394,19 +495,20 @@
                     Our creative designers who bring ideas to life with stunning visuals
                 </p>
             </div>
-            
+
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Tarana Tazlima -->
-                <div class="team-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                <div
+                    class="team-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
                     <div class="h-48 bg-teamPink flex items-center justify-center relative">
                         <div class="islamic-pattern"></div>
-                        <img src="assets/Minimalist Hijab Icon.png" 
-                             alt="Tarana Tazlima" 
-                             class="h-32 w-32 rounded-full object-cover border-4 border-white shadow-md relative z-10">
+                        <img src="assets/Minimalist Hijab Icon.png" alt="Tarana Tazlima"
+                            class="h-32 w-32 rounded-full object-cover border-4 border-white shadow-md relative z-10">
                     </div>
                     <div class="p-6 text-center">
                         <h3 class="text-xl font-bold text-dark mb-1">Tarana Tazlima</h3>
-                        <p class="text-sm text-primary font-medium mb-2" data-i18n="tarana_role">Brand & Visual Identity Designer</p>
+                        <p class="text-sm text-primary font-medium mb-2" data-i18n="tarana_role">Brand & Visual Identity
+                            Designer</p>
                         <p class="text-xs text-gray-500 mb-4" data-i18n="freelancer">Freelancer</p>
                         <p class="text-gray-600 text-sm mb-4" data-i18n="tarana_desc">
                             Professional Calligraphy & Dawah Designer with a keen eye for Islamic aesthetic.
@@ -421,18 +523,19 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Ishrat Jahan -->
-                <div class="team-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                <div
+                    class="team-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
                     <div class="h-48 bg-teamBlue flex items-center justify-center relative">
                         <div class="islamic-pattern"></div>
-                        <img src="assets/Minimalist Hijab Icon.png" 
-                             alt="Ishrat Jahan" 
-                             class="h-32 w-32 rounded-full object-cover border-4 border-white shadow-md relative z-10">
+                        <img src="assets/Minimalist Hijab Icon.png" alt="Ishrat Jahan"
+                            class="h-32 w-32 rounded-full object-cover border-4 border-white shadow-md relative z-10">
                     </div>
                     <div class="p-6 text-center">
                         <h3 class="text-xl font-bold text-dark mb-1">Ishrat Jahan</h3>
-                        <p class="text-sm text-primary font-medium mb-2" data-i18n="ishrat_role">Content Writer & Graphic Designer</p>
+                        <p class="text-sm text-primary font-medium mb-2" data-i18n="ishrat_role">Content Writer &
+                            Graphic Designer</p>
                         <div class="flex justify-center gap-2 mb-4">
                             <span class="text-xs text-gray-500">BBA, MBA</span>
                             <span class="text-xs text-gray-500" data-i18n="chittagong_uni">Chittagong University</span>
@@ -450,18 +553,19 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Sumaiya Afroja -->
-                <div class="team-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                <div
+                    class="team-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
                     <div class="h-48 bg-teamGreen flex items-center justify-center relative">
                         <div class="islamic-pattern"></div>
-                        <img src="assets/Minimalist Hijab Icon.png" 
-                             alt="Sumaiya Afroja" 
-                             class="h-32 w-32 rounded-full object-cover border-4 border-white shadow-md relative z-10">
+                        <img src="assets/Minimalist Hijab Icon.png" alt="Sumaiya Afroja"
+                            class="h-32 w-32 rounded-full object-cover border-4 border-white shadow-md relative z-10">
                     </div>
                     <div class="p-6 text-center">
                         <h3 class="text-xl font-bold text-dark mb-1">Sumaiya Afroja</h3>
-                        <p class="text-sm text-primary font-medium mb-2" data-i18n="sumaiya_role">Content Writer & Graphics Designer</p>
+                        <p class="text-sm text-primary font-medium mb-2" data-i18n="sumaiya_role">Content Writer &
+                            Graphics Designer</p>
                         <div class="flex justify-center gap-2 mb-4">
                             <span class="text-xs text-gray-500">B.A, M.A (English)</span>
                         </div>
@@ -481,8 +585,6 @@
             </div>
         </div>
     </section>
-
-
     <!-- Creative Team Section -->
     <section class="py-16 px-4 bg-gray-50">
         <div class="container mx-auto">
@@ -493,21 +595,23 @@
                     Our innovative team members who specialize in visual storytelling
                 </p>
             </div>
-            
+
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Habiba Akter -->
-                <div class="team-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                <div
+                    class="team-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
                     <div class="h-48 bg-teamPurple flex items-center justify-center relative">
                         <div class="islamic-pattern"></div>
-                        <img src="assets/Minimalist Hijab Icon.png" 
-                             alt="Habiba Akter" 
-                             class="h-32 w-32 rounded-full object-cover border-4 border-white shadow-md relative z-10">
+                        <img src="assets/Minimalist Hijab Icon.png" alt="Habiba Akter"
+                            class="h-32 w-32 rounded-full object-cover border-4 border-white shadow-md relative z-10">
                     </div>
                     <div class="p-6 text-center">
                         <h3 class="text-xl font-bold text-dark mb-1">Habiba Akter</h3>
-                        <p class="text-sm text-primary font-medium mb-4" data-i18n="habiba_role">Creative Graphic Designer</p>
+                        <p class="text-sm text-primary font-medium mb-4" data-i18n="habiba_role">Creative Graphic
+                            Designer</p>
                         <p class="text-gray-600 text-sm mb-4" data-i18n="habiba_desc">
-                            Video Editing & Typography Enthusiast focused on clean, meaningful visuals with a passion for Dawah-inspired design.
+                            Video Editing & Typography Enthusiast focused on clean, meaningful visuals with a passion
+                            for Dawah-inspired design.
                         </p>
                         <div class="flex justify-center space-x-3">
                             <a href="#" class="social-icon text-gray-400 hover:text-primary">
@@ -519,18 +623,19 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Nafisa Nawal -->
-                <div class="team-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                <div
+                    class="team-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
                     <div class="h-48 bg-teamPink flex items-center justify-center relative">
                         <div class="islamic-pattern"></div>
-                        <img src="assets/Minimalist Hijab Icon.png" 
-                             alt="Nafisa Nawal" 
-                             class="h-32 w-32 rounded-full object-cover border-4 border-white shadow-md relative z-10">
+                        <img src="assets/Minimalist Hijab Icon.png" alt="Nafisa Nawal"
+                            class="h-32 w-32 rounded-full object-cover border-4 border-white shadow-md relative z-10">
                     </div>
                     <div class="p-6 text-center">
                         <h3 class="text-xl font-bold text-dark mb-1">Nafisa Nawal</h3>
-                        <p class="text-sm text-primary font-medium mb-2" data-i18n="nafisa_role">Graphics Designer & Video Editor</p>
+                        <p class="text-sm text-primary font-medium mb-2" data-i18n="nafisa_role">Graphics Designer &
+                            Video Editor</p>
                         <div class="flex justify-center gap-2 mb-4">
                             <span class="text-xs text-gray-500">B.Sc (CSE)</span>
                         </div>
@@ -547,19 +652,24 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Join Our Team CTA -->
-                <div class="team-card bg-gradient-to-br from-primary to-secondary rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                <div
+                    class="team-card bg-gradient-to-br from-primary to-secondary rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
                     <div class="h-full flex flex-col items-center justify-center p-8 text-center text-white relative">
                         <div class="islamic-pattern"></div>
-                        <div class="bg-white bg-opacity-20 w-20 h-20 rounded-full flex items-center justify-center mb-6 relative z-10">
+                        <div
+                            class="bg-white bg-opacity-20 w-20 h-20 rounded-full flex items-center justify-center mb-6 relative z-10">
                             <i class="fas fa-paint-brush text-3xl"></i>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4 relative z-10" data-i18n="creative_talent">Creative Talent Needed</h3>
+                        <h3 class="text-2xl font-bold mb-4 relative z-10" data-i18n="creative_talent">Creative Talent
+                            Needed</h3>
                         <p class="mb-6 opacity-90 relative z-10" data-i18n="creative_talent_desc">
                             We're looking for passionate designers to join our creative team.
                         </p>
-                        <a href="contact.html" class="inline-block bg-white text-primary px-6 py-2 rounded-full font-semibold hover:bg-opacity-90 transition relative z-10" data-i18n="apply_now">
+                        <a href="contact.html"
+                            class="inline-block bg-white text-primary px-6 py-2 rounded-full font-semibold hover:bg-opacity-90 transition relative z-10"
+                            data-i18n="apply_now">
                             Apply Now
                         </a>
                     </div>
@@ -567,10 +677,8 @@
             </div>
         </div>
     </section>
-
     <!-- Section Divider -->
     <div class="section-divider"></div>
-
     <!-- Social Media Team Section -->
     <section class="py-16 px-4 bg-white">
         <div class="container mx-auto">
@@ -581,19 +689,20 @@
                     Our experts who manage and grow your social media presence
                 </p>
             </div>
-            
+
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Mst Rabeya Khatun -->
-                <div class="team-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                <div
+                    class="team-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
                     <div class="h-48 bg-teamBlue flex items-center justify-center relative">
                         <div class="islamic-pattern"></div>
-                        <img src="assets/Minimalist Hijab Icon.png" 
-                             alt="Mst Rabeya Khatun" 
-                             class="h-32 w-32 rounded-full object-cover border-4 border-white shadow-md relative z-10">
+                        <img src="assets/Minimalist Hijab Icon.png" alt="Mst Rabeya Khatun"
+                            class="h-32 w-32 rounded-full object-cover border-4 border-white shadow-md relative z-10">
                     </div>
                     <div class="p-6 text-center">
                         <h3 class="text-xl font-bold text-dark mb-1">Mst Rabeya Khatun</h3>
-                        <p class="text-sm text-primary font-medium mb-2" data-i18n="rabeya_role">Social Media Management</p>
+                        <p class="text-sm text-primary font-medium mb-2" data-i18n="rabeya_role">Social Media Management
+                        </p>
                         <div class="flex justify-center gap-2 mb-4">
                             <span class="text-xs text-gray-500">BSc (Hons)</span>
                             <span class="text-xs text-gray-500" data-i18n="dhaka_uni">University of Dhaka</span>
@@ -611,18 +720,19 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Ayesha Afrin Shamima -->
-                <div class="team-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                <div
+                    class="team-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
                     <div class="h-48 bg-teamGreen flex items-center justify-center relative">
                         <div class="islamic-pattern"></div>
-                        <img src="assets/Minimalist Hijab Icon.png" 
-                             alt="Ayesha Afrin Shamima" 
-                             class="h-32 w-32 rounded-full object-cover border-4 border-white shadow-md relative z-10">
+                        <img src="assets/Minimalist Hijab Icon.png" alt="Ayesha Afrin Shamima"
+                            class="h-32 w-32 rounded-full object-cover border-4 border-white shadow-md relative z-10">
                     </div>
                     <div class="p-6 text-center">
                         <h3 class="text-xl font-bold text-dark mb-1">Ayesha Afrin Shamima</h3>
-                        <p class="text-sm text-primary font-medium mb-4" data-i18n="ayesha_role">Social Media Management</p>
+                        <p class="text-sm text-primary font-medium mb-4" data-i18n="ayesha_role">Social Media Management
+                        </p>
                         <p class="text-gray-600 text-sm mb-4" data-i18n="ayesha_desc">
                             Creating engaging content and managing online communities for brand growth.
                         </p>
@@ -636,18 +746,19 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Sadia Sultana -->
-                <div class="team-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                <div
+                    class="team-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
                     <div class="h-48 bg-teamPurple flex items-center justify-center relative">
                         <div class="islamic-pattern"></div>
-                        <img src="assets/Minimalist Hijab Icon.png" 
-                             alt="Sadia Sultana" 
-                             class="h-32 w-32 rounded-full object-cover border-4 border-white shadow-md relative z-10">
+                        <img src="assets/Minimalist Hijab Icon.png" alt="Sadia Sultana"
+                            class="h-32 w-32 rounded-full object-cover border-4 border-white shadow-md relative z-10">
                     </div>
                     <div class="p-6 text-center">
                         <h3 class="text-xl font-bold text-dark mb-1">Sadia Sultana</h3>
-                        <p class="text-sm text-primary font-medium mb-4" data-i18n="sadia_role">Social Media Management</p>
+                        <p class="text-sm text-primary font-medium mb-4" data-i18n="sadia_role">Social Media Management
+                        </p>
                         <p class="text-gray-600 text-sm mb-4" data-i18n="sadia_desc">
                             Analyzing social metrics to optimize content strategy and engagement.
                         </p>
@@ -664,10 +775,8 @@
             </div>
         </div>
     </section>
-
     <!-- Section Divider -->
     <div class="section-divider"></div>
-
     <!-- Marketing Team Section -->
     <section class="py-16 px-4 bg-gray-50">
         <div class="container mx-auto">
@@ -678,15 +787,15 @@
                     Our dedicated professionals who connect businesses with their ideal customers
                 </p>
             </div>
-            
+
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Isfar Jahan -->
-                <div class="team-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                <div
+                    class="team-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
                     <div class="h-48 bg-teamPink flex items-center justify-center relative">
                         <div class="islamic-pattern"></div>
-                        <img src="assets/Minimalist Hijab Icon.png" 
-                             alt="Isfar Jahan" 
-                             class="h-32 w-32 rounded-full object-cover border-4 border-white shadow-md relative z-10">
+                        <img src="assets/Minimalist Hijab Icon.png" alt="Isfar Jahan"
+                            class="h-32 w-32 rounded-full object-cover border-4 border-white shadow-md relative z-10">
                     </div>
                     <div class="p-6 text-center">
                         <h3 class="text-xl font-bold text-dark mb-1">Isfar Jahan</h3>
@@ -704,14 +813,14 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Halima Sadia -->
-                <div class="team-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                <div
+                    class="team-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
                     <div class="h-48 bg-teamBlue flex items-center justify-center relative">
                         <div class="islamic-pattern"></div>
-                        <img src="assets/Minimalist Hijab Icon.png" 
-                             alt="Halima Sadia" 
-                             class="h-32 w-32 rounded-full object-cover border-4 border-white shadow-md relative z-10">
+                        <img src="assets/Minimalist Hijab Icon.png" alt="Halima Sadia"
+                            class="h-32 w-32 rounded-full object-cover border-4 border-white shadow-md relative z-10">
                     </div>
                     <div class="p-6 text-center">
                         <h3 class="text-xl font-bold text-dark mb-1">Halima Sadia</h3>
@@ -729,14 +838,14 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Marjana Islam -->
-                <div class="team-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                <div
+                    class="team-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
                     <div class="h-48 bg-teamGreen flex items-center justify-center relative">
                         <div class="islamic-pattern"></div>
-                        <img src="assets/Minimalist Hijab Icon.png" 
-                             alt="Marjana Islam" 
-                             class="h-32 w-32 rounded-full object-cover border-4 border-white shadow-md relative z-10">
+                        <img src="assets/Minimalist Hijab Icon.png" alt="Marjana Islam"
+                            class="h-32 w-32 rounded-full object-cover border-4 border-white shadow-md relative z-10">
                     </div>
                     <div class="p-6 text-center">
                         <h3 class="text-xl font-bold text-dark mb-1">Marjana Islam</h3>
@@ -757,10 +866,8 @@
             </div>
         </div>
     </section>
-
     <!-- Section Divider -->
     <div class="section-divider"></div>
-
     <!-- Web Development Team Section -->
     <section class="py-16 px-4 bg-white">
         <div class="container mx-auto">
@@ -771,56 +878,62 @@
                     Our technical experts who build and maintain digital platforms
                 </p>
             </div>
-            
+
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 <!-- Raiyan Bin Rashid -->
-                <div class="team-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                <div
+                    class="team-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
                     <div class="h-48 bg-teamBlue flex items-center justify-center relative">
                         <div class="islamic-pattern"></div>
-                        <img src="assets/raiyan.jpg" 
-                             alt="Raiyan Bin Rashid" 
-                             class="h-32 w-32 rounded-full object-cover border-4 border-white shadow-md relative z-10">
+                        <img src="assets/raiyan.jpg" alt="Raiyan Bin Rashid"
+                            class="h-32 w-32 rounded-full object-cover border-4 border-white shadow-md relative z-10">
                     </div>
                     <div class="p-6 text-center">
                         <h3 class="text-xl font-bold text-dark mb-1">Raiyan Bin Rashid</h3>
                         <p class="text-sm text-primary font-medium mb-4" data-i18n="raiyan_role">Web Developer</p>
                         <p class="text-gray-600 text-sm mb-4" data-i18n="raiyan_desc">
-                            Creating beautiful, functional digital experiences with a focus on user-centered design and cutting-edge frontend technologies.
+                            Creating beautiful, functional digital experiences with a focus on user-centered design and
+                            cutting-edge frontend technologies.
                         </p>
                         <div class="flex justify-center space-x-3">
-                            <a href="https://www.linkedin.com/in/raiyanbinrashid" class="social-icon text-gray-400 hover:text-primary">
+                            <a href="https://www.linkedin.com/in/raiyanbinrashid"
+                                class="social-icon text-gray-400 hover:text-primary">
                                 <i class="fab fa-linkedin"></i>
                             </a>
-                            <a href="https://github.com/raiyanruhan" class="social-icon text-gray-400 hover:text-primary">
+                            <a href="https://github.com/raiyanruhan"
+                                class="social-icon text-gray-400 hover:text-primary">
                                 <i class="fab fa-github"></i>
                             </a>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Sayed Ibn Masud -->
-                <div class="team-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-                    <div class="h-48 bg-teamGreen flex items-center justify-center relative">
+
+                <!-- Sayed Ibn Masud - Masculine Color Palette with Updated Role and i18n -->
+                <div
+                    class="team-card bg-gradient-to-tr from-blue-600 via-blue-500 to-blue-700 rounded-3xl shadow-xl overflow-hidden hover:scale-105 transform transition duration-300 ease-in-out">
+                    <div
+                        class="h-48 bg-gradient-to-r from-sky-400 via-blue-400 to-indigo-500 flex items-center justify-center relative">
                         <div class="islamic-pattern"></div>
-                        <img src="https://sayed.com.bd/sayed.avif" 
-                             alt="Sayed Ibn Masud" 
-                             class="h-32 w-32 rounded-full object-cover border-4 border-white shadow-md relative z-10">
+                        <img src="https://sayed.com.bd/sayed.avif" alt="Sayed Ibn Masud"
+                            class="h-32 w-32 rounded-full object-cover border-4 border-white shadow-lg relative z-10 hover:scale-110 transition-transform duration-300">
                     </div>
-                    <div class="p-6 text-center">
-                        <h3 class="text-xl font-bold text-dark mb-1">Sayed Ibn Masud</h3>
-                        <p class="text-sm text-primary font-medium mb-4" data-i18n="sayed_role">Web Developer</p>
-                        <div class="flex justify-center gap-2 mb-4">
-                            <span class="text-xs text-gray-500">B.Sc</span>
-                        </div>
-                        <p class="text-gray-600 text-sm mb-4" data-i18n="sayed_desc">
+                    <div class="p-6 text-center text-white">
+                        <h3 class="text-2xl font-extrabold mb-2">Sayed Ibn Masud</h3>
+                        <p class="text-sm font-semibold mb-2" style="color: #cbd5e0;" data-i18n="role_web_developer">Web
+                            Developer</p>
+                        <p class="text-sm font-semibold mb-4" style="color: #cbd5e0;"
+                            data-i18n="role_co_founder_target_marketing_bd">Co-Founder of Target Marketing BD</p>
+                        <p class="text-gray-200 mb-4 text-sm">
                             Creating robust web applications with focus on performance and security.
                         </p>
-                        <div class="flex justify-center space-x-3">
-                            <a href="#" class="social-icon text-gray-400 hover:text-primary">
-                                <i class="fab fa-gitlab"></i>
+                        <div class="flex justify-center space-x-4">
+                            <a href="https://www.linkedin.com/in/sayedibnmasud"
+                                class="social-icon text-gray-400 hover:text-primary">
+                                <i class="fab fa-linkedin"></i>
                             </a>
-                            <a href="http://sayed.com.bd/" class="social-icon text-gray-400 hover:text-primary">
-                                <i class="fas fa-globe"></i>
+                            <a href="http://sayed.com.bd/" class="text-gray-200 hover:text-yellow-400 transition"
+                                aria-label="Personal Website">
+                                <i class="fas fa-globe fa-lg"></i>
                             </a>
                         </div>
                     </div>
@@ -828,7 +941,6 @@
             </div>
         </div>
     </section>
-
     <!-- Values Section -->
     <section class="py-16 px-4 bg-gray-50 relative">
         <div class="islamic-pattern"></div>
@@ -836,41 +948,49 @@
             <h2 class="text-3xl font-bold text-primary mb-12 text-center" data-i18n="our_values">Our Values</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
-                    <div class="bg-primary bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div
+                        class="bg-primary bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                         <i class="fas fa-hands-helping text-primary text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-primary mb-3 text-center" data-i18n="value1_title">Empowerment</h3>
-                    <p class="text-gray-600 text-center" data-i18n="value1_desc">We believe in empowering women through digital skills and opportunities in a halal environment.</p>
+                    <h3 class="text-xl font-bold text-primary mb-3 text-center" data-i18n="value1_title">Empowerment
+                    </h3>
+                    <p class="text-gray-600 text-center" data-i18n="value1_desc">We believe in empowering women through
+                        digital skills and opportunities in a halal environment.</p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
-                    <div class="bg-primary bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div
+                        class="bg-primary bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                         <i class="fas fa-mosque text-primary text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-primary mb-3 text-center" data-i18n="value2_title">Islamic Ethics</h3>
-                    <p class="text-gray-600 text-center" data-i18n="value2_desc">All our services comply with Islamic business ethics and principles.</p>
+                    <h3 class="text-xl font-bold text-primary mb-3 text-center" data-i18n="value2_title">Islamic Ethics
+                    </h3>
+                    <p class="text-gray-600 text-center" data-i18n="value2_desc">All our services comply with Islamic
+                        business ethics and principles.</p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
-                    <div class="bg-primary bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div
+                        class="bg-primary bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                         <i class="fas fa-hand-holding-heart text-primary text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold text-primary mb-3 text-center" data-i18n="value3_title">Excellence</h3>
-                    <p class="text-gray-600 text-center" data-i18n="value3_desc">We strive for excellence in all our services to deliver maximum value to our clients.</p>
+                    <p class="text-gray-600 text-center" data-i18n="value3_desc">We strive for excellence in all our
+                        services to deliver maximum value to our clients.</p>
                 </div>
             </div>
         </div>
     </section>
-
     <!-- CTA Section -->
     <section class="py-16 px-4 bg-white relative">
         <div class="islamic-pattern"></div>
         <div class="container mx-auto text-center relative z-10">
             <h2 class="text-3xl font-bold text-primary mb-6" data-i18n="ready_to_grow">Ready to grow your business?</h2>
-            <a href="contact.html" class="inline-block bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-dark transition" data-i18n="contact_us">
+            <a href="contact.html"
+                class="inline-block bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-dark transition"
+                data-i18n="contact_us">
                 Contact Us Today
             </a>
         </div>
     </section>
-
     <!-- Footer -->
     <footer class="bg-dark text-white py-12 px-4">
         <div class="container mx-auto">
@@ -883,10 +1003,13 @@
                     <h4 class="text-lg font-bold mb-4" data-i18n="quick_links">Quick Links</h4>
                     <ul class="space-y-2">
                         <li><a href="index.html" class="hover:text-accent transition" data-i18n="home">Home</a></li>
-                        <li><a href="services.html" class="hover:text-accent transition" data-i18n="services">Services</a></li>
+                        <li><a href="services.html" class="hover:text-accent transition"
+                                data-i18n="services">Services</a></li>
                         <li><a href="blog.html" class="hover:text-accent transition" data-i18n="blog">Blog</a></li>
-                        <li><a href="about.html" class="hover:text-accent transition" data-i18n="about">Our Team</a></li>
-                        <li><a href="contact.html" class="hover:text-accent transition" data-i18n="contact">Contact</a></li>
+                        <li><a href="about.html" class="hover:text-accent transition" data-i18n="about">Our Team</a>
+                        </li>
+                        <li><a href="contact.html" class="hover:text-accent transition" data-i18n="contact">Contact</a>
+                        </li>
                     </ul>
                 </div>
                 <div>
@@ -914,22 +1037,29 @@
                             Raiyan Bin Rashid <br> Sayed Ibn masud
                         </a>
                     </p>
-                    <p class="text-sm mt-4 text-accent">© <span id="currentYear"></span> Target Marketing BD. <span data-i18n="all_rights">All rights reserved.</span></p>
+                    <p class="text-sm mt-4 text-accent">© <span id="currentYear"></span> Target Marketing BD. <span
+                            data-i18n="all_rights">All rights reserved.</span></p>
                 </div>
             </div>
         </div>
     </footer>
-
     <!-- Messenger Button -->
-    <a href="https://m.me/tmbd.xyz" target="_blank" id="messengerBtn" class="fixed bottom-8 right-8 bg-blue-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl hover:bg-blue-700 transition duration-300 z-40">
+    <a href="https://m.me/tmbd.xyz" target="_blank" id="messengerBtn"
+        class="fixed bottom-8 right-8 bg-blue-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl hover:bg-blue-700 transition duration-300 z-40">
         <i class="fab fa-facebook-messenger text-2xl"></i>
         <span class="loading-spinner hidden"></span>
     </a>
     <style>
         @keyframes spin {
-            0% { transform: rotate(0deg);}
-            100% { transform: rotate(360deg);}
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
+
         .loading-spinner {
             border: 3px solid #fff;
             border-top: 3px solid #2563eb;
@@ -944,19 +1074,21 @@
             z-index: 2;
             pointer-events: none;
         }
+
         .loading #messengerBtn .fab.fa-facebook-messenger {
             opacity: 0.3;
         }
+
         .loading #messengerBtn .loading-spinner {
             display: block;
         }
     </style>
     <script>
         // Only show spinner after page load, not on refresh or initial load
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Example: Show spinner when Messenger button is clicked
             const messengerBtn = document.getElementById('messengerBtn');
-            messengerBtn.addEventListener('click', function(e) {
+            messengerBtn.addEventListener('click', function (e) {
                 // Only show spinner if not already loading
                 if (!document.body.classList.contains('loading')) {
                     document.body.classList.add('loading');
@@ -968,11 +1100,10 @@
             });
         });
     </script>
-
     <!-- Scripts -->
     <script>
         // Loading bar animation
-        window.addEventListener('load', function() {
+        window.addEventListener('load', function () {
             const loadingBar = document.getElementById('loadingBar');
             let width = 1;
             const interval = setInterval(() => {
@@ -987,7 +1118,7 @@
                 } else {
                     width += 2;
                     loadingBar.style.width = width + '%';
-                    
+
                     // Slow down as we approach 100%
                     if (width > 80) {
                         width += 0.5;
@@ -995,24 +1126,22 @@
                 }
             }, 20);
         });
-
         // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
         const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-        
-        mobileMenuBtn.addEventListener('click', function() {
+
+        mobileMenuBtn.addEventListener('click', function () {
             mobileMenu.classList.toggle('open');
             mobileMenuOverlay.classList.toggle('active');
             document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : 'auto';
         });
-        
-        mobileMenuOverlay.addEventListener('click', function() {
+
+        mobileMenuOverlay.addEventListener('click', function () {
             mobileMenu.classList.remove('open');
             mobileMenuOverlay.classList.remove('active');
             document.body.style.overflow = 'auto';
         });
-
         // Language switching functionality
         const translations = {
             en: {
@@ -1022,16 +1151,13 @@
                 blog: "Blog",
                 about: "Our Team",
                 contact: "Contact",
-
                 // Hero Section
                 our_team: "Our team",
                 team_subtitle: "Meet the talented professionals behind our success",
-
                 // CEO Section
                 ceo_title: "Founder & CEO",
                 ceo_description: "Graphics Designer & Facebook Ad Expert. With her visionary leadership, she has guided Target Marketing BD to become a premier digital marketing agency serving female entrepreneurs across Bangladesh.",
                 ceo_role1: "Owner & CEO",
-
                 // Design Team
                 design_team: "Design Team",
                 design_team_desc: "Our creative designers who bring ideas to life with stunning visuals",
@@ -1043,7 +1169,6 @@
                 ishrat_desc: "Combining business acumen with creative design to deliver compelling visual content.",
                 sumaiya_role: "Content Writer & Graphics Designer",
                 sumaiya_desc: "Creating engaging content with visually appealing designs that tell your brand's story.",
-
                 // Creative Team
                 creative_team: "Creative Team",
                 creative_team_desc: "Our innovative team members who specialize in visual storytelling",
@@ -1054,7 +1179,6 @@
                 creative_talent: "Creative Talent Needed",
                 creative_talent_desc: "We're looking for passionate designers to join our creative team.",
                 apply_now: "Apply Now",
-
                 // Social Media Team
                 social_media_team: "Social Media Team",
                 social_media_team_desc: "Our experts who manage and grow your social media presence",
@@ -1065,7 +1189,6 @@
                 ayesha_desc: "Creating engaging content and managing online communities for brand growth.",
                 sadia_role: "Social Media Management",
                 sadia_desc: "Analyzing social metrics to optimize content strategy and engagement.",
-
                 // Marketing Team
                 marketing_team: "Marketing Team",
                 marketing_team_desc: "Our dedicated professionals who connect businesses with their ideal customers",
@@ -1075,7 +1198,6 @@
                 halima_desc: "Building relationships and creating marketing opportunities for clients.",
                 marjana_role: "Marketing Agent",
                 marjana_desc: "Developing marketing strategies tailored to client needs and goals.",
-
                 // Web Development Team
                 web_dev_team: "Web Development Team",
                 web_dev_team_desc: "Our technical experts who build and maintain digital platforms",
@@ -1083,7 +1205,6 @@
                 raiyan_desc: "Creating beautiful, functional digital experiences with a focus on user-centered design and cutting-edge frontend technologies.",
                 sayed_role: "Web Developer",
                 sayed_desc: "Creating robust web applications with focus on performance and security.",
-
                 // Values
                 our_values: "Our Values",
                 value1_title: "Empowerment",
@@ -1092,11 +1213,10 @@
                 value2_desc: "All our services comply with Islamic business ethics and principles.",
                 value3_title: "Excellence",
                 value3_desc: "We strive for excellence in all our services to deliver maximum value to our clients.",
-
                 // CTA
                 ready_to_grow: "Ready to grow your business?",
                 contact_us: "Contact Us Today",
-                
+
                 // Footer
                 footer_tagline: "digital marketing solutions for female entrepreneurs",
                 quick_links: "Quick Links",
@@ -1113,16 +1233,13 @@
                 blog: "ব্লগ",
                 about: "আমাদের টিম",
                 contact: "যোগাযোগ",
-
                 // Hero Section
                 our_team: "আমাদের টিম",
                 team_subtitle: "আমাদের সাফল্যের পেছনের প্রতিভাবান পেশাদারদের সাথে পরিচিত হোন",
-
                 // CEO Section
                 ceo_title: "প্রতিষ্ঠাতা ও প্রধান নির্বাহী কর্মকর্তা",
                 ceo_description: "গ্রাফিক্স ডিজাইনার ও ফেসবুক বিজ্ঞাপন বিশেষজ্ঞ। তাঁর দূরদর্শী নেতৃত্বে টার্গেট মার্কেটিং বিডি বাংলাদেশ জুড়ে নারী উদ্যোক্তাদের সেবা প্রদানকারী একটি শীর্ষস্থানীয় ডিজিটাল মার্কেটিং এজেন্সিতে পরিণত হয়েছে।",
                 ceo_role1: "মালিক ও প্রধান নির্বাহী কর্মকর্তা",
-
                 // Design Team
                 design_team: "ডিজাইন টিম",
                 design_team_desc: "আমাদের সৃজনশীল ডিজাইনাররা যারা চমকপ্রদ ভিজ্যুয়ালের সাথে ধারণাগুলিকে জীবন্ত করে তোলে",
@@ -1134,7 +1251,6 @@
                 ishrat_desc: "ব্যবসায়িক বিচক্ষণতা ও সৃজনশীল ডিজাইনকে একত্রিত করে আকর্ষণীয় ভিজ্যুয়াল কন্টেন্ট প্রদান করা।",
                 sumaiya_role: "কন্টেন্ট রাইটার ও গ্রাফিক্স ডিজাইনার",
                 sumaiya_desc: "আপনার ব্র্যান্ডের গল্প বলার জন্য দৃষ্টিনন্দন ডিজাইনের সাথে আকর্ষক কন্টেন্ট তৈরি করা।",
-
                 // Creative Team
                 creative_team: "ক্রিয়েটিভ টিম",
                 creative_team_desc: "আমাদের উদ্ভাবনী টিম সদস্যরা যারা ভিজ্যুয়াল স্টোরিটেলিংয়ে বিশেষজ্ঞ",
@@ -1145,7 +1261,6 @@
                 creative_talent: "ক্রিয়েটিভ ট্যালেন্ট প্রয়োজন",
                 creative_talent_desc: "আমরা আমাদের ক্রিয়েটিভ টিমে যোগ দিতে আগ্রহী ডিজাইনারদের খুঁজছি।",
                 apply_now: "এখনই আবেদন করুন",
-
                 // Social Media Team
                 social_media_team: "সোশ্যাল মিডিয়া টিম",
                 social_media_team_desc: "আমাদের বিশেষজ্ঞরা যারা আপনার সোশ্যাল মিডিয়া উপস্থিতি পরিচালনা ও বৃদ্ধি করেন",
@@ -1156,7 +1271,6 @@
                 ayesha_desc: "ব্র্যান্ড বৃদ্ধির জন্য আকর্ষক কন্টেন্ট তৈরি ও অনলাইন কমিউনিটি পরিচালনা করা।",
                 sadia_role: "সোশ্যাল মিডিয়া ম্যানেজমেন্ট",
                 sadia_desc: "কন্টেন্ট কৌশল ও এনগেজমেন্ট অপ্টিমাইজ করতে সোশ্যাল মেট্রিক্স বিশ্লেষণ করা।",
-
                 // Marketing Team
                 marketing_team: "মার্কেটিং টিম",
                 marketing_team_desc: "আমাদের নিবেদিত পেশাদাররা যারা ব্যবসাগুলিকে তাদের আদর্শ গ্রাহকদের সাথে সংযুক্ত করেন",
@@ -1166,7 +1280,6 @@
                 halima_desc: "ক্লায়েন্টদের জন্য সম্পর্ক গড়ে তোলা ও মার্কেটিং সুযোগ তৈরি করা।",
                 marjana_role: "মার্কেটিং এজেন্ট",
                 marjana_desc: "ক্লায়েন্টের চাহিদা ও লক্ষ্য অনুযায়ী মার্কেটিং কৌশল তৈরি করা।",
-
                 // Web Development Team
                 web_dev_team: "ওয়েব ডেভেলপমেন্ট টিম",
                 web_dev_team_desc: "আমাদের প্রযুক্তিগত বিশেষজ্ঞরা যারা ডিজিটাল প্ল্যাটফর্ম তৈরি ও রক্ষণাবেক্ষণ করেন",
@@ -1174,7 +1287,6 @@
                 raiyan_desc: "ব্যবহারকারী-কেন্দ্রিক ডিজাইন ও অত্যাধুনিক ফ্রন্টএন্ড প্রযুক্তির উপর ফোকাস করে সুন্দর, কার্যকরী ডিজিটাল অভিজ্ঞতা তৈরি করা।",
                 sayed_role: "ওয়েব ডেভেলপার",
                 sayed_desc: "পারফরম্যান্স ও নিরাপত্তার উপর ফোকাস করে শক্তিশালী ওয়েব অ্যাপ্লিকেশন তৈরি করা।",
-
                 // Values
                 our_values: "আমাদের মূল্যবোধ",
                 value1_title: "ক্ষমতায়ন",
@@ -1183,11 +1295,10 @@
                 value2_desc: "আমাদের সকল সেবা ইসলামিক ব্যবসায়িক নীতি ও নৈতিকতার সাথে সঙ্গতিপূর্ণ।",
                 value3_title: "উৎকর্ষতা",
                 value3_desc: "আমরা আমাদের ক্লায়েন্টদের সর্বাধিক মূল্য প্রদানের জন্য আমাদের সকল সেবায় উৎকর্ষতার জন্য প্রচেষ্টা করি।",
-
                 // CTA
                 ready_to_grow: "আপনার ব্যবসা বাড়ানোর জন্য প্রস্তুত?",
                 contact_us: "আজই যোগাযোগ করুন",
-                
+
                 // Footer
                 footer_tagline: "নারী উদ্যোক্তাদের জন্য ডিজিটাল মার্কেটিং সমাধান",
                 quick_links: "দ্রুত লিংক",
@@ -1198,7 +1309,6 @@
                 dhaka_bangladesh: "ঢাকা, বাংলাদেশ"
             }
         };
-
         function switchLanguage(lang) {
             // Update all translatable elements
             document.querySelectorAll('[data-i18n]').forEach(element => {
@@ -1211,35 +1321,34 @@
                     }
                 }
             });
-            
+
             // Update typewriter effect language
             updateTypewriterLanguage(lang);
-            
+
             // Switch font family for Bangla
             if (lang === 'bn') {
                 document.body.style.fontFamily = "'Hind Siliguri', sans-serif";
             } else {
                 document.body.style.fontFamily = "'Poppins', sans-serif";
             }
-            
+
             // Store language preference
             localStorage.setItem('preferredLanguage', lang);
         }
-
         // Initialize language toggle buttons
         function initLanguageToggle() {
             const preferredLanguage = localStorage.getItem('preferredLanguage') || 'en';
-            
+
             // Set initial language
             switchLanguage(preferredLanguage);
-            
+
             // Update button states
             if (preferredLanguage === 'en') {
                 document.getElementById('enBtn').classList.add('active', 'bg-primary', 'text-white');
                 document.getElementById('enBtn').classList.remove('border');
                 document.getElementById('bnBtn').classList.remove('active', 'bg-primary', 'text-white');
                 document.getElementById('bnBtn').classList.add('border', 'border-primary');
-                
+
                 // Mobile buttons
                 document.getElementById('enBtnMobile').classList.add('active', 'bg-primary', 'text-white');
                 document.getElementById('enBtnMobile').classList.remove('border');
@@ -1250,65 +1359,65 @@
                 document.getElementById('bnBtn').classList.remove('border');
                 document.getElementById('enBtn').classList.remove('active', 'bg-primary', 'text-white');
                 document.getElementById('enBtn').classList.add('border', 'border-primary');
-                
+
                 // Mobile buttons
                 document.getElementById('bnBtnMobile').classList.add('active', 'bg-primary', 'text-white');
                 document.getElementById('bnBtnMobile').classList.remove('border');
                 document.getElementById('enBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
                 document.getElementById('enBtnMobile').classList.add('border', 'border-primary');
             }
-            
+
             // Add event listeners
-            document.getElementById('enBtn').addEventListener('click', function() {
+            document.getElementById('enBtn').addEventListener('click', function () {
                 switchLanguage('en');
                 this.classList.add('active', 'bg-primary', 'text-white');
                 this.classList.remove('border');
                 document.getElementById('bnBtn').classList.remove('active', 'bg-primary', 'text-white');
                 document.getElementById('bnBtn').classList.add('border', 'border-primary');
-                
+
                 // Update mobile buttons
                 document.getElementById('enBtnMobile').classList.add('active', 'bg-primary', 'text-white');
                 document.getElementById('enBtnMobile').classList.remove('border');
                 document.getElementById('bnBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
                 document.getElementById('bnBtnMobile').classList.add('border', 'border-primary');
             });
-            
-            document.getElementById('bnBtn').addEventListener('click', function() {
+
+            document.getElementById('bnBtn').addEventListener('click', function () {
                 switchLanguage('bn');
                 this.classList.add('active', 'bg-primary', 'text-white');
                 this.classList.remove('border');
                 document.getElementById('enBtn').classList.remove('active', 'bg-primary', 'text-white');
                 document.getElementById('enBtn').classList.add('border', 'border-primary');
-                
+
                 // Update mobile buttons
                 document.getElementById('bnBtnMobile').classList.add('active', 'bg-primary', 'text-white');
                 document.getElementById('bnBtnMobile').classList.remove('border');
                 document.getElementById('enBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
                 document.getElementById('enBtnMobile').classList.add('border', 'border-primary');
             });
-            
+
             // Mobile buttons
-            document.getElementById('enBtnMobile').addEventListener('click', function() {
+            document.getElementById('enBtnMobile').addEventListener('click', function () {
                 switchLanguage('en');
                 this.classList.add('active', 'bg-primary', 'text-white');
                 this.classList.remove('border');
                 document.getElementById('bnBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
                 document.getElementById('bnBtnMobile').classList.add('border', 'border-primary');
-                
+
                 // Update desktop buttons
                 document.getElementById('enBtn').classList.add('active', 'bg-primary', 'text-white');
                 document.getElementById('enBtn').classList.remove('border');
                 document.getElementById('bnBtn').classList.remove('active', 'bg-primary', 'text-white');
                 document.getElementById('bnBtn').classList.add('border', 'border-primary');
             });
-            
-            document.getElementById('bnBtnMobile').addEventListener('click', function() {
+
+            document.getElementById('bnBtnMobile').addEventListener('click', function () {
                 switchLanguage('bn');
                 this.classList.add('active', 'bg-primary', 'text-white');
                 this.classList.remove('border');
                 document.getElementById('enBtnMobile').classList.remove('active', 'bg-primary', 'text-white');
                 document.getElementById('enBtnMobile').classList.add('border', 'border-primary');
-                
+
                 // Update desktop buttons
                 document.getElementById('bnBtn').classList.add('active', 'bg-primary', 'text-white');
                 document.getElementById('bnBtn').classList.remove('border');
@@ -1316,14 +1425,13 @@
                 document.getElementById('enBtn').classList.add('border', 'border-primary');
             });
         }
-
         // Initialize everything when DOM is loaded
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             initLanguageToggle();
-            
+
             // Set current year in footer
             document.getElementById('currentYear').textContent = new Date().getFullYear();
-            
+
             // Add animation to team cards when they come into view
             const teamCards = document.querySelectorAll('.team-card');
             const observer = new IntersectionObserver((entries) => {
@@ -1334,7 +1442,6 @@
                     }
                 });
             }, { threshold: 0.1 });
-
             teamCards.forEach(card => {
                 observer.observe(card);
                 card.style.opacity = '0';
@@ -1342,4 +1449,5 @@
         });
     </script>
 </body>
+
 </html>
